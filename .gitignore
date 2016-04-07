@@ -1,4 +1,13 @@
+#AngularJS2
 typings/
 node_modules/
 *.js
 *.js.map
+
+#Sublime-Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+# *.sublime-project
+sftp-config.json
