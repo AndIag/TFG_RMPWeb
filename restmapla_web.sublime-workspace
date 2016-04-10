@@ -1,0 +1,424 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"directive",
+				"directives	property"
+			],
+			[
+				"style",
+				"styleUrls	property"
+			],
+			[
+				"in",
+				"include"
+			],
+			[
+				"man",
+				"many2many"
+			],
+			[
+				"many",
+				"many2one"
+			],
+			[
+				"ense",
+				"ensenha_distribucion"
+			],
+			[
+				"_",
+				"_columns"
+			],
+			[
+				"cade",
+				"cadena_distribucion"
+			],
+			[
+				"arr",
+				"array_list"
+			],
+			[
+				"prin",
+				"print_array"
+			],
+			[
+				"print",
+				"print_list"
+			],
+			[
+				"pr",
+				"print_list"
+			],
+			[
+				"funcion",
+				"function"
+			],
+			[
+				"arra",
+				"array_size"
+			],
+			[
+				"pos",
+				"pos_diag"
+			],
+			[
+				"array_",
+				"array_size"
+			],
+			[
+				"ar",
+				"array_list"
+			],
+			[
+				"aux",
+				"aux_lista"
+			],
+			[
+				"re",
+				"reglas_gic"
+			],
+			[
+				"reglas",
+				"reglas_gic"
+			],
+			[
+				"obte",
+				"obtener_generadores_of_list"
+			],
+			[
+				"ob",
+				"obtener_generadores_of_list"
+			],
+			[
+				"list",
+				"list_pos"
+			],
+			[
+				"array",
+				"array_list"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"reg",
+				"reglas_gic"
+			],
+			[
+				"Ima",
+				"IMAGES_FILE"
+			],
+			[
+				"Im",
+				"image"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 464.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/A/workspace/RestMaPla/TFG_RMPWeb"
+	],
+	"file_history":
+	[
+		"/A/workspace/RestMaPla/TFG_RMPWeb/app/app.js",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/app/components/version/version.js",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/restmapla_web.sublime-project",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/.travis.yml",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/karma.conf.js",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/bower.json",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/.jshintrc",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/.gitignore",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/package.json",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/.bowerrc",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/node_modules/angular/README.md",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/node_modules/angular/index.js",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/node_modules/angular/angular.js",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/node_modules/angular/package.json",
+		"/A/Descargas/angular.min.js",
+		"/A/Dropbox/Personal/Games Backups/minecraft_cordenadas.txt",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/index.html",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/app/dashboard.component.ts",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/app/app.component.ts",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/app/pages/app.component.html",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/app/about.component.ts",
+		"/A/Descargas/plunk/app/app.component.ts",
+		"/A/Descargas/plunk/app/dashboard.component.ts",
+		"/A/Descargas/plunk/app/hero-detail.component.ts",
+		"/A/Descargas/plunk/app/heroes.component.css",
+		"/A/Descargas/plunk/styles.css",
+		"/A/Descargas/plunk/app/main.ts",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/app/main.ts",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/Dockerfile",
+		"/C/Users/Canalejas/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/app/app.component.js",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/Doc/example/pages/index.html",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/Doc/example/bower_components/metisMenu/dist/metisMenu.min.js",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/Doc/example/index.html",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/example_pages/buttons.html",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/js/morris-data.js",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/js/flot-data.js",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/example_pages/blank.html",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/bower_components/jquery/src/ajax.js",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/bower_components/raphael/license.txt",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/bower_components/raphael/.bower.json",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/bower.json",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/index.html",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/pages/index.html",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/LICENSE",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/README.md",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/dist/js/sb-admin-2.js",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/pages/buttons.html",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/dist/css/sb-admin-2.css",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/dist/css/timeline.css",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/less/mixins.less",
+		"/A/Descargas/startbootstrap-sb-admin-2-1.0.8/less/sb-admin-2.less",
+		"/A/Descargas/bootstrap-3.3.6-dist/js/bootstrap.js",
+		"/A/workspace/RestMaPla/TFG_RMPWeb/restmapla_web/.gitignore",
+		"/A/workspace/TFG_RMP/Doc/problemas-soluciones.txt",
+		"/A/workspace/TFG_RMP/.travis.yml",
+		"/A/Descargas/pojo-modelutil-2.3.0_source_from_cfr/es/udc/pojo/modelutil/dao/GenericDaoHibernate.java",
+		"/A/Descargas/pojo-modelutil-2.3.0_source_from_cfr/es/udc/pojo/modelutil/dao/GenericDao.java",
+		"/A/Descargas/pojo-modelutil-2.3.0_source_from_cfr/es/udc/pojo/modelutil/exceptions/InstanceNotFoundException.java",
+		"/A/workspace/TFG_RMP/src/sql/CreateTables.sql",
+		"/A/Dropbox/Servicios Reunidos/arañas/empresia/empresia/spiders/empres.py",
+		"/A/workspace/TFG_RMP/src/sql/CreateData.sql",
+		"/A/workspace/TFG_RMP/src/sql/CreateFunctions.sql",
+		"/A/workspace/TFG_RMP/src/main/java/es/coru/andiag/restmapla/entities/Product.java",
+		"/C/Users/Canalejas/AppData/Roaming/Sublime Text 3/Packages/Fuse/UserGuide.txt",
+		"/A/workspace/TFG_RMP/config/database.travis.yml",
+		"/A/workspace/TFG_RMP/pom.xml",
+		"/A/Descargas/borja.freire1/Proyecto/libro.y",
+		"/A/Descargas/borja.freire1/Proyecto/libro.l",
+		"/A/Descargas/borja.freire1/Practica2/Practica2.l",
+		"/A/Descargas/borja.freire1/Practica2/Practica2.y",
+		"/A/Descargas/borja.freire1/Practica1/Practica1.l",
+		"/A/Descargas/borja.freire1/Practica1/datos.txt",
+		"/A/Descargas/ONSK033N2S/Instrucciones.txt",
+		"/A/workspace/TFG_RMP/Doc/REST API - RestMaPla",
+		"/A/Descargas/DK36968L93/es_office_professional_plus_2016_x86_x64_dvd_6969637/Instrucciones.txt",
+		"/A/Dropbox/Servicios Reunidos/migracion_bd/empleados2odoo.py",
+		"/C/Users/Canalejas/AppData/Roaming/.minecraft/versions/1.9-forge1.9-12.16.0.1802-1.9/1.9-forge1.9-12.16.0.1802-1.9.json",
+		"/C/Users/Canalejas/AppData/Roaming/.minecraft/versions/1.9-OptiFine_HD_U_B1/1.9-OptiFine_HD_U_B1.json",
+		"/C/Program Files/PostgreSQL/9.5/data/pg_hba.conf",
+		"/A/workspace/TFG_RMP/src/test/resources/spring-config-test.xml",
+		"/A/Descargas/website_job_view.xml",
+		"/A/Dropbox/Estudios/Compartidas/ShitToAll/Spam.txt",
+		"/A/Dropbox/AndIag/TFG/Documentacion/borrador_negocio.txt",
+		"/A/Dropbox/AndIag/Utils/check_values.py",
+		"/A/Dropbox/Servicios Reunidos/migracion_bd/sql2postgres.py",
+		"/A/Dropbox/Work/TFG/Documentacion/borrador_negocio.txt",
+		"/A/workspace/TFG/TFG_RMP/pom.xml",
+		"/A/workspace/TFG/TFG_RMP/.travis.yml",
+		"/A/workspace/TFG/TFG_RMP/.gitignore",
+		"/A/Descargas/pom.xml",
+		"/A/Descargas/web.xml",
+		"/A/Descargas/jetty-env.xml",
+		"/C/Users/Canalejas/AppData/Local/Temp/hibernate-config.xml-revHEAD.svn000.tmp.xml",
+		"/A/Dropbox/Servicios Reunidos/modules_odoo/sr_applicant/__openerp__.py",
+		"/A/Dropbox/Servicios Reunidos/modules_odoo/sr_applicant/__init__.py",
+		"/A/Descargas/sbai.sqlite",
+		"/A/Dropbox/Servicios Reunidos/arañas/empresia/empresia/pipelines.py",
+		"/A/Dropbox/Servicios Reunidos/arañas/empresia/empresia/middlewares.py",
+		"/A/Dropbox/Servicios Reunidos/ImportationInstructions.txt",
+		"/A/workspace/TFG/TFG_RMP/Doc/configuration.txt",
+		"/A/workspace/Angular/quickstart/index.html",
+		"/A/workspace/Angular/quickstart/app/main.js",
+		"/A/workspace/Angular/quickstart/app/app.component.js",
+		"/A/workspace/Angular/quickstart/package.json",
+		"/A/workspace/Android/MyQuotes/app/src/main/java/es/coru/andiag/myquotes/adapters/AdapterQuotes.java",
+		"/A/workspace/Android/MyQuotes/app/src/main/java/es/coru/andiag/myquotes/fragments/QuoteListFragment.java",
+		"/A/workspace/Android/MyQuotes/app/build.gradle",
+		"/A/workspace/Java/RestMePla/java.gitignore",
+		"/A/workspace/Java/RestMePla/.gitignore",
+		"/A/workspace/Java/RestMePla/build.gradle",
+		"/A/Descargas/java.gitignore",
+		"/A/Dropbox/Work/Develop/Games/name_convention.txt",
+		"/A/Dropbox/Work/Develop/Games/base.txt",
+		"/A/Dropbox/Work/Develop/Games/base",
+		"/A/Descargas/myquotesandroidshare-export.json",
+		"/A/Descargas/myquotesandroid-export.json",
+		"/A/Dropbox/Work/Develop/Android/MyQuotesThings/Scrapy.txt",
+		"/A/workspace/Android/MyQuotes/app/src/main/java/es/coru/andiag/myquotes/utils/DialogHelper.java",
+		"/A/workspace/Android/MyQuotes/app/src/main/java/es/coru/andiag/myquotes/utils/db/QuoteDAO.java",
+		"/A/Dropbox/Work/Develop/Android/MyQuotesThings/Scraper.py",
+		"/A/workspace/Android/MyQuotes/app/src/main/java/es/coru/andiag/myquotes/activities/MainActivity.java",
+		"/A/workspace/Android/MyQuotes/app/src/main/res/layout/dialog_input.xml",
+		"/A/Dropbox/Servicios Reunidos/sql2postgres.py",
+		"/A/Dropbox/dinamyc_navdrawer.java",
+		"/A/workspace/Android/MyQuotes/build.gradle",
+		"/A/Dropbox/dinamyc_navdrawer.txt",
+		"/A/workspace/Java/RestMaPla/src/test/resources/org/gradle/test-resource.xml"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"button",
+			"Create",
+			"execute",
+			"super.onCreateView",
+			"__NOW__",
+			"obtener_generadores",
+			"damage",
+			"pacif",
+			"fra"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"1455763201000",
+			"obtener_generadores_de_terminales"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "restmapla_web.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 204.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

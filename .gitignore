@@ -1,13 +1,7 @@
-#AngularJS2
-typings/
+logs/*
+!.gitkeep
 node_modules/
-*.js
-*.js.map
-
-#Sublime-Text
-*.tmlanguage.cache
-*.tmPreferences.cache
-*.stTheme.cache
-*.sublime-workspace
-# *.sublime-project
-sftp-config.json
+bower_components/
+tmp
+.DS_Store
+.idea
