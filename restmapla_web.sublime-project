@@ -2,6 +2,15 @@
 	"folders":
 	[
 		{
+			"file_exclude_patterns":
+			[
+				"app/*.js",
+				"app/*.js.*"
+			],
+			"folder_exclude_patterns":
+			[
+				"1-example"
+			],
 			"path": "."
 		}
 	]
