@@ -1,6 +1,5 @@
-export class Company {
+export class Brand {
   id: number;
-  aic: number;
   name: string;
   url: string;
 }

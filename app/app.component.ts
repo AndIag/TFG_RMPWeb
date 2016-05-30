@@ -2,6 +2,7 @@ import { Component } from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 
 import { DashboardComponent } from './dashboard.component';
+import { BrandsComponent } from './brands.component';
 
 @Component({
   selector: 'my-app',
@@ -19,9 +20,9 @@ import { DashboardComponent } from './dashboard.component';
     component: DashboardComponent,
     useAsDefault: true
   },{
-    path: '/companies',
-    name: 'Companies',
-    component: CompaniesComponent,
+    path: '/brands',
+    name: 'Brands',
+    component: BrandsComponent,
   },{
     path: '/brands',
     name: 'Brands',
