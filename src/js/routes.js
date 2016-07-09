@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Route configuration for the RDash module.
+ * Route configuration for the RestMaPla module.
  */
 angular.module('RestMaPla').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
