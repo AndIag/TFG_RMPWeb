@@ -2,7 +2,7 @@
  * Master Controller
  */
 
-angular.module('RDash')
+angular.module('RestMaPla')
     .controller('MasterCtrl', ['$scope', '$cookieStore', MasterCtrl]);
 
 function MasterCtrl($scope, $cookieStore) {
@@ -10,6 +10,9 @@ function MasterCtrl($scope, $cookieStore) {
      * Sidebar Toggle & Cookie Control
      */
     var mobileView = 992;
+
+	$scope.page = 'Dashboard';
+	$scope.uri = 'Home / ' + $scope.page;
 
     $scope.getWidth = function() {
         return window.innerWidth;

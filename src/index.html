@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en" ng-app="RDash">
+<html lang="en" ng-app="RestMaPla">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>RDash AngularJS</title>
+	<title>RestMaPla Web</title>
   <!-- STYLES -->
   <!-- build:css lib/css/main.min.css -->
   <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
@@ -43,12 +43,7 @@
       </ul>
       <div class="sidebar-footer">
         <div class="col-xs-4">
-          <a href="https://github.com/rdash/rdash-angular" target="_blank">
-            Github
-          </a>
-        </div>
-        <div class="col-xs-4">
-          <a href="https://github.com/rdash/rdash-angular/blob/master/README.md" target="_blank">
+          <a href="https://plus.google.com/u/0/b/112257302862182562124/112257302862182562124" target="_blank"><!-- target="_blank" - Used for open in new window -->
             About
           </a>
         </div>
@@ -70,26 +65,16 @@
             <div class="user pull-right">
               <div class="item dropdown" uib-dropdown>
                 <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
-                  <img src="img/avatar.jpg">
+                  <img src="img/RMP-BM.png">
                 </a>
-                <ul class="dropdown-menu dropdown-menu-right">
+                <!-- <ul class="dropdown-menu dropdown-menu-right">
                   <li class="dropdown-header">
-                    Joe Bloggs
+                    RestMaPla
                   </li>
                   <li class="divider"></li>
                   <li class="link">
                     <a href="#">
                       Profile
-                    </a>
-                  </li>
-                  <li class="link">
-                    <a href="#">
-                      Menu Item
-                    </a>
-                  </li>
-                  <li class="link">
-                    <a href="#">
-                      Menu Item
                     </a>
                   </li>
                   <li class="divider"></li>
@@ -98,7 +83,7 @@
                       Logout
                     </a>
                   </li>
-                </ul>
+                </ul> -->
               </div>
               <div class="item dropdown" uib-dropdown>
                <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
@@ -109,18 +94,18 @@
                     Notifications
                   </li>
                   <li class="divider"></li>
-                  <li>
+                  <!-- <li>
                     <a href="#">Server Down!</a>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </div>
             <div class="meta">
               <div class="page">
-                Dashboard
+                {{page}}
               </div>
               <div class="breadcrumb-links">
-                Home / Dashboard
+                {{uri}}
               </div>
             </div>
           </div>

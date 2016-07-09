@@ -4,7 +4,7 @@
  */
 
 angular
-    .module('RDash')
+    .module('RestMaPla')
     .directive('rdLoading', rdLoading);
 
 function rdLoading() {

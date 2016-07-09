@@ -3,7 +3,7 @@
  */
 
 angular
-    .module('RDash')
+    .module('RestMaPla')
     .directive('rdWidgetFooter', rdWidgetFooter);
 
 function rdWidgetFooter() {

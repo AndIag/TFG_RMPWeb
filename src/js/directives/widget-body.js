@@ -3,7 +3,7 @@
  */
 
 angular
-    .module('RDash')
+    .module('RestMaPla')
     .directive('rdWidgetBody', rdWidgetBody);
 
 function rdWidgetBody() {
