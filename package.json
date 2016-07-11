@@ -1,11 +1,11 @@
 {
-  "name": "rdash-angular",
+  "name": "RestMaPla",
   "version": "0.0.1",
-  "author": "Elliot Hesp",
-  "contributors": [
-    "Leonel Samayoa <leonel.e.samayoa@gmail.com> (http://gobliip.com)",
-    "Ricardo Pascua <rdpascua@outlook.com>"
+  "description": "An AngularJS implementation for the RestMaPla Web",
+  "authors": [
+    "Iago Santos Domínguez <iagocanalejas@gmail.com>"
   ],
+  "contributors": [],
   "devDependencies": {
     "bower": "^1.3.9",
     "gulp": "~3.9.0",
