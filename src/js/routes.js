@@ -1,4 +1,3 @@
-'use strict';
 
 /**
  * Route configuration for the RestMaPla module.
