@@ -8,6 +8,7 @@ angular.module('RestMaPla').config(['$translateProvider',
             suffix: '.json'// suffix, currently- extension of the translations
         });
         $translateProvider.preferredLanguage('en_GB');// is applied on first load
+        $translateProvider.useSanitizeValueStrategy('sanitize');
         $translateProvider.useLocalStorage();// saves selected language to localStorage
     }])
 

@@ -3,6 +3,7 @@
 angular.module('RestMaPla', [   'ui.bootstrap',
                                 'ui.router',
                                 'ngCookies',
+                                'ngSanitize',
                                 'pascalprecht.translate',// angular-translate
                                 'tmh.dynamicLocale'// angular-dynamic-locale
                             ])

@@ -29,7 +29,8 @@
     "angular-translate-handler-log": "^2.11.0",
     "angular-dynamic-locale": "^0.1.32",
     "angular-i18n": "^1.5.7",
-    "font-awesome": "~4.5.0"
+    "font-awesome": "~4.5.0",
+    "angular-sanitize": "^1.5.7"
   },
   "repository": {
     "type": "git",
