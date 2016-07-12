@@ -67,7 +67,9 @@ gulp.task('custom-i18n', function() {
 gulp.task('custom-js', function() {
     return gulp.src(paths.scripts)
         .pipe(concat('dashboard.min.js'))
-        .pipe(uglify())
+        .pipe(uglify().on('error', function(e){
+            console.log(e);
+        }))
         .pipe(gulp.dest('dist/js'));
 });
 

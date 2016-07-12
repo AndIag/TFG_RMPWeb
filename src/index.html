@@ -36,27 +36,30 @@
       <ul class="sidebar">
         <li class="sidebar-main">
           <a ng-click="toggleSidebar()">
-            Dashboard
+            {{"views.index.dashboard" | translate}}
             <span class="menu-icon glyphicon glyphicon-transfer"></span>
           </a>
         </li>
-        <li class="sidebar-title"><span>NAVIGATION</span></li>
+        <li class="sidebar-title"><span>{{"views.index.navigation.upper" | translate}}</span></li>
         <li class="sidebar-list">
-          <a href="#">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+          <a href="#">{{"views.index.dashboard" | translate}}<span class="menu-icon fa fa-tachometer"></span></a>
         </li>
         <li class="sidebar-list">
+          <a href="#/brands">{{"views.index.brands" | translate}}<span class="menu-icon fa fa-tachometer"></span></a>
+        </li>
+        <!-- <li class="sidebar-list">
           <a href="#/tables">Tables <span class="menu-icon fa fa-table"></span></a>
-        </li>
+        </li> -->
       </ul>
       <div class="sidebar-footer">
         <div class="col-xs-4">
           <a href="https://plus.google.com/u/0/b/112257302862182562124/112257302862182562124" target="_blank"><!-- target="_blank" - Used for open in new window -->
-            About
+            {{"views.index.about" | translate}}
           </a>
         </div>
         <div class="col-xs-4">
           <a href="#">
-            Support
+            {{"views.index.support" | translate}}
           </a>
         </div>
       </div>
@@ -92,13 +95,13 @@
                   </li>
                 </ul> -->
               </div>
-              <div class="item dropdown" uib-dropdown>
+              <div class="item dropdown" uib-dropdown ng-if="alerts.length > 0">
                <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
                   <i class="fa fa-bell-o"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li class="dropdown-header">
-                    Notifications
+                    {{"views.index.notifications" | translate}}
                   </li>
                   <li class="divider"></li>
                   <!-- <li>

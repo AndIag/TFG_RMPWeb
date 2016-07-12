@@ -14,9 +14,14 @@ angular.module('RestMaPla').config(['$stateProvider', '$urlRouterProvider',
                 url: '/',
                 templateUrl: 'templates/dashboard.html'
             })
-            .state('tables', {
-                url: '/tables',
-                templateUrl: 'templates/tables.html'
-            });
+            .state('brands', {
+                url: '/brands',
+                templateUrl: 'templates/brands.html',
+                controller: 'BrandCtrl'
+            })
+            // .state('tables', {
+            //     url: '/tables',
+            //     templateUrl: 'templates/tables.html'
+            // });
     }
 ]);

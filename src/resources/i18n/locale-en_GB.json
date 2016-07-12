@@ -1,4 +1,10 @@
 {
+    "views.index.dashboard":"Dashboard",
+    "views.index.brands":"Brands",
+    "views.index.about":"About",
+    "views.index.support":"Support",
+    "views.index.navigation.upper":"NAVIGATION",
+    "views.index.notifications":"Notifications",
     "views.dashboard.tables": "Tables",
     "views.dashboard.articles": "Articles",
     "views.dashboard.workers": "Workers",

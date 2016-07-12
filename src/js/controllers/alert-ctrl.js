@@ -2,8 +2,7 @@
  * Alerts Controller
  */
 
-angular
-    .module('RestMaPla')
+angular.module('RestMaPla')
     .controller('AlertsCtrl', ['$scope', AlertsCtrl]);
 
 function AlertsCtrl($scope) {

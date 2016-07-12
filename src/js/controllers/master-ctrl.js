@@ -5,7 +5,7 @@
 angular.module('RestMaPla')
     .controller('MasterCtrl', ['$scope', '$cookieStore', MasterCtrl]);
 
-function MasterCtrl($scope, $cookieStore) {
+function MasterCtrl($scope, $cookieStore, GlobalData) {
     /**
      * Sidebar Toggle & Cookie Control
      */

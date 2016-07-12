@@ -1,4 +1,10 @@
 {
+    "views.index.dashboard":"Tablero",
+    "views.index.brands":"Marcas",
+    "views.index.about":"Acerca de",
+    "views.index.support":"Soporte",
+    "views.index.navigation.upper":"NAVEGACIÓN",
+    "views.index.notifications":"Notificaciones",
     "views.dashboard.tables": "Mesas",
     "views.dashboard.articles": "Articulos",
     "views.dashboard.workers": "Trabajadores",
