@@ -4,20 +4,24 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     watch = require('gulp-watch'),
     minifyCss = require('gulp-cssnano'),
-    minifyJs = require('gulp-uglify'),
+    uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     less = require('gulp-less'),
     rename = require('gulp-rename'),
     minifyHTML = require('gulp-htmlmin');
 
+var js = [
+    'src/js/**/*.*'
+];
+
 var paths = {
-    scripts: 'src/js/**/*.*',
+    scripts: js,
     styles: 'src/less/**/*.*',
     images: 'src/resources/img/**/*.*',
     i18n: 'src/resources/i18n/**/*.json',
     templates: 'src/templates/**/*.html',
     index: 'src/index.html',
-    bower_fonts: 'src/components/**/*.{ttf,woff,eof,svg}',
+    bower_fonts: 'src/components/**/*.{ttf,woff,eof,svg,woff2}',
 };
 
 /**
@@ -26,7 +30,7 @@ var paths = {
 gulp.task('usemin', function() {
     return gulp.src(paths.index)
         .pipe(usemin({
-            js: [minifyJs(), 'concat'],
+            js: [uglify(), 'concat'],
             css: [minifyCss({keepSpecialComments: 0}), 'concat'],
         }))
         .pipe(gulp.dest('dist/'));
@@ -62,10 +66,8 @@ gulp.task('custom-i18n', function() {
 
 gulp.task('custom-js', function() {
     return gulp.src(paths.scripts)
-        .pipe(minifyJs().on('error', function(e){
-            console.log(e);
-         }))
         .pipe(concat('dashboard.min.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('dist/js'));
 });
 

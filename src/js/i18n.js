@@ -4,12 +4,13 @@
 angular.module('RestMaPla').config(['$translateProvider',
     function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({
-            prefix: 'resources/locale-',// path to translations files
+            prefix: '/resources/locale-',// path to translations files
             suffix: '.json'// suffix, currently- extension of the translations
         });
         $translateProvider.preferredLanguage('en_GB');// is applied on first load
         $translateProvider.useSanitizeValueStrategy('sanitize');
         $translateProvider.useLocalStorage();// saves selected language to localStorage
+        $translateProvider.useMissingTranslationHandlerLog();
     }])
 
 angular.module('RestMaPla').config(['tmhDynamicLocaleProvider',
