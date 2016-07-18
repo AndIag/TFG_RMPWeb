@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col-lg-12">
     <rd-widget>
-      <rd-widget-header icon="fa-tasks" title="Servers">
+      <rd-widget-header icon="fa-tasks" title="{{'views.index.brands' | translate}}">
         <a href="#">Manage</a>
+        <div class="clearfix"></div>
+        <dir-pagination-controls on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
       </rd-widget-header>
       <rd-widget-body classes="no-padding" data-ng-init="init()">
         <div class="table-responsive">
@@ -14,7 +16,7 @@
                     <th>{{"views.brands.name" | translate}}</th>
                     <th>{{"views.brands.products-count" | translate}}</th>
                 </tr>
-              <tr ng-repeat="brand in brands track by $index">
+              <tr dir-paginate="brand in brands | itemsPerPage: brandsPerPage" total-items="totalBrands" current-page="currentPage">
                   <td style="vertical-align: middle;">{{brand.id}}</td>
                   <td><img src="{{brand.url}}" width="70px" height="70px"/></td>
                   <td style="vertical-align: middle;">{{brand.name}}</td>
@@ -25,14 +27,8 @@
         </div>
       </rd-widget-body>
       <rd-widget-footer>
-        <ul class="pagination pagination-sm pull-right">
-          <li><a href="#">&laquo;</a></li>
-          <li ng-repeat="n in numPages">
-              <a href="#">{{n}}</a>
-          </li>
-          <li><a href="#">&raquo;</a></li>
-        </ul>
-        <div class="clearfix"></div>
+          <dir-pagination-controls on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
+          <div class="clearfix"></div>
       </rd-widget-footer>
     </rd-widget>
   </div>

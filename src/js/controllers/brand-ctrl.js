@@ -3,34 +3,25 @@ angular.module('RestMaPla')
 
 function BrandCtrl($scope, BrandService) {
     $scope.brands = [];
-    $scope.numPages = [];
+    $scope.totalBrands = 0;
+    $scope.brandsPerPage = 10;
+    $scope.currentPage = 1
 
-    var startIndex = 0;
-    var count = 10;
+    $scope.pageChanged = function(newPage) {
+        getResultsPage(newPage);
+    };
 
-    $scope.init = function(){
-        BrandService.getBrands(startIndex, count).success(function(data){
-            $scope.brands = JSON.parse(JSON.stringify(data));
-            console.log($scope.brands)
-            startIndex += count;
+    function getResultsPage(pageNumber) {
+        BrandService.getBrands(pageNumber-1, $scope.brandsPerPage).success(function(data){
+            var json = JSON.parse(JSON.stringify(data));
+            $scope.brands = json.items;
+            $scope.totalBrands = json.count;
         }).error(function(data){
             console.log(data);
         });
-        BrandService.getBrandsCount().success(function(data){
-            var brandCounts = JSON.parse(data).count;
-            var pages = Math.floor(brandCounts / count);
-            var numPages = ((brandCounts % count) > 0) ? (pages + 1) : pages;
-            for(var i = 0; i < numPages; i++){
-                $scope.numPages.push(i);
-            }
-        }).error(function(data){
-            // console.log(data);
-            var brandCounts = 13
-            var pages = Math.floor(brandCounts / count);
-            var numPages = ((brandCounts % count) > 0) ? (pages + 1) : pages;
-            for(var i = 1; i <= numPages; i++){
-                $scope.numPages.push(i);
-            }
-        });
+    }
+
+    $scope.init = function(){
+        getResultsPage(1);
     };
 }
