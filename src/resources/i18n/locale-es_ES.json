@@ -1,4 +1,5 @@
 {
+    "id":"ID",
     "views.index.dashboard":"Tablero",
     "views.index.brands":"Marcas",
     "views.index.about":"Acerca de",
@@ -8,5 +9,7 @@
     "views.dashboard.tables": "Mesas",
     "views.dashboard.articles": "Articulos",
     "views.dashboard.workers": "Trabajadores",
-    "views.dashboard.result": "Resultado"
+    "views.dashboard.result": "Resultado",
+    "views.brands.name": "Nombre",
+    "views.brands.products-count": "Número de Productos"
 }

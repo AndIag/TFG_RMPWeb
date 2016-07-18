@@ -1,4 +1,5 @@
 {
+    "id":"ID",
     "views.index.dashboard":"Dashboard",
     "views.index.brands":"Brands",
     "views.index.about":"About",
@@ -8,5 +9,7 @@
     "views.dashboard.tables": "Tables",
     "views.dashboard.articles": "Articles",
     "views.dashboard.workers": "Workers",
-    "views.dashboard.result": "Result"
+    "views.dashboard.result": "Result",
+    "views.brands.name": "Name",
+    "views.brands.products-count": "Products Count"    
 }

@@ -2,8 +2,12 @@
 /**
  * Route configuration for the RestMaPla module.
  */
-angular.module('RestMaPla').config(['$stateProvider', '$urlRouterProvider',
-    function($stateProvider, $urlRouterProvider) {
+angular.module('RestMaPla').config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
+    function($stateProvider, $urlRouterProvider, $httpProvider) {
+
+        $httpProvider.defaults.useXDomain = true;
+        $httpProvider.defaults.headers.common = 'Content-Type: application/json';
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
         // For unmatched routes
         $urlRouterProvider.otherwise('/');
