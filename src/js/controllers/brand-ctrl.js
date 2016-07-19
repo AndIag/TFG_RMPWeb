@@ -7,6 +7,8 @@ function BrandCtrl($scope, BrandService) {
     $scope.brandsPerPage = 10;
     $scope.currentPage = 1
 
+    var deletedBrand = [];
+
     $scope.pageChanged = function(newPage) {
         getResultsPage(newPage);
     };
@@ -23,5 +25,16 @@ function BrandCtrl($scope, BrandService) {
 
     $scope.init = function(){
         getResultsPage(1);
+    };
+
+    /*View Methods*/
+    $scope.removeBrand = function(brand, index) {
+        brand.disabled = true;
+        BrandService.removeBrand(brand.id).success(function(data){
+            $scope.brands.splice(index, 1);
+        }).error(function(data){
+            brand.disabled = false;
+            console.log(data);
+        });
     };
 }

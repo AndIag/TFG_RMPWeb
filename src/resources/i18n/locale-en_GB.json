@@ -12,5 +12,6 @@
     "views.dashboard.workers": "Workers",
     "views.dashboard.result": "Result",
     "views.brands.name": "Name",
-    "views.brands.products-count": "Products Count"
+    "views.brands.products-count": "Products Count",
+    "action.remove": "Remove"
 }
