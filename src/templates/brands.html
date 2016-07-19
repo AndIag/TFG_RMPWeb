@@ -15,12 +15,16 @@
                     <th></th>
                     <th>{{"views.brands.name" | translate}}</th>
                     <th>{{"views.brands.products-count" | translate}}</th>
+                    <th></th>
                 </tr>
               <tr dir-paginate="brand in brands | itemsPerPage: brandsPerPage" total-items="totalBrands" current-page="currentPage">
                   <td style="vertical-align: middle;">{{brand.id}}</td>
-                  <td><img src="{{brand.url}}" width="70px" height="70px"/></td>
+                  <td><img ng-src="{{brand.url}}" width="70px" height="70px"/></td>
                   <td style="vertical-align: middle;">{{brand.name}}</td>
                   <td style="vertical-align: middle;">{{brand.numProducts}}</td>
+                  <td style="vertical-align: middle;">
+                    <button class="action-button shadow animate red" type="button">Remove</button>
+                  </td>
               </tr>
             </tbody>
           </table>

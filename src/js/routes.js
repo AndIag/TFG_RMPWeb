@@ -16,16 +16,12 @@ angular.module('RestMaPla').config(['$stateProvider', '$urlRouterProvider', '$ht
         $stateProvider
             .state('index', {
                 url: '/',
-                templateUrl: 'templates/dashboard.html'
+                templateUrl: 'resources/templates/dashboard.html'
             })
             .state('brands', {
                 url: '/brands',
-                templateUrl: 'templates/brands.html',
+                templateUrl: 'resources/templates/brands.html',
                 controller: 'BrandCtrl'
             })
-            // .state('tables', {
-            //     url: '/tables',
-            //     templateUrl: 'templates/tables.html'
-            // });
     }
 ]);

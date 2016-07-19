@@ -3,13 +3,13 @@ angular.module('RestMaPla')
 
 function BrandService($http, $q) {
     return {
-        getBrands: function(startIndex, count){
+        getBrands: function(pageNumber, count){
             var deferred = $q.defer();
             var promise = deferred.promise;
 
             $http({
                 method: 'GET',
-                url: 'http://localhost:9090/restmapla/brands?startIndex='+startIndex+'&count='+count
+                url: 'http://localhost:9090/restmapla/brands?pageNumber='+pageNumber+'&count='+count
             }).then(function successCallback(response) {
                 deferred.resolve(response.data); //Send response data (token) to controller
               }, function errorCallback(response) {
