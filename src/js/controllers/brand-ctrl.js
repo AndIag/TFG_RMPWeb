@@ -1,7 +1,7 @@
 angular.module('RestMaPla')
-    .controller('BrandCtrl', ['$scope', 'BrandService', BrandCtrl]);
+    .controller('BrandCtrl', ['$scope', 'AlertsManager', 'BrandService', BrandCtrl]);
 
-function BrandCtrl($scope, BrandService) {
+function BrandCtrl($scope, AlertsManager, BrandService) {
     $scope.brands = [];
     $scope.totalBrands = 0;
     $scope.brandsPerPage = 10;
@@ -32,9 +32,10 @@ function BrandCtrl($scope, BrandService) {
         brand.disabled = true;
         BrandService.removeBrand(brand.id).success(function(data){
             $scope.brands.splice(index, 1);
+            AlertsManager.addAlert('success', "{{ 'message.brand.removed' | translate }}")
         }).error(function(data){
             brand.disabled = false;
-            console.log(data);
+            AlertsManager.addAlert('danger', "{{ 'error.removing.brand' | translate }}")
         });
     };
 }

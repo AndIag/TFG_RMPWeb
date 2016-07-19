@@ -1,28 +1,9 @@
-/**
- * Alerts Controller
- */
-
 angular.module('RestMaPla')
-    .controller('AlertsCtrl', ['$scope', AlertsCtrl]);
+    .controller('AlertsCtrl', ['$scope', 'AlertsManager', AlertsCtrl]);
 
-function AlertsCtrl($scope) {
-    $scope.alerts = [];
-	// [{
-    //     type: 'success',
-    //     msg: 'Thanks for visiting! Feel free to create pull requests to improve the dashboard!'
-    // }, {
-    //     type: 'danger',
-    //     msg: 'Found a bug? Create an issue with as many details as you can.'
-    // }];
-
-    $scope.addAlert = function(t, message) {
-        $scope.alerts.push({
-			type: t,
-            msg: message
-        });
-    };
-
-    $scope.closeAlert = function(index) {
-        $scope.alerts.splice(index, 1);
-    };
+function AlertsCtrl($scope, AlertsManager){
+    $scope.alerts = AlertsManager.alerts;
+    $scope.closeAlert = function(index){
+        AlertsManager.closeAlert(index);
+    }
 }

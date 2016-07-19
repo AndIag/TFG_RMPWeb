@@ -13,5 +13,7 @@
     "views.dashboard.result": "Resultado",
     "views.brands.name": "Nombre",
     "views.brands.products-count": "Número de Productos",
-    "action.remove": "Eliminar"
+    "action.remove": "Eliminar",
+    "error.removing.brand": "Error eliminando marca!",
+    "message.brand.removed": "Marca eliminada!"
 }

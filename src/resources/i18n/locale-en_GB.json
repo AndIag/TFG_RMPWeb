@@ -13,5 +13,7 @@
     "views.dashboard.result": "Result",
     "views.brands.name": "Name",
     "views.brands.products-count": "Products Count",
-    "action.remove": "Remove"
+    "action.remove": "Remove",
+    "error.removing.brand": "Failed removing brand!",
+    "message.brand.removed": "Brand removed!"
 }
