@@ -1,52 +1,79 @@
-.animate
-{
+/* Sidebar Colors */
+a {
+	color: #032730;
+}
+th {
+	background: #032730;
+	color: #cafd81;
+}
+table{
+	width: 90%;
+}
+.row.header{
+	background: #053a47;
+	color: #cafd81;
+}
+#sidebar-wrapper {
+    background: #053a47
+}
+#page-wrapper:not(.open) ul.sidebar .sidebar-title.separator,
+.sidebar-footer,
+ul.sidebar .sidebar-list a:hover,
+ul.sidebar .sidebar-main a {
+	background: #032730;
+	color: #cafd81;
+}
+ul.sidebar .sidebar-title {
+    color: #cafd81;
+}
+ul.sidebar .sidebar-list a {
+    color: #eafecd;
+}
+.sidebar-footer {
+	background: #032730;
+}
+.sidebar-footer div a {
+    color: #cafd81;
+}
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+    background-color: #032730;
+    border-color: #032730;
+	color: #cafd81;
+}
+.pagination>li>a,
+.pagination>li>span{
+	color: #032730;
+}
+/* BUTTON */
+.animate {
 	transition: all 0.1s;
 	-webkit-transition: all 0.1s;
 }
 
-.action-button
-{
+.action-button {
 	position: relative;
 	padding: 10px 40px;
     margin: 0px 10px 10px 0px;
     float: left;
 	border-radius: 10px;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Montserrat';
 	font-size: 25px;
 	color: #FFF;
 	text-decoration: none;
 }
 
-.blue
-{
-	background-color: #3498DB;
-	border-bottom: 5px solid #2980B9;
-	text-shadow: 0px -2px #2980B9;
-}
-
-.red
-{
+.red {
 	background-color: #E74C3C;
 	border-bottom: 5px solid #BD3E31;
 	text-shadow: 0px -2px #BD3E31;
 }
 
-.green
-{
-	background-color: #82BF56;
-	border-bottom: 5px solid #669644;
-	text-shadow: 0px -2px #669644;
-}
-
-.yellow
-{
-	background-color: #F2CF66;
-	border-bottom: 5px solid #D1B358;
-	text-shadow: 0px -2px #D1B358;
-}
-
-.action-button:active
-{
+.action-button:active {
 	transform: translate(0px,5px);
     -webkit-transform: translate(0px,5px);
 	border-bottom: 1px solid;
