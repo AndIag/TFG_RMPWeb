@@ -2,6 +2,7 @@
     "id":"ID",
     "views.index.dashboard":"Dashboard",
     "views.index.brands":"Brands",
+    "views.index.menus":"Menus",
     "views.index.about":"About",
     "views.index.support":"Support",
     "views.index.navigation.upper":"NAVIGATION",
@@ -11,5 +12,5 @@
     "views.dashboard.workers": "Workers",
     "views.dashboard.result": "Result",
     "views.brands.name": "Name",
-    "views.brands.products-count": "Products Count"    
+    "views.brands.products-count": "Products Count"
 }

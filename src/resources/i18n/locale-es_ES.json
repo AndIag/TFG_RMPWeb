@@ -2,6 +2,7 @@
     "id":"ID",
     "views.index.dashboard":"Tablero",
     "views.index.brands":"Marcas",
+    "views.index.menus":"Menús",
     "views.index.about":"Acerca de",
     "views.index.support":"Soporte",
     "views.index.navigation.upper":"NAVEGACIÓN",

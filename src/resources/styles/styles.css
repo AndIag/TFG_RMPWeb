@@ -6,6 +6,7 @@ th {
 	background: #032730;
 	color: #cafd81;
 }
+
 table{
 	width: 90%;
 }
@@ -13,6 +14,16 @@ table{
 	background: #053a47;
 	color: #cafd81;
 }
+
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tbody>tr>th>button {
+	vertical-align: middle;
+}
+.table>tbody>tr>th>button {
+	margin-right: 50px;
+}
+
 #sidebar-wrapper {
     background: #053a47
 }
@@ -50,6 +61,20 @@ ul.sidebar .sidebar-list a {
 	color: #032730;
 }
 /* BUTTON */
+button {
+    color: #f4f4f4;
+    background: #4aaaa5;
+    font-weight: bold;
+	padding: 10px;
+    font-family: Montserrat,sans-serif;
+    border-radius: 4px;
+    border: solid 0 #e3edf4;
+    border-bottom: 2px solid #3a9a95;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
 .animate {
 	transition: all 0.1s;
 	-webkit-transition: all 0.1s;
@@ -60,17 +85,7 @@ ul.sidebar .sidebar-list a {
 	padding: 10px 40px;
     margin: 0px 10px 10px 0px;
     float: left;
-	border-radius: 10px;
-	font-family: 'Montserrat';
 	font-size: 25px;
-	color: #FFF;
-	text-decoration: none;
-}
-
-.red {
-	background-color: #E74C3C;
-	border-bottom: 5px solid #BD3E31;
-	text-shadow: 0px -2px #BD3E31;
 }
 
 .action-button:active {
