@@ -60,6 +60,15 @@ ul.sidebar .sidebar-list a {
 .pagination>li>span{
 	color: #032730;
 }
+
+.widget .widget-body {
+    padding: 10px;
+}
+
+.widget .widget-body button{
+	margin-left: 0px;
+}
+
 /* BUTTON */
 button {
     color: #f4f4f4;
@@ -73,6 +82,13 @@ button {
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     border-radius: 4px;
+}
+
+.add-button button{
+	font-size: 15px;
+	padding: 10px 30px;
+	margin-top: 0px;
+	margin-bottom: 10px;
 }
 
 .animate {

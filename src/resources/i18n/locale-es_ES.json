@@ -14,6 +14,7 @@
     "views.brands.name": "Nombre",
     "views.brands.products-count": "Número de Productos",
     "action.remove": "Eliminar",
+    "action.add": "Añadir",
     "error.removing.brand": "Error eliminando marca!",
     "error.loading.brands": "Failed loading brands!",
     "message.brand.removed": "Marca eliminada!"
