@@ -1,25 +1,27 @@
 angular.module('RestMaPla')
     .controller('BrandCtrl', ['$scope', 'AlertsManager', 'BrandService', BrandCtrl]);
 
-function BrandCtrl($scope, AlertsManager, BrandService) {
+function BrandCtrl($scope, AlertsManager, BrandService, BrandLoadingFactory) {
+    $scope.isLoading = false;
     $scope.brands = [];
     $scope.totalBrands = 0;
     $scope.brandsPerPage = 10;
     $scope.currentPage = 1
 
-    var deletedBrand = [];
-
-    $scope.pageChanged = function(newPage) {
+    $scope.pageChanged = function(newPage){
         getResultsPage(newPage);
     };
 
     function getResultsPage(pageNumber) {
+        $scope.isLoading = true;
         BrandService.getBrands(pageNumber-1, $scope.brandsPerPage).success(function(data){
             var json = JSON.parse(JSON.stringify(data));
             $scope.brands = json.items;
             $scope.totalBrands = json.count;
+            $scope.isLoading = false;
         }).error(function(data){
-            console.log(data);
+            AlertsManager.addAlert('danger', "{{ 'error.loading.brands' | translate }}")
+            $scope.isLoading = false;
         });
     }
 

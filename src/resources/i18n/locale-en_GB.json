@@ -15,5 +15,6 @@
     "views.brands.products-count": "Products Count",
     "action.remove": "Remove",
     "error.removing.brand": "Failed removing brand!",
+    "error.loading.brands": "Failed loading brands!",
     "message.brand.removed": "Brand removed!"
 }
