@@ -16,6 +16,6 @@
     "action.remove": "Eliminar",
     "action.add": "Añadir",
     "error.removing.brand": "Error eliminando marca!",
-    "error.loading.brands": "Failed loading brands!",
+    "error.loading.brands": "Error cargando marcas!",
     "message.brand.removed": "Marca eliminada!"
 }

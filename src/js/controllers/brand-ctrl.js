@@ -1,13 +1,20 @@
 angular.module('RestMaPla')
-    .controller('BrandCtrl', ['$scope', 'AlertsManager', 'BrandService', BrandCtrl]);
+    .controller('BrandCtrl', ['$scope', '$state', '$translate', 'AlertsManager', 'BreadcrumbManager', 'BrandService', BrandCtrl]);
 
-function BrandCtrl($scope, AlertsManager, BrandService, BrandLoadingFactory) {
-    $scope.isLoading = false;
+function BrandCtrl($scope, $state, $translate, AlertsManager, BreadcrumbManager, BrandService) {
+    $scope.isLoading = false; //Know if we need to show load screen
+    //Initial values we need to load brands with PbP
     $scope.brands = [];
     $scope.totalBrands = 0;
     $scope.brandsPerPage = 10;
     $scope.currentPage = 1
 
+    $scope.init = function(){
+        BreadcrumbManager.changePage("Brands");
+        getResultsPage(1);
+    };
+
+    // Load brands from server
     $scope.pageChanged = function(newPage){
         getResultsPage(newPage);
     };
@@ -20,24 +27,26 @@ function BrandCtrl($scope, AlertsManager, BrandService, BrandLoadingFactory) {
             $scope.totalBrands = json.count;
             $scope.isLoading = false;
         }).error(function(data){
-            AlertsManager.addAlert('danger', "{{ 'error.loading.brands' | translate }}")
+            AlertsManager.addAlert('danger', $translate.instant('error.loading.brands'));
             $scope.isLoading = false;
         });
     }
 
-    $scope.init = function(){
-        getResultsPage(1);
-    };
+    //Create brand
 
     /*View Methods*/
     $scope.removeBrand = function(brand, index) {
         brand.disabled = true;
         BrandService.removeBrand(brand.id).success(function(data){
             $scope.brands.splice(index, 1);
-            AlertsManager.addAlert('success', "{{ 'message.brand.removed' | translate }}")
+            AlertsManager.addAlert('success', $translate.instant('message.brand.removed'));
         }).error(function(data){
+            AlertsManager.addAlert('danger', $translate.instant('error.removing.brand'));
             brand.disabled = false;
-            AlertsManager.addAlert('danger', "{{ 'error.removing.brand' | translate }}")
         });
     };
+
+    $scope.goCreateBrandView = function(){
+        $state.go('create-brand');
+    }
 }
