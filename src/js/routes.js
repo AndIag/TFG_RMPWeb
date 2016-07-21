@@ -23,10 +23,5 @@ angular.module('RestMaPla').config(['$stateProvider', '$urlRouterProvider', '$ht
                 templateUrl: 'resources/templates/brands.html',
                 controller: 'BrandCtrl'
             })
-            .state('create-brand',{
-                url: '/brands/new',
-                templateUrl: 'resources/templates/create-brand.html',
-                controller: 'BrandCtrl'
-            })
     }
 ]);

@@ -1,5 +1,6 @@
 {
     "id":"ID",
+    "name": "Name",
     "views.index.dashboard":"Dashboard",
     "views.index.brands":"Brands",
     "views.index.menus":"Menus",
@@ -11,12 +12,12 @@
     "views.dashboard.articles": "Articles",
     "views.dashboard.workers": "Workers",
     "views.dashboard.result": "Result",
-    "views.brands.name": "Name",
     "views.brands.products-count": "Products Count",
     "action.remove": "Remove",
     "action.add": "Add",
     "error.removing.brand": "Failed removing brand!",
+    "error.no.brands": "No brands to show!",
     "error.loading.brands": "Failed loading brands!",
-    "message.brand.removed": "Brand removed!"
-
+    "message.brand.removed": "Brand removed!",
+    "forms.url": "URL"
 }

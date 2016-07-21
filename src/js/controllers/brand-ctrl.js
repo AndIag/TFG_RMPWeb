@@ -8,6 +8,8 @@ function BrandCtrl($scope, $state, $translate, AlertsManager, BreadcrumbManager,
     $scope.totalBrands = 0;
     $scope.brandsPerPage = 10;
     $scope.currentPage = 1
+    //Create brand values
+    $scope.isCreateShowing = false;
 
     $scope.init = function(){
         BreadcrumbManager.changePage("Brands");
@@ -37,16 +39,20 @@ function BrandCtrl($scope, $state, $translate, AlertsManager, BreadcrumbManager,
     /*View Methods*/
     $scope.removeBrand = function(brand, index) {
         brand.disabled = true;
-        BrandService.removeBrand(brand.id).success(function(data){
-            $scope.brands.splice(index, 1);
-            AlertsManager.addAlert('success', $translate.instant('message.brand.removed'));
-        }).error(function(data){
-            AlertsManager.addAlert('danger', $translate.instant('error.removing.brand'));
-            brand.disabled = false;
-        });
+        AlertsManager.addAlert('danger', $translate.instant('error.removing.brand'));
+        // BrandService.removeBrand(brand.id).success(function(data){
+        //     $scope.brands.splice(index, 1);
+        //     AlertsManager.addAlert('success', $translate.instant('message.brand.removed'));
+        // }).error(function(data){
+        //     AlertsManager.addAlert('danger', $translate.instant('error.removing.brand'));
+        //     brand.disabled = false;
+        // });
     };
 
-    $scope.goCreateBrandView = function(){
-        $state.go('create-brand');
-    }
+    $scope.showCreateBrand = function(){
+        $scope.isCreateShowing = true;
+    };
+    $scope.hideCreateBrand = function(){
+        $scope.isCreateShowing = false;
+    };
 }

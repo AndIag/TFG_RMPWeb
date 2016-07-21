@@ -25,7 +25,7 @@ table{
 }
 
 #sidebar-wrapper {
-    background: #053a47
+	background: #053a47
 }
 #page-wrapper:not(.open) ul.sidebar .sidebar-title.separator,
 .sidebar-footer,
@@ -35,16 +35,16 @@ ul.sidebar .sidebar-main a {
 	color: #cafd81;
 }
 ul.sidebar .sidebar-title {
-    color: #cafd81;
+	color: #cafd81;
 }
 ul.sidebar .sidebar-list a {
-    color: #eafecd;
+	color: #eafecd;
 }
 .sidebar-footer {
 	background: #032730;
 }
 .sidebar-footer div a {
-    color: #cafd81;
+	color: #cafd81;
 }
 .pagination>.active>a,
 .pagination>.active>a:focus,
@@ -52,8 +52,8 @@ ul.sidebar .sidebar-list a {
 .pagination>.active>span,
 .pagination>.active>span:focus,
 .pagination>.active>span:hover {
-    background-color: #032730;
-    border-color: #032730;
+	background-color: #032730;
+	border-color: #032730;
 	color: #cafd81;
 }
 .pagination>li>a,
@@ -62,7 +62,7 @@ ul.sidebar .sidebar-list a {
 }
 
 .widget .widget-body {
-    padding: 10px;
+	padding: 10px;
 }
 
 .widget .widget-body button{
@@ -71,17 +71,17 @@ ul.sidebar .sidebar-list a {
 
 /* BUTTON */
 button {
-    color: #f4f4f4;
-    background: #096177;
-    font-weight: bold;
+	color: #f4f4f4;
+	background: #096177;
+	font-weight: bold;
 	padding: 10px;
-    font-family: Montserrat,sans-serif;
-    border-radius: 4px;
-    border: solid 0 #e3edf4;
-    border-bottom: 2px solid #10aed5;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
+	font-family: Montserrat,sans-serif;
+	border-radius: 4px;
+	border: solid 0 #e3edf4;
+	border-bottom: 2px solid #10aed5;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
 }
 
 .add-button button{
@@ -99,13 +99,16 @@ button {
 .action-button {
 	position: relative;
 	padding: 10px 40px;
-    margin: 0px 10px 10px 0px;
-    float: left;
+	margin: 0px 10px 10px 0px;
+	float: left;
 	font-size: 25px;
+}
+form.action-button {
+	font-size: 15px;
 }
 
 .action-button:active {
 	transform: translate(0px,5px);
-    -webkit-transform: translate(0px,5px);
+	-webkit-transform: translate(0px,5px);
 	border-bottom: 1px solid;
 }

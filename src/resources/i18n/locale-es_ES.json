@@ -1,5 +1,6 @@
 {
     "id":"ID",
+    "name": "Nombre",
     "views.index.dashboard":"Tablero",
     "views.index.brands":"Marcas",
     "views.index.menus":"Menús",
@@ -11,11 +12,12 @@
     "views.dashboard.articles": "Articulos",
     "views.dashboard.workers": "Trabajadores",
     "views.dashboard.result": "Resultado",
-    "views.brands.name": "Nombre",
     "views.brands.products-count": "Número de Productos",
     "action.remove": "Eliminar",
     "action.add": "Añadir",
     "error.removing.brand": "Error eliminando marca!",
+    "error.no.brands": "No hay marcas que mostrar!",
     "error.loading.brands": "Error cargando marcas!",
-    "message.brand.removed": "Marca eliminada!"
+    "message.brand.removed": "Marca eliminada!",
+    "forms.url": "URL"
 }
