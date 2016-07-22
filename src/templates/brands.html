@@ -13,14 +13,14 @@
         <dir-pagination-controls on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
       </rd-widget-header>
       <rd-widget-body class="no-padding" data-ng-init="init()">
-        <div class="add-button" data-ng-show="!isCreateShowing">
-          <button class="action-button shadow animate pull-left" ng-click="showCreateBrand()">
+        <div data-ng-show="!isCreateShowing" style="margin-bottom:15px; margin-top:21px;">
+          <button class="add-btn btn pull-left" ng-click="showCreateBrand()">
             {{"action.add" | translate}}
           </button>
           <div class="clearfix"></div>
         </div> <!-- End- Add button -->
         <!-- Add form -->
-        <form role="form" data-ng-show="isCreateShowing">
+        <form class="form-inline text-center" data-ng-show="isCreateShowing" style="margin-bottom:15px;">
           <button class="close" ng-click="hideCreateBrand()">
             <span aria-hidden="true">x</span>
             <span class="sr-only">Close</span>
@@ -28,14 +28,14 @@
           <div class="clearfix"></div>
           <div class="form-group">
             <label for="name">{{"name" | translate}}:</label>
-            <input id="name" type="text" class="form-control" placeholder="{{'name' | translate}}">
+            <input id="name" type="text" class="input-sm form-control" placeholder="{{'name' | translate}}">
           </div>
           <div class="form-group">
             <label for="url">{{"forms.url" | translate}}:</label>
-            <input id="url" type="url" class="form-control" placeholder="{{'forms.url' | translate}}">
+            <input id="url" type="url" class="input-sm form-control" placeholder="{{'forms.url' | translate}}">
           </div>
-          <button type="submit" class="action-button shadow animate">Submit</button>
-          <div class="clearfix"></div>
+          <button type="submit" class="btn">Submit</button>
+          <!-- <div class="clearfix"></div> -->
         </form><!-- End- Add form -->
         <!-- No brands message -->
         <div class="text-center" data-ng-show="!brands.length">
@@ -58,7 +58,7 @@
                 <td>{{brand.name}}</td>
                 <td>{{brand.numProducts}}</td>
                 <td>
-                  <button class="action-button shadow animate pull-right" ng-disabled="brand.disabled" ng-click="removeBrand(brand, $index)">
+                  <button class="btn pull-right" ng-disabled="brand.disabled" ng-click="removeBrand(brand, $index)">
                     {{"action.remove" | translate}}
                   </button>
                 </td>

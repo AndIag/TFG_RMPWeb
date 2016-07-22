@@ -7,9 +7,6 @@ th {
 	color: #cafd81;
 }
 
-table{
-	width: 90%;
-}
 .row.header{
 	background: #053a47;
 	color: #cafd81;
@@ -69,46 +66,29 @@ ul.sidebar .sidebar-list a {
 	margin-left: 0px;
 }
 
-/* BUTTON */
-button {
+/*Buttons*/
+
+.btn {
 	color: #f4f4f4;
-	background: #096177;
-	font-weight: bold;
-	padding: 10px;
-	font-family: Montserrat,sans-serif;
-	border-radius: 4px;
-	border: solid 0 #e3edf4;
-	border-bottom: 2px solid #10aed5;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
+	background-color: #12ba90;
+	border: 0;
+}
+.btn:disabled {
+	background-color: #616161;
+}
+.btn:hover{
+	background-color: #0e8b6c;
+	color: #f4f4f4;
+}
+.btn:focus{
+	color: #f4f4f4;
+}
+.btn:active{
+	transform: scale(1.1,1.1);
+	-webkit-transform: scale(1.1,1.1);
 }
 
-.add-button button{
-	font-size: 15px;
-	padding: 10px 30px;
-	margin-top: 0px;
-	margin-bottom: 10px;
-}
-
-.animate {
-	transition: all 0.1s;
-	-webkit-transition: all 0.1s;
-}
-
-.action-button {
-	position: relative;
-	padding: 10px 40px;
-	margin: 0px 10px 10px 0px;
-	float: left;
-	font-size: 25px;
-}
-form.action-button {
-	font-size: 15px;
-}
-
-.action-button:active {
-	transform: translate(0px,5px);
-	-webkit-transform: translate(0px,5px);
-	border-bottom: 1px solid;
+/*Input Focused*/
+.form-control:focus{
+	border-color:  #cafd81;
 }

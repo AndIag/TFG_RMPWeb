@@ -20,6 +20,7 @@ var paths = {
     templates: 'src/templates/**/*.html',
     index: 'src/index.html',
     bower_fonts: 'src/components/**/*.{ttf,woff,eof,svg,woff2}',
+    styles:'src/resources/styles/**/*.css'
 };
 
 /**
@@ -86,6 +87,7 @@ gulp.task('watch', function() {
     gulp.watch([paths.scripts], ['custom-js']);
     gulp.watch([paths.templates], ['custom-templates']);
     gulp.watch([paths.index], ['usemin']);
+    gulp.watch([paths.styles], ['usemin']);
 });
 
 /**
