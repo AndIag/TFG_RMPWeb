@@ -36,7 +36,7 @@
             <input name="url" type="url" ng-model="createValues.url" class="input-sm form-control"
                   placeholder="{{'forms.url' | translate}}">
           </div>
-          <button type="submit" class="btn" ng-click="createBrand(form)">
+          <button type="submit" class="btn" ng-click="createBrand(form)" ng-disabled="!isSubmitActive">
 			  {{"action.submit" | translate}}
 		  </button>
           <div class="clearfix"></div>

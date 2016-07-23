@@ -17,10 +17,12 @@
     "action.add": "Añadir",
     "action.submit": "Enviar",
     "error.removing.brand": "Error eliminando marca!",
+    "error.creating.brand": "Error creando marca!",
     "error.no.brands": "No hay marcas que mostrar!",
     "error.loading.brands": "Error cargando marcas!",
     "error.url": "URL no valida",
     "error.required.name": "Valor para campo 'Nombre' necesario",
     "message.brand.removed": "Marca eliminada!",
+    "message.brand.added": "Marca creada!",
     "forms.url": "URL"
 }

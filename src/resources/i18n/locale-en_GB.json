@@ -17,10 +17,12 @@
     "action.add": "Add",
     "action.submit": "Submit",
     "error.removing.brand": "Failed removing brand!",
+    "error.creating.brand": "Failed creating brand!",
     "error.no.brands": "No brands to show!",
     "error.loading.brands": "Failed loading brands!",
     "error.url": "Invalid URL",
     "error.required.name": "Required 'Name' field",
     "message.brand.removed": "Brand removed!",
+    "message.brand.added": "Brand added!",
     "forms.url": "URL"
 }

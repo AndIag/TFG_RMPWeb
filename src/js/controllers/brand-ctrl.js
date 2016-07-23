@@ -11,6 +11,7 @@ function BrandCtrl($scope, $state, $translate, AlertsManager, BreadcrumbManager,
     //Create brand values
     $scope.isCreateShowing = false;
     $scope.createValues = {};
+    $scope.isSubmitActive = true;
 
     $scope.init = function(){
         BreadcrumbManager.changePage("Brands");
@@ -50,25 +51,31 @@ function BrandCtrl($scope, $state, $translate, AlertsManager, BreadcrumbManager,
 
     $scope.createBrand = function (form) {
         if(isValidForm(form)){
+            $scope.isSubmitActive = false;
             var name = $scope.createValues.name;
-            var url = $scope.createValues.url
-                        ?('url' in $scope.createValues && $scope.createValues.url != undefined)
-                        : null;
-            //TODO add service all here
+            var url = $scope.createValues.url;
+            BrandService.createBrand(name, url).success(function(data){
+                getResultsPage($scope.currentPage);
+                $scope.isSubmitActive = true;
+                $scope.isCreateShowing = false;
+                AlertsManager.addAlert('success', $translate.instant('message.brand.added'));
+            }).error(function(data){
+                $scope.isSubmitActive = true;
+                AlertsManager.addAlert('danger', $translate.instant('error.creating.brand'));
+            });
         }
     };
 
     /*View Methods*/
     $scope.removeBrand = function(brand, index) {
         brand.disabled = true;
-        AlertsManager.addAlert('danger', $translate.instant('error.removing.brand'));
-        // BrandService.removeBrand(brand.id).success(function(data){
-        //     $scope.brands.splice(index, 1);
-        //     AlertsManager.addAlert('success', $translate.instant('message.brand.removed'));
-        // }).error(function(data){
-        //     AlertsManager.addAlert('danger', $translate.instant('error.removing.brand'));
-        //     brand.disabled = false;
-        // });
+        BrandService.removeBrand(brand.id).success(function(data){
+            $scope.brands.splice(index, 1);
+            AlertsManager.addAlert('success', $translate.instant('message.brand.removed'));
+        }).error(function(data){
+            AlertsManager.addAlert('danger', $translate.instant('error.removing.brand'));
+            brand.disabled = false;
+        });
     };
 
     $scope.showCreateBrand = function(){
