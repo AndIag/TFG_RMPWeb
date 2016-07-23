@@ -15,6 +15,7 @@
     "views.brands.products-count": "Número de Productos",
     "action.remove": "Eliminar",
     "action.add": "Añadir",
+    "action.submit": "Enviar",
     "error.removing.brand": "Error eliminando marca!",
     "error.no.brands": "No hay marcas que mostrar!",
     "error.loading.brands": "Error cargando marcas!",

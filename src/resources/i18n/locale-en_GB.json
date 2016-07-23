@@ -15,6 +15,7 @@
     "views.brands.products-count": "Products Count",
     "action.remove": "Remove",
     "action.add": "Add",
+    "action.submit": "Submit",
     "error.removing.brand": "Failed removing brand!",
     "error.no.brands": "No brands to show!",
     "error.loading.brands": "Failed loading brands!",

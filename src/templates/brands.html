@@ -34,8 +34,10 @@
             <label for="url">{{"forms.url" | translate}}:</label>
             <input id="url" type="url" class="input-sm form-control" placeholder="{{'forms.url' | translate}}">
           </div>
-          <button type="submit" class="btn">Submit</button>
-          <!-- <div class="clearfix"></div> -->
+          <button type="submit" class="action-button shadow animate" ng-click="">
+			  {{action.submit | translate}}
+		  </button>
+          <div class="clearfix"></div>
         </form><!-- End- Add form -->
         <!-- No brands message -->
         <div class="text-center" data-ng-show="!brands.length">
@@ -65,8 +67,7 @@
               </tr>
             </tbody>
           </table>
-        </div>
-        <!-- End- Brands table -->
+        </div><!-- End- Brands table -->
       </rd-widget-body>
       <rd-widget-footer>
         <dir-pagination-controls on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
