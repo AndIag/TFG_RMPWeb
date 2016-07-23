@@ -20,7 +20,7 @@
           <div class="clearfix"></div>
         </div> <!-- End- Add button -->
         <!-- Add form -->
-        <form class="form-inline text-center" data-ng-show="isCreateShowing" style="margin-bottom:15px;">
+        <form name="form" class="form-inline text-center" data-ng-show="isCreateShowing" style="margin-bottom:15px;" novalidate>
           <button class="close" ng-click="hideCreateBrand()">
             <span aria-hidden="true">x</span>
             <span class="sr-only">Close</span>
@@ -28,14 +28,16 @@
           <div class="clearfix"></div>
           <div class="form-group">
             <label for="name">{{"name" | translate}}:</label>
-            <input id="name" type="text" class="input-sm form-control" placeholder="{{'name' | translate}}">
+            <input name="name" type="text" ng-model="createValues.name" class="input-sm form-control"
+                  placeholder="{{'name' | translate}}" required>
           </div>
           <div class="form-group">
             <label for="url">{{"forms.url" | translate}}:</label>
-            <input id="url" type="url" class="input-sm form-control" placeholder="{{'forms.url' | translate}}">
+            <input name="url" type="url" ng-model="createValues.url" class="input-sm form-control"
+                  placeholder="{{'forms.url' | translate}}">
           </div>
-          <button type="submit" class="action-button shadow animate" ng-click="">
-			  {{action.submit | translate}}
+          <button type="submit" class="btn" ng-click="createBrand(form)">
+			  {{"action.submit" | translate}}
 		  </button>
           <div class="clearfix"></div>
         </form><!-- End- Add form -->

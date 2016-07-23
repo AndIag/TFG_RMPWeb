@@ -8,7 +8,7 @@ th {
 }
 .table {
 	background: #fafafa;
-	margin: none;
+	margin: inherit;
 }
 .table>tbody>tr:hover {
 	background: #e0e0e0;
@@ -70,7 +70,7 @@ ul.sidebar .sidebar-list a {
 }
 
 .widget .widget-body button{
-	margin-left: 0px;
+	margin-left: 0;
 }
 
 /*Buttons*/

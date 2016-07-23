@@ -7,9 +7,10 @@ function BrandCtrl($scope, $state, $translate, AlertsManager, BreadcrumbManager,
     $scope.brands = [];
     $scope.totalBrands = 0;
     $scope.brandsPerPage = 10;
-    $scope.currentPage = 1
+    $scope.currentPage = 1;
     //Create brand values
     $scope.isCreateShowing = false;
+    $scope.createValues = {};
 
     $scope.init = function(){
         BreadcrumbManager.changePage("Brands");
@@ -35,6 +36,27 @@ function BrandCtrl($scope, $state, $translate, AlertsManager, BreadcrumbManager,
     }
 
     //Create brand
+    function isValidForm(form){
+        if(form['url'].$error.url != undefined){
+            AlertsManager.addAlert('danger', $translate.instant('error.url'));
+            return false;
+        }
+        if(form['name'].$error.required){
+            AlertsManager.addAlert('danger', $translate.instant('error.required.name'));
+            return false;
+        }
+        return true;
+    };
+
+    $scope.createBrand = function (form) {
+        if(isValidForm(form)){
+            var name = $scope.createValues.name;
+            var url = $scope.createValues.url
+                        ?('url' in $scope.createValues && $scope.createValues.url != undefined)
+                        : null;
+            //TODO add service all here
+        }
+    };
 
     /*View Methods*/
     $scope.removeBrand = function(brand, index) {
