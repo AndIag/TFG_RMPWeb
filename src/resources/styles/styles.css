@@ -3,16 +3,19 @@ a {
 	color: #032730;
 }
 th {
-	background: #032730;
-	color: #cafd81;
+	background: #212121;
+	color: #1DE9B6;
 }
-
-table{
-	width: 90%;
+.table {
+	background: #fafafa;
+	margin: none;
+}
+.table>tbody>tr:hover {
+	background: #e0e0e0;
 }
 .row.header{
-	background: #053a47;
-	color: #cafd81;
+	background: #212121;
+	color: #1DE9B6;
 }
 
 .table>tbody>tr>td,
@@ -25,26 +28,27 @@ table{
 }
 
 #sidebar-wrapper {
-	background: #053a47
+	background: #252525;
 }
 #page-wrapper:not(.open) ul.sidebar .sidebar-title.separator,
 .sidebar-footer,
 ul.sidebar .sidebar-list a:hover,
 ul.sidebar .sidebar-main a {
-	background: #032730;
-	color: #cafd81;
+	background: #212121;
+	color: #1DE9B6;
+	border-left: 3px solid #1DE9B6;
 }
 ul.sidebar .sidebar-title {
-	color: #cafd81;
+	color: #1DE9B6;
 }
 ul.sidebar .sidebar-list a {
-	color: #eafecd;
+	color: #ffffff;
 }
 .sidebar-footer {
-	background: #032730;
+	background: #212121;
 }
 .sidebar-footer div a {
-	color: #cafd81;
+	color: #1DE9B6;
 }
 .pagination>.active>a,
 .pagination>.active>a:focus,
@@ -52,9 +56,9 @@ ul.sidebar .sidebar-list a {
 .pagination>.active>span,
 .pagination>.active>span:focus,
 .pagination>.active>span:hover {
-	background-color: #032730;
-	border-color: #032730;
-	color: #cafd81;
+	background-color: #212121;
+	border-color: #000000;
+	color: #1DE9B6;
 }
 .pagination>li>a,
 .pagination>li>span{
@@ -69,46 +73,29 @@ ul.sidebar .sidebar-list a {
 	margin-left: 0px;
 }
 
-/* BUTTON */
-button {
+/*Buttons*/
+
+.btn {
 	color: #f4f4f4;
-	background: #096177;
-	font-weight: bold;
-	padding: 10px;
-	font-family: Montserrat,sans-serif;
-	border-radius: 4px;
-	border: solid 0 #e3edf4;
-	border-bottom: 2px solid #10aed5;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
+	background-color: #12ba90;
+	border: 0;
+}
+.btn:disabled {
+	background-color: #616161;
+}
+.btn:hover{
+	background-color: #0e8b6c;
+	color: #f4f4f4;
+}
+.btn:focus{
+	color: #f4f4f4;
+}
+.btn:active{
+	transform: scale(1.1,1.1);
+	-webkit-transform: scale(1.1,1.1);
 }
 
-.add-button button{
-	font-size: 15px;
-	padding: 10px 30px;
-	margin-top: 0px;
-	margin-bottom: 10px;
-}
-
-.animate {
-	transition: all 0.1s;
-	-webkit-transition: all 0.1s;
-}
-
-.action-button {
-	position: relative;
-	padding: 10px 40px;
-	margin: 0px 10px 10px 0px;
-	float: left;
-	font-size: 25px;
-}
-form.action-button {
-	font-size: 15px;
-}
-
-.action-button:active {
-	transform: translate(0px,5px);
-	-webkit-transform: translate(0px,5px);
-	border-bottom: 1px solid;
+/*Input Focused*/
+.form-control:focus{
+	border-color:  #cafd81;
 }
