@@ -1,42 +1,73 @@
 angular.module('RestMaPla')
-    .controller('BrandCtrl', ['$scope', '$state', '$translate', 'AlertsManager', 'BreadcrumbManager', 'BrandService', BrandCtrl]);
+    .controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate', 'AlertsManager', 'BreadcrumbManager', 'BrandService', BrandCtrl]);
 
-function BrandCtrl($scope, $state, $translate, AlertsManager, BreadcrumbManager, BrandService) {
+function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, BreadcrumbManager, BrandService) {
     $scope.isLoading = false; //Know if we need to show load screen
     //Initial values we need to load brands with PbP
     $scope.brands = [];
     $scope.totalBrands = 0;
-    $scope.brandsPerPage = 10;
-    $scope.currentPage = 1;
+    $scope.itemsPerPage = 10;
+    $scope.currentBrandsPage = 1;
+    $scope.currentProductsPage = 1;
     //Create brand values
     $scope.isCreateShowing = false;
     $scope.createValues = {};
     $scope.isSubmitActive = true;
+    //Brand details values
+    $scope.selectedBrand = null;
+    $scope.brandProducts = [];
 
-    $scope.init = function(){
+    $scope.initBrands = function(){
         BreadcrumbManager.changePage("Brands");
-        getResultsPage(1);
+        getBrandsPage(1);
     };
 
-    // Load brands from server
-    $scope.pageChanged = function(newPage){
-        getResultsPage(newPage);
-    };
-
-    function getResultsPage(pageNumber) {
+    $scope.initBrandProducts = function(){
         $scope.isLoading = true;
-        BrandService.getBrands(pageNumber-1, $scope.brandsPerPage).success(function(data){
+        if(($scope.selectedBrand == undefined || $scope.selectedBrand == null) && $stateParams.brandId){
+            BrandService.getBrandById($stateParams.brandId).success(function(data){
+                $scope.selectedBrand = JSON.parse(JSON.stringify(data));
+                BreadcrumbManager.changePage($scope.selectedBrand.name);
+                getProductsPage(1)
+            }).error(function(data){
+                AlertsManager.addAlert('danger', $translate.instant('error.loading.products'));
+            }).finally(function(){
+                $scope.isLoading = false;
+            });
+        }
+    }
+
+    // Load brands or products from server
+    $scope.pageChanged = function(newPage){
+        ($stateParams.brandId == undefined) ? getBrandsPage(newPage): getProductsPage(newPage);
+    };
+
+    function getBrandsPage(pageNumber) { //Page by page for brands
+        $scope.isLoading = true;
+        BrandService.getBrands(pageNumber-1, $scope.itemsPerPage).success(function(data){
             var json = JSON.parse(JSON.stringify(data));
             $scope.brands = json.items;
             $scope.totalBrands = json.count;
-            $scope.isLoading = false;
+            $scope.currentBrandsPage = pageNumber;
         }).error(function(data){
             AlertsManager.addAlert('danger', $translate.instant('error.loading.brands'));
+        }).finally(function(){
+            $scope.isLoading = false;
+        });
+    };
+
+    function getProductsPage(pageNumber) { //Page by page for brand products
+        $scope.isLoading = true;
+        BrandService.getBrandProducts($scope.selectedBrand.id, pageNumber-1, $scope.itemsPerPage).success(function(data){
+            //TODO
+        }).error(function(data){
+            AlertsManager.addAlert('danger', $translate.instant('error.loading.products'));
+        }).finally(function(){
             $scope.isLoading = false;
         });
     }
 
-    //Create brand
+
     function isValidForm(form){
         if(form['url'].$error.url != undefined){
             AlertsManager.addAlert('danger', $translate.instant('error.url'));
@@ -49,24 +80,40 @@ function BrandCtrl($scope, $state, $translate, AlertsManager, BreadcrumbManager,
         return true;
     };
 
+    //CRUD methods
     $scope.createBrand = function (form) {
         if(isValidForm(form)){
             $scope.isSubmitActive = false;
             var name = $scope.createValues.name;
             var url = $scope.createValues.url;
             BrandService.createBrand(name, url).success(function(data){
-                getResultsPage($scope.currentPage);
-                $scope.isSubmitActive = true;
                 $scope.isCreateShowing = false;
                 AlertsManager.addAlert('success', $translate.instant('message.brand.added'));
             }).error(function(data){
-                $scope.isSubmitActive = true;
+                console.log(data);
                 AlertsManager.addAlert('danger', $translate.instant('error.creating.brand'));
+            }).finally(function(){
+                $scope.isSubmitActive = true;
+                getBrandsPage($scope.currentBrandsPage);
             });
         }
     };
 
-    /*View Methods*/
+    $scope.updateBrand = function (form) {
+        if(isValidForm(form)){
+            $scope.isSubmitActive = false;
+            var name = $scope.selectedBrand.name;
+            var url = $scope.selectedBrand.url;
+            BrandService.updateBrand($scope.selectedBrand.id, name, url).success(function(data){
+                //TODO
+            }).error(function(data){
+                //TODO
+            }).finally(function(){
+                //TODO
+            });
+        }
+    };
+
     $scope.removeBrand = function(brand, index) {
         brand.disabled = true;
         BrandService.removeBrand(brand.id).success(function(data){
@@ -78,10 +125,15 @@ function BrandCtrl($scope, $state, $translate, AlertsManager, BreadcrumbManager,
         });
     };
 
-    $scope.showCreateBrand = function(){
+    /*View Methods*/
+    $scope.showCreate = function(){
         $scope.isCreateShowing = true;
     };
-    $scope.hideCreateBrand = function(){
+    $scope.hideCreate = function(){
         $scope.isCreateShowing = false;
     };
+    $scope.showDetails = function(brand){
+        $scope.currentProductsPage = 1;
+        $state.go('brand-details', {'brandId': brand.id});
+    }
 }

@@ -20,7 +20,7 @@ var paths = {
     templates: 'src/templates/**/*.html',
     index: 'src/index.html',
     bower_fonts: 'src/components/**/*.{ttf,woff,eof,svg,woff2}',
-    styles:'src/resources/styles/**/*.css'
+    styles:'src/styles/**/*.css'
 };
 
 /**

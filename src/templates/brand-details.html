@@ -1,0 +1,82 @@
+<!-- Alerts -->
+<div class="row alerts-container" data-ng-controller="AlertsCtrl" data-ng-show="alerts.length">
+  <div class="col-xs-12">
+    <uib-alert data-ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12" data-ng-show="!isLoading">
+    <rd-widget>
+      <rd-widget-header icon="fa-tasks" title="{{selectedBrand.name}}">
+        <dir-pagination-controls on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
+      </rd-widget-header>
+      <rd-widget-body class="no-padding">
+        <form name="form" class="form-inline text-center" style="margin-bottom:15px;" novalidate>
+          <div class="clearfix"></div>
+          <div class="form-group">
+            <label for="name">{{"name" | translate}}:</label>
+            <input name="name" type="text" ng-model="selectedBrand.name" class="input-sm form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="url">{{"forms.url" | translate}}:</label>
+            <input name="url" type="url" ng-model="selectedBrand.url" class="input-sm form-control">
+          </div>
+          <button type="submit" class="btn" ng-click="updateBrand(form)" ng-disabled="!isSubmitActive">
+            {{"action.modify" | translate}}
+          </button>
+          <div class="clearfix"></div>
+        </form><!-- End- modify form -->
+      </rd-widget-body>
+      <rd-widget-body class="no-padding" data-ng-init="initBrandProducts()"> <!-- Modify form -->
+        <div data-ng-show="!isCreateShowing" style="margin-bottom:15px; margin-top:21px;">
+          <button class="add-btn btn pull-left" ng-click="showCreate()">
+            {{"action.add" | translate}}
+          </button>
+          <div class="clearfix"></div>
+        </div> <!-- End- Add button -->
+        <!-- No products message -->
+        <div class="text-center" data-ng-show="!brandProducts.length">
+          {{"error.no.products" | translate}}
+        </div> <!-- End- No brands message -->
+        <!-- Brands table showed only if data exists -->
+        <div class="table-responsive" data-ng-show="brandProducts.length">
+          <table class="table" >
+            <tbody>
+              <tr>
+                <th>{{"id" | translate}}</th>
+                <th></th>
+                <th>{{"name" | translate}}</th>
+                <th>{{"category" | translate}}</th>
+                <th></th>
+              </tr>
+              <tr dir-paginate="product in products | itemsPerPage: itemsPerPage" total-items="totalBrands" current-page="currentProductsPage">
+                <td>{{product.id}}</td>
+                <td><img ng-src="{{product.url}}" width="70px" height="70px"/></td>
+                <td>{{product.name}}</td>
+                <td>{{product.category.name}}</td>
+                <td>
+                  <button class="btn pull-right" ng-disabled="product.disabled" ng-click="">
+                    {{"action.remove" | translate}}
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!-- End- Brands table -->
+      </rd-widget-body>
+      <rd-widget-footer>
+        <dir-pagination-controls on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
+        <div class="clearfix"></div>
+      </rd-widget-footer>
+    </rd-widget>
+  </div><!-- End- Maing view -->
+  <!-- Loading view -->
+  <div class="col-lg-12" data-ng-show="isLoading">
+    <rd-widget>
+      <rd-widget-header icon="fa-tasks" title="{{selectedBrand.name}}"></rd-widget-header>
+      <rd-widget-body>
+        <rd-loading></rd-loading>
+      </rd-widget-body>
+    </rd-widget>
+  </div>
+</div>

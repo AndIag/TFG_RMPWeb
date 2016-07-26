@@ -12,16 +12,16 @@
       <rd-widget-header icon="fa-tasks" title="{{'views.index.brands' | translate}}">
         <dir-pagination-controls on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
       </rd-widget-header>
-      <rd-widget-body class="no-padding" data-ng-init="init()">
+      <rd-widget-body class="no-padding" data-ng-init="initBrands()">
         <div data-ng-show="!isCreateShowing" style="margin-bottom:15px; margin-top:21px;">
-          <button class="add-btn btn pull-left" ng-click="showCreateBrand()">
+          <button class="add-btn btn pull-left" ng-click="showCreate()">
             {{"action.add" | translate}}
           </button>
           <div class="clearfix"></div>
         </div> <!-- End- Add button -->
         <!-- Add form -->
         <form name="form" class="form-inline text-center" data-ng-show="isCreateShowing" style="margin-bottom:15px;" novalidate>
-          <button class="close" ng-click="hideCreateBrand()">
+          <button class="close" ng-click="hideCreate()">
             <span aria-hidden="true">x</span>
             <span class="sr-only">Close</span>
           </button>
@@ -29,16 +29,16 @@
           <div class="form-group">
             <label for="name">{{"name" | translate}}:</label>
             <input name="name" type="text" ng-model="createValues.name" class="input-sm form-control"
-                  placeholder="{{'name' | translate}}" required>
+            placeholder="{{'name' | translate}}" required>
           </div>
           <div class="form-group">
             <label for="url">{{"forms.url" | translate}}:</label>
             <input name="url" type="url" ng-model="createValues.url" class="input-sm form-control"
-                  placeholder="{{'forms.url' | translate}}">
+            placeholder="{{'forms.url' | translate}}">
           </div>
           <button type="submit" class="btn" ng-click="createBrand(form)" ng-disabled="!isSubmitActive">
-			  {{"action.submit" | translate}}
-		  </button>
+            {{"action.submit" | translate}}
+          </button>
           <div class="clearfix"></div>
         </form><!-- End- Add form -->
         <!-- No brands message -->
@@ -56,13 +56,13 @@
                 <th>{{"views.brands.products-count" | translate}}</th>
                 <th></th>
               </tr>
-              <tr dir-paginate="brand in brands | itemsPerPage: brandsPerPage" total-items="totalBrands" current-page="currentPage">
+              <tr dir-paginate="brand in brands | itemsPerPage: itemsPerPage" total-items="totalBrands" current-page="currentBrandsPage" ng-click="showDetails(brand)">
                 <td>{{brand.id}}</td>
                 <td><img ng-src="{{brand.url}}" width="70px" height="70px"/></td>
                 <td>{{brand.name}}</td>
                 <td>{{brand.numProducts}}</td>
                 <td>
-                  <button class="btn pull-right" ng-disabled="brand.disabled" ng-click="removeBrand(brand, $index)">
+                  <button class="btn pull-right" ng-disabled="brand.disabled" ng-click="removeBrand(brand, $index); $event.stopPropagation();">
                     {{"action.remove" | translate}}
                   </button>
                 </td>
