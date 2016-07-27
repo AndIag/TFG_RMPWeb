@@ -5,7 +5,9 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
     $scope.isLoading = false; //Know if we need to show load screen
     //Initial values we need to load brands with PbP
     $scope.brands = [];
+    $scope.brandProducts = [];
     $scope.totalBrands = 0;
+    $scope.totalProducts = 0;
     $scope.itemsPerPage = 10;
     $scope.currentBrandsPage = 1;
     $scope.currentProductsPage = 1;
@@ -15,7 +17,6 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
     $scope.isSubmitActive = true;
     //Brand details values
     $scope.selectedBrand = null;
-    $scope.brandProducts = [];
 
     $scope.initBrands = function(){
         BreadcrumbManager.changePage("Brands");
@@ -59,7 +60,10 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
     function getProductsPage(pageNumber) { //Page by page for brand products
         $scope.isLoading = true;
         BrandService.getBrandProducts($scope.selectedBrand.id, pageNumber-1, $scope.itemsPerPage).success(function(data){
-            //TODO
+            var json = JSON.parse(JSON.stringify(data));
+            $scope.brandProducts = json.items;
+            $scope.totalProducts = json.count;
+            $scope.currentProductsPage = pageNumber;
         }).error(function(data){
             AlertsManager.addAlert('danger', $translate.instant('error.loading.products'));
         }).finally(function(){
