@@ -19,6 +19,7 @@
     "action.submit": "Enviar",
     "action.modify": "Modificar",
     "error.removing.brand": "Error eliminando marca!",
+    "error.removing.product": "Error eliminando producto!",
     "error.creating.brand": "Error creando marca!",
     "error.no.brands": "No hay marcas que mostrar!",
     "error.no.products": "No hay productos que mostrar!",
@@ -27,6 +28,7 @@
     "error.url": "URL no valida",
     "error.required.name": "Valor para campo 'Nombre' necesario",
     "message.brand.removed": "Marca eliminada!",
+    "message.product.removed": "Producto eliminado!",
     "message.brand.added": "Marca creada!",
     "forms.url": "URL"
 }

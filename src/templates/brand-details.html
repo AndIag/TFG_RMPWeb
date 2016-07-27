@@ -55,7 +55,7 @@
                 <td>{{product.name}}</td>
                 <td>{{product.category.name}}</td>
                 <td>
-                  <button class="btn pull-right" ng-disabled="product.disabled" ng-click="">
+                  <button class="btn pull-right" ng-disabled="product.disabled" ng-click="removeBrandProduct(product, $index); $event.stopPropagation();">
                     {{"action.remove" | translate}}
                   </button>
                 </td>

@@ -1,7 +1,7 @@
 angular.module('RestMaPla')
-    .controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate', 'AlertsManager', 'BreadcrumbManager', 'BrandService', BrandCtrl]);
+    .controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate', 'AlertsManager', 'BreadcrumbManager', 'BrandService', 'ProductService', BrandCtrl]);
 
-function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, BreadcrumbManager, BrandService) {
+function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, BreadcrumbManager, BrandService, ProductService) {
     $scope.isLoading = false; //Know if we need to show load screen
     //Initial values we need to load brands with PbP
     $scope.brands = [];
@@ -128,6 +128,17 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
             brand.disabled = false;
         });
     };
+
+    $scope.removeBrandProduct = function(product, index){
+        product.disabled = true;
+        ProductService.removeProduct(product.id).success(function(data){
+            $scope.brandProducts.splice(index, 1);
+            AlertsManager.addAlert('success', $translate.instant('message.product.removed'));
+        }).error(function(data){
+            AlertsManager.addAlert('danger', $translate.instant('error.removing.product'));
+            product.disabled = false;
+        });
+    }
 
     /*View Methods*/
     $scope.showCreate = function(){

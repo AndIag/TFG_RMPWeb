@@ -19,6 +19,7 @@
     "action.submit": "Submit",
     "action.modify": "Modify",
     "error.removing.brand": "Failed removing brand!",
+    "error.removing.product": "Failed removing product!",
     "error.creating.brand": "Failed creating brand!",
     "error.no.brands": "No brands to show!",
     "error.no.products": "No products to show!",
@@ -27,6 +28,7 @@
     "error.url": "Invalid URL",
     "error.required.name": "Required 'Name' field",
     "message.brand.removed": "Brand removed!",
+    "message.product.removed": "Product removed!",
     "message.brand.added": "Brand added!",
     "forms.url": "URL"
 }
