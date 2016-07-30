@@ -124,6 +124,34 @@ function BrandService($http, $q) {
             };
 
             return promise;
+        }, updateBrand: function(bid, n, u){
+            var deferred = $q.defer();
+            var promise = deferred.promise;
+
+            $http({
+                method: 'PUT',
+                url: host + '/brands/' + bid,
+                data: {
+                    id: bid,
+                    name: n,
+                    url: u
+                }
+            }).then(function successCallback(response) {
+                deferred.resolve(response.data); //Send response data (token) to controller
+              }, function errorCallback(response) {
+                deferred.reject(response);
+              });
+
+            promise.success = function(fn) {
+                promise.then(fn);
+                return promise;
+            };
+            promise.error = function(fn) {
+                promise.then(null, fn);
+                return promise;
+            };
+
+            return promise;
         }
     }
 }

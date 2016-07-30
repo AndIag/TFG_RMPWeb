@@ -109,11 +109,12 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
             var name = $scope.selectedBrand.name;
             var url = $scope.selectedBrand.url;
             BrandService.updateBrand($scope.selectedBrand.id, name, url).success(function(data){
-                //TODO
+                AlertsManager.addAlert('success', $translate.instant('message.brand.updated'));
             }).error(function(data){
-                //TODO
+                AlertsManager.addAlert('danger', $translate.instant('error.updating.brand'));
+                $scope.initBrandProducts();
             }).finally(function(){
-                //TODO
+                $scope.isSubmitActive = true;
             });
         }
     };
