@@ -23,6 +23,11 @@ angular.module('RestMaPla').config(['$stateProvider', '$urlRouterProvider', '$ht
                 templateUrl: 'resources/templates/brands.html',
                 controller: 'BrandCtrl'
             })
+            .state('categories', {
+                url: '/categories',
+                templateUrl: 'resources/templates/categories.html',
+                controller: 'CategoryCtrl'
+            })
             .state('brand-details', {
                 url: '/brands/:brandId',
                 templateUrl: 'resources/templates/brand-details.html',

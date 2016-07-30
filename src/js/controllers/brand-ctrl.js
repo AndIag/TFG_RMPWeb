@@ -19,7 +19,7 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
     $scope.selectedBrand = null;
 
     $scope.initBrands = function(){
-        BreadcrumbManager.changePage("Brands");
+        BreadcrumbManager.changePage($translate.instant('views.index.brands'));
         getBrandsPage(1);
     };
 
@@ -94,7 +94,6 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
                 $scope.isCreateShowing = false;
                 AlertsManager.addAlert('success', $translate.instant('message.brand.added'));
             }).error(function(data){
-                console.log(data);
                 AlertsManager.addAlert('danger', $translate.instant('error.creating.brand'));
             }).finally(function(){
                 $scope.isSubmitActive = true;
@@ -109,6 +108,7 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
             var name = $scope.selectedBrand.name;
             var url = $scope.selectedBrand.url;
             BrandService.updateBrand($scope.selectedBrand.id, name, url).success(function(data){
+                $scope.selectedBrand = JSON.parse(JSON.stringify(data));
                 AlertsManager.addAlert('success', $translate.instant('message.brand.updated'));
             }).error(function(data){
                 AlertsManager.addAlert('danger', $translate.instant('error.updating.brand'));
