@@ -28,14 +28,19 @@
     "error.removing.product": "Error eliminando producto!",
     "error.updating.brand": "Error actualizando marca!",
     "error.creating.brand": "Error creando marca!",
+    "error.creating.category": "Error creando categoría!",
     "error.no.brands": "No hay marcas que mostrar!",
     "error.no.products": "No hay productos que mostrar!",
     "error.no.categories": "No hay categorías que mostrar!",
     "error.loading.brands": "Error cargando marcas!",
     "error.loading.products": "Error cargando productos!",
+    "error.loading.categories": "Error cargando categorías!",
     "error.required.name": "Valor para campo 'Nombre' necesario",
     "message.brand.removed": "Marca eliminada!",
     "message.brand.updated": "Marca actualizada!",
     "message.brand.added": "Marca creada!",
-    "message.product.removed": "Producto eliminado!"
+    "message.category.added": "Categoría creada!",
+    "message.category.removed": "Categoría eliminada!",
+    "message.product.removed": "Producto eliminado!",
+    "message.category.removed": "Categoría eliminada!"
 }

@@ -28,14 +28,19 @@
     "error.removing.product": "Failed removing product!",
     "error.updating.brand": "Failed updating brand!",
     "error.creating.brand": "Failed creating brand!",
+    "error.creating.category": "Failed creating category!",
     "error.no.brands": "No brands to show!",
     "error.no.products": "No products to show!",
     "error.no.categories": "No categories to show!",
     "error.loading.brands": "Failed loading brands!",
     "error.loading.products": "Failed loading products!",
+    "error.loading.categories": "Failed loading categories!",
     "error.required.name": "Required 'Name' field",
     "message.brand.removed": "Brand removed!",
     "message.brand.updated": "Brand updated!",
     "message.brand.added": "Brand added!",
-    "message.product.removed": "Product removed!"
+    "message.category.added": "Category added!",
+    "message.category.removed": "Category removed!",
+    "message.product.removed": "Product removed!",
+    "message.category.removed": "Category removed!"
 }

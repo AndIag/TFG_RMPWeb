@@ -93,11 +93,11 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
             BrandService.createBrand(name, url).success(function(data){
                 $scope.isCreateShowing = false;
                 AlertsManager.addAlert('success', $translate.instant('message.brand.added'));
+                $scope.categories.push(JSON.parse(JSON.stringify(data)));
             }).error(function(data){
                 AlertsManager.addAlert('danger', $translate.instant('error.creating.brand'));
             }).finally(function(){
                 $scope.isSubmitActive = true;
-                getBrandsPage($scope.currentBrandsPage);
             });
         }
     };
@@ -147,6 +147,7 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
     };
     $scope.hideCreate = function(){
         $scope.isCreateShowing = false;
+        $scope.createOrUpdateValues = {};
     };
     $scope.showDetails = function(brand){
         $scope.currentProductsPage = 1;
