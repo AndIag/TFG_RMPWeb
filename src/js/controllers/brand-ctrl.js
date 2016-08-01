@@ -1,7 +1,7 @@
 angular.module('RestMaPla')
-    .controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate', 'AlertsManager', 'BreadcrumbManager', 'BrandService', 'ProductService', BrandCtrl]);
+    .controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'BreadcrumbManager', 'BrandService', 'ProductService', BrandCtrl]);
 
-function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, BreadcrumbManager, BrandService, ProductService) {
+function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, BrandService, ProductService) {
     $scope.isLoading = false; //Know if we need to show load screen
     //Initial values we need to load brands with PbP
     $scope.brands = [];
@@ -31,7 +31,7 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
                 BreadcrumbManager.changePage($scope.selectedBrand.name);
                 getProductsPage(1)
             }).error(function(data){
-                AlertsManager.addAlert('danger', $translate.instant('error.loading.products'));
+                Flash.create('danger', $translate.instant('error.loading.products'), 3000);
             }).finally(function(){
                 $scope.isLoading = false;
             });
@@ -51,7 +51,7 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
             $scope.totalBrands = json.count;
             $scope.currentBrandsPage = pageNumber;
         }).error(function(data){
-            AlertsManager.addAlert('danger', $translate.instant('error.loading.brands'));
+            Flash.create('danger', $translate.instant('error.loading.brands'), 3000);
         }).finally(function(){
             $scope.isLoading = false;
         });
@@ -65,7 +65,7 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
             $scope.totalProducts = json.count;
             $scope.currentProductsPage = pageNumber;
         }).error(function(data){
-            AlertsManager.addAlert('danger', $translate.instant('error.loading.products'));
+            Flash.create('danger', $translate.instant('error.loading.products'), 3000);
         }).finally(function(){
             $scope.isLoading = false;
         });
@@ -74,11 +74,11 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
 
     function isValidForm(form){
         if(form['url'].$error.url != undefined){
-            AlertsManager.addAlert('danger', $translate.instant('error.url'));
+            Flash.create('info', $translate.instant('error.url'), 5000);
             return false;
         }
         if(form['name'].$error.required){
-            AlertsManager.addAlert('danger', $translate.instant('error.required.name'));
+            Flash.create('info', $translate.instant('error.required.name'), 5000);
             return false;
         }
         return true;
@@ -92,10 +92,10 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
             var url = $scope.createValues.url;
             BrandService.createBrand(name, url).success(function(data){
                 $scope.isCreateShowing = false;
-                AlertsManager.addAlert('success', $translate.instant('message.brand.added'));
+                Flash.create('success', $translate.instant('message.brand.added'), 3000);
                 $scope.categories.push(JSON.parse(JSON.stringify(data)));
             }).error(function(data){
-                AlertsManager.addAlert('danger', $translate.instant('error.creating.brand'));
+                Flash.create('danger', $translate.instant('error.creating.brand'), 3000);
             }).finally(function(){
                 $scope.isSubmitActive = true;
             });
@@ -109,9 +109,9 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
             var url = $scope.selectedBrand.url;
             BrandService.updateBrand($scope.selectedBrand.id, name, url).success(function(data){
                 $scope.selectedBrand = JSON.parse(JSON.stringify(data));
-                AlertsManager.addAlert('success', $translate.instant('message.brand.updated'));
+                Flash.create('success', $translate.instant('message.brand.updated'), 3000);
             }).error(function(data){
-                AlertsManager.addAlert('danger', $translate.instant('error.updating.brand'));
+                Flash.create('danger', $translate.instant('error.updating.brand'), 3000);
                 $scope.initBrandProducts();
             }).finally(function(){
                 $scope.isSubmitActive = true;
@@ -123,9 +123,9 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
         brand.disabled = true;
         BrandService.removeBrand(brand.id).success(function(data){
             $scope.brands.splice(index, 1);
-            AlertsManager.addAlert('success', $translate.instant('message.brand.removed'));
+            Flash.create('success', $translate.instant('message.brand.removed'), 3000);
         }).error(function(data){
-            AlertsManager.addAlert('danger', $translate.instant('error.removing.brand'));
+            Flash.create('danger', $translate.instant('error.removing.brand'), 3000);
             brand.disabled = false;
         });
     };
@@ -134,9 +134,9 @@ function BrandCtrl($scope, $state, $stateParams, $translate, AlertsManager, Brea
         product.disabled = true;
         ProductService.removeProduct(product.id).success(function(data){
             $scope.brandProducts.splice(index, 1);
-            AlertsManager.addAlert('success', $translate.instant('message.product.removed'));
+            Flash.create('success', $translate.instant('message.product.removed'), 3000);
         }).error(function(data){
-            AlertsManager.addAlert('danger', $translate.instant('error.removing.product'));
+            Flash.create('danger', $translate.instant('error.removing.product'), 3000);
             product.disabled = false;
         });
     }

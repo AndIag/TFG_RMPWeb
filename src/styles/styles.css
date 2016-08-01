@@ -74,7 +74,6 @@ ul.sidebar .sidebar-list a {
 }
 
 /*Buttons*/
-
 .btn {
 	color: #f4f4f4;
 	background-color: #12ba90;
@@ -98,4 +97,41 @@ ul.sidebar .sidebar-list a {
 /*Input Focused*/
 .form-control:focus{
 	border-color:  #cafd81;
+}
+
+/* customAlert */
+.alert.customAlert {
+    background-color: #fafafa;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #666;
+    min-width: 403px;
+    padding : 20px 50px 20px 30px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 9999;
+    height: 92px;
+}
+
+.customAlert strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.customAlert .close {
+    position: absolute !important;
+    right: 25px !important;
+    top: 5px !important;
+}
+.customAlert em {
+    color: #999;
+    display: inline-block;
+    margin: 0 5px;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: pre;
 }

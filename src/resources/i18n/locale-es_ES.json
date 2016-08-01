@@ -27,6 +27,7 @@
     "error.removing.brand": "Error eliminando marca!",
     "error.removing.product": "Error eliminando producto!",
     "error.updating.brand": "Error actualizando marca!",
+    "error.updating.category": "Error actualizando categoría!",
     "error.creating.brand": "Error creando marca!",
     "error.creating.category": "Error creando categoría!",
     "error.no.brands": "No hay marcas que mostrar!",

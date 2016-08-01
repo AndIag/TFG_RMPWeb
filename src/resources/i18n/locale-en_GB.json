@@ -27,6 +27,7 @@
     "error.removing.brand": "Failed removing brand!",
     "error.removing.product": "Failed removing product!",
     "error.updating.brand": "Failed updating brand!",
+    "error.updating.category": "Failed updating category!",
     "error.creating.brand": "Failed creating brand!",
     "error.creating.category": "Failed creating category!",
     "error.no.brands": "No brands to show!",

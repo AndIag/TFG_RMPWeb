@@ -1,7 +1,7 @@
 angular.module('RestMaPla')
-    .controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translate', 'AlertsManager', 'BreadcrumbManager', 'CategoryService', CategoryCtrl]);
+    .controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'BreadcrumbManager', 'CategoryService', CategoryCtrl]);
 
-function CategoryCtrl($scope, $state, $stateParams, $translate, AlertsManager, BreadcrumbManager, CategoryService) {
+function CategoryCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, CategoryService) {
     $scope.isLoading = false; //Know if we need to show load screen
     //Initial values we need to load brands with PbP
     $scope.categories = [];
@@ -18,7 +18,7 @@ function CategoryCtrl($scope, $state, $stateParams, $translate, AlertsManager, B
         CategoryService.getCategories().success(function(data){
             $scope.categories = JSON.parse(JSON.stringify(data));
         }).error(function(data){
-            AlertsManager.addAlert('danger', $translate.instant('error.loading.categories'));
+            Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
         }).finally(function(){
             $scope.isLoading = false;
         });
@@ -26,11 +26,11 @@ function CategoryCtrl($scope, $state, $stateParams, $translate, AlertsManager, B
 
     function isValidForm(form){
         if(form['url'].$error.url != undefined){
-            AlertsManager.addAlert('danger', $translate.instant('error.url'));
+            Flash.create('info', $translate.instant('error.url'), 5000);
             return false;
         }
         if(form['name'].$error.required){
-            AlertsManager.addAlert('danger', $translate.instant('error.required.name'));
+            Flash.create('info', $translate.instant('error.required.name'), 5000);
             return false;
         }
         return true;
@@ -50,10 +50,10 @@ function CategoryCtrl($scope, $state, $stateParams, $translate, AlertsManager, B
     function createCategory(name, url){
         CategoryService.createCategory(name, url).success(function(data){
             $scope.isCreateOrUpdateShowing = false;
-            AlertsManager.addAlert('success', $translate.instant('message.category.added'));
+            Flash.create('success', $translate.instant('message.category.added'), 3000);
             $scope.categories.push(JSON.parse(JSON.stringify(data)));
         }).error(function(data){
-            AlertsManager.addAlert('danger', $translate.instant('error.creating.category'));
+            Flash.create('danger', $translate.instant('error.creating.category'), 3000);
         }).finally(function(){
             $scope.isSubmitActive = true;
             $scope.hideCreate();
@@ -63,10 +63,10 @@ function CategoryCtrl($scope, $state, $stateParams, $translate, AlertsManager, B
     function updateCategory(bid, name, url){
         CategoryService.updateCategory(bid, name, url).success(function(data){
             $scope.isCreateOrUpdateShowing = false;
-            AlertsManager.addAlert('success', $translate.instant('message.category.added'));
+            Flash.create('success', $translate.instant('message.category.added'), 3000);
             $scope.init();
         }).error(function(data){
-            AlertsManager.addAlert('danger', $translate.instant('error.creating.category'));
+            Flash.create('danger', $translate.instant('error.updating.category'), 3000);
         }).finally(function(){
             $scope.isSubmitActive = true;
             $scope.hideCreate();
@@ -77,9 +77,9 @@ function CategoryCtrl($scope, $state, $stateParams, $translate, AlertsManager, B
         category.disabled = true;
         CategoryService.removeCategory(category.id).success(function(data){
             $scope.categories.splice(index, 1);
-            AlertsManager.addAlert('success', $translate.instant('message.category.removed'));
+            Flash.create('success', $translate.instant('message.category.removed'), 3000);
         }).error(function(data){
-            AlertsManager.addAlert('danger', $translate.instant('error.removing.category'));
+            Flash.create('danger', $translate.instant('error.removing.category'), 3000);
             category.disabled = false;
         });
     };

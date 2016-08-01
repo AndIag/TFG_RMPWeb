@@ -1,6 +1,6 @@
 angular.module('RestMaPla')
-    .controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate', 'AlertsManager', 'BreadcrumbManager', ProductCtrl]);
+    .controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'BreadcrumbManager', ProductCtrl]);
 
-function ProductCtrl($scope, $state, $stateParams, $translate, AlertsManager, BreadcrumbManager) {
+function ProductCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager) {
     $scope.createValues = {};
 }
