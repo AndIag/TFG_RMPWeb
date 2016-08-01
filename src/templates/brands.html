@@ -14,29 +14,29 @@
       </rd-widget-header>
       <rd-widget-body class="no-padding" data-ng-init="initBrands()">
         <div data-ng-show="!isCreateShowing" style="margin-bottom:15px; margin-top:21px;">
-          <button class="add-btn btn pull-left" ng-click="showCreate()">
+          <button class="add-btn btn pull-left" data-ng-click="showCreate()">
             {{"action.add" | translate}}
           </button>
           <div class="clearfix"></div>
         </div> <!-- End- Add button -->
         <!-- Add form -->
         <form name="form" class="form-inline text-center" data-ng-show="isCreateShowing" style="margin-bottom:15px;" novalidate>
-          <button class="close" ng-click="hideCreate()">
+          <button class="close" data-ng-click="hideCreate()">
             <span aria-hidden="true">x</span>
             <span class="sr-only">Close</span>
           </button>
           <div class="clearfix"></div>
           <div class="form-group">
             <label for="name">{{"name" | translate}}:</label>
-            <input name="name" type="text" ng-model="createValues.name" class="input-sm form-control"
+            <input name="name" type="text" data-ng-model="createValues.name" class="input-sm form-control"
             placeholder="{{'name' | translate}}" required>
           </div>
           <div class="form-group">
             <label for="url">{{"url" | translate}}:</label>
-            <input name="url" type="url" ng-model="createValues.url" class="input-sm form-control"
+            <input name="url" type="url" data-ng-model="createValues.url" class="input-sm form-control"
             placeholder="{{'url' | translate}}">
           </div>
-          <button type="submit" class="btn" ng-click="createBrand(form)" ng-disabled="!isSubmitActive">
+          <button type="submit" class="btn" data-ng-click="createBrand(form)" data-ng-disabled="!isSubmitActive">
             {{"action.submit" | translate}}
           </button>
           <div class="clearfix"></div>
@@ -56,13 +56,13 @@
                 <th>{{"views.brands.products-count" | translate}}</th>
                 <th></th>
               </tr>
-              <tr dir-paginate="brand in brands | itemsPerPage: itemsPerPage" total-items="totalBrands" current-page="currentBrandsPage" ng-click="showDetails(brand)">
+              <tr dir-paginate="brand in brands | itemsPerPage: itemsPerPage" total-items="totalBrands" current-page="currentBrandsPage" data-ng-click="showDetails(brand)">
                 <td>{{brand.id}}</td>
-                <td><img ng-src="{{brand.url}}" width="70px" height="70px"/></td>
+                <td><img data-ng-src="{{brand.url}}" width="70px" height="70px"/></td>
                 <td>{{brand.name}}</td>
                 <td>{{brand.numProducts}}</td>
                 <td>
-                  <button class="btn pull-right" data-ng-show="!brand.numProducts" ng-disabled="brand.disabled" ng-click="removeBrand(brand, $index); $event.stopPropagation();">
+                  <button class="btn pull-right" data-ng-show="!brand.numProducts" data-ng-disabled="brand.disabled" data-ng-click="removeBrand(brand, $index); $event.stopPropagation();">
                     {{"action.remove" | translate}}
                   </button>
                 </td>

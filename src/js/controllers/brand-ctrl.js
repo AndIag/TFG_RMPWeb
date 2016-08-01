@@ -147,7 +147,7 @@ function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbMa
     };
     $scope.hideCreate = function(){
         $scope.isCreateShowing = false;
-        $scope.createOrUpdateValues = {};
+        $scope.createValues = {};
     };
     $scope.showDetails = function(brand){
         $scope.currentProductsPage = 1;

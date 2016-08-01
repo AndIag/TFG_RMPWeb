@@ -16,52 +16,22 @@
           <div class="clearfix"></div>
           <div class="form-group">
             <label for="name">{{"name" | translate}}:</label>
-            <input name="name" type="text" ng-model="selectedBrand.name" class="input-sm form-control" required>
+            <input name="name" type="text" data-ng-model="selectedBrand.name" class="input-sm form-control" required>
           </div>
           <div class="form-group">
             <label for="url">{{"url" | translate}}:</label>
-            <input name="url" type="url" ng-model="selectedBrand.url" class="input-sm form-control">
+            <input name="url" type="url" data-ng-model="selectedBrand.url" class="input-sm form-control">
           </div>
-          <button type="submit" class="btn" ng-click="updateBrand(form)" ng-disabled="!isSubmitActive">
+          <button type="submit" class="btn" data-ng-click="updateBrand(form)" data-ng-disabled="!isSubmitActive">
             {{"action.modify" | translate}}
           </button>
           <div class="clearfix"></div>
         </form><!-- End- modify form -->
       </rd-widget-body>
-      <rd-widget-body data-ng-show="isCreateShowing">
-        <!-- Add form -->
-        <form name="form" class="form-inline text-center" data-ng-controller="ProductCtrl" style="margin-bottom:15px;" novalidate>
-          <button class="close" ng-click="hideCreate()">
-            <span aria-hidden="true">x</span>
-            <span class="sr-only">Close</span>
-          </button>
-          <div class="clearfix"></div>
-          <div class="form-group">
-            <label for="ean">{{"ean" | translate}}:</label>
-            <input name="ean" type="number" ng-model="createValues.ean" class="input-sm form-control"
-            placeholder="{{'ean' | translate}}" required>
-          </div>
-          <div class="form-group">
-            <label for="name">{{"name" | translate}}:</label>
-            <input name="name" type="text" ng-model="createValues.name" class="input-sm form-control"
-            placeholder="{{'name' | translate}}">
-          </div>
-          <br/></br>
-          <div class="form-group">
-            <label for="description">{{"description" | translate}}:</label>
-            <textarea name="description" class="input-sm form-control" ng-model="createValues.description"
-            placeholder="{{'placeholder.description' | translate}}"></textarea>
-          </div>
-          <br/></br>
-          <button type="submit" class="btn" ng-click="createBrand(form)" ng-disabled="!isSubmitActive">
-            {{"action.submit" | translate}}
-          </button>
-          <div class="clearfix"></div>
-        </form><!-- End- Add form -->
-      </rd-widget-body>
+      <div data-ng-show="isCreateShowing" data-ng-include="'resources/templates/forms/add-product-form.html'"></div>
       <rd-widget-body class="no-padding" data-ng-init="initBrandProducts()"> <!-- Modify form -->
         <div data-ng-show="!isCreateShowing" style="margin-bottom:15px; margin-top:21px;">
-          <button class="add-btn btn pull-left" ng-click="showCreate()">
+          <button class="add-btn btn pull-left" data-ng-click="showCreate()">
             {{"action.add" | translate}}
           </button>
           <div class="clearfix"></div>
@@ -83,11 +53,11 @@
               </tr>
               <tr dir-paginate="product in brandProducts | itemsPerPage: itemsPerPage" total-items="totalProducts" current-page="currentProductsPage">
                 <td>{{product.id}}</td>
-                <td><img ng-src="{{product.url}}" width="70px" height="70px"/></td>
+                <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
                 <td>{{product.name}}</td>
                 <td>{{product.category.name}}</td>
                 <td>
-                  <button class="btn pull-right" ng-disabled="product.disabled" ng-click="removeBrandProduct(product, $index); $event.stopPropagation();">
+                  <button class="btn pull-right" data-ng-disabled="product.disabled" data-ng-click="removeBrandProduct(product, $index); $event.stopPropagation();">
                     {{"action.remove" | translate}}
                   </button>
                 </td>
