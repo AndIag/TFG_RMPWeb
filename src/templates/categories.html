@@ -41,11 +41,11 @@
           <div class="clearfix"></div>
         </form><!-- End- Add form -->
         <!-- No brands message -->
-        <div class="text-center" data-ng-show="!categories.length">
+        <div class="text-center" data-ng-show="!data.categories.length">
           {{"error.no.categories" | translate}}
         </div> <!-- End- No brands message -->
         <!-- Brands table showed only if data exists -->
-        <div class="table-responsive" data-ng-show="categories.length">
+        <div class="table-responsive" data-ng-show="data.categories.length">
           <div id="search" class="col-lg-12" data-ng-controller="CategoryCtrl">
               <label for="search-input">
                 <i class="fa fa-search" aria-hidden="true"></i>
@@ -61,7 +61,7 @@
                 <th>{{"name" | translate}}</th>
                 <th></th>
               </tr>
-              <tr data-ng-repeat="category in categories" data-ng-click="showDetails(category)">
+              <tr data-ng-repeat="category in data.categories" data-ng-click="showDetails(category)">
                 <td>{{category.id}}</td>
                 <td><img data-ng-src="{{category.url}}" width="70px" height="70px"/></td>
                 <td>{{category.name}}</td>
