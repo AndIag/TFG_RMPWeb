@@ -1,7 +1,7 @@
 angular.module('RestMaPla')
-    .controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'BreadcrumbManager', 'CategoryService', ProductCtrl]);
+    .controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate', '$timeout', 'Flash', 'BreadcrumbManager', 'CategoryService', ProductCtrl]);
 
-function ProductCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, CategoryService) {
+function ProductCtrl($scope, $state, $stateParams, $translate, $timeout, Flash, BreadcrumbManager, CategoryService) {
     $scope.createProductValues = {};
     $scope.categories = [];
     $scope.isCreateShowing = false;
@@ -14,13 +14,8 @@ function ProductCtrl($scope, $state, $stateParams, $translate, Flash, Breadcrumb
         });
     };
 
-    $scope.getSimpleProducts = function(brand,category){
-        console.log(brand);
-        console.log(category);
-    }
-
     $scope.createProduct = function(form){
         console.log($scope.createProductValues.category);
-    }
+    };
 
 }

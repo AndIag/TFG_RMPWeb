@@ -17,18 +17,14 @@
         </div>
         <div class="form-group">
             <label for="category">{{"category" | translate}}:</label>
-            <!-- <select name="category" class="input-sm form-control"
-            data-ng-options="category as category.name for category in categories track by category.id"
-            data-ng-model="createProductValues.category" ng-change="getSimpleProducts(selectedBrand, createProductValues.category)"></select> -->
             <input type="text" class="input-sm form-control" name="category" ng-model="createProductValues.category"
-            placeholder="{{'category' | translate}}" typeahead="category.name for category in categories | filter:$viewValue" typeahead-editable="false"
-            ng-change="getSimpleProducts(selectedBrand, createProductValues.category)"/>
+            placeholder="{{'category' | translate}}" uib-typeahead="category as category.name for category in categories | filter:$viewValue" uib-typeahead-editable="false"/>
         </div>
         <p></p>
         <div class="form-group">
             <label for="description">{{"description" | translate}}:</label>
             <textarea name="description" class="input-sm form-control" data-ng-model="createProductValues.description"
-            placeholder="{{'placeholder.description' | translate}}" style="width: 540px"></textarea>
+            placeholder="{{'placeholder.description' | translate}}" style="width: 550px"></textarea>
         </div>
         <p></p>
         <!-- Pack info -->
