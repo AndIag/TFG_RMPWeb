@@ -11,6 +11,8 @@ function CategoryCtrl($scope, $state, $stateParams, $translate, Flash, Breadcrum
     $scope.isSubmitActive = true;
     //Brand details values
     $scope.selectedCategory = null;
+    //Search
+    $scope.searchKeywords = null;
 
     $scope.init = function(){
         BreadcrumbManager.changePage($translate.instant('views.index.categories'));
@@ -82,6 +84,28 @@ function CategoryCtrl($scope, $state, $stateParams, $translate, Flash, Breadcrum
             Flash.create('danger', $translate.instant('error.removing.category'), 3000);
             category.disabled = false;
         });
+    };
+
+    $scope.searchByName = function(){
+        if($scope.searchKeywords.length == 0){
+            $scope.isLoading = true;
+            CategoryService.getCategories().success(function(data){
+                $scope.categories = JSON.parse(JSON.stringify(data));
+            }).error(function(data){
+                Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
+            }).finally(function(){
+                $scope.isLoading = false;
+            });
+        } else if($scope.searchKeywords.length > 0){
+            $scope.isLoading = true;
+            CategoryService.getCategoriesByName($scope.searchKeywords).success(function(data){
+                $scope.categories = JSON.parse(JSON.stringify(data));
+            }).error(function(data){
+                Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
+            }).finally(function(){
+                $scope.isLoading = false;
+            });
+        }
     };
 
     /*View Methods*/

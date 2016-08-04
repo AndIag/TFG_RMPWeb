@@ -28,6 +28,29 @@ function CategoryService($http, $q) {
             };
 
             return promise;
+        }, getCategoriesByName: function(keywords){
+            var deferred = $q.defer();
+            var promise = deferred.promise;
+
+            $http({
+                method: 'GET',
+                url: host + '/categories/search?keywords=' + keywords
+            }).then(function successCallback(response) {
+                deferred.resolve(response.data); //Send response data (token) to controller
+              }, function errorCallback(response) {
+                deferred.reject(response);
+              });
+
+            promise.success = function(fn) {
+                promise.then(fn);
+                return promise;
+            };
+            promise.error = function(fn) {
+                promise.then(null, fn);
+                return promise;
+            };
+
+            return promise;
         }, removeCategory: function(categoryId){
             var deferred = $q.defer();
             var promise = deferred.promise;

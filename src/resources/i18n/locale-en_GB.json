@@ -8,6 +8,7 @@
     "amount": "Amount",
     "simpleProduct": "Simple Product",
     "description": "Description",
+    "search": "Search...",
     "placeholder.description": "Insert a short description for the new product",
     "action.remove": "Remove",
     "action.add": "Add",

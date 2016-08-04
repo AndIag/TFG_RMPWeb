@@ -8,6 +8,7 @@
     "amount": "Cantidad",
     "simpleProduct": "Producto Simple",
     "description": "Descripción",
+    "search": "Buscar...",
     "placeholder.description": "Breve descripción para el nuevo producto",
     "action.remove": "Eliminar",
     "action.add": "Añadir",

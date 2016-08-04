@@ -135,3 +135,17 @@ ul.sidebar .sidebar-list a {
     vertical-align: middle;
     white-space: pre;
 }
+
+/* search bar */
+#search label {
+    position: absolute;
+    left: 35px;
+    top: 14px;
+}
+
+#search #search-input, #search .hint {
+    padding-left: 43px;
+    padding-right: 43px;
+    border-radius: 23px;
+	margin-bottom: 10px;
+}
