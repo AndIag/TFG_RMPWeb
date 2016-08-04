@@ -8,18 +8,21 @@
         <div class="form-group">
             <label for="ean">{{"ean" | translate}}:</label>
             <input name="ean" type="number" data-ng-model="createProductValues.ean" class="input-sm form-control"
-            placeholder="{{'ean' | translate}}" required>
+            placeholder="{{'ean' | translate}}" required/>
         </div>
         <div class="form-group">
             <label for="name">{{"name" | translate}}:</label>
             <input name="name" type="text" data-ng-model="createProductValues.name" class="input-sm form-control"
-            placeholder="{{'name' | translate}}">
+            placeholder="{{'name' | translate}}"/>
         </div>
         <div class="form-group">
             <label for="category">{{"category" | translate}}:</label>
-            <select name="category" class="input-sm form-control"
+            <!-- <select name="category" class="input-sm form-control"
             data-ng-options="category as category.name for category in categories track by category.id"
-            data-ng-model="createProductValues.category" ng-change="getSimpleProducts(selectedBrand, createProductValues.category)"></select>
+            data-ng-model="createProductValues.category" ng-change="getSimpleProducts(selectedBrand, createProductValues.category)"></select> -->
+            <input type="text" class="input-sm form-control" name="category" ng-model="createProductValues.category"
+            placeholder="{{'category' | translate}}" typeahead="category.name for category in categories | filter:$viewValue" typeahead-editable="false"
+            ng-change="getSimpleProducts(selectedBrand, createProductValues.category)"/>
         </div>
         <p></p>
         <div class="form-group">
@@ -39,12 +42,12 @@
             <div class="form-group">
                 <label for="amount">{{"amount" | translate}}:</label>
                 <input name="amount" type="number" data-ng-model="createProductValues.amount" class="input-sm form-control"
-                placeholder="{{'amount' | translate}}">
+                placeholder="{{'amount' | translate}}"/>
             </div>
         </div><!--End- Pack Info -->
         <div class="form-group">
             <label for="isPack">{{"isPack" | translate}}</label>
-            <input name="isPack" type="checkbox" data-ng-model="createProductValues.isPack" class="input-sm form-control">
+            <input name="isPack" type="checkbox" data-ng-model="createProductValues.isPack" class="input-sm form-control"/>
         </div>
         <p></p>
         <button type="submit" class="btn" data-ng-click="createProduct(form)" data-ng-disabled="!isSubmitActive">
