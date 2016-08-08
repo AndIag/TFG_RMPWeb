@@ -18,7 +18,7 @@
         <div class="form-group">
             <label for="category">{{"category" | translate}}:</label>
             <input type="text" class="input-sm form-control" name="category" ng-model="createProductValues.category"
-            placeholder="{{'category' | translate}}" uib-typeahead="category as category.name for category in categories | filter:$viewValue" uib-typeahead-editable="false"/>
+            placeholder="{{'category' | translate}}" uib-typeahead="category as category.name for category in data.categories | filter:$viewValue" uib-typeahead-editable="false"/>
         </div>
         <p></p>
         <div class="form-group">
@@ -31,9 +31,8 @@
         <div data-ng-show="createProductValues.isPack">
             <div class="form-group">
                 <label for="simpleProduct">{{"simpleProduct" | translate}}:</label>
-                <select name="simpleProduct" class="input-sm form-control"
-                data-ng-options="category as category.name for category in categories track by category.id"
-                data-ng-model="createProductValues.category"></select>
+                <input type="text" class="input-sm form-control" name="simpleProduct" ng-model="createProductValues.simpleProduct" ng-change="searchProducts()"
+                placeholder="{{'simpleProduct' | translate}}" uib-typeahead="product as product.name for product in searchedProducts | filter:$viewValue" uib-typeahead-editable="false"/>
             </div>
             <div class="form-group">
                 <label for="amount">{{"amount" | translate}}:</label>
