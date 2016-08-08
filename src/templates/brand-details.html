@@ -8,7 +8,7 @@
 <div class="row">
   <div class="col-lg-12" data-ng-show="!isLoading">
     <rd-widget>
-      <rd-widget-header icon="fa-tasks" title="{{selectedBrand.name}}" data-ng-show="brandProducts.length">
+      <rd-widget-header icon="fa-tasks" title="{{selectedBrand.name}}" data-ng-show="data.products.length">
         <dir-pagination-controls on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
       </rd-widget-header>
       <rd-widget-body class="no-padding">
@@ -37,11 +37,11 @@
           <div class="clearfix"></div>
         </div> <!-- End- Add button -->
         <!-- No products message -->
-        <div class="text-center" data-ng-show="!brandProducts.length">
+        <div class="text-center" data-ng-show="!data.products.length">
           {{"error.no.products" | translate}}
         </div> <!-- End- No brands message -->
         <!-- Brands table showed only if data exists -->
-        <div class="table-responsive" data-ng-show="brandProducts.length">
+        <div class="table-responsive" data-ng-show="data.products.length">
           <div id="search" class="col-lg-12" data-ng-controller="ProductCtrl">
               <label for="search-input">
                 <i class="fa fa-search" aria-hidden="true"></i>
@@ -58,7 +58,7 @@
                 <th>{{"category" | translate}}</th>
                 <th></th>
               </tr>
-              <tr dir-paginate="product in brandProducts | itemsPerPage: itemsPerPage" total-items="totalProducts" current-page="currentProductsPage">
+              <tr dir-paginate="product in data.products | itemsPerPage: itemsPerPage" total-items="totalProducts" current-page="currentProductsPage">
                 <td>{{product.id}}</td>
                 <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
                 <td>{{product.name}}</td>
@@ -73,7 +73,7 @@
           </table>
         </div><!-- End- Brands table -->
       </rd-widget-body>
-      <rd-widget-footer data-ng-show="brandProducts.length">
+      <rd-widget-footer data-ng-show="data.products.length">
         <dir-pagination-controls on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
         <div class="clearfix"></div>
       </rd-widget-footer>

@@ -1,11 +1,10 @@
 angular.module('RestMaPla')
-    .factory('CategoryFactory', [CategoryFactory])
-    .controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'BreadcrumbManager', 'CategoryService', 'CategoryFactory', CategoryCtrl]);
+    .controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'BreadcrumbManager', 'CategoryService', 'ServerData', CategoryCtrl]);
 
-function CategoryCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, CategoryService, CategoryFactory) {
+function CategoryCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, CategoryService, ServerData) {
     $scope.isLoading = false; //Know if we need to show load screen
     //Initial values we need to load brands with PbP
-    $scope.data = CategoryFactory.data;
+    $scope.data = ServerData.data;
     //Create brand values
     $scope.isCreateOrUpdateShowing = false;
     $scope.createOrUpdateValues = {};
@@ -19,7 +18,7 @@ function CategoryCtrl($scope, $state, $stateParams, $translate, Flash, Breadcrum
         BreadcrumbManager.changePage($translate.instant('views.index.categories'));
         $scope.isLoading = true;
         CategoryService.getCategories().success(function(data){
-            CategoryFactory.setCategories(JSON.parse(JSON.stringify(data)));
+            ServerData.setCategories(JSON.parse(JSON.stringify(data)));
         }).error(function(data){
             Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
         }).finally(function(){
@@ -54,7 +53,7 @@ function CategoryCtrl($scope, $state, $stateParams, $translate, Flash, Breadcrum
         CategoryService.createCategory(name, url).success(function(data){
             $scope.isCreateOrUpdateShowing = false;
             Flash.create('success', $translate.instant('message.category.added'), 3000);
-            CategoryFactory.addCategory(JSON.parse(JSON.stringify(data)));
+            ServerData.addCategory(JSON.parse(JSON.stringify(data)));
         }).error(function(data){
             Flash.create('danger', $translate.instant('error.creating.category'), 3000);
         }).finally(function(){
@@ -79,7 +78,7 @@ function CategoryCtrl($scope, $state, $stateParams, $translate, Flash, Breadcrum
     $scope.removeCategory = function(category, index) {
         category.disabled = true;
         CategoryService.removeCategory(category.id).success(function(data){
-            CategoryFactory.removeCategory(index);
+            ServerData.removeCategory(index);
             Flash.create('success', $translate.instant('message.category.removed'), 3000);
         }).error(function(data){
             Flash.create('danger', $translate.instant('error.removing.category'), 3000);
@@ -91,7 +90,7 @@ function CategoryCtrl($scope, $state, $stateParams, $translate, Flash, Breadcrum
         if($scope.searchKeywords.length == 0){
             $scope.isLoading = true;
             CategoryService.getCategories().success(function(data){
-                CategoryFactory.setCategories(JSON.parse(JSON.stringify(data)));
+                ServerData.setCategories(JSON.parse(JSON.stringify(data)));
             }).error(function(data){
                 Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
             }).finally(function(){
@@ -100,7 +99,10 @@ function CategoryCtrl($scope, $state, $stateParams, $translate, Flash, Breadcrum
         } else if($scope.searchKeywords.length > 0){
             $scope.isLoading = true;
             CategoryService.getCategoriesByName($scope.searchKeywords).success(function(data){
-                CategoryFactory.setCategories(JSON.parse(JSON.stringify(data)));
+                var json = JSON.parse(JSON.stringify(data));
+                if(json.length > 0){
+                    ServerData.setCategories(json);
+                }
             }).error(function(data){
                 Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
             }).finally(function(){
@@ -122,17 +124,3 @@ function CategoryCtrl($scope, $state, $stateParams, $translate, Flash, Breadcrum
         $scope.isCreateOrUpdateShowing = true;
     }
 }
-
-function CategoryFactory() {
-    return {
-        data: {
-            categories: []
-        }, setCategories: function(data) {
-            this.data.categories = data;
-        }, removeCategory: function(index) {
-            this.data.categories.splice(index, 1);
-        }, addCategory: function(c){
-            this.data.categories.push(c);
-        }
-    }
-};

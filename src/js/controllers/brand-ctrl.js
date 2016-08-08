@@ -1,11 +1,10 @@
 angular.module('RestMaPla')
-    .controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'BreadcrumbManager', 'BrandService', 'ProductService', BrandCtrl]);
+    .controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'BreadcrumbManager', 'BrandService', 'ProductService', 'ServerData', BrandCtrl]);
 
-function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, BrandService, ProductService) {
+function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, BrandService, ProductService, ServerData) {
     $scope.isLoading = false; //Know if we need to show load screen
     //Initial values we need to load brands with PbP
-    $scope.brands = [];
-    $scope.brandProducts = [];
+    $scope.data = ServerData.data;
     $scope.totalBrands = 0;
     $scope.totalProducts = 0;
     $scope.itemsPerPage = 10;
@@ -17,6 +16,8 @@ function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbMa
     $scope.isSubmitActive = true;
     //Brand details values
     $scope.selectedBrand = null;
+    //Search
+    $scope.searchKeywords = null;
 
     $scope.initBrands = function(){
         BreadcrumbManager.changePage($translate.instant('views.index.brands'));
@@ -47,7 +48,7 @@ function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbMa
         $scope.isLoading = true;
         BrandService.getBrands(pageNumber-1, $scope.itemsPerPage).success(function(data){
             var json = JSON.parse(JSON.stringify(data));
-            $scope.brands = json.items;
+            ServerData.setBrands(json.items);
             $scope.totalBrands = json.count;
             $scope.currentBrandsPage = pageNumber;
         }).error(function(data){
@@ -61,7 +62,7 @@ function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbMa
         $scope.isLoading = true;
         BrandService.getBrandProducts($scope.selectedBrand.id, pageNumber-1, $scope.itemsPerPage).success(function(data){
             var json = JSON.parse(JSON.stringify(data));
-            $scope.brandProducts = json.items;
+            ServerData.setProducts(json.items);
             $scope.totalProducts = json.count;
             $scope.currentProductsPage = pageNumber;
         }).error(function(data){
@@ -93,7 +94,7 @@ function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbMa
             BrandService.createBrand(name, url).success(function(data){
                 $scope.isCreateShowing = false;
                 Flash.create('success', $translate.instant('message.brand.added'), 3000);
-                $scope.categories.push(JSON.parse(JSON.stringify(data)));
+                ServerData.addBrand(JSON.parse(JSON.stringify(data)));
             }).error(function(data){
                 Flash.create('danger', $translate.instant('error.creating.brand'), 3000);
             }).finally(function(){
@@ -122,7 +123,7 @@ function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbMa
     $scope.removeBrand = function(brand, index) {
         brand.disabled = true;
         BrandService.removeBrand(brand.id).success(function(data){
-            $scope.brands.splice(index, 1);
+            ServerData.removeBrand(index);
             Flash.create('success', $translate.instant('message.brand.removed'), 3000);
         }).error(function(data){
             Flash.create('danger', $translate.instant('error.removing.brand'), 3000);
@@ -133,11 +134,38 @@ function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbMa
     $scope.removeBrandProduct = function(product, index){
         product.disabled = true;
         ProductService.removeProduct(product.id).success(function(data){
-            $scope.brandProducts.splice(index, 1);
+            ServerData.removeProduct(index);
             Flash.create('success', $translate.instant('message.product.removed'), 3000);
         }).error(function(data){
             Flash.create('danger', $translate.instant('error.removing.product'), 3000);
             product.disabled = false;
+        });
+    }
+
+    //Search
+    $scope.searchBrandByName = function(){
+        if($scope.searchKeywords.length == 0){
+            $scope.data.showPageByPage = true;
+            getBrandsPage(1);
+        } else if($scope.searchKeywords.length > 0){
+            $scope.data.showPageByPage = false;
+            searchBrandByNamePage(1);
+        }
+    };
+
+    function searchBrandByNamePage(pageNumber){
+        $scope.isLoading = true;
+        BrandService.getBrandsByName($scope.searchKeywords, pageNumber-1, $scope.itemsPerPage).success(function(data){
+            var json = JSON.parse(JSON.stringify(data));
+            if(json.items.length > 0){
+                ServerData.setBrands(json.items);
+                $scope.totalBrands = json.count;
+                $scope.currentBrandsPage = pageNumber;
+            }
+        }).error(function(data){
+            Flash.create('danger', $translate.instant('error.loading.brands'), 3000);
+        }).finally(function(){
+            $scope.isLoading = false;
         });
     }
 

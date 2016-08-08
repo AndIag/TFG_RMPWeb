@@ -10,7 +10,7 @@
   <div class="col-lg-12" data-ng-show="!isLoading">
     <rd-widget>
       <rd-widget-header icon="fa-tasks" title="{{'views.index.brands' | translate}}">
-        <dir-pagination-controls data-ng-show="brands.length" on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
+        <dir-pagination-controls data-ng-show="data.brands.length && data.showPageByPage" on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
       </rd-widget-header>
       <rd-widget-body class="no-padding" data-ng-init="initBrands()">
         <div data-ng-show="!isCreateShowing" style="margin-bottom:15px; margin-top:21px;">
@@ -42,17 +42,17 @@
           <div class="clearfix"></div>
         </form><!-- End- Add form -->
         <!-- No brands message -->
-        <div class="text-center" data-ng-show="!brands.length">
+        <div class="text-center" data-ng-show="!data.brands.length">
           {{"error.no.brands" | translate}}
         </div> <!-- End- No brands message -->
         <!-- Brands table showed only if data exists -->
-        <div class="table-responsive" data-ng-show="brands.length">
+        <div class="table-responsive" data-ng-show="data.brands.length">
           <div id="search" class="col-lg-12" data-ng-controller="BrandCtrl">
               <label for="search-input">
                 <i class="fa fa-search" aria-hidden="true"></i>
                 <span class="sr-only">{{"search | translate"}}</span>
               </label>
-              <input id="search-input" class="form-control input-lg" placeholder="{{'search' | translate}}" tabindex="1" data-ng-model="searchKeywords" data-ng-change="searchByName()">
+              <input id="search-input" class="form-control input-lg" placeholder="{{'search' | translate}}" tabindex="1" data-ng-model="searchKeywords" data-ng-change="searchBrandByName()">
           </div>
           <table class="table" >
             <tbody>
@@ -63,7 +63,7 @@
                 <th>{{"views.brands.products-count" | translate}}</th>
                 <th></th>
               </tr>
-              <tr dir-paginate="brand in brands | itemsPerPage: itemsPerPage" total-items="totalBrands" current-page="currentBrandsPage" data-ng-click="showDetails(brand)">
+              <tr dir-paginate="brand in data.brands | itemsPerPage: itemsPerPage" total-items="totalBrands" current-page="currentBrandsPage" data-ng-click="showDetails(brand)">
                 <td>{{brand.id}}</td>
                 <td><img data-ng-src="{{brand.url}}" width="70px" height="70px"/></td>
                 <td>{{brand.name}}</td>
@@ -78,8 +78,8 @@
           </table>
         </div><!-- End- Brands table -->
       </rd-widget-body>
-      <rd-widget-footer data-ng-show="brands.length">
-        <dir-pagination-controls data-ng-show="brands.length" on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
+      <rd-widget-footer data-ng-show="data.brands.length">
+        <dir-pagination-controls data-ng-show="data.brands.length && data.showPageByPage" on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
         <div class="clearfix"></div>
       </rd-widget-footer>
     </rd-widget>
