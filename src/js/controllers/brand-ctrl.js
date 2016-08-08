@@ -5,6 +5,7 @@ function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbMa
     $scope.isLoading = false; //Know if we need to show load screen
     //Initial values we need to load brands with PbP
     $scope.data = ServerData.data;
+    //Page-By-Page things
     $scope.totalBrands = 0;
     $scope.totalProducts = 0;
     $scope.itemsPerPage = 10;
@@ -159,8 +160,32 @@ function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbMa
             var json = JSON.parse(JSON.stringify(data));
             if(json.items.length > 0){
                 ServerData.setBrands(json.items);
-                $scope.totalBrands = json.count;
-                $scope.currentBrandsPage = pageNumber;
+            }
+        }).error(function(data){
+            Flash.create('danger', $translate.instant('error.loading.brands'), 3000);
+        }).finally(function(){
+            $scope.isLoading = false;
+        });
+    }
+
+    //Search
+    $scope.searchProductsByName = function(){
+        if($scope.searchKeywords.length == 0){
+            $scope.data.showPageByPage = true;
+            getProductsPage(1);
+        } else if($scope.searchKeywords.length > 0){
+            $scope.data.showPageByPage = false;
+            searchProductsByNamePage(1);
+        }
+    };
+
+    function searchProductsByNamePage(pageNumber){
+        $scope.isLoading = true;
+        BrandService.getBrandProductsByName($stateParams.brandId, $scope.searchKeywords, pageNumber-1, $scope.itemsPerPage).success(function(data){
+            var json = JSON.parse(JSON.stringify(data));
+            console.log(json);
+            if(json.items.length > 0){
+                ServerData.setProducts(json.items);
             }
         }).error(function(data){
             Flash.create('danger', $translate.instant('error.loading.brands'), 3000);
