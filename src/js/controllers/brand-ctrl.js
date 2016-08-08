@@ -172,7 +172,7 @@ function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbMa
     $scope.searchProductsByName = function(){
         if($scope.searchKeywords.length == 0){
             $scope.data.showPageByPage = true;
-            getProductsPage(1);
+            $scope.initBrandProducts();
         } else if($scope.searchKeywords.length > 0){
             $scope.data.showPageByPage = false;
             searchProductsByNamePage(1);
@@ -183,7 +183,6 @@ function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbMa
         $scope.isLoading = true;
         BrandService.getBrandProductsByName($stateParams.brandId, $scope.searchKeywords, pageNumber-1, $scope.itemsPerPage).success(function(data){
             var json = JSON.parse(JSON.stringify(data));
-            console.log(json);
             if(json.items.length > 0){
                 ServerData.setProducts(json.items);
             }
