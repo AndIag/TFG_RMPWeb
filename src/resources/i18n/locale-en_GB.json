@@ -1,5 +1,7 @@
 {
     "id":"ID",
+    "true":"True",
+    "false":"False",
     "name": "Name",
     "category": "Category",
     "url": "URL",
@@ -17,6 +19,7 @@
     "views.index.dashboard":"Dashboard",
     "views.index.brands":"Brands",
     "views.index.categories":"Categories",
+    "views.index.products":"Products",
     "views.index.menus":"Menus",
     "views.index.about":"About",
     "views.index.support":"Support",
@@ -27,6 +30,7 @@
     "views.dashboard.workers": "Workers",
     "views.dashboard.result": "Result",
     "views.brands.products-count": "Products Count",
+    "views.products.brand": "Brand",
     "error.url": "Invalid URL",
     "error.simpleProduct": "Simple Product data neccessary",
     "error.removing.brand": "Failed removing brand!",

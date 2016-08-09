@@ -1,12 +1,25 @@
 angular.module('RestMaPla')
-    .controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate', '$timeout', 'Flash', 'BreadcrumbManager', 'CategoryService', 'ProductService', 'ServerData', ProductCtrl]);
+.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate', '$timeout', 'Flash', 'BreadcrumbManager', 'CategoryService', 'ProductService', 'ServerData', ProductCtrl]);
 
 function ProductCtrl($scope, $state, $stateParams, $translate, $timeout, Flash, BreadcrumbManager, CategoryService, ProductService, ServerData) {
-    $scope.createProductValues = {};
-    $scope.data = ServerData.data;
-    $scope.searchedProducts = [];
+    $scope.isLoading = false;
     $scope.isCreateShowing = false;
     $scope.isSubmitActive = true;
+
+    $scope.data = ServerData.data;
+
+    //Page-By-Page things
+    $scope.totalProducts = 0;
+    $scope.itemsPerPage = 10;
+    $scope.currentProductsPage = 1;
+
+    $scope.createProductValues = {};
+    $scope.searchedProducts = [];
+
+    $scope.init = function(){
+        BreadcrumbManager.changePage($translate.instant('views.index.products'));
+        getPage(1);
+    };
 
     $scope.initCategories = function(){
         CategoryService.getCategories().success(function(data){
@@ -15,6 +28,31 @@ function ProductCtrl($scope, $state, $stateParams, $translate, $timeout, Flash, 
             Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
         });
     };
+
+    $scope.pageChanged = function(newPage){
+        getPage(newPage);
+    };
+
+    function getPage(pageNumber) { //Page by page for brands
+        $scope.isLoading = true;
+        ProductService.getProducts(pageNumber-1, $scope.itemsPerPage).success(function(data){
+            var json = JSON.parse(JSON.stringify(data));
+            ServerData.setProducts(json.items);
+            $scope.totalProducts = json.count;
+            $scope.currentProductsPage = pageNumber;
+        }).error(function(data){
+            Flash.create('danger', $translate.instant('error.loading.brands'), 3000);
+        }).finally(function(){
+            $scope.isLoading = false;
+        });
+    };
+
+    $scope.isPack = function(product){
+        if('simpleProduct' in product){
+            return $translate.instant('true');
+        }
+        return $translate.instant('false');
+    }
 
     $scope.searchProducts = function(){
         var brandId = $stateParams.brandId;
@@ -86,5 +124,16 @@ function ProductCtrl($scope, $state, $stateParams, $translate, $timeout, Flash, 
             });
         }
     };
+
+    /*View Methods*/
+    $scope.showCreate = function(){
+        $scope.isCreateShowing = true;
+    };
+    $scope.hideCreate = function(){
+        $scope.isCreateShowing = false;
+    };
+    $scope.showDetails = function(product){
+        console.log(product);
+    }
 
 }

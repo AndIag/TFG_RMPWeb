@@ -1,5 +1,5 @@
 angular.module('RestMaPla')
-    .controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'BreadcrumbManager', 'BrandService', 'ProductService', 'ServerData', BrandCtrl]);
+.controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'BreadcrumbManager', 'BrandService', 'ProductService', 'ServerData', BrandCtrl]);
 
 function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, BrandService, ProductService, ServerData) {
     $scope.isLoading = false; //Know if we need to show load screen

@@ -1,5 +1,7 @@
 {
     "id":"ID",
+    "true":"Sí",
+    "false":"No",
     "name": "Nombre",
     "category": "Categoría",
     "url": "URL",
@@ -17,6 +19,7 @@
     "views.index.dashboard":"Tablero",
     "views.index.brands":"Marcas",
     "views.index.categories":"Categorías",
+    "views.index.products":"Productos",
     "views.index.menus":"Menús",
     "views.index.about":"Acerca de",
     "views.index.support":"Soporte",
@@ -27,6 +30,7 @@
     "views.dashboard.workers": "Trabajadores",
     "views.dashboard.result": "Resultado",
     "views.brands.products-count": "Número de Productos",
+    "views.products.brand": "Marca",
     "error.url": "URL no valida",
     "error.simpleProduct": "Información necesaria de producto simple",
     "error.removing.brand": "Error eliminando marca!",

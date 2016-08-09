@@ -1,17 +1,17 @@
 /**
- * Master Controller
- */
+* Master Controller
+*/
 
 angular.module('RestMaPla')
-    .controller('MasterCtrl', ['$scope', '$cookieStore', 'BreadcrumbManager', MasterCtrl]);
+.controller('MasterCtrl', ['$scope', '$cookieStore', 'BreadcrumbManager', MasterCtrl]);
 
 function MasterCtrl($scope, $cookieStore, BreadcrumbManager) {
     /**
-     * Sidebar Toggle & Cookie Control
-     */
+    * Sidebar Toggle & Cookie Control
+    */
     var mobileView = 992;
 
-	$scope.data = BreadcrumbManager.data;
+    $scope.data = BreadcrumbManager.data;
 
     $scope.getWidth = function() {
         return window.innerWidth;
