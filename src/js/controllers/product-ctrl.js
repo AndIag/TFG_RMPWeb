@@ -16,6 +16,14 @@ function ProductCtrl($scope, $state, $stateParams, $translate, $timeout, Flash, 
     $scope.createProductValues = {};
     $scope.searchedProducts = [];
 
+    $scope.availableSearchParams = [
+          { key: "name", name: $translate.instant('name'), placeholder: $translate.instant('placeholder.search.name')},
+          { key: "brand", name: $translate.instant('brand'), placeholder: $translate.instant('placeholder.search.brand')},
+          { key: "category", name: $translate.instant('category'), placeholder: $translate.instant('placeholder.search.category')},
+          { key: "isPack", name: $translate.instant('isPack'),
+                        suggestedValues: [$translate.instant('true'), $translate.instant('false')], restrictToSuggestedValues: true}
+        ];
+
     $scope.init = function(){
         BreadcrumbManager.changePage($translate.instant('views.index.products'));
         getPage(1);

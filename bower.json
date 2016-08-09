@@ -32,7 +32,8 @@
     "font-awesome": "^4.6.3",
     "angular-sanitize": "^1.5.8",
     "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
-    "angular-flash-alert": "^2.3.0"
+    "angular-flash-alert": "^2.3.0",
+    "angular-advanced-searchbox": "^3.0.0"
   },
   "repository": {
     "type": "git",

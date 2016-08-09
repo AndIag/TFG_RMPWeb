@@ -5,6 +5,7 @@ angular.module('RestMaPla', [   'ui.bootstrap',
                                 'ngCookies',
                                 'ngSanitize',
                                 'ngFlash',
+                                'angular-advanced-searchbox',
                                 'angularUtils.directives.dirPagination',
                                 'pascalprecht.translate',// angular-translate
                                 'tmh.dynamicLocale'// angular-dynamic-locale

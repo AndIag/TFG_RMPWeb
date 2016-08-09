@@ -149,3 +149,20 @@ ul.sidebar .sidebar-list a {
     border-radius: 23px;
 	margin-bottom: 10px;
 }
+
+/* Advance searchbox */
+.advancedSearchBox {
+	margin-bottom: 10px;
+    border-radius: 23px;
+	padding-bottom: 10px;
+}
+.advancedSearchBox .search-parameter-input{
+	margin-top: 15px;
+	margin-left: 8px;
+	font-size: 18px;
+}
+.advancedSearchBox .search-icon {
+	margin-top: 15px;
+    margin-right: 10px;
+    font-size: 20px;
+}
