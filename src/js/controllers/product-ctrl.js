@@ -77,9 +77,8 @@ function ProductCtrl($scope, $state, $stateParams, $translate, $timeout, Flash, 
                 simpleProductQuantity: a
             }
             ProductService.createProduct(product).success(function(data){
-                var json = JSON.parse(JSON.stringify(data));
-                console.log(json);
-                ServerData.addProduct(json);
+                ServerData.addProduct(JSON.parse(JSON.stringify(data)));
+                $scope.isCreateShowing = false;
             }).error(function(data){
                 Flash.create('danger', $translate.instant('error.creating.product'), 3000);
             }).finally(function(){
