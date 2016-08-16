@@ -159,6 +159,8 @@ function BrandCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbMa
             var json = JSON.parse(JSON.stringify(data));
             if(json.items.length > 0){
                 ServerData.setBrands(json.items);
+            }else{
+                Flash.create('info', $translate.instant('error.no-more-results'), 7000);
             }
         }).error(function(data){
             Flash.create('danger', $translate.instant('error.loading.brands'), 3000);

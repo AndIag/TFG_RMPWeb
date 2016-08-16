@@ -36,6 +36,7 @@
     "views.brands.products-count": "Número de Productos",
     "views.products.brand": "Marca",
     "error.url": "URL no valida",
+    "error.no-more-results":"No hay mas resultados",
     "error.simpleProduct": "Información necesaria de producto simple",
     "error.removing.brand": "Error eliminando marca!",
     "error.removing.product": "Error eliminando producto!",

@@ -36,6 +36,7 @@
     "views.brands.products-count": "Products Count",
     "views.products.brand": "Brand",
     "error.url": "Invalid URL",
+    "error.no-more-results":"No more results",
     "error.simpleProduct": "Simple Product data neccessary",
     "error.removing.brand": "Failed removing brand!",
     "error.removing.product": "Failed removing product!",

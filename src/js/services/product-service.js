@@ -25,15 +25,15 @@ function ProductService($http, $q) {
             };
 
             return promise;
-        }, searchProducts: function(brandId, categoryId, keywords, isSimple, pageNumber, count){
+        }, searchProducts: function(keywords, brandId, categoryId, isSimple, pageNumber, count){
             var deferred = $q.defer();
             var promise = deferred.promise;
 
             var append = '';
 
-            (categoryId != null) ? append = append + '&category=' + categoryId : null;
-            (brandId != null) ? append = append + '&brand=' + brandId : null;
-            (isSimple != null) ? append = append + '&isSimple=' + isSimple : null;
+            append = append + ((categoryId != null) ? ('&category=' + categoryId) : '');
+            append = append + ((brandId != null) ? ('&brand=' + brandId) : '');
+            append = append + ((isSimple != null) ? ('&isSimple=' + isSimple) : '');
 
             $http({
                 method: 'GET',

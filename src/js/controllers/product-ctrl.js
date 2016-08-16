@@ -4,6 +4,7 @@ function ProductCtrl($scope, $state, $stateParams, $translate, $timeout, Flash, 
     $scope.isLoading = false;
     $scope.isCreateShowing = false;
     $scope.isSubmitActive = true;
+    $scope.showPageByPage = true;
 
     $scope.data = ServerData.data;
 
@@ -14,20 +15,15 @@ function ProductCtrl($scope, $state, $stateParams, $translate, $timeout, Flash, 
 
     $scope.createProductValues = {};
     $scope.searchedProducts = [];
-
-    $scope.availableSearchParams = [
-          { key: "name", name: $translate.instant('name'), placeholder: $translate.instant('placeholder.search.name')},
-          { key: "brand", name: $translate.instant('brand'), placeholder: $translate.instant('placeholder.search.brand')},
-          { key: "category", name: $translate.instant('category'), placeholder: $translate.instant('placeholder.search.category')},
-          { key: "isPack", name: $translate.instant('isPack'),
-                        suggestedValues: [$translate.instant('true'), $translate.instant('false')], restrictToSuggestedValues: true}
-        ];
+    //Search
+    $scope.searchKeywords = null;
 
     $scope.init = function(){
         BreadcrumbManager.changePage($translate.instant('views.index.products'));
         getPage(1);
     };
 
+    /**/
     $scope.initCategories = function(){
         CategoryService.getCategories().success(function(data){
             ServerData.setCategories(JSON.parse(JSON.stringify(data)));
@@ -48,7 +44,7 @@ function ProductCtrl($scope, $state, $stateParams, $translate, $timeout, Flash, 
             $scope.totalProducts = json.count;
             $scope.currentProductsPage = pageNumber;
         }).error(function(data){
-            Flash.create('danger', $translate.instant('error.loading.brands'), 3000);
+            Flash.create('danger', $translate.instant('error.loading.products'), 3000);
         }).finally(function(){
             $scope.isLoading = false;
         });
@@ -67,14 +63,31 @@ function ProductCtrl($scope, $state, $stateParams, $translate, $timeout, Flash, 
         if($scope.searchProducts.category != null){
             categoryId = $scope.searchProducts.category.id;
         }
-        ProductService.searchProducts(brandId, categoryId, $scope.createProductValues.simpleProduct, true, null, null).success(function(data){
+        ProductService.searchProducts($scope.createProductValues.simpleProduct, brandId, categoryId, true, null, null).success(function(data){
             var json = JSON.parse(JSON.stringify(data));
             if(json.items.length > 0){
                 $scope.searchedProducts = json.items;
             }
         }).error(function(data){
-            Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
+            Flash.create('danger', $translate.instant('error.loading.products'), 3000);
         });
+    }
+
+    $scope.searchProductsByName = function(){
+        if($scope.searchKeywords!=null && $scope.searchKeywords.length > 0){
+            ProductService.searchProducts($scope.searchKeywords, null, null, null, null, null).success(function(data){
+                var json = JSON.parse(JSON.stringify(data));
+                if(json.items.length > 0){
+                    ServerData.setProducts(json.items);;
+                }else{
+                    Flash.create('info', $translate.instant('error.no-more-results'), 7000);
+                }
+            }).error(function(data){
+                Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
+            });
+        }else{
+            $scope.init();
+        }
     }
 
     function isValidForm(form){

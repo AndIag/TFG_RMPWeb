@@ -101,6 +101,8 @@ function CategoryCtrl($scope, $state, $stateParams, $translate, Flash, Breadcrum
                 var json = JSON.parse(JSON.stringify(data));
                 if(json.length > 0){
                     ServerData.setCategories(json);
+                }else{
+                    Flash.create('info', $translate.instant('error.no-more-results'), 7000);
                 }
             }).error(function(data){
                 Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
