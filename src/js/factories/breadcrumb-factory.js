@@ -1,5 +1,4 @@
-angular.module('RestMaPla')
-    .factory('BreadcrumbManager', [BreadcrumbManager]);
+myApp.factory('BreadcrumbManager', [BreadcrumbManager]);
 
 function BreadcrumbManager() {
     var staticUri = 'Home / '

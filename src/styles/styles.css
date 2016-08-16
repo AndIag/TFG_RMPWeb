@@ -162,7 +162,12 @@ ul.sidebar .sidebar-list a {
 	font-size: 18px;
 }
 .advancedSearchBox .search-icon {
-	margin-top: 15px;
+	margin-top: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+}
+.advancedSearchBox .remove-all-icon {
+	margin-top: 10px;
     margin-right: 10px;
     font-size: 20px;
 }

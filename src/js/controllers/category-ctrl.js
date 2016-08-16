@@ -1,5 +1,4 @@
-angular.module('RestMaPla')
-.controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'BreadcrumbManager', 'CategoryService', 'ServerData', CategoryCtrl]);
+myApp.controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'BreadcrumbManager', 'CategoryService', 'ServerData', CategoryCtrl]);
 
 function CategoryCtrl($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, CategoryService, ServerData) {
     $scope.isLoading = false; //Know if we need to show load screen

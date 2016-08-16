@@ -2,7 +2,7 @@
 /**
  * Route configuration for the RestMaPla module.
  */
-angular.module('RestMaPla').config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
+myApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
     function($stateProvider, $urlRouterProvider, $httpProvider) {
 
         $httpProvider.defaults.useXDomain = true;

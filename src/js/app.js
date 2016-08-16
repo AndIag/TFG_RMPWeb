@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('RestMaPla', [   'ui.bootstrap',
+var myApp = angular.module('RestMaPla', [   'ui.bootstrap',
                                 'ui.router',
                                 'ngCookies',
                                 'ngSanitize',
@@ -11,7 +11,9 @@ angular.module('RestMaPla', [   'ui.bootstrap',
                                 'tmh.dynamicLocale'// angular-dynamic-locale
                             ])
 
-angular.module('RestMaPla').constant('LOCALES', {
+myApp.endpoint = 'http://localhost:9090/restmapla';
+
+myApp.constant('LOCALES', {
     'locales': {
         'en_GB': 'English',
         'es_ES': 'Español'

@@ -1,5 +1,4 @@
-angular.module('RestMaPla')
-    .factory('ServerData', [ServerData])
+myApp.factory('ServerData', [ServerData])
 
 function ServerData() {
     return {

@@ -1,7 +1,4 @@
-angular.module('RestMaPla')
-    .service('CategoryService', ['$http', '$q', CategoryService]);
-
-var host = 'http://localhost:9090/restmapla'
+myApp.service('CategoryService', ['$http', '$q', CategoryService]);
 
 function CategoryService($http, $q) {
     return {
@@ -11,7 +8,7 @@ function CategoryService($http, $q) {
 
             $http({
                 method: 'GET',
-                url: host + '/categories'
+                url: myApp.endpoint + '/categories'
             }).then(function successCallback(response) {
                 deferred.resolve(response.data); //Send response data (token) to controller
               }, function errorCallback(response) {
@@ -34,7 +31,7 @@ function CategoryService($http, $q) {
 
             $http({
                 method: 'GET',
-                url: host + '/categories/search?keywords=' + keywords
+                url: myApp.endpoint + '/categories/search?keywords=' + keywords
             }).then(function successCallback(response) {
                 deferred.resolve(response.data); //Send response data (token) to controller
               }, function errorCallback(response) {
@@ -57,7 +54,7 @@ function CategoryService($http, $q) {
 
             $http({
                 method: 'DELETE',
-                url: host + '/categories/' + categoryId
+                url: myApp.endpoint + '/categories/' + categoryId
             }).then(function successCallback(response) {
                 deferred.resolve(response.data); //Send response data (token) to controller
               }, function errorCallback(response) {
@@ -80,7 +77,7 @@ function CategoryService($http, $q) {
 
             $http({
                 method: 'POST',
-                url: host + '/categories',
+                url: myApp.endpoint + '/categories',
                 data: {
                     name: n,
                     url: u
@@ -107,7 +104,7 @@ function CategoryService($http, $q) {
 
             $http({
                 method: 'PUT',
-                url: host + '/categories/' + cid,
+                url: myApp.endpoint + '/categories/' + cid,
                 data: {
                     id: cid,
                     name: n,

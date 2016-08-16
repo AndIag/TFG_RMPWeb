@@ -1,7 +1,4 @@
-angular.module('RestMaPla')
-    .service('ProductService', ['$http', '$q', ProductService]);
-
-var host = 'http://localhost:9090/restmapla'
+myApp.service('ProductService', ['$http', '$q', ProductService]);
 
 function ProductService($http, $q) {
     return {
@@ -11,7 +8,7 @@ function ProductService($http, $q) {
 
             $http({
                 method: 'DELETE',
-                url: host + '/products/' + productId
+                url: myApp.endpoint + '/products/' + productId
             }).then(function successCallback(response) {
                 deferred.resolve(response.data); //Send response data (token) to controller
               }, function errorCallback(response) {
@@ -40,7 +37,7 @@ function ProductService($http, $q) {
 
             $http({
                 method: 'GET',
-                url: host + '/products/search?keywords=' + keywords + append
+                url: myApp.endpoint + '/products/search?keywords=' + keywords + append
             }).then(function successCallback(response) {
                 deferred.resolve(response.data); //Send response data (token) to controller
               }, function errorCallback(response) {
@@ -63,7 +60,7 @@ function ProductService($http, $q) {
 
             $http({
                 method: 'POST',
-                url: host + '/products',
+                url: myApp.endpoint + '/products',
                 data: product
             }).then(function successCallback(response) {
                 deferred.resolve(response.data); //Send response data (token) to controller
@@ -87,7 +84,7 @@ function ProductService($http, $q) {
 
             $http({
                 method: 'GET',
-                url: host + '/products?pageNumber='+pageNumber+'&count='+count
+                url: myApp.endpoint + '/products?pageNumber='+pageNumber+'&count='+count
             }).then(function successCallback(response) {
                 deferred.resolve(response.data); //Send response data (token) to controller
               }, function errorCallback(response) {

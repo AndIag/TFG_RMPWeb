@@ -1,5 +1,4 @@
-angular.module('RestMaPla')
-.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate', '$timeout', 'Flash', 'BreadcrumbManager', 'CategoryService', 'ProductService', 'ServerData', ProductCtrl]);
+myApp.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate', '$timeout', 'Flash', 'BreadcrumbManager', 'CategoryService', 'ProductService', 'ServerData', ProductCtrl]);
 
 function ProductCtrl($scope, $state, $stateParams, $translate, $timeout, Flash, BreadcrumbManager, CategoryService, ProductService, ServerData) {
     $scope.isLoading = false;

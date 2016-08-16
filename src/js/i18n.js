@@ -1,7 +1,7 @@
 /**
  * i18n configuration for the RestMaPla module.
  */
-angular.module('RestMaPla').config(['$translateProvider',
+myApp.config(['$translateProvider',
     function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({
             prefix: '/resources/locale-',// path to translations files
@@ -13,7 +13,7 @@ angular.module('RestMaPla').config(['$translateProvider',
         $translateProvider.useMissingTranslationHandlerLog();
     }])
 
-angular.module('RestMaPla').config(['tmhDynamicLocaleProvider',
+myApp.config(['tmhDynamicLocaleProvider',
     function (tmhDynamicLocaleProvider) {
         tmhDynamicLocaleProvider.localeLocationPattern('components/angular-i18n/angular-locale_{{locale}}.js');
     }])

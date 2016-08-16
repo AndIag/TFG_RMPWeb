@@ -1,7 +1,4 @@
-angular.module('RestMaPla')
-    .service('BrandService', ['$http', '$q', BrandService]);
-
-var host = 'http://localhost:9090/restmapla'
+myApp.service('BrandService', ['$http', '$q', BrandService]);
 
 function BrandService($http, $q) {
     return {
@@ -11,7 +8,7 @@ function BrandService($http, $q) {
 
             $http({
                 method: 'GET',
-                url: host + '/brands?pageNumber='+pageNumber+'&count='+count
+                url: myApp.endpoint + '/brands?pageNumber='+pageNumber+'&count='+count
             }).then(function successCallback(response) {
                 deferred.resolve(response.data); //Send response data (token) to controller
               }, function errorCallback(response) {
@@ -34,7 +31,7 @@ function BrandService($http, $q) {
 
             $http({
                 method: 'GET',
-                url: host + '/brands/search?keywords=' + keywords + '&pageNumber=' + pageNumber + '&count=' + count
+                url: myApp.endpoint + '/brands/search?keywords=' + keywords + '&pageNumber=' + pageNumber + '&count=' + count
             }).then(function successCallback(response) {
                 deferred.resolve(response.data); //Send response data (token) to controller
               }, function errorCallback(response) {
@@ -57,7 +54,7 @@ function BrandService($http, $q) {
 
             $http({
                 method: 'GET',
-                url: host + '/brands/' + brandId
+                url: myApp.endpoint + '/brands/' + brandId
             }).then(function successCallback(response) {
                 deferred.resolve(response.data); //Send response data (token) to controller
               }, function errorCallback(response) {
@@ -80,7 +77,7 @@ function BrandService($http, $q) {
 
             $http({
                 method: 'GET',
-                url: host + '/brands/' + brandId + '/products?pageNumber=' + pageNumber + '&count=' + count
+                url: myApp.endpoint + '/brands/' + brandId + '/products?pageNumber=' + pageNumber + '&count=' + count
             }).then(function successCallback(response) {
                 deferred.resolve(response.data); //Send response data (token) to controller
               }, function errorCallback(response) {
@@ -103,7 +100,7 @@ function BrandService($http, $q) {
 
             $http({
                 method: 'GET',
-                url: host + '/products/search?keywords=' + keywords + '&brand=' + brandId + '&pageNumber=' + pageNumber + '&count=' + count
+                url: myApp.endpoint + '/products/search?keywords=' + keywords + '&brand=' + brandId + '&pageNumber=' + pageNumber + '&count=' + count
             }).then(function successCallback(response) {
                 deferred.resolve(response.data); //Send response data (token) to controller
               }, function errorCallback(response) {
@@ -126,7 +123,7 @@ function BrandService($http, $q) {
 
             $http({
                 method: 'DELETE',
-                url: host + '/brands/' + brandId
+                url: myApp.endpoint + '/brands/' + brandId
             }).then(function successCallback(response) {
                 deferred.resolve(response.data); //Send response data (token) to controller
               }, function errorCallback(response) {
@@ -149,7 +146,7 @@ function BrandService($http, $q) {
 
             $http({
                 method: 'POST',
-                url: host + '/brands',
+                url: myApp.endpoint + '/brands',
                 data: {
                     name: n,
                     url: u
@@ -176,7 +173,7 @@ function BrandService($http, $q) {
 
             $http({
                 method: 'PUT',
-                url: host + '/brands/' + bid,
+                url: myApp.endpoint + '/brands/' + bid,
                 data: {
                     id: bid,
                     name: n,

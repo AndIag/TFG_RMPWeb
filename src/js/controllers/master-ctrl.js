@@ -1,9 +1,4 @@
-/**
-* Master Controller
-*/
-
-angular.module('RestMaPla')
-.controller('MasterCtrl', ['$scope', '$cookieStore', 'BreadcrumbManager', MasterCtrl]);
+myApp.controller('MasterCtrl', ['$scope', '$cookieStore', 'BreadcrumbManager', MasterCtrl]);
 
 function MasterCtrl($scope, $cookieStore, BreadcrumbManager) {
     /**
