@@ -207,5 +207,9 @@ myApp.controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate',
             $scope.currentProductsPage = 1;
             $state.go('brand-details', {'brandId': brand.id});
         };
+        $scope.showProductDetails = function(product){
+            $scope.currentProductsPage = 1;
+            $state.go('product-details', {'productId': product.id});
+        };
     }
 ]);

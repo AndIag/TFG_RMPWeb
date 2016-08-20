@@ -43,5 +43,10 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
                 templateUrl: 'resources/templates/product-details.html',
                 controller: 'ProductDetailsCtrl'
             })
+            .state('suppliers', {
+                url: '/suppliers',
+                templateUrl: 'resources/templates/suppliers.html',
+                controller: 'SupplierCtrl'
+            })
     }
 ]);

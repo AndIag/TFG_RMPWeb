@@ -163,7 +163,8 @@ myApp.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate
             $scope.isCreateShowing = false;
         };
         $scope.showDetails = function(product){
-            console.log(product);
+            $scope.currentProductsPage = 1;
+            $state.go('product-details', {'productId': product.id});
         };
     }
 ]);

@@ -58,7 +58,7 @@
                 <th>{{"category" | translate}}</th>
                 <th></th>
               </tr>
-              <tr dir-paginate="product in data.products | itemsPerPage: itemsPerPage" total-items="totalProducts" current-page="currentProductsPage">
+              <tr dir-paginate="product in data.products | itemsPerPage: itemsPerPage" total-items="totalProducts" current-page="currentProductsPage" data-ng-click="showProductDetails(product)">
                 <td>{{product.id}}</td>
                 <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
                 <td>{{product.name}}</td>
