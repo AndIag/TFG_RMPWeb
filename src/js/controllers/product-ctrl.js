@@ -115,11 +115,19 @@ function ProductCtrl($scope, $state, $stateParams, $translate, $timeout, Flash, 
             $scope.isSubmitActive = false;
             var simple = null;
             var a = null;
+            var price = null;
             if($scope.createProductValues.isPack){
                 simple = ('simpleProduct' in $scope.createProductValues) ? $scope.createProductValues.simpleProduct : null;
                 a = ('amount' in $scope.createProductValues) ? $scope.createProductValues.amount : null;
                 if(a == null || simple == null){
                     Flash.create('danger', $translate.instant('error.simpleProduct'), 3000);
+                    $scope.isSubmitActive = true;
+                    return;
+                }
+            }else{
+                price = ('price' in $scope.createProductValues) ? $scope.createProductValues.price : null;
+                if(price == null){
+                    Flash.create('danger', $translate.instant('error.price'), 3000);
                     $scope.isSubmitActive = true;
                     return;
                 }

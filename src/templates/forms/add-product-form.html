@@ -24,15 +24,19 @@
         <div class="form-group">
             <label for="url">{{"url" | translate}}:</label>
             <input name="url" type="url" data-ng-model="createProductValues.url" class="input-sm form-control"
-            placeholder="{{'url' | translate}}" style="min-width: 550px" required/>
+            placeholder="{{'url' | translate}}" required/>
         </div>
-        <p></p>
         <div class="form-group">
             <label for="description">{{"description" | translate}}:</label>
             <textarea name="description" class="input-sm form-control" data-ng-model="createProductValues.description"
-            placeholder="{{'placeholder.description' | translate}}" style="min-width: 605px" required></textarea>
+            placeholder="{{'placeholder.description' | translate}}" required></textarea>
         </div>
-        <p></p>
+        <!-- Simple product info -->
+        <div class="form-group" data-ng-show="!createProductValues.isPack">
+            <label for="price">{{"price" | translate}}:</label>
+            <input type="text" class="input-sm form-control" name="price" ng-model="createProductValues.price" ng-change="searchProducts()" autocomplete="off"
+            placeholder="{{'price' | translate}}"/>
+        </div><!--End- Simple product Info -->
         <!-- Pack info -->
         <div data-ng-show="createProductValues.isPack">
             <div class="form-group">

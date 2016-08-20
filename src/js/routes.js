@@ -38,5 +38,10 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
                 templateUrl: 'resources/templates/products.html',
                 controller: 'ProductCtrl'
             })
+            .state('product-details', {
+                url: '/products/:productId',
+                templateUrl: 'resources/templates/product-details.html',
+                controller: 'ProductDetailsCtrl'
+            })
     }
 ]);
