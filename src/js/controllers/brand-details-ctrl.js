@@ -5,8 +5,8 @@ myApp.controller('BrandDetailsCtrl', ['$scope', '$state', '$stateParams', '$tran
         $scope.isLoading = false;
         $scope.showClose = false;
 
-        $scope.handleBrand;
-        $scope.handleProduct;
+        $scope.brand;
+        $scope.product;
 
         $scope.data = ServerData.data;
         $scope.totalItems = 0;
@@ -17,10 +17,10 @@ myApp.controller('BrandDetailsCtrl', ['$scope', '$state', '$stateParams', '$tran
 
         $scope.init = function(){
             $scope.isLoading = true;
-            if(($scope.handleBrand == undefined || $scope.handleBrand == null) && $stateParams.brandId){
+            if(($scope.brand == undefined || $scope.brand == null) && $stateParams.brandId){
                 BrandService.getBrandById($stateParams.brandId).success(function(data){
-                    $scope.handleBrand = JSON.parse(JSON.stringify(data));
-                    BreadcrumbManager.changePage($scope.handleBrand.name);
+                    $scope.brand = JSON.parse(JSON.stringify(data));
+                    BreadcrumbManager.changePage($scope.brand.name);
                     getPage(1)
                 }).error(function(data){
                     Flash.create('danger', $translate.instant('error.loading.products'), 3000);
@@ -45,7 +45,7 @@ myApp.controller('BrandDetailsCtrl', ['$scope', '$state', '$stateParams', '$tran
 
         function getPage(pageNumber) { //Page by page for brand products
             $scope.isLoading = true;
-            BrandService.getBrandProducts($scope.handleBrand.id, pageNumber-1, $scope.itemsPerPage).success(function(data){
+            BrandService.getBrandProducts($scope.brand.id, pageNumber-1, $scope.itemsPerPage).success(function(data){
                 var json = JSON.parse(JSON.stringify(data));
                 ServerData.setProducts(json.items);
                 $scope.totalItems = json.count;
@@ -111,16 +111,16 @@ myApp.controller('BrandDetailsCtrl', ['$scope', '$state', '$stateParams', '$tran
                 var simple = null;
                 var a = null;
                 var price = null;
-                if($scope.handleProduct.isPack){
-                    simple = ('simpleProduct' in $scope.handleProduct) ? $scope.handleProduct.simpleProduct : null;
-                    a = ('amount' in $scope.handleProduct) ? $scope.handleProduct.amount : null;
+                if($scope.product.isPack){
+                    simple = ('simpleProduct' in $scope.product) ? $scope.product.simpleProduct : null;
+                    a = ('amount' in $scope.product) ? $scope.product.amount : null;
                     if(a == null || simple == null){
                         Flash.create('danger', $translate.instant('error.simpleProduct'), 3000);
                         $scope.isSubmitActive = true;
                         return;
                     }
                 }else{
-                    price = ('price' in $scope.handleProduct) ? $scope.handleProduct.price : null;
+                    price = ('price' in $scope.product) ? $scope.product.price : null;
                     if(price == null){
                         Flash.create('danger', $translate.instant('error.price'), 3000);
                         $scope.isSubmitActive = true;
@@ -128,12 +128,12 @@ myApp.controller('BrandDetailsCtrl', ['$scope', '$state', '$stateParams', '$tran
                     }
                 }
                 var product = {
-                    ean: ('ean' in $scope.handleProduct) ? $scope.handleProduct.ean : null,
-                    name: $scope.handleProduct.name,
-                    description: $scope.handleProduct.description,
-                    url: $scope.handleProduct.url,
+                    ean: ('ean' in $scope.product) ? $scope.product.ean : null,
+                    name: $scope.product.name,
+                    description: $scope.product.description,
+                    url: $scope.product.url,
                     brand: {id:$stateParams.brandId},
-                    category: $scope.handleProduct.category,
+                    category: $scope.product.category,
                     simpleProduct: simple,
                     simpleProductQuantity: a
                 }
@@ -178,7 +178,7 @@ myApp.controller('BrandDetailsCtrl', ['$scope', '$state', '$stateParams', '$tran
         };
         $scope.hideCreate = function(){
             $scope.isCreateShowing = false;
-            $scope.handleProduct = {};
+            $scope.product = {};
         };
         $scope.showProductDetails = function(product){
             $scope.currentPage = 1;

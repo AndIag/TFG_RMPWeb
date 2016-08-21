@@ -8,7 +8,7 @@
 <div class="row">
   <div class="col-lg-12" data-ng-show="!isLoading">
     <rd-widget>
-      <rd-widget-header icon="fa-tasks" title="{{handleBrand.name}}" data-ng-show="data.products.length && data.showPageByPage">
+      <rd-widget-header icon="fa-tasks" title="{{brand.name}}" data-ng-show="data.products.length && data.showPageByPage">
         <dir-pagination-controls on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
       </rd-widget-header>
       <!-- Modify brands form -->
@@ -23,7 +23,7 @@
           data-ng-include="'resources/templates/add-forms/add-product-form.html'">
         </div>
       </rd-widget-body><!-- End- Add form -->
-      <rd-widget-body class="no-padding" data-ng-init="init()"> <!-- Modify form -->
+      <rd-widget-body class="no-padding" data-ng-init="init()">
         <div data-ng-show="!isCreateShowing" style="margin-bottom:15px; margin-top:21px;">
           <button class="add-btn btn pull-left" data-ng-click="showCreate()">
             {{"action.add" | translate}}
@@ -79,7 +79,7 @@
   <!-- Loading view -->
   <div class="col-lg-12" data-ng-show="isLoading">
     <rd-widget>
-      <rd-widget-header icon="fa-tasks" title="{{handleBrand.name}}"></rd-widget-header>
+      <rd-widget-header icon="fa-tasks" title="{{brand.name}}"></rd-widget-header>
       <rd-widget-body>
         <rd-loading></rd-loading>
       </rd-widget-body>
