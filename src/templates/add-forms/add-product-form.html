@@ -1,61 +1,89 @@
-<form name="form" class="form-inline text-center" data-ng-init="initCategories()" novalidate>
-  <button class="close" data-ng-show="showProductClose" data-ng-click="hideCreate()">
-    <span aria-hidden="true">x</span>
+<form name="form" class="form-horizontal text-center" data-ng-init="initCategories()" novalidate>
+
+  <button class="close" data-ng-click="hideCreate()">
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
     <span class="sr-only">Close</span>
   </button>
   <div class="clearfix"></div>
+
+  <fieldset>
+
+    <!-- Form Name -->
+  <legend>Add product</legend>
+
   <div class="form-group">
-    <label for="ean">{{"ean" | translate}}:</label>
-    <input name="ean" type="number" data-ng-model="product.ean" class="input-sm form-control"
-    placeholder="{{'ean' | translate}}" required/>
+    <label class="control-label col-xs-3" for="ean">{{"ean" | translate}}:</label>
+    <div class="col-xs-6">
+      <input name="ean" type="number" data-ng-model="product.ean" class="input-sm form-control"
+      placeholder="{{'ean' | translate}}" required/>
+    </div>
   </div>
   <div class="form-group">
-    <label for="name">{{"name" | translate}}:</label>
-    <input name="name" type="text" data-ng-model="product.name" class="input-sm form-control"
-    placeholder="{{'name' | translate}}" required/>
+      <label class="control-label col-xs-3" for="name">{{"name" | translate}}:</label>
+      <div class="col-xs-6">
+        <input name="name" type="text" data-ng-model="product.name" class="input-sm form-control"
+        placeholder="{{'name' | translate}}" required/>
+      </div>
   </div>
   <div class="form-group">
-    <label for="category">{{"category" | translate}}:</label>
-    <input type="text" class="input-sm form-control" name="category" ng-model="product.category" required autocomplete="off"
-    placeholder="{{'category' | translate}}" uib-typeahead="category as category.name for category in data.categories | filter:$viewValue" uib-typeahead-editable="false"/>
-  </div>
-  <p></p>
-  <div class="form-group">
-    <label for="url">{{"url" | translate}}:</label>
-    <input name="url" type="url" data-ng-model="product.url" class="input-sm form-control"
-    placeholder="{{'url' | translate}}" required/>
+      <label class="control-label col-xs-3" for="category">{{"category" | translate}}:</label>
+      <div class="col-xs-6">
+        <input type="text" class="input-sm form-control" name="category" ng-model="product.category" required autocomplete="off"
+        placeholder="{{'category' | translate}}" uib-typeahead="category as category.name for category in data.categories | filter:$viewValue" uib-typeahead-editable="false"/>
+      </div>
   </div>
   <div class="form-group">
-    <label for="description">{{"description" | translate}}:</label>
-    <textarea name="description" class="input-sm form-control" data-ng-model="product.description"
-    placeholder="{{'placeholder.description' | translate}}" required></textarea>
+      <label class="control-label col-xs-3" for="url">{{"url" | translate}}:</label>
+      <div class="col-xs-6">
+        <input name="url" type="url" data-ng-model="product.url" class="input-sm form-control"
+        placeholder="{{'url' | translate}}" required/>
+      </div>
+  </div>
+  <div class="form-group">
+      <label class="control-label col-xs-3" for="description">{{"description" | translate}}:</label>
+      <div class="col-xs-6">
+        <textarea name="description" class="input-sm form-control" data-ng-model="product.description"
+        placeholder="{{'placeholder.description' | translate}}" required></textarea>
+      </div>
   </div>
   <!-- Simple product info -->
   <div class="form-group" data-ng-show="!product.isPack">
-    <label for="price">{{"price" | translate}}:</label>
-    <input type="text" class="input-sm form-control" name="price" ng-model="product.price" ng-change="searchProducts()" autocomplete="off"
-    placeholder="{{'price' | translate}}"/>
-  </div><!--End- Simple product Info -->
+      <label class="control-label col-xs-3 "for="price">{{"price" | translate}}:</label>
+      <div class="col-xs-6">
+        <input type="text" class="input-sm form-control" name="price" ng-model="product.price" ng-change="searchProducts()" autocomplete="off"
+        placeholder="{{'price' | translate}}"/>
+      </div>
+  </div>
+  <!--End- Simple product Info -->
   <!-- Pack info -->
   <div data-ng-show="product.isPack">
     <div class="form-group">
-      <label for="simpleProduct">{{"simpleProduct" | translate}}:</label>
-      <input type="text" class="input-sm form-control" name="simpleProduct" ng-model="product.simpleProduct" ng-change="searchProducts()" autocomplete="off"
-      placeholder="{{'simpleProduct' | translate}}" uib-typeahead="product as product.name for product in searchedProducts | filter:$viewValue" uib-typeahead-editable="false"/>
+      <label class="control-label col-xs-3" for="simpleProduct">{{"simpleProduct" | translate}}:</label>
+      <div class="col-xs-6">
+        <input type="text" class="input-sm form-control" name="simpleProduct" ng-model="product.simpleProduct" ng-change="searchProducts()" autocomplete="off"
+        placeholder="{{'simpleProduct' | translate}}" uib-typeahead="product as product.name for product in searchedProducts | filter:$viewValue" uib-typeahead-editable="false"/>
+      </div>
     </div>
     <div class="form-group">
-      <label for="amount">{{"amount" | translate}}:</label>
-      <input name="amount" type="number" data-ng-model="product.amount" class="input-sm form-control"
-      placeholder="{{'amount' | translate}}"/>
+      <label class="control-label col-xs-3" for="amount">{{"amount" | translate}}:</label>
+      <div class="col-xs-6">
+        <input name="amount" type="number" data-ng-model="product.amount" class="input-sm form-control"
+        placeholder="{{'amount' | translate}}"/>
+      </div>
     </div>
-  </div><!--End- Pack Info -->
-  <div class="form-group">
-    <label for="isPack">{{"isPack" | translate}}</label>
-    <input name="isPack" type="checkbox" data-ng-model="product.isPack" class="input-sm form-control"/>
   </div>
-  <p></p>
+  <!--End- Pack Info -->
+  <div class="form-group">
+    <div class="col-xs-12">
+        <label class="checkbox-inline">
+            <input name="isPack" type="checkbox" data-ng-model="product.isPack"> {{"isPack" | translate}}
+        </label>
+    </div>
+  </div>
   <button type="submit" class="btn" data-ng-click="saveProduct(form)" data-ng-disabled="!isSubmitActive">
     {{"action.submit" | translate}}
   </button>
+
+  </fieldset>
   <div class="clearfix"></div>
 </form>
