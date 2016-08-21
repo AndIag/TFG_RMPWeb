@@ -1,20 +1,20 @@
 <form name="form" class="form-inline text-center" style="margin-bottom:15px;" novalidate>
-  <button class="close" data-ng-click="hideCreate()">
+  <button class="close" data-ng-show="showClose" data-ng-click="hideCreate()">
     <span aria-hidden="true">x</span>
     <span class="sr-only">Close</span>
   </button>
   <div class="clearfix"></div>
   <div class="form-group">
     <label for="name">{{"name" | translate}}:</label>
-    <input name="name" type="text" data-ng-model="createValues.name" class="input-sm form-control"
+    <input name="name" type="text" data-ng-model="brand.name" class="input-sm form-control"
     placeholder="{{'name' | translate}}" required>
   </div>
   <div class="form-group">
     <label for="url">{{"url" | translate}}:</label>
-    <input name="url" type="url" data-ng-model="createValues.url" class="input-sm form-control"
+    <input name="url" type="url" data-ng-model="brand.url" class="input-sm form-control"
     placeholder="{{'url' | translate}}">
   </div>
-  <button type="submit" class="btn" data-ng-click="createBrand(form)" data-ng-disabled="!isSubmitActive">
+  <button type="submit" class="btn" data-ng-click="saveBrand(form)" data-ng-disabled="!isSubmitActive">
     {{"action.submit" | translate}}
   </button>
   <div class="clearfix"></div>

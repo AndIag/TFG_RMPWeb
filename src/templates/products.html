@@ -18,9 +18,11 @@
           </button>
           <div class="clearfix"></div>
         </div> <!-- End- Add button -->
-        <div data-ng-show="isCreateShowing"
-          data-ng-include="'resources/templates/add-forms/add-product-form.html'">
-        </div>
+        <rd-widget-body><!-- Add form -->
+          <div data-ng-show="isCreateShowing"
+            data-ng-include="'resources/templates/add-forms/add-product-form.html'">
+          </div>
+        </rd-widget-body><!-- End- Add form -->
         <!-- No products message -->
         <div class="text-center" data-ng-show="!data.products.length">
           {{"error.no.products" | translate}}

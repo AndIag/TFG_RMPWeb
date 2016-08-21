@@ -2,21 +2,21 @@ myApp.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate
     '$timeout', 'Flash', 'BreadcrumbManager', 'CategoryService', 'ProductService',
     'ServerData',
 
-    function ProductCtrl($scope, $state, $stateParams, $translate, $timeout, Flash, BreadcrumbManager, CategoryService, ProductService, ServerData) {
+    function ($scope, $state, $stateParams, $translate, $timeout, Flash, BreadcrumbManager, CategoryService, ProductService, ServerData) {
+        //View helpers
         $scope.isLoading = false;
         $scope.isCreateShowing = false;
         $scope.isSubmitActive = true;
         $scope.showPageByPage = true;
-
-        $scope.data = ServerData.data;
-
+        $scope.searchedProducts = [];
         //Page-By-Page things
         $scope.totalProducts = 0;
         $scope.itemsPerPage = 10;
         $scope.currentProductsPage = 1;
 
-        $scope.createProductValues = {};
-        $scope.searchedProducts = [];
+        $scope.data = ServerData.data;
+        //Create product values
+        $scope.product = {};
         //Search
         $scope.searchKeywords = null;
 
@@ -65,7 +65,7 @@ myApp.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate
             if($scope.searchProducts.category != null){
                 categoryId = $scope.searchProducts.category.id;
             }
-            ProductService.searchProducts($scope.createProductValues.simpleProduct, brandId, categoryId, true, null, null).success(function(data){
+            ProductService.searchProducts($scope.product.simpleProduct, brandId, categoryId, true, null, null).success(function(data){
                 var json = JSON.parse(JSON.stringify(data));
                 if(json.items.length > 0){
                     $scope.searchedProducts = json.items;
@@ -82,7 +82,7 @@ myApp.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate
                     if(json.items.length > 0){
                         ServerData.setProducts(json.items);;
                     }else{
-                        Flash.create('info', $translate.instant('error.no-more-results'), 7000);
+                        Flash.create('info', $translate.instant('error.no-more-results'), 1000);
                     }
                 }).error(function(data){
                     Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
@@ -112,22 +112,22 @@ myApp.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate
             return true;
         };
 
-        $scope.createProduct = function(form){
+        $scope.saveProduct = function(form){
             if(isValidForm(form)){
                 $scope.isSubmitActive = false;
                 var simple = null;
                 var a = null;
                 var price = null;
-                if($scope.createProductValues.isPack){
-                    simple = ('simpleProduct' in $scope.createProductValues) ? $scope.createProductValues.simpleProduct : null;
-                    a = ('amount' in $scope.createProductValues) ? $scope.createProductValues.amount : null;
+                if($scope.product.isPack){
+                    simple = ('simpleProduct' in $scope.product) ? $scope.product.simpleProduct : null;
+                    a = ('amount' in $scope.product) ? $scope.product.amount : null;
                     if(a == null || simple == null){
                         Flash.create('danger', $translate.instant('error.simpleProduct'), 3000);
                         $scope.isSubmitActive = true;
                         return;
                     }
                 }else{
-                    price = ('price' in $scope.createProductValues) ? $scope.createProductValues.price : null;
+                    price = ('price' in $scope.product) ? $scope.product.price : null;
                     if(price == null){
                         Flash.create('danger', $translate.instant('error.price'), 3000);
                         $scope.isSubmitActive = true;
@@ -135,12 +135,12 @@ myApp.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate
                     }
                 }
                 var product = {
-                    ean: ('ean' in $scope.createProductValues) ? $scope.createProductValues.ean : null,
-                    name: $scope.createProductValues.name,
-                    description: $scope.createProductValues.description,
-                    url: $scope.createProductValues.url,
+                    ean: ('ean' in $scope.product) ? $scope.product.ean : null,
+                    name: $scope.product.name,
+                    description: $scope.product.description,
+                    url: $scope.product.url,
                     brand: {id:$stateParams.brandId},
-                    category: $scope.createProductValues.category,
+                    category: $scope.product.category,
                     simpleProduct: simple,
                     simpleProductQuantity: a
                 }

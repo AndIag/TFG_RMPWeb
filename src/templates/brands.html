@@ -45,7 +45,7 @@
                 <th>{{"views.brands.products-count" | translate}}</th>
                 <th></th>
               </tr>
-              <tr dir-paginate="brand in data.brands | itemsPerPage: itemsPerPage" total-items="totalBrands" current-page="currentBrandsPage" data-ng-click="showDetails(brand)">
+              <tr dir-paginate="brand in data.brands | itemsPerPage: itemsPerPage" total-items="totalItems" current-page="currentPage" data-ng-click="showDetails(brand)">
                 <td>{{brand.id}}</td>
                 <td><img data-ng-src="{{brand.url}}" width="70px" height="70px"/></td>
                 <td>{{brand.name}}</td>

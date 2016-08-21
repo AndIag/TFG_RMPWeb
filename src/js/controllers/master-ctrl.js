@@ -1,5 +1,5 @@
 myApp.controller('MasterCtrl', ['$scope', '$cookieStore', 'BreadcrumbManager',
-    function MasterCtrl($scope, $cookieStore, BreadcrumbManager) {
+    function ($scope, $cookieStore, BreadcrumbManager) {
         /**
         * Sidebar Toggle & Cookie Control
         */

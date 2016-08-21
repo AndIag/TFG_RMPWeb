@@ -11,21 +11,21 @@
     <rd-widget>
       <rd-widget-header icon="fa-tasks" title="{{'views.index.categories' | translate}}"></rd-widget-header>
       <rd-widget-body class="no-padding" data-ng-init="init()">
-        <div data-ng-show="!isCreateOrUpdateShowing" style="margin-bottom:15px; margin-top:21px;">
+        <div data-ng-show="!isAddFormShowing" style="margin-bottom:15px; margin-top:21px;">
           <button class="add-btn btn pull-left" data-ng-click="showCreate()">
             {{"action.add" | translate}}
           </button>
           <div class="clearfix"></div>
         </div> <!-- End- Add button -->
         <!-- Add form -->
-        <div data-ng-show="isCreateOrUpdateShowing"
+        <div data-ng-show="isAddFormShowing"
           data-ng-include="'resources/templates/add-forms/add-category-form.html'">
         </div><!-- End- Add form -->
         <!-- No categories message -->
-        <div class="text-center" data-ng-show="!data.categories.length">
+        <div class="text-center" data-ng-show="!data.categories.length && !isSearching">
           {{"error.no.categories" | translate}}
         </div> <!-- End- No categories message -->
-        <div class="table-responsive" data-ng-show="data.categories.length">
+        <div class="table-responsive" data-ng-show="data.categories.length || isSearching">
           <div id="search" class="col-lg-12" data-ng-controller="CategoryCtrl">
             <label for="search-input">
               <i class="fa fa-search" aria-hidden="true"></i>

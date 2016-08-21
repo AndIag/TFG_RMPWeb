@@ -31,7 +31,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
             .state('brand-details', {
                 url: '/brands/:brandId',
                 templateUrl: 'resources/templates/brand-details.html',
-                controller: 'BrandCtrl'
+                controller: 'BrandDetailsCtrl'
             })
             .state('products', {
                 url: '/products',
