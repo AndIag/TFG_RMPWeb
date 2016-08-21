@@ -1,0 +1,26 @@
+<form name="form" class="form-inline text-center" style="margin-bottom:15px;" novalidate>
+  <button class="close" data-ng-click="hideCreate()">
+    <span aria-hidden="true">x</span>
+    <span class="sr-only">Close</span>
+  </button>
+  <div class="clearfix"></div>
+  <div class="form-group">
+    <label for="name">{{"name" | translate}}:</label>
+    <input name="name" type="text" data-ng-model="supplier.name" class="input-sm form-control"
+    placeholder="{{'name' | translate}}" required>
+  </div>
+  <div class="form-group">
+    <label for="vat">{{"vat" | translate}}:</label>
+    <input name="vat" type="text" data-ng-model="supplier.vat" class="input-sm form-control"
+    placeholder="{{'vat' | translate}}" required>
+  </div>
+  <div class="form-group">
+    <label for="url">{{"url" | translate}}:</label>
+    <input name="url" type="url" data-ng-model="supplier.url" class="input-sm form-control"
+    placeholder="{{'url' | translate}}">
+  </div>
+  <button type="submit" class="btn" data-ng-click="saveSupplier(form)" data-ng-disabled="!isSubmitActive">
+    {{"action.submit" | translate}}
+  </button>
+  <div class="clearfix"></div>
+</form>

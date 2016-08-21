@@ -91,5 +91,7 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
             }
         };
 
+        //TODO add and remove suppliers from product
+
     }
 ]);
