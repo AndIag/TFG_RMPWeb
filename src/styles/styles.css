@@ -27,6 +27,18 @@ th {
 	margin-right: 50px;
 }
 
+.thumbnail:hover{
+  box-shadow: 0 0 3px rgba(0,0,0,.13),0 3px 6px rgba(0,0,0,.26);
+}
+.thumbnail:active{
+	transform: scale(1.1,1.1);
+	-webkit-transform: scale(1.1,1.1);
+}
+
+.thumb {
+    margin-bottom: 30px;
+}
+
 #sidebar-wrapper {
 	background: #252525;
 }
@@ -78,6 +90,9 @@ ul.sidebar .sidebar-list a {
 	color: #f4f4f4;
 	background-color: #12ba90;
 	border: 0;
+}
+.add-btn{
+  width: 150px;
 }
 .btn:disabled {
 	background-color: #616161;
