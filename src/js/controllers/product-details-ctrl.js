@@ -28,5 +28,68 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
                 });
             }
         };
+
+        function isValidProductForm(form){
+            if(form['url'].$error.url != undefined){
+                Flash.create('info', $translate.instant('error.url'), 5000);
+                return false;
+            }
+            if(form['name'].$error.required){
+                Flash.create('info', $translate.instant('error.required.name'), 5000);
+                return false;
+            }
+            if(form['description'].$error.required){
+                Flash.create('info', $translate.instant('error.required.description'), 5000);
+                return false;
+            }
+            if(form['category'].$error.required){
+                Flash.create('info', $translate.instant('error.required.category'), 5000);
+                return false;
+            }
+            return true;
+        };
+
+        $scope.saveProduct = function(form){
+            if(isValidProductForm(form)){
+                $scope.isSubmitActive = false;
+                var simple = null;
+                var a = null;
+                var price = null;
+                if($scope.product.isPack){
+                    simple = ('simpleProduct' in $scope.product) ? $scope.product.simpleProduct : null;
+                    a = ('amount' in $scope.product) ? $scope.product.amount : null;
+                    if(a == null || simple == null){
+                        Flash.create('danger', $translate.instant('error.simpleProduct'), 3000);
+                        $scope.isSubmitActive = true;
+                        return;
+                    }
+                }else{
+                    price = ('price' in $scope.product) ? $scope.product.price : null;
+                    if(price == null){
+                        Flash.create('danger', $translate.instant('error.price'), 3000);
+                        $scope.isSubmitActive = true;
+                        return;
+                    }
+                }
+                var product = {
+                    ean: ('ean' in $scope.product) ? $scope.product.ean : null,
+                    name: $scope.product.name,
+                    description: $scope.product.description,
+                    url: $scope.product.url,
+                    brand: {id:$stateParams.brandId},
+                    category: $scope.product.category,
+                    simpleProduct: simple,
+                    simpleProductQuantity: a
+                }
+                ProductService.updateProduct(product).success(function(data){
+                    $scope.product = JSON.parse(JSON.stringify(data));
+                }).error(function(data){
+                    Flash.create('danger', $translate.instant('error.creating.product'), 3000);
+                }).finally(function(){
+                    $scope.isSubmitActive = true;
+                });
+            }
+        };
+
     }
 ]);
