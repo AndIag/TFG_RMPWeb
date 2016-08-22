@@ -1,0 +1,22 @@
+<form name="form" class="form-inline text-center" novalidate>
+  <button class="close" data-ng-click="hideCreate()">
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    <span class="sr-only">Close</span>
+  </button>
+  <div class="clearfix"></div>
+  <fieldset>
+    <div class="form-group">
+      <label class="sr-only" for="supplier">{{"supplier" | translate}}:</label>
+      <input name="supplier" type="text" data-ng-model="newProductSupplier.supplier" data-ng-change="searchSuppliers()" class="input-sm form-control"
+      placeholder="{{'supplier' | translate}}" uib-typeahead="supplier as supplier.name for supplier in searchedSuppliers | filter:$viewValue" uib-typeahead-editable="false" required>
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="price">{{"price" | translate}}:</label>
+      <input name="price" type="number" data-ng-model="newProductSupplier.price" class="input-sm form-control"
+      placeholder="{{'price' | translate}}" required>
+    </div>
+    <button type="submit" class="btn" data-ng-click="addSupplier(form)" data-ng-disabled="!isSubmitActive">
+      {{"action.submit" | translate}}
+    </button>
+  </fieldset>
+</form>

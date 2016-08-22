@@ -1,7 +1,7 @@
 myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$translate',
-    'Flash', 'BreadcrumbManager', 'ServerData', 'ProductService',
+    'Flash', 'BreadcrumbManager', 'ServerData', 'ProductService', 'SupplierService',
 
-    function($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, ServerData, ProductService){
+    function($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, ServerData, ProductService, SupplierService){
         $scope.isLoading = false;
         $scope.isCreateShowing = false;
         $scope.isSubmitActive = true;
@@ -13,13 +13,14 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
         $scope.currentPage = 1;
 
         $scope.product = null;
+        $scope.searchedSuppliers = [];
+        $scope.newProductSupplier = {};
 
         $scope.init = function(){
             $scope.isLoading = true;
             if(($scope.product == null) && $stateParams.productId){
                 ProductService.getProductById($stateParams.productId).success(function(data){
                     $scope.product = JSON.parse(JSON.stringify(data));
-                    console.log(data);
                     BreadcrumbManager.changePage($scope.product.name);
                 }).error(function(data){
                     Flash.create('danger', $translate.instant('error.loading.products'), 3000);
@@ -92,6 +93,50 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
         };
 
         //TODO add and remove suppliers from product
+
+        function isValidForm(form){
+            if(form['supplier'].$error.required){
+                Flash.create('info', $translate.instant('error.required.supplier'), 5000);
+                return false;
+            }
+            if(form['price'].$error.required){
+                Flash.create('info', $translate.instant('error.required.price'), 5000);
+                return false;
+            }
+            return true;
+        };
+
+        $scope.addSupplier = function(form){
+            if(isValidForm(form)){
+                SupplierService.addSupplier2Product($stateParams.productId, $scope.newProductSupplier.supplier.id, $scope.newProductSupplier.price).success(function(data){
+                    $scope.product = JSON.parse(JSON.stringify(data));
+                    console.log(data);
+                }).error(function(data){
+                    Flash.create('danger', $translate.instant('error.creating.productsupplier'), 3000);
+                });
+            }
+        };
+
+        //Search
+        $scope.searchSuppliers = function(){
+            SupplierService.searchSuppliers($scope.newProductSupplier.supplier, null, null).success(function(data){
+                var json = JSON.parse(JSON.stringify(data));
+                if(json.items.length > 0){
+                    $scope.searchedSuppliers = json.items;
+                }
+            }).error(function(data){
+                Flash.create('danger', $translate.instant('error.loading.products'), 3000);
+            });
+        };
+
+        /*View Methods*/
+        $scope.showCreate = function(){
+            $scope.isCreateShowing = true;
+        };
+        $scope.hideCreate = function(){
+            $scope.isCreateShowing = false;
+            $scope.newProductSupplier = {};
+        };
 
     }
 ]);

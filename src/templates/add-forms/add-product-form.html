@@ -1,6 +1,6 @@
 <form name="form" class="form-horizontal text-center" data-ng-init="initCategories()" novalidate>
 
-  <button class="close" data-ng-click="hideCreate()">
+  <button class="close" data-ng-show="showProductsClose" data-ng-click="hideCreate()">
     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
     <span class="sr-only">Close</span>
   </button>
@@ -14,7 +14,7 @@
   <div class="form-group">
     <label class="control-label col-xs-3" for="ean">{{"ean" | translate}}:</label>
     <div class="col-xs-6">
-      <input name="ean" type="number" data-ng-model="product.ean" class="input-sm form-control"
+      <input name="ean" type="text" data-ng-model="product.ean" class="input-sm form-control"
       placeholder="{{'ean' | translate}}" required/>
     </div>
   </div>

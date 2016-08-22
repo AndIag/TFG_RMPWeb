@@ -7,10 +7,9 @@ myApp.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate
         $scope.isLoading = false;
         $scope.isCreateShowing = false;
         $scope.isSubmitActive = true;
-        $scope.showPageByPage = true;
         $scope.showProductsLegend = true;
+        $scope.showProductsClose = true;
         $scope.searchedProducts = [];
-        $scope.showProductClose = false;
         //Page-By-Page things
         $scope.totalProducts = 0;
         $scope.itemsPerPage = 10;
@@ -64,8 +63,8 @@ myApp.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate
         $scope.searchProducts = function(){
             var brandId = $stateParams.brandId;
             var categoryId = 0;
-            if($scope.searchProducts.category != null){
-                categoryId = $scope.searchProducts.category.id;
+            if($scope.product.category != null){
+                categoryId = $scope.product.category.id;
             }
             ProductService.searchProducts($scope.product.simpleProduct, brandId, categoryId, true, null, null).success(function(data){
                 var json = JSON.parse(JSON.stringify(data));
@@ -79,6 +78,7 @@ myApp.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate
 
         $scope.searchProductsByName = function(){
             if($scope.searchKeywords!=null && $scope.searchKeywords.length > 0){
+                $scope.data.showPageByPage = false;
                 ProductService.searchProducts($scope.searchKeywords, null, null, null, null, null).success(function(data){
                     var json = JSON.parse(JSON.stringify(data));
                     if(json.items.length > 0){
@@ -87,10 +87,11 @@ myApp.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate
                         Flash.create('info', $translate.instant('error.no-more-results'), 1000);
                     }
                 }).error(function(data){
-                    Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
+                    Flash.create('danger', $translate.instant('error.loading.products'), 3000);
                 });
             }else{
                 $scope.init();
+                $scope.data.showPageByPage = true;
             }
         };
 

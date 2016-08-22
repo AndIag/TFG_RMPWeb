@@ -8,23 +8,23 @@
 
   <fieldset>
     <!-- Form Name -->
-  <legend data-ng-show="showBrandLegend">Add brand</legend>
+    <legend data-ng-show="showBrandLegend">Add brand</legend>
 
-  <div class="form-group">
-    <label class="sr-only" for="name">{{"name" | translate}}:</label>
-    <input name="name" type="text" data-ng-model="brand.name" class="input-sm form-control"
-    placeholder="{{'name' | translate}}" required>
-  </div>
+    <div class="form-group">
+      <label class="sr-only" for="name">{{"name" | translate}}:</label>
+      <input name="name" type="text" data-ng-model="brand.name" class="input-sm form-control"
+      placeholder="{{'name' | translate}}" required>
+    </div>
 
-  <div class="form-group">
-    <label class="sr-only" for="url">{{"url" | translate}}:</label>
-    <input name="url" type="url" data-ng-model="brand.url" class="input-sm form-control"
-    placeholder="{{'url' | translate}}">
-  </div>
+    <div class="form-group">
+      <label class="sr-only" for="url">{{"url" | translate}}:</label>
+      <input name="url" type="url" data-ng-model="brand.url" class="input-sm form-control"
+      placeholder="{{'url' | translate}}">
+    </div>
 
-  <button type="submit" class="btn" data-ng-click="saveBrand(form)" data-ng-disabled="!isSubmitActive">
-    {{"action.submit" | translate}}
-  </button>
+    <button type="submit" class="btn" data-ng-click="saveBrand(form)" data-ng-disabled="!isSubmitActive">
+      {{"action.submit" | translate}}
+    </button>
 
   </fieldset>
 

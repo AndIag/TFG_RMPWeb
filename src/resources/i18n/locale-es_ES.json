@@ -61,6 +61,8 @@
     "error.required.name": "Valor para campo 'Nombre' necesario",
     "error.required.description": "Valor para campo 'Descripción' necesario",
     "error.required.category": "Valor para campo 'Categoría' necesario",
+    "error.required.supplier": "Valor para campo 'Distribuidor' necesario",
+    "error.required.price": "Valor para campo 'Precio' necesario",
     "message.brand.removed": "Marca eliminada!",
     "message.brand.updated": "Marca actualizada!",
     "message.brand.added": "Marca creada!",

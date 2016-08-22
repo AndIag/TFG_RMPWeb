@@ -104,7 +104,56 @@ myApp.service('SupplierService', ['$http', '$q',
                 };
 
                 return promise;
+            }, searchSuppliers: function(keywords, pageNumber, count){
+                var deferred = $q.defer();
+                var promise = deferred.promise;
+
+                $http({
+                    method: 'GET',
+                    url: myApp.endpoint + '/suppliers/search?keywords=' + keywords
+                }).then(function successCallback(response) {
+                    deferred.resolve(response.data); //Send response data (token) to controller
+                  }, function errorCallback(response) {
+                    deferred.reject(response);
+                  });
+
+                promise.success = function(fn) {
+                    promise.then(fn);
+                    return promise;
+                };
+                promise.error = function(fn) {
+                    promise.then(null, fn);
+                    return promise;
+                };
+
+                return promise;
+            }, addSupplier2Product: function(productId, supplierId, price){
+                var deferred = $q.defer();
+                var promise = deferred.promise;
+
+                console.log(productId);
+                console.log(supplierId);
+                console.log(price);
+
+                $http({
+                    method: 'POST',
+                    url: myApp.endpoint + '/suppliers/' + supplierId + '/products?productId=' + productId + '&price=' + price
+                }).then(function successCallback(response) {
+                    deferred.resolve(response.data); //Send response data (token) to controller
+                  }, function errorCallback(response) {
+                    deferred.reject(response);
+                  });
+
+                promise.success = function(fn) {
+                    promise.then(fn);
+                    return promise;
+                };
+                promise.error = function(fn) {
+                    promise.then(null, fn);
+                    return promise;
+                };
+
+                return promise;
             }
-        };
     }
 ]);

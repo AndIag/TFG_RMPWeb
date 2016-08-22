@@ -61,6 +61,8 @@
     "error.required.name": "Required 'Name' field",
     "error.required.description": "Required 'Description' field",
     "error.required.category": "Required 'Category' field",
+    "error.required.supplier": "Required 'Supplier' field",
+    "error.required.price": "Required 'Price' field",
     "message.brand.removed": "Brand removed!",
     "message.brand.updated": "Brand updated!",
     "message.brand.added": "Brand added!",

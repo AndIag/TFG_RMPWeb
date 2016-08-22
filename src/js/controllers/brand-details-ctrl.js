@@ -1,13 +1,13 @@
 myApp.controller('BrandDetailsCtrl', ['$scope', '$state', '$stateParams', '$translate',
-    'Flash', 'BreadcrumbManager', 'ServerData', 'BrandService', 'ProductService',
+    'Flash', 'BreadcrumbManager', 'ServerData', 'BrandService', 'ProductService', 'CategoryService',
 
-    function($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, ServerData, BrandService, ProductService){
+    function($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, ServerData, BrandService, ProductService, CategoryService){
         $scope.isLoading = false;
-        $scope.showClose = false;
+        $scope.showProductsClose = true;
         $scope.showProductsLegend = true;
 
         $scope.brand;
-        $scope.product;
+        $scope.product = {};
 
         $scope.data = ServerData.data;
         $scope.totalItems = 0;
@@ -149,27 +149,19 @@ myApp.controller('BrandDetailsCtrl', ['$scope', '$state', '$stateParams', '$tran
             }
         };
 
-        //Search
-        $scope.searchProductsByName = function(){
-            console.log($scope.searchKeywords);
-            if($scope.searchKeywords.length == 0){
-                $scope.initBrandProducts();
-            } else if($scope.searchKeywords.length > 0){
-                searchProductsByNamePage(1);
+        $scope.searchProducts = function(){
+            var brandId = $stateParams.brandId;
+            var categoryId = 0;
+            if($scope.product.category != null){
+                categoryId = $scope.product.category.id;
             }
-        };
-
-        function searchProductsByNamePage(pageNumber){
-            $scope.isLoading = true;
-            BrandService.getBrandProductsByName($stateParams.brandId, $scope.searchKeywords, pageNumber-1, $scope.itemsPerPage).success(function(data){
+            ProductService.searchProducts($scope.product.simpleProduct, brandId, categoryId, true, null, null).success(function(data){
                 var json = JSON.parse(JSON.stringify(data));
                 if(json.items.length > 0){
-                    ServerData.setProducts(json.items);
+                    $scope.searchedProducts = json.items;
                 }
             }).error(function(data){
-                Flash.create('danger', $translate.instant('error.loading.brands'), 3000);
-            }).finally(function(){
-                $scope.isLoading = false;
+                Flash.create('danger', $translate.instant('error.loading.products'), 3000);
             });
         };
 

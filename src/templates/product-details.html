@@ -20,8 +20,10 @@
       </rd-widget-body><!-- End- Modify form -->
 
       <!-- Add form -->
-      <rd-widget-body>
-        <!-- TODO add suppliers form -->
+      <rd-widget-body data-ng-show="isCreateShowing">
+        <div
+          data-ng-include="'resources/templates/add-forms/add-supplier2product-form.html'">
+        </div>
       </rd-widget-body><!-- End- Add form -->
 
       <rd-widget-body class="no-padding" data-ng-init="init()">
