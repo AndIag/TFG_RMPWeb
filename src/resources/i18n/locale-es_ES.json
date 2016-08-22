@@ -12,6 +12,8 @@
     "price": "Precio",
     "amount": "Cantidad",
     "simpleProduct": "Producto Simple",
+    "product": "Producto",
+    "supplier": "Distribuidores",
     "description": "Descripción",
     "search": "Buscar...",
     "placeholder.description": "Breve descripción para el nuevo producto",

@@ -8,6 +8,7 @@ myApp.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate
         $scope.isCreateShowing = false;
         $scope.isSubmitActive = true;
         $scope.showPageByPage = true;
+        $scope.showProductsLegend = true;
         $scope.searchedProducts = [];
         $scope.showProductClose = false;
         //Page-By-Page things

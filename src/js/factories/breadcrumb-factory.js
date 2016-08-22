@@ -10,7 +10,7 @@ myApp.factory('BreadcrumbManager', [
             changePage: function(p) {
                 this.data.page = p;
                 this.data.uri = staticUri + p;
-                this.data.shortPage = (p.length > 16) ? p.substring(0,13) + '...' : p;
+                this.data.shortPage = (p.length > 15) ? p.substring(0,12) + '...' : p;
             }
         };
     }

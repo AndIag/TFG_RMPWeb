@@ -7,6 +7,7 @@ myApp.controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate',
         $scope.showClose = true;
         $scope.isSubmitActive = true;
         $scope.isCreateShowing = false;
+        $scope.showBrandLegend = true;
         //Page-By-Page things
         $scope.totalItems = 0;
         $scope.itemsPerPage = 10;

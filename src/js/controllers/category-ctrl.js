@@ -6,6 +6,7 @@ myApp.controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translat
         $scope.isLoading = false; //Know if we need to show load screen
         $scope.isAddFormShowing = false;
         $scope.isSubmitActive = true;
+        $scope.legendMessage = null;
 
         $scope.data = ServerData.data;
         //Create category values
@@ -114,6 +115,7 @@ myApp.controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translat
         /*View Methods*/
         $scope.showCreate = function(){
             $scope.isAddFormShowing = true;
+            $scope.legendMessage = $translate.instant('action.add') + ' ' + $translate.instant('category');
         };
         $scope.hideCreate = function(){
             $scope.isAddFormShowing = false;
@@ -122,6 +124,7 @@ myApp.controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translat
         $scope.showDetails = function(category){
             $scope.category = category;
             $scope.isAddFormShowing = true;
+            $scope.legendMessage = $translate.instant('action.modify') + ' ' + $translate.instant('category');
         };
     }
 ]);

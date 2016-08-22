@@ -12,6 +12,8 @@
     "price": "Price",
     "amount": "Amount",
     "simpleProduct": "Simple Product",
+    "product": "Product",
+    "supplier": "Suppliers",
     "description": "Description",
     "search": "Search...",
     "placeholder.description": "Insert a short description for the new product",

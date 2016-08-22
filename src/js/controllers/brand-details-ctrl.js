@@ -4,6 +4,7 @@ myApp.controller('BrandDetailsCtrl', ['$scope', '$state', '$stateParams', '$tran
     function($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, ServerData, BrandService, ProductService){
         $scope.isLoading = false;
         $scope.showClose = false;
+        $scope.showProductsLegend = true;
 
         $scope.brand;
         $scope.product;
