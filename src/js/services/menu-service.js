@@ -1,13 +1,13 @@
-myApp.service('SupplierService', ['$http', '$q',
+myApp.service('MenuService', ['$http', '$q',
     function ($http, $q) {
         return{
-            getSuppliers: function(pageNumber, count){
+            getMenus: function(pageNumber, count){
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 
                 $http({
                     method: 'GET',
-                    url: myApp.endpoint + '/suppliers?pageNumber='+pageNumber+'&count='+count
+                    url: myApp.endpoint + '/menus?pageNumber='+pageNumber+'&count='+count
                 }).then(function successCallback(response) {
                     deferred.resolve(response.data); //Send response data (token) to controller
                   }, function errorCallback(response) {
@@ -24,13 +24,13 @@ myApp.service('SupplierService', ['$http', '$q',
                 };
 
                 return promise;
-            }, removeSupplier: function(supplierId){
+            }, removeMenu: function(menuId){
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 
                 $http({
                     method: 'DELETE',
-                    url: myApp.endpoint + '/suppliers/' + supplierId
+                    url: myApp.endpoint + '/menus/' + menuId
                 }).then(function successCallback(response) {
                     deferred.resolve(response.data); //Send response data (token) to controller
                   }, function errorCallback(response) {
@@ -47,17 +47,19 @@ myApp.service('SupplierService', ['$http', '$q',
                 };
 
                 return promise;
-            }, createSupplier: function(n, u, v){
+            }, createMenu: function(n, s, m, d, de){
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 
                 $http({
                     method: 'POST',
-                    url: myApp.endpoint + '/suppliers',
+                    url: myApp.endpoint + '/menus',
                     data: {
                         name: n,
-                        url: u,
-                        vat: v
+                        starterPrice: s,
+                        drinkPrice: d,
+                        mainPrice: m,
+                        dessertPrice: de
                     }
                 }).then(function successCallback(response) {
                     deferred.resolve(response.data); //Send response data (token) to controller
@@ -75,18 +77,20 @@ myApp.service('SupplierService', ['$http', '$q',
                 };
 
                 return promise;
-            }, updateSupplier: function(cid, n, u, v){
+            }, updateMenu: function(cid, n, s, m, d, de){
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 
                 $http({
                     method: 'PUT',
-                    url: myApp.endpoint + '/suppliers/' + cid,
+                    url: myApp.endpoint + '/menus/' + cid,
                     data: {
                         id: cid,
                         name: n,
-                        url: u,
-                        vat: v
+                        starterPrice: s,
+                        drinkPrice: d,
+                        mainPrice: m,
+                        dessertPrice: de
                     }
                 }).then(function successCallback(response) {
                     deferred.resolve(response.data); //Send response data (token) to controller
@@ -104,40 +108,13 @@ myApp.service('SupplierService', ['$http', '$q',
                 };
 
                 return promise;
-            }, searchSuppliers: function(keywords, pageNumber, count){
+            }, searchMenus: function(keywords, pageNumber, count){
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 
                 $http({
                     method: 'GET',
-                    url: myApp.endpoint + '/suppliers/search?keywords=' + keywords
-                }).then(function successCallback(response) {
-                    deferred.resolve(response.data); //Send response data (token) to controller
-                  }, function errorCallback(response) {
-                    deferred.reject(response);
-                  });
-
-                promise.success = function(fn) {
-                    promise.then(fn);
-                    return promise;
-                };
-                promise.error = function(fn) {
-                    promise.then(null, fn);
-                    return promise;
-                };
-
-                return promise;
-            }, addSupplier2Product: function(productId, supplierId, price){
-                var deferred = $q.defer();
-                var promise = deferred.promise;
-
-                console.log(productId);
-                console.log(supplierId);
-                console.log(price);
-
-                $http({
-                    method: 'POST',
-                    url: myApp.endpoint + '/suppliers/' + supplierId + '/products?productId=' + productId + '&price=' + price
+                    url: myApp.endpoint + '/menus/search?keywords=' + keywords
                 }).then(function successCallback(response) {
                     deferred.resolve(response.data); //Send response data (token) to controller
                   }, function errorCallback(response) {

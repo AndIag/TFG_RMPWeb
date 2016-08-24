@@ -48,5 +48,10 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
                 templateUrl: 'resources/templates/suppliers.html',
                 controller: 'SupplierCtrl'
             })
+            .state('menus', {
+                url: '/menus',
+                templateUrl: 'resources/templates/menus.html',
+                controller: 'MenusCtrl'
+            })
     }
 ]);
