@@ -39,7 +39,7 @@
               </div>
               <div class="col-lg-2 col-md-3 col-xs-6 thumb" data-ng-repeat="category in data.categories | orderBy: 'id'">
                   <div class="thumbnail" data-ng-click="showDetails(category)">
-                      <img class="img-responsive" data-ng-src="{{category.url}}" alt=""/>
+                      <img class="img-responsive" width="150px" height="150px" data-ng-src="{{category.url}}" alt=""/>
                       <div class="caption">
                         <h4>{{category.name}}</h4>
                         <p>{{"views.index.products" | translate}}
