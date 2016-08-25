@@ -12,7 +12,7 @@ myApp.controller('SupplierCtrl', ['$scope', '$state', '$stateParams', '$translat
         $scope.currentPage = 1;
 
         $scope.data = ServerData.data;
-        $scope.supplier = null;
+        $scope.supplier = {};
 
         $scope.init = function(){
             BreadcrumbManager.changePage($translate.instant('views.index.suppliers'));
@@ -32,10 +32,22 @@ myApp.controller('SupplierCtrl', ['$scope', '$state', '$stateParams', '$translat
                 $scope.totalItems = json.count;
                 $scope.currentPage = pageNumber;
             }).error(function(data){
-                Flash.create('danger', $translate.instant('error.loading.brands'), 3000);
+                Flash.create('danger', $translate.instant('error.loading.suppliers'), 3000);
             }).finally(function(){
                 $scope.isLoading = false;
             });
+        };
+
+        function isValidForm(form){
+            if(form['name'].$error.required){
+                Flash.create('info', $translate.instant('error.required.name'), 5000);
+                return false;
+            }
+            if(form['vat'].$error.required){
+                Flash.create('info', $translate.instant('error.required.vat'), 5000);
+                return false;
+            }
+            return true;
         };
 
         //CRUD methods

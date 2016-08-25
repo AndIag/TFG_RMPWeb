@@ -5,6 +5,7 @@
     "name": "Nombre",
     "category": "Categoría",
     "brand": "Marca",
+    "menu": "Menu",
     "url": "Pagina Web",
     "vat": "CIF/NIF",
     "ean": "EAN",
@@ -15,6 +16,10 @@
     "product": "Producto",
     "supplier": "Distribuidores",
     "description": "Descripción",
+    "menu.starterPrice" :"Entrante",
+    "menu.drinkPrice" :"Bebida",
+    "menu.mainPrice" :"Principal",
+    "menu.dessertPrice" :"Postre",
     "search": "Buscar...",
     "placeholder.description": "Breve descripción para el nuevo producto",
     "placeholder.search.name": "Nombre...",
@@ -33,6 +38,7 @@
     "views.index.about":"Acerca de",
     "views.index.support":"Soporte",
     "views.index.navigation.upper":"NAVEGACIÓN",
+    "views.index.configuration.upper":"CONFIGURACIÓN",
     "views.index.notifications":"Notificaciones",
     "views.dashboard.tables": "Mesas",
     "views.dashboard.articles": "Articulos",
@@ -40,10 +46,12 @@
     "views.dashboard.result": "Resultado",
     "views.brands.products-count": "Número de Productos",
     "views.products.brand": "Marca",
-    "error.url": "URL no valida",
+
+
     "error.no-more-results":"No hay mas resultados",
-    "error.simpleProduct": "Información necesaria de producto simple",
-    "error.rice": "Información sobre precio necesaria",
+
+    "error.url": "URL no valida",
+
     "error.removing.brand": "Error eliminando marca!",
     "error.removing.product": "Error eliminando producto!",
     "error.updating.brand": "Error actualizando marca!",
@@ -51,23 +59,38 @@
     "error.creating.brand": "Error creando marca!",
     "error.creating.category": "Error creando categoría!",
     "error.creating.category": "Error creando producto!",
+
     "error.no.brands": "No hay marcas que mostrar!",
     "error.no.products": "No hay productos que mostrar!",
     "error.no.categories": "No hay categorías que mostrar!",
     "error.no.categories": "No hay distribuidores que mostrar!",
+    "error.no.menus": "No hay menus que mostrar!",
+
     "error.loading.brands": "Error cargando marcas!",
     "error.loading.products": "Error cargando productos!",
     "error.loading.categories": "Error cargando categorías!",
+
     "error.required.name": "Valor para campo 'Nombre' necesario",
     "error.required.description": "Valor para campo 'Descripción' necesario",
     "error.required.category": "Valor para campo 'Categoría' necesario",
     "error.required.supplier": "Valor para campo 'Distribuidor' necesario",
     "error.required.price": "Valor para campo 'Precio' necesario",
+    "error.required.simpleProduct": "Información necesaria de producto simple",
+
+
     "message.brand.removed": "Marca eliminada!",
     "message.brand.updated": "Marca actualizada!",
     "message.brand.added": "Marca creada!",
     "message.category.added": "Categoría creada!",
+    "message.category.updated": "Categoría actualizada!",
     "message.category.removed": "Categoría eliminada!",
+    "message.product.added": "Producto añadido!",
+    "message.product.updated": "Producto actualizado!",
     "message.product.removed": "Producto eliminado!",
-    "message.category.removed": "Categoría eliminada!"
+    "message.menu.added": "Menu añadido!",
+    "message.menu.updated": "Menu actualizado!",
+    "message.menu.removed": "Menu eliminado!",
+    "message.supplier.added": "Distribuidor añadido!",
+    "message.supplier.updated": "Distribuidor actualizado!",
+    "message.supplier.removed": "Distribuidor eliminado!"
 }

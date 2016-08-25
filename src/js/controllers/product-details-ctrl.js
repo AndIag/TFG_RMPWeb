@@ -92,8 +92,6 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
             }
         };
 
-        //TODO add and remove suppliers from product
-
         function isValidForm(form){
             if(form['supplier'].$error.required){
                 Flash.create('info', $translate.instant('error.required.supplier'), 5000);
@@ -109,8 +107,7 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
         $scope.addSupplier = function(form){
             if(isValidForm(form)){
                 SupplierService.addSupplier2Product($stateParams.productId, $scope.newProductSupplier.supplier.id, $scope.newProductSupplier.price).success(function(data){
-                    $scope.product = JSON.parse(JSON.stringify(data));
-                    console.log(data);
+                    $scope.init();
                 }).error(function(data){
                     Flash.create('danger', $translate.instant('error.creating.productsupplier'), 3000);
                 });

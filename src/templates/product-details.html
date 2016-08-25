@@ -55,18 +55,12 @@
                 <th>{{"name" | translate}}</th>
                 <th>{{"url" | translate}}</th>
                 <th>{{"price" | translate}}</th>
-                <th></th>
               </tr>
               <tr dir-paginate="supplier in product.suppliers | itemsPerPage: itemsPerPage" total-items="totalItems" current-page="currentPage" data-ng-click="showDetails(supplier)">
                 <td>{{supplier.id}}</td>
                 <td>{{supplier.name}}</td>
                 <td>{{supplier.website}}</td>
                 <td>{{supplier.price | currency:currencySymbol}}</td>
-                <td>
-                  <button class="btn pull-right" data-ng-disabled="supplier.disabled" data-ng-click="removeSupplier(supplier, $index); $event.stopPropagation();">
-                    {{"action.remove" | translate}}
-                  </button>
-                </td>
               </tr>
             </tbody>
           </table>

@@ -5,6 +5,7 @@
     "name": "Name",
     "category": "Category",
     "brand": "Brand",
+    "menu": "Menu",
     "url": "Website",
     "vat": "VAT",
     "ean": "EAN",
@@ -15,6 +16,10 @@
     "product": "Product",
     "supplier": "Suppliers",
     "description": "Description",
+    "menu.starterPrice" :"Starter",
+    "menu.drinkPrice" :"Drink",
+    "menu.mainPrice" :"Main",
+    "menu.dessertPrice" :"Dessert",
     "search": "Search...",
     "placeholder.description": "Insert a short description for the new product",
     "placeholder.search.name": "Name...",
@@ -33,6 +38,7 @@
     "views.index.about":"About",
     "views.index.support":"Support",
     "views.index.navigation.upper":"NAVIGATION",
+    "views.index.configuration.upper":"CONFIGURATION",
     "views.index.notifications":"Notifications",
     "views.dashboard.tables": "Tables",
     "views.dashboard.articles": "Articles",
@@ -40,10 +46,11 @@
     "views.dashboard.result": "Result",
     "views.brands.products-count": "Products Count",
     "views.products.brand": "Brand",
-    "error.url": "Invalid URL",
+
     "error.no-more-results":"No more results",
-    "error.simpleProduct": "Simple Product data neccessary",
-    "error.rice": "Price data neccessary",
+
+    "error.url": "Invalid URL",
+
     "error.removing.brand": "Failed removing brand!",
     "error.removing.product": "Failed removing product!",
     "error.updating.brand": "Failed updating brand!",
@@ -51,23 +58,38 @@
     "error.creating.brand": "Failed creating brand!",
     "error.creating.category": "Failed creating category!",
     "error.creating.product": "Failed creating product!",
+
     "error.no.brands": "No brands to show!",
     "error.no.products": "No products to show!",
     "error.no.categories": "No categories to show!",
     "error.no.suppliers": "No suppliers to show!",
+    "error.no.menus": "No menus to show!",
+
     "error.loading.brands": "Failed loading brands!",
     "error.loading.products": "Failed loading products!",
     "error.loading.categories": "Failed loading categories!",
+
     "error.required.name": "Required 'Name' field",
     "error.required.description": "Required 'Description' field",
     "error.required.category": "Required 'Category' field",
     "error.required.supplier": "Required 'Supplier' field",
     "error.required.price": "Required 'Price' field",
+    "error.required.simpleProduct": "Simple Product data neccessary",
+
+
     "message.brand.removed": "Brand removed!",
     "message.brand.updated": "Brand updated!",
     "message.brand.added": "Brand added!",
     "message.category.added": "Category added!",
+    "message.category.updated": "Category updated!",
     "message.category.removed": "Category removed!",
+    "message.product.added": "Product added!",
+    "message.product.updated": "Product updated!",
     "message.product.removed": "Product removed!",
-    "message.category.removed": "Category removed!"
+    "message.menu.added": "Menu added!",
+    "message.menu.updated": "Menu updated!",
+    "message.menu.removed": "Menu removed!",
+    "message.supplier.added": "Supplier added!",
+    "message.supplier.updated": "Supplier updated!",
+    "message.supplier.removed": "Supplier removed!"
 }
