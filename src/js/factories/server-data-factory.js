@@ -2,6 +2,7 @@ myApp.factory('ServerData', [
     function ServerData() {
         return {
             data: {
+                alerts:[],
                 categories: [],
                 brands:[],
                 products:[],
@@ -38,6 +39,8 @@ myApp.factory('ServerData', [
                 this.data.menus.splice(index, 1);
             }, addMenu: function(c){
                 this.data.menus.push(c);
+            }, setAlerts: function(data){
+                this.data.alerts = data;
             }
         };
     }
