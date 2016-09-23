@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'Font'; /* give your font a name to reference it by later on! */
+    src: url(http://themes.googleusercontent.com/static/fonts/snowburstone/v1/zSQzKOPukXRux2oTqfYJjIkaQb-UsZVONjobs91YQtw.woff);
+    /* use src to point to the location of your custom font could be from your local server folder (like ./fonts/) or a remote location. */
+}
+
 /* Sidebar Colors */
 a {
 	color: #032730;
@@ -26,7 +32,9 @@ th {
 .table>tbody>tr>th>button {
 	margin-right: 50px;
 }
-
+.widget:hover{
+  box-shadow: 0 0 3px rgba(0,0,0,.13),0 3px 6px rgba(0,0,0,.26);
+}
 .thumbnail:hover{
   box-shadow: 0 0 3px rgba(0,0,0,.13),0 3px 6px rgba(0,0,0,.26);
 }
@@ -75,6 +83,9 @@ ul.sidebar .sidebar-list a {
 .pagination>li>a,
 .pagination>li>span{
 	color: #032730;
+}
+li.sidebar-list {
+	font-family: 'Suez One', serif;
 }
 
 .widget .widget-body {

@@ -41,7 +41,7 @@
     "views.index.configuration.upper":"CONFIGURATION",
     "views.index.notifications":"Notifications",
     "views.dashboard.tables": "Tables",
-    "views.dashboard.articles": "Articles",
+    "views.dashboard.articles": "Products",
     "views.dashboard.workers": "Workers",
     "views.dashboard.result": "Result",
     "views.brands.products-count": "Products Count",

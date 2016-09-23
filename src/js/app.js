@@ -11,7 +11,7 @@ var myApp = angular.module('RestMaPla', [   'ui.bootstrap',
                                 'tmh.dynamicLocale'// angular-dynamic-locale
                             ])
 
-myApp.endpoint = 'http://localhost:9090/restmapla';
+myApp.endpoint = 'http://52.210.10.240/restmapla';
 // myApp.endpoint = 'http://52.210.10.240/restmapla';
 
 
@@ -20,5 +20,5 @@ myApp.constant('LOCALES', {
         'en_GB': 'English',
         'es_ES': 'Español'
     },
-    'preferredLocale': 'en_GB'
+    'preferredLocale': 'es_ES'
 });
