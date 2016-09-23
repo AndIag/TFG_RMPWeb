@@ -16,7 +16,8 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
         $stateProvider
             .state('index', {
                 url: '/',
-                templateUrl: 'resources/templates/dashboard.html'
+                templateUrl: 'resources/templates/dashboard.html',
+                controller: 'DashboardCtrl'
             })
             .state('brands', {
                 url: '/brands',
