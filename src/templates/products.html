@@ -9,7 +9,9 @@
   <div class="col-lg-12" data-ng-show="!isLoading">
     <rd-widget>
       <rd-widget-header icon="fa-tasks" title="{{'views.index.products' | translate}}">
-        <dir-pagination-controls data-ng-show="data.products.length && data.showPageByPage" on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
+        <dir-pagination-controls data-ng-show="data.products.length && data.showPageByPage"
+                                 on-page-change="pageChanged(newPageNumber)"
+                                 class="pull-right"></dir-pagination-controls>
       </rd-widget-header>
       <rd-widget-body class="no-padding" data-ng-init="init()">
         <div data-ng-show="!isCreateShowing" style="margin-bottom:15px; margin-top:21px;">
@@ -20,7 +22,7 @@
         </div> <!-- End- Add button -->
         <rd-widget-body><!-- Add form -->
           <div data-ng-show="isCreateShowing"
-            data-ng-include="'resources/templates/add-forms/add-product-form.html'">
+               data-ng-include="'resources/templates/add-forms/add-product-form.html'">
           </div>
         </rd-widget-body><!-- End- Add form -->
         <!-- No products message -->
@@ -32,40 +34,45 @@
           <div id="search" class="col-lg-12" data-ng-controller="ProductCtrl">
             <label for="search-input">
               <i class="fa fa-search" aria-hidden="true"></i>
-              <span class="sr-only">{{"search | translate"}}</span>
+              <span class="sr-only">{{"action.search | translate"}}</span>
             </label>
-            <input id="search-input" class="form-control input-lg" placeholder="{{'search' | translate}}" tabindex="1" data-ng-model="searchKeywords" data-ng-change="searchProductsByName()">
+            <input id="search-input" class="form-control input-lg" placeholder="{{'action.search' | translate}}"
+                   tabindex="1" data-ng-model="searchKeywords" data-ng-change="searchProductsByName()">
           </div>
           <table class="table" data-ng-show="data.products.length">
             <tbody>
-              <tr>
-                <th>{{"id" | translate}}</th>
-                <th></th>
-                <th>{{"name" | translate}}</th>
-                <th>{{"category" | translate}}</th>
-                <th>{{"views.products.brand" | translate}}</th>
-                <th>{{"isPack" | translate}}</th>
-                <th></th>
-              </tr>
-              <tr dir-paginate="product in data.products | itemsPerPage: itemsPerPage" total-items="totalProducts" current-page="currentProductsPage" data-ng-click="showDetails(product)">
-                <td>{{product.id}}</td>
-                <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
-                <td>{{product.name}}</td>
-                <td>{{product.category.name}}</td>
-                <td>{{product.brand.name}}</td>
-                <td>{{isPack(product)}}</td>
-                <td>
-                  <button class="btn pull-right" data-ng-disabled="product.disabled" data-ng-click="removeProduct(product, $index); $event.stopPropagation();">
-                    {{"action.remove" | translate}}
-                  </button>
-                </td>
-              </tr>
+            <tr>
+              <th>{{"id" | translate}}</th>
+              <th></th>
+              <th>{{"name" | translate}}</th>
+              <th>{{"category" | translate}}</th>
+              <th>{{"views.products.brand" | translate}}</th>
+              <th>{{"isPack" | translate}}</th>
+              <th></th>
+            </tr>
+            <tr dir-paginate="product in data.products | itemsPerPage: itemsPerPage" total-items="totalProducts"
+                current-page="currentProductsPage" data-ng-click="showDetails(product)">
+              <td>{{product.id}}</td>
+              <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
+              <td>{{product.name}}</td>
+              <td>{{product.category.name}}</td>
+              <td>{{product.brand.name}}</td>
+              <td>{{isPack(product)}}</td>
+              <td>
+                <button class="btn pull-right" data-ng-disabled="product.disabled"
+                        data-ng-click="removeProduct(product, $index); $event.stopPropagation();">
+                  {{"action.remove" | translate}}
+                </button>
+              </td>
+            </tr>
             </tbody>
           </table>
         </div><!-- End- Products table -->
       </rd-widget-body>
       <rd-widget-footer data-ng-show="data.products.length">
-        <dir-pagination-controls data-ng-show="data.products.length && data.showPageByPage" on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
+        <dir-pagination-controls data-ng-show="data.products.length && data.showPageByPage"
+                                 on-page-change="pageChanged(newPageNumber)"
+                                 class="pull-right"></dir-pagination-controls>
         <div class="clearfix"></div>
       </rd-widget-footer>
     </rd-widget>

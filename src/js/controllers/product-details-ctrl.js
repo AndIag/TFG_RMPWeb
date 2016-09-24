@@ -1,7 +1,7 @@
 myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$translate',
-    'Flash', 'BreadcrumbManager', 'ServerData', 'ProductService', 'SupplierService',
+    'Flash', 'BreadcrumbManager', 'ServerData', 'CrudService', 'SupplierService',
 
-    function($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, ServerData, ProductService, SupplierService){
+    function ($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, ServerData, CrudService, SupplierService) {
         $scope.isLoading = false;
         $scope.isCreateShowing = false;
         $scope.isSubmitActive = true;
@@ -16,57 +16,57 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
         $scope.searchedSuppliers = [];
         $scope.newProductSupplier = {};
 
-        $scope.init = function(){
+        $scope.init = function () {
             $scope.isLoading = true;
-            if(($scope.product == null) && $stateParams.productId){
-                ProductService.getProductById($stateParams.productId).success(function(data){
+            if (($scope.product == null) && $stateParams.productId) {
+                CrudService.findItemById(myApp.PRODUCTS_ENDPOINT, $stateParams.productId).success(function (data) {
                     $scope.product = JSON.parse(JSON.stringify(data));
                     BreadcrumbManager.changePage($scope.product.name);
-                }).error(function(data){
+                }).error(function (data) {
                     Flash.create('danger', $translate.instant('error.loading.products'), 3000);
-                }).finally(function(){
+                }).finally(function () {
                     $scope.isLoading = false;
                 });
             }
         };
 
-        function isValidProductForm(form){
-            if(form['url'].$error.url != undefined){
+        function isValidProductForm(form) {
+            if (form['url'].$error.url != undefined) {
                 Flash.create('info', $translate.instant('error.url'), 5000);
                 return false;
             }
-            if(form['name'].$error.required){
+            if (form['name'].$error.required) {
                 Flash.create('info', $translate.instant('error.required.name'), 5000);
                 return false;
             }
-            if(form['description'].$error.required){
+            if (form['description'].$error.required) {
                 Flash.create('info', $translate.instant('error.required.description'), 5000);
                 return false;
             }
-            if(form['category'].$error.required){
+            if (form['category'].$error.required) {
                 Flash.create('info', $translate.instant('error.required.category'), 5000);
                 return false;
             }
             return true;
         };
 
-        $scope.saveProduct = function(form){
-            if(isValidProductForm(form)){
+        $scope.saveProduct = function (form) {
+            if (isValidProductForm(form)) {
                 $scope.isSubmitActive = false;
                 var simple = null;
                 var a = null;
                 var price = null;
-                if($scope.product.isPack){
+                if ($scope.product.isPack) {
                     simple = ('simpleProduct' in $scope.product) ? $scope.product.simpleProduct : null;
                     a = ('amount' in $scope.product) ? $scope.product.amount : null;
-                    if(a == null || simple == null){
+                    if (a == null || simple == null) {
                         Flash.create('danger', $translate.instant('error.simpleProduct'), 3000);
                         $scope.isSubmitActive = true;
                         return;
                     }
-                }else{
+                } else {
                     price = ('price' in $scope.product) ? $scope.product.price : null;
-                    if(price == null){
+                    if (price == null) {
                         Flash.create('danger', $translate.instant('error.price'), 3000);
                         $scope.isSubmitActive = true;
                         return;
@@ -77,60 +77,60 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
                     name: $scope.product.name,
                     description: $scope.product.description,
                     url: $scope.product.url,
-                    brand: {id:$stateParams.brandId},
+                    brand: {id: $stateParams.brandId},
                     category: $scope.product.category,
                     simpleProduct: simple,
                     simpleProductQuantity: a
-                }
-                ProductService.updateProduct(product).success(function(data){
+                };
+                CrudService.updateItem(myApp.PRODUCTS_ENDPOINT, product).success(function (data) {
                     $scope.product = JSON.parse(JSON.stringify(data));
-                }).error(function(data){
+                }).error(function (data) {
                     Flash.create('danger', $translate.instant('error.creating.product'), 3000);
-                }).finally(function(){
+                }).finally(function () {
                     $scope.isSubmitActive = true;
                 });
             }
         };
 
-        function isValidForm(form){
-            if(form['supplier'].$error.required){
+        function isValidForm(form) {
+            if (form['supplier'].$error.required) {
                 Flash.create('info', $translate.instant('error.required.supplier'), 5000);
                 return false;
             }
-            if(form['price'].$error.required){
+            if (form['price'].$error.required) {
                 Flash.create('info', $translate.instant('error.required.price'), 5000);
                 return false;
             }
             return true;
-        };
+        }
 
-        $scope.addSupplier = function(form){
-            if(isValidForm(form)){
-                SupplierService.addSupplier2Product($stateParams.productId, $scope.newProductSupplier.supplier.id, $scope.newProductSupplier.price).success(function(data){
+        $scope.addSupplier = function (form) {
+            if (isValidForm(form)) {
+                SupplierService.addSupplier2Product($stateParams.productId, $scope.newProductSupplier.supplier.id, $scope.newProductSupplier.price).success(function (data) {
                     $scope.init();
-                }).error(function(data){
+                }).error(function (data) {
                     Flash.create('danger', $translate.instant('error.creating.productsupplier'), 3000);
                 });
             }
         };
 
         //Search
-        $scope.searchSuppliers = function(){
-            SupplierService.searchSuppliers($scope.newProductSupplier.supplier, null, null).success(function(data){
+        $scope.searchSuppliers = function () {
+            SupplierService.searchSuppliers($scope.newProductSupplier.supplier, null, null).success(function (data) {
                 var json = JSON.parse(JSON.stringify(data));
-                if(json.items.length > 0){
+                if (json.items.length > 0) {
                     $scope.searchedSuppliers = json.items;
                 }
-            }).error(function(data){
+            }).error(function (data) {
                 Flash.create('danger', $translate.instant('error.loading.products'), 3000);
             });
         };
 
         /*View Methods*/
-        $scope.showCreate = function(){
+        $scope.showCreate = function () {
             $scope.isCreateShowing = true;
         };
-        $scope.hideCreate = function(){
+        $scope.hideCreate = function () {
             $scope.isCreateShowing = false;
             $scope.newProductSupplier = {};
         };
