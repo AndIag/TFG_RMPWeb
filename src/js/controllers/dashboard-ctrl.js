@@ -2,21 +2,22 @@
  * Created by Canalejas on 23/09/2016.
  */
 myApp.controller('DashboardCtrl', ['$scope', '$state', '$stateParams', '$translate',
-    'Flash', 'BreadcrumbManager', 'AlertService',
+    'Flash', 'BreadcrumbManager', 'CrudService',
 
-    function ($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, AlertService) {
+    function ($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, CrudService) {
 
         $scope.data = null;
 
-        $scope.init = function(){
+        $scope.init = function () {
             BreadcrumbManager.changePage($translate.instant('views.index.dashboard'));
             $scope.isLoading = true;
-            AlertService.getDashboardInfo().success(function(data){
+            CrudService.getItems(myApp.DASHBOARD_ENDPOINT).success(function (data) {
                 $scope.data = JSON.parse(JSON.stringify(data));
                 console.log(data);
-            }).error(function(data){
+            }).error(function (data) {
+                Flash.clear();
                 Flash.create('danger', $translate.instant('error.loading.info'), 3000);
-            }).finally(function(){
+            }).finally(function () {
                 $scope.isLoading = false;
             });
         };

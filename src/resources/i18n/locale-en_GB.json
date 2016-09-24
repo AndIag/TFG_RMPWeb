@@ -60,6 +60,7 @@
   "error.no.categories": "No categories to show!",
   "error.no.suppliers": "No suppliers to show!",
   "error.no.menus": "No menus to show!",
+  "error.loading.info": "Error loading dashboard information",
   "error.loading.brands": "Failed loading brands!",
   "error.loading.products": "Failed loading products!",
   "error.loading.categories": "Failed loading categories!",
