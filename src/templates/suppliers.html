@@ -12,7 +12,8 @@
   <div class="col-lg-12" data-ng-show="!isLoading">
     <rd-widget>
       <rd-widget-header icon="fa-tasks" title="{{'views.index.suppliers' | translate}}">
-        <dir-pagination-controls data-ng-show="data.suppliers.length" on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
+        <dir-pagination-controls data-ng-show="data.suppliers.length" on-page-change="pageChanged(newPageNumber)"
+                                 class="pull-right"></dir-pagination-controls>
       </rd-widget-header>
       <rd-widget-body class="no-padding" data-ng-init="init()">
         <div data-ng-show="!isAddFormShowing" style="margin-bottom:15px; margin-top:21px;">
@@ -23,7 +24,7 @@
         </div> <!-- End- Add button -->
         <!-- Add form -->
         <div data-ng-show="isAddFormShowing"
-          data-ng-include="'resources/templates/add-forms/add-supplier-form.html'">
+             data-ng-include="'resources/templates/add-forms/add-supplier-form.html'">
         </div><!-- End- Add form -->
         <!-- No brands message -->
         <div class="text-center" data-ng-show="!data.suppliers.length">
@@ -34,30 +35,33 @@
           <div id="search" class="col-lg-12" data-ng-controller="SupplierCtrl">
             <label for="search-input">
               <i class="fa fa-search" aria-hidden="true"></i>
-              <span class="sr-only">{{"search | translate"}}</span>
+              <span class="sr-only">{{"action.search | translate"}}</span>
             </label>
-            <input id="search-input" class="form-control input-lg" placeholder="{{'search' | translate}}" tabindex="1" data-ng-model="searchKeywords" data-ng-change="searchSupplierByName()">
+            <input id="search-input" class="form-control input-lg" placeholder="{{'action.search' | translate}}" tabindex="1"
+                   data-ng-model="searchKeywords" data-ng-change="searchSupplierByName()">
           </div>
-          <table class="table" >
+          <table class="table">
             <tbody>
-              <tr>
-                <th>{{"id" | translate}}</th>
-                <th>{{"vat" | translate}}</th>
-                <th>{{"name" | translate}}</th>
-                <th>{{"url" | translate}}</th>
-              </tr>
-              <tr dir-paginate="supplier in data.suppliers | itemsPerPage: itemsPerPage" total-items="totalItems" current-page="currentPage" data-ng-click="showDetails(supplier)">
-                <td>{{supplier.id}}</td>
-                <td>{{supplier.vat}}</td>
-                <td>{{supplier.name}}</td>
-                <td>{{supplier.website}}</td>
-              </tr>
+            <tr>
+              <th>{{"id" | translate}}</th>
+              <th>{{"vat" | translate}}</th>
+              <th>{{"name" | translate}}</th>
+              <th>{{"url" | translate}}</th>
+            </tr>
+            <tr dir-paginate="supplier in data.suppliers | itemsPerPage: itemsPerPage" total-items="totalItems"
+                current-page="currentPage" data-ng-click="showDetails(supplier)">
+              <td>{{supplier.id}}</td>
+              <td>{{supplier.vat}}</td>
+              <td>{{supplier.name}}</td>
+              <td>{{supplier.website}}</td>
+            </tr>
             </tbody>
           </table>
         </div><!-- End- Brands table -->
       </rd-widget-body>
       <rd-widget-footer data-ng-show="data.suppliers.length">
-        <dir-pagination-controls data-ng-show="data.suppliers.length" on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
+        <dir-pagination-controls data-ng-show="data.suppliers.length" on-page-change="pageChanged(newPageNumber)"
+                                 class="pull-right"></dir-pagination-controls>
         <div class="clearfix"></div>
       </rd-widget-footer>
     </rd-widget>
