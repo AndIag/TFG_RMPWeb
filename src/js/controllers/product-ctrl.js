@@ -1,8 +1,8 @@
 myApp.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate',
-    '$timeout', 'Flash', 'BreadcrumbManager', 'CategoryService', 'ProductService',
+    '$timeout', 'Flash', 'BreadcrumbManager', 'CrudService', 'ProductService',
     'ServerData',
 
-    function ($scope, $state, $stateParams, $translate, $timeout, Flash, BreadcrumbManager, CategoryService, ProductService, ServerData) {
+    function ($scope, $state, $stateParams, $translate, $timeout, Flash, BreadcrumbManager, CrudService, ProductService, ServerData) {
         //View helpers
         $scope.isLoading = false;
         $scope.isCreateShowing = false;
@@ -28,7 +28,7 @@ myApp.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate
 
         /**/
         $scope.initCategories = function(){
-            CategoryService.getCategories().success(function(data){
+            CrudService.getItems(myApp.CATEGORIES_ENDPOINT).success(function(data){
                 ServerData.setCategories(JSON.parse(JSON.stringify(data)));
             }).error(function(data){
                 Flash.create('danger', $translate.instant('error.loading.categories'), 3000);

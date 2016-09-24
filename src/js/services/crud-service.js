@@ -105,7 +105,7 @@ myApp.service('CrudService', ['$http', '$q',
 
                 $http({
                     method: 'GET',
-                    url: myApp.endpoint + path + itemId
+                    url: myApp.endpoint + path + '/' + itemId
                 }).then(function successCallback(response) {
                     deferred.resolve(response.data);
                 }, function errorCallback(response) {
@@ -128,7 +128,7 @@ myApp.service('CrudService', ['$http', '$q',
 
                 $http({
                     method: 'DELETE',
-                    url: myApp.endpoint + path + itemId
+                    url: myApp.endpoint + path + '/' + itemId
                 }).then(function successCallback(response) {
                     deferred.resolve(response.data);
                 }, function errorCallback(response) {
@@ -175,7 +175,7 @@ myApp.service('CrudService', ['$http', '$q',
 
                 $http({
                     method: 'PUT',
-                    url: myApp.endpoint + path + itemId,
+                    url: myApp.endpoint + path + '/' + itemId,
                     data: data
                 }).then(function successCallback(response) {
                     deferred.resolve(response.data); //Send response data (token) to controller
