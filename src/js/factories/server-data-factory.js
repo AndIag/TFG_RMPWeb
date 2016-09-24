@@ -1,45 +1,45 @@
 myApp.factory('ServerData', [
-    function ServerData() {
+    function () {
         return {
             data: {
-                alerts:[],
+                alerts: [],
                 categories: [],
-                brands:[],
-                products:[],
-                suppliers:[],
-                menus:[],
+                brands: [],
+                products: [],
+                suppliers: [],
+                menus: [],
                 showPageByPage: true
-            }, setCategories: function(data) {
+            }, setCategories: function (data) {
                 this.data.categories = data;
-            }, removeCategory: function(index) {
+            }, removeCategory: function (index) {
                 this.data.categories.splice(index, 1);
-            }, addCategory: function(c){
+            }, addCategory: function (c) {
                 this.data.categories.push(c);
-            }, setProducts: function(data) {
+            }, setProducts: function (data) {
                 this.data.products = data;
-            }, removeProduct: function(index) {
+            }, removeProduct: function (index) {
                 this.data.products.splice(index, 1);
-            }, addProduct: function(c){
+            }, addProduct: function (c) {
                 this.data.products.push(c);
-            }, setBrands: function(data) {
+            }, setBrands: function (data) {
                 this.data.brands = data;
-            }, removeBrand: function(index) {
+            }, removeBrand: function (index) {
                 this.data.brands.splice(index, 1);
-            }, addBrand: function(c){
+            }, addBrand: function (c) {
                 this.data.brands.push(c);
-            }, setSuppliers: function(data) {
+            }, setSuppliers: function (data) {
                 this.data.suppliers = data;
-            }, removeSupplier: function(index) {
+            }, removeSupplier: function (index) {
                 this.data.suppliers.splice(index, 1);
-            }, addSupplier: function(c){
+            }, addSupplier: function (c) {
                 this.data.suppliers.push(c);
-            }, setMenus: function(data) {
+            }, setMenus: function (data) {
                 this.data.menus = data;
-            }, removeMenu: function(index) {
+            }, removeMenu: function (index) {
                 this.data.menus.splice(index, 1);
-            }, addMenu: function(c){
+            }, addMenu: function (c) {
                 this.data.menus.push(c);
-            }, setAlerts: function(data){
+            }, setAlerts: function (data) {
                 this.data.alerts = data;
             }
         };

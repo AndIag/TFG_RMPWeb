@@ -8,9 +8,9 @@
 <div class="row">
   <div class="col-lg-12" data-ng-show="!isLoading">
     <rd-widget>
-      <rd-widget-header icon="fa-tasks" title="{{brand.name}}"
-                        data-ng-show="data.products.length && data.showPageByPage">
-        <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"
+      <rd-widget-header icon="fa-tasks" title="{{brand.name}}">
+        <dir-pagination-controls data-ng-show="data.products.length && data.showPageByPage"
+                                 on-page-change="pageChanged(newPageNumber)"
                                  class="pull-right"></dir-pagination-controls>
       </rd-widget-header>
       <!-- Modify brands form -->

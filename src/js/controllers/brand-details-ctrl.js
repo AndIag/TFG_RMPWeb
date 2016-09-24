@@ -1,10 +1,8 @@
 myApp.controller('BrandDetailsCtrl', ['$scope', '$state', '$stateParams', '$translate',
-    'Flash', 'BreadcrumbManager', 'ServerData', 'BrandService', 'ProductService', 'CrudService',
+    'Flash', 'BreadcrumbManager', 'ServerData', 'ProductService', 'CrudService',
 
-    function($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, ServerData, BrandService, ProductService, CrudService){
+    function($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, ServerData, ProductService, CrudService){
         $scope.isLoading = false;
-        $scope.showProductsClose = true;
-        $scope.showProductsLegend = true;
 
         $scope.product = {};
 
@@ -47,7 +45,7 @@ myApp.controller('BrandDetailsCtrl', ['$scope', '$state', '$stateParams', '$tran
 
         function getPage(pageNumber) { //Page by page for brand products
             $scope.isLoading = true;
-            BrandService.getBrandProducts($scope.brand.id, pageNumber-1, $scope.itemsPerPage).success(function(data){
+            ProductService.findProductsByBrand($scope.brand.id, pageNumber-1, $scope.itemsPerPage).success(function(data){
                 var json = JSON.parse(JSON.stringify(data));
                 ServerData.setProducts(json.items);
                 $scope.totalItems = json.count;
