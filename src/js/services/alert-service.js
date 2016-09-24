@@ -7,7 +7,7 @@ myApp.service('AlertService', ['$http', '$q',
 
                 $http({
                     method: 'GET',
-                    url: myApp.endpoint + '/categories'
+                    url: myApp.endpoint + '/alerts'
                 }).then(function successCallback(response) {
                     deferred.resolve(response.data); //Send response data (token) to controller
                   }, function errorCallback(response) {

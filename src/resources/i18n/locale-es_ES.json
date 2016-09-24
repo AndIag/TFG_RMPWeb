@@ -20,7 +20,7 @@
     "menu.drinkPrice" :"Precio Bebida",
     "menu.mainPrice" :"Precio Principal",
     "menu.dessertPrice" :"Precio Postre",
-    "search": "Buscar...",
+    "action.search": "Buscar...",
     "placeholder.description": "Breve descripción para el nuevo producto",
     "placeholder.search.name": "Nombre...",
     "placeholder.search.brand": "Marca...",
@@ -50,7 +50,7 @@
 
     "error.no-more-results":"No hay mas resultados",
 
-    "error.url": "URL no valida",
+    "error.invalid.url": "URL no valida",
 
     "error.removing.brand": "Error eliminando marca!",
     "error.removing.product": "Error eliminando producto!",

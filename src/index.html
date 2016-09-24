@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>RestMaPla Web</title>
+  <title>RestMaPla Web</title>
   <!-- STYLES -->
   <!-- build:css lib/css/main.min.css -->
   <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
-  <link rel="stylesheet" type="text/css" href="components/angular-flash-alert/dist/angular-flash.min.css" />
-  <link rel="stylesheet" type="text/css" href="components/angular-advanced-searchbox/dist/angular-advanced-searchbox.min.css">
+  <link rel="stylesheet" type="text/css" href="components/angular-flash-alert/dist/angular-flash.min.css"/>
+  <link rel="stylesheet" type="text/css"
+        href="components/angular-advanced-searchbox/dist/angular-advanced-searchbox.min.css">
   <link rel="stylesheet" type="text/css" href="styles/styles.css">
   <!-- endbuild -->
   <!-- SCRIPTS -->
@@ -36,113 +37,115 @@
   <script type="text/javascript" src="js/dashboard.min.js"></script>
 </head>
 <body ng-controller="MasterCtrl">
-  <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+<div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
 
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-      <ul class="sidebar">
-        <li class="sidebar-main">
-          <a ng-click="toggleSidebar()">
-            {{data.shortPage}}
-            <span class="menu-icon glyphicon glyphicon-transfer"></span>
-          </a>
-        </li>
-        <li class="sidebar-title"><span>{{"views.index.navigation.upper" | translate}}</span></li>
-        <li class="sidebar-list">
-          <a href="#">{{"views.index.dashboard" | translate}}<span class="menu-icon fa fa-tachometer"></span></a>
-        </li>
-        <li class="sidebar-list">
-          <a href="#/products">{{"views.index.products" | translate}}<span class="menu-icon fa fa-first-order"></span></a>
-        </li><li class="sidebar-list">
-          <a href="#/menus">{{"views.index.menus" | translate}}<span class="menu-icon fa fa-apple"></span></a>
-        </li>
-        <li class="sidebar-list">
-          <a href="#/brands">{{"views.index.brands" | translate}}<span class="menu-icon fa fa-apple"></span></a>
-        </li>
-        <li class="sidebar-title"><span>{{"views.index.configuration.upper" | translate}}</span></li>
-        <li class="sidebar-list">
-          <a href="#/suppliers">{{"views.index.suppliers" | translate}}<span class="menu-icon fa fa-book"></span></a>
-        </li>
-        <li class="sidebar-list">
-          <a href="#/categories">{{"views.index.categories" | translate}}<span class="menu-icon fa fa-certificate"></span></a>
-        </li>
-      </ul>
-      <div class="sidebar-footer">
-        <div class="col-xs-4">
-          <a href="https://plus.google.com/u/0/b/112257302862182562124/112257302862182562124" target="_blank"><!-- target="_blank" - Used for open in new window -->
-            {{"views.index.about" | translate}}
-          </a>
-        </div>
-        <div class="col-xs-4">
-          <a href="#">
-            {{"views.index.support" | translate}}
-          </a>
-        </div>
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <ul class="sidebar">
+      <li class="sidebar-main">
+        <a ng-click="toggleSidebar()">
+          {{data.shortPage}}
+          <span class="menu-icon glyphicon glyphicon-transfer"></span>
+        </a>
+      </li>
+      <li class="sidebar-title"><span>{{"views.index.navigation.upper" | translate}}</span></li>
+      <li class="sidebar-list">
+        <a href="#">{{"views.index.dashboard" | translate}}<span class="menu-icon fa fa-tachometer"></span></a>
+      </li>
+      <li class="sidebar-list">
+        <a href="#/menus">{{"views.index.menus" | translate}}<span class="menu-icon fa fa-apple"></span></a>
+      </li>
+      <li class="sidebar-list">
+        <a href="#/products">{{"views.index.products" | translate}}<span class="menu-icon fa fa-first-order"></span></a>
+      </li>
+      <li class="sidebar-list">
+        <a href="#/suppliers">{{"views.index.suppliers" | translate}}<span class="menu-icon fa fa-book"></span></a>
+      </li>
+      <li class="sidebar-title"><span>{{"views.index.configuration.upper" | translate}}</span></li>
+      <li class="sidebar-list">
+        <a href="#/brands">{{"views.index.brands" | translate}}<span class="menu-icon fa fa-apple"></span></a>
+      </li>
+      <li class="sidebar-list">
+        <a href="#/categories">{{"views.index.categories" | translate}}<span class="menu-icon fa fa-certificate"></span></a>
+      </li>
+    </ul>
+    <div class="sidebar-footer">
+      <div class="col-xs-4">
+        <a href="https://plus.google.com/u/0/b/112257302862182562124/112257302862182562124" target="_blank">
+          <!-- target="_blank" - Used for open in new window -->
+          {{"views.index.about" | translate}}
+        </a>
+      </div>
+      <div class="col-xs-4">
+        <a href="#">
+          {{"views.index.support" | translate}}
+        </a>
       </div>
     </div>
-    <!-- End Sidebar -->
+  </div>
+  <!-- End Sidebar -->
 
-    <div id="content-wrapper">
-      <div class="page-content">
+  <div id="content-wrapper">
+    <div class="page-content">
 
-        <!-- Header Bar -->
-        <div class="row header">
-          <div class="col-xs-12">
-            <div class="user pull-right">
-              <div class="item dropdown" uib-dropdown>
-                <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
-                  <img src="resources/img/RMP-BM.png">
-                </a>
-                <!-- <ul class="dropdown-menu dropdown-menu-right">
-                  <li class="dropdown-header">
-                    RestMaPla
-                  </li>
-                  <li class="divider"></li>
-                  <li class="link">
-                    <a href="#">
-                      Profile
-                    </a>
-                  </li>
-                  <li class="divider"></li>
-                  <li class="link">
-                    <a href="#">
-                      Logout
-                    </a>
-                  </li>
-                </ul> -->
-              </div>
-              <div class="item dropdown" uib-dropdown ng-if="alerts.length > 0">
-               <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
-                  <i class="fa fa-bell-o"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li class="dropdown-header">
-                    {{"views.index.notifications" | translate}}
-                  </li>
-                  <li class="divider"></li>
-                  <!-- <li>
-                    <a href="#">Server Down!</a>
-                  </li> -->
-                </ul>
-              </div>
+      <!-- Header Bar -->
+      <div class="row header">
+        <div class="col-xs-12">
+          <div class="user pull-right">
+            <div class="item dropdown" uib-dropdown>
+              <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+                <img src="resources/img/RMP-BM.png">
+              </a>
+              <!-- <ul class="dropdown-menu dropdown-menu-right">
+                <li class="dropdown-header">
+                  RestMaPla
+                </li>
+                <li class="divider"></li>
+                <li class="link">
+                  <a href="#">
+                    Profile
+                  </a>
+                </li>
+                <li class="divider"></li>
+                <li class="link">
+                  <a href="#">
+                    Logout
+                  </a>
+                </li>
+              </ul> -->
             </div>
-            <div class="meta">
-              <div class="page">
-                {{data.page}}
-              </div>
-              <div class="breadcrumb-links">
-                {{data.uri}}
-              </div>
+            <div class="item dropdown" uib-dropdown ng-if="alerts.length > 0">
+              <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+                <i class="fa fa-bell-o"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li class="dropdown-header">
+                  {{"views.index.notifications" | translate}}
+                </li>
+                <li class="divider"></li>
+                <!-- <li>
+                  <a href="#">Server Down!</a>
+                </li> -->
+              </ul>
+            </div>
+          </div>
+          <div class="meta">
+            <div class="page">
+              {{data.page}}
+            </div>
+            <div class="breadcrumb-links">
+              {{data.uri}}
             </div>
           </div>
         </div>
-        <!-- End Header Bar -->
+      </div>
+      <!-- End Header Bar -->
 
-        <!-- Main Content -->
-        <div ui-view></div>
+      <!-- Main Content -->
+      <div ui-view></div>
 
-      </div><!-- End Page Content -->
-    </div><!-- End Content Wrapper -->
-  </div><!-- End Page Wrapper -->
+    </div><!-- End Page Content -->
+  </div><!-- End Content Wrapper -->
+</div><!-- End Page Wrapper -->
 </body>
 </html>

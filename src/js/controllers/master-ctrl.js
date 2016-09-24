@@ -1,17 +1,17 @@
 myApp.controller('MasterCtrl', ['$scope', '$cookieStore', 'BreadcrumbManager',
     function ($scope, $cookieStore, BreadcrumbManager) {
         /**
-        * Sidebar Toggle & Cookie Control
-        */
+         * Sidebar Toggle & Cookie Control
+         */
         var mobileView = 992;
 
         $scope.data = BreadcrumbManager.data;
 
-        $scope.getWidth = function() {
+        $scope.getWidth = function () {
             return window.innerWidth;
         };
 
-        $scope.$watch($scope.getWidth, function(newValue, oldValue) {
+        $scope.$watch($scope.getWidth, function (newValue, oldValue) {
             if (newValue >= mobileView) {
                 if (angular.isDefined($cookieStore.get('toggle'))) {
                     $scope.toggle = $cookieStore.get('toggle');
@@ -24,12 +24,12 @@ myApp.controller('MasterCtrl', ['$scope', '$cookieStore', 'BreadcrumbManager',
 
         });
 
-        $scope.toggleSidebar = function() {
+        $scope.toggleSidebar = function () {
             $scope.toggle = !$scope.toggle;
             $cookieStore.put('toggle', $scope.toggle);
         };
 
-        window.onresize = function() {
+        window.onresize = function () {
             $scope.$apply();
         };
     }

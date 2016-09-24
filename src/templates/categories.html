@@ -13,7 +13,7 @@
       <rd-widget-body class="no-padding" data-ng-init="init()">
         <div data-ng-show="!isAddFormShowing" class="col-sm-12 text-center" style="margin-bottom:15px; margin-top:21px;">
           <button class="add-btn btn" data-ng-click="showCreate()">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"/></span>
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 
           </button>
           <div class="clearfix"></div>
@@ -26,31 +26,30 @@
         <div class="text-center" data-ng-show="!data.categories.length && !isSearching">
           {{"error.no.categories" | translate}}
         </div> <!-- End- No categories message -->
-          <div class="container" data-ng-show="data.categories.length || isSearching">
-            <div class="row">
-              <div class="col-lg-12">
-                <div id="search" class="col-lg-12" data-ng-controller="CategoryCtrl">
-                  <label for="search-input">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    <span class="sr-only">{{"search | translate"}}</span>
-                  </label>
-                  <input id="search-input" class="form-control input-lg" placeholder="{{'search' | translate}}" tabindex="1" data-ng-model="searchKeywords" data-ng-change="searchByName()">
-                </div>
+        <div class="container" data-ng-show="data.categories.length || isSearching">
+          <div class="row">
+            <div class="col-lg-12">
+              <div id="search" class="col-lg-12" data-ng-controller="CategoryCtrl">
+                <label for="search-input">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                  <span class="sr-only">{{"search | translate"}}</span>
+                </label>
+                <input id="search-input" class="form-control input-lg" placeholder="{{'search' | translate}}" tabindex="1" data-ng-model="searchKeywords" data-ng-change="searchByName()">
               </div>
-              <div class="col-lg-2 col-md-3 col-xs-6 thumb" data-ng-repeat="category in data.categories | orderBy: 'id'">
-                  <div class="thumbnail" data-ng-click="showDetails(category)">
-                      <img class="img-responsive" width="150px" height="150px" data-ng-src="{{category.url}}" alt=""/>
-                      <div class="caption">
-                        <h4>{{category.name}}</h4>
-                        <p>{{"views.index.products" | translate}}
-                          <span class="badge">{{category.numProducts}}</span></a>
-                        </p>
-                        <button class="btn" data-ng-disabled="category.disabled || category.numProducts" data-ng-click="removeCategory(category, $index); $event.stopPropagation();">
-                          {{"action.remove" | translate}}
-                        </button>
-                    </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-xs-6 thumb" data-ng-repeat="category in data.categories | orderBy: 'id'">
+                <div class="thumbnail" data-ng-click="showDetails(category)">
+                    <img class="img-responsive" width="150px" height="150px" data-ng-src="{{category.url}}" alt=""/>
+                    <div class="caption">
+                      <h4>{{category.name}}</h4>
+                      <p>{{"views.index.products" | translate}}
+                        <span class="badge">{{category.numProducts}}</span></a>
+                      </p>
+                      <button class="btn" data-ng-disabled="category.disabled || category.numProducts" data-ng-click="removeCategory(category, $index); $event.stopPropagation();">
+                        {{"action.remove" | translate}}
+                      </button>
                   </div>
-              </div>
+                </div>
             </div>
           </div>
         </div><!-- End- Brands table -->

@@ -2,10 +2,18 @@
   "name": "RestMaPla",
   "version": "0.0.1",
   "description": "An AngularJS implementation for the RestMaPla Web",
+  "homepage": "https://github.com/iagocanalejas/TFG_RMPWeb",
   "authors": [
     "Iago Santos Domínguez <iagocanalejas@gmail.com>"
   ],
   "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/iagocanalejas/TFG_RMPWeb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iagocanalejas/TFG_RMPWeb/issues"
+  },
   "devDependencies": {
     "bower": "^1.3.9",
     "gulp": "~3.9.0",

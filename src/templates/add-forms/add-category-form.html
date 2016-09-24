@@ -7,23 +7,23 @@
 
   <fieldset>
     <!-- Form Name -->
-  <legend>{{legendMessage}}</legend>
+    <legend>{{legendMessage}}</legend>
 
-  <div class="form-group">
-    <label class="sr-only" for="name">{{"name" | translate}}:</label>
-      <input name="name" type="text" data-ng-model="category.name" class="input-sm form-control"
-      placeholder="{{'name' | translate}}" required>
-  </div>
+    <div class="form-group">
+      <label class="sr-only" for="name">{{"name" | translate}}:</label>
+      <input id="name" type="text" data-ng-model="category.name" class="input-sm form-control"
+             placeholder="{{'name' | translate}}" required>
+    </div>
 
-  <div class="form-group">
-    <label class="sr-only" for="url">{{"url" | translate}}:</label>
-      <input name="url" type="url" data-ng-model="category.url" class="input-sm form-control"
-      placeholder="{{'url' | translate}}">
-  </div>
+    <div class="form-group">
+      <label class="sr-only" for="url">{{"url" | translate}}:</label>
+      <input id="url" type="url" data-ng-model="category.url" class="input-sm form-control"
+             placeholder="{{'url' | translate}}">
+    </div>
 
-  <button type="submit" class="btn" data-ng-click="saveCategory(form)" data-ng-disabled="!isSubmitActive">
+    <button type="submit" class="btn" data-ng-click="saveCategory(form)" data-ng-disabled="!isSubmitActive">
       {{"action.submit" | translate}}
-  </button>
+    </button>
 
 
   </fieldset>
