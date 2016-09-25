@@ -5,15 +5,11 @@ myApp.service('SupplierService', ['$http', '$q',
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 
-                console.log(productId);
-                console.log(supplierId);
-                console.log(price);
-
                 $http({
                     method: 'POST',
                     url: myApp.endpoint + '/suppliers/' + supplierId + '/products?productId=' + productId + '&price=' + price
                 }).then(function successCallback(response) {
-                    deferred.resolve(response.data); //Send response data (token) to controller
+                    deferred.resolve(response.data);
                 }, function errorCallback(response) {
                     deferred.reject(response);
                 });

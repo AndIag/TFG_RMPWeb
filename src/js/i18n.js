@@ -11,9 +11,9 @@ myApp.config(['$translateProvider',
         $translateProvider.useSanitizeValueStrategy('escape');
         $translateProvider.useLocalStorage();// saves selected language to localStorage
         $translateProvider.useMissingTranslationHandlerLog();
-    }])
+    }]);
 
 myApp.config(['tmhDynamicLocaleProvider',
     function (tmhDynamicLocaleProvider) {
         tmhDynamicLocaleProvider.localeLocationPattern('components/angular-i18n/angular-locale_{{locale}}.js');
-    }])
+    }]);

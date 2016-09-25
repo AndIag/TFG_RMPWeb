@@ -1,7 +1,7 @@
 myApp.controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate',
-    'Flash', 'BreadcrumbManager', 'BrandService', 'CrudService', 'ServerData',
+    'Flash', 'BreadcrumbManager', 'CrudService', 'ServerData',
 
-    function ($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, BrandService, CrudService, ServerData) {
+    function ($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, CrudService, ServerData) {
         //View helpers
         $scope.isLoading = false; //Know if we need to show load screen
         $scope.showClose = true;

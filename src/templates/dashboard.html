@@ -1,112 +1,112 @@
 <!-- Alerts -->
 <div class="row">
-    <div class="col-xs-12">
-        <flash-message class="customAlert" duration="5000" show-close="true" on-dismiss=""></flash-message>
-    </div>
+  <div class="col-xs-12">
+    <flash-message class="customAlert" duration="5000" show-close="true" on-dismiss=""></flash-message>
+  </div>
 </div>
 <!-- End- Alerts -->
 
 <div class="row" data-ng-init="init()">
-    <div class="col-lg-3 col-md-6 col-xs-12">
-        <rd-widget>
-            <rd-widget-body>
-                <div class="widget-icon green pull-left">
-                    <i class="fa fa-square"></i>
-                </div>
-                <div class="title">{{data.tableCount}}</div>
-                <div class="comment">{{"views.dashboard.tables" | translate}}</div>
-            </rd-widget-body>
-        </rd-widget>
-    </div>
-    <div class="col-lg-3 col-md-6 col-xs-12">
-        <rd-widget>
-            <rd-widget-body>
-                <div class="widget-icon red pull-left">
-                    <i class="fa fa-tasks"></i>
-                </div>
-                <div class="title">{{data.productCount}}</div>
-                <div class="comment">{{"views.dashboard.articles" | translate}}</div>
-            </rd-widget-body>
-        </rd-widget>
-    </div>
-    <div class="col-lg-3 col-md-6 col-xs-12">
-        <rd-widget>
-            <rd-widget-body>
-                <div class="widget-icon orange pull-left">
-                    <i class="fa fa-users"></i>
-                </div>
-                <div class="title">{{data.workers}}</div>
-                <div class="comment">{{"views.dashboard.workers" | translate}}</div>
-            </rd-widget-body>
-        </rd-widget>
-    </div>
-    <div class="col-lg-3 col-md-6 col-xs-12">
-        <rd-widget>
-            <rd-widget-body>
-                <div class="widget-icon blue pull-left">
-                    <i class="fa fa-support"></i>
-                </div>
-                <div class="title">{{data.monthResult}}</div>
-                <div class="comment">{{"views.dashboard.result" | translate}}</div>
-            </rd-widget-body>
-        </rd-widget>
-    </div>
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <rd-widget>
+      <rd-widget-body>
+        <div class="widget-icon green pull-left">
+          <i class="fa fa-square"></i>
+        </div>
+        <div class="title">{{data.tableCount}}</div>
+        <div class="comment">{{"views.dashboard.tables" | translate}}</div>
+      </rd-widget-body>
+    </rd-widget>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <rd-widget>
+      <rd-widget-body>
+        <div class="widget-icon red pull-left">
+          <i class="fa fa-tasks"></i>
+        </div>
+        <div class="title">{{data.productCount}}</div>
+        <div class="comment">{{"views.dashboard.articles" | translate}}</div>
+      </rd-widget-body>
+    </rd-widget>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <rd-widget>
+      <rd-widget-body>
+        <div class="widget-icon orange pull-left">
+          <i class="fa fa-users"></i>
+        </div>
+        <div class="title">{{data.workers}}</div>
+        <div class="comment">{{"views.dashboard.workers" | translate}}</div>
+      </rd-widget-body>
+    </rd-widget>
+  </div>
+  <div class="col-lg-3 col-md-6 col-xs-12">
+    <rd-widget>
+      <rd-widget-body>
+        <div class="widget-icon blue pull-left">
+          <i class="fa fa-support"></i>
+        </div>
+        <div class="title">{{data.monthResult}}</div>
+        <div class="comment">{{"views.dashboard.result" | translate}}</div>
+      </rd-widget-body>
+    </rd-widget>
+  </div>
 </div>
 
 <div class="row">
-    <div class="col-lg-6">
-        <rd-widget>
-            <rd-widget-header icon="fa-users" title="{{'views.dashboard.workers' | translate}}">
-                <button class="btn pull-right btn-sm btn-info">Manage</button>
-            </rd-widget-header>
-            <rd-widget-body classes="medium no-padding">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th class="text-center">ID</th>
-                            <th>Name</th>
-                            <th>Role</th>
-                            <th>Salary</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr data-ng-repeat="worker in data.employees">
-                            <td class="text-center">{{worker.id}}</td>
-                            <td>{{worker.name}}</td>
-                            <td>{{worker.role}}</td>
-                            <td>{{worker.salary}} €</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </rd-widget-body>
-            <rd-widget>
-    </div>
+  <div class="col-lg-6">
+    <rd-widget>
+      <rd-widget-header icon="fa-users" title="{{'views.dashboard.workers' | translate}}">
+        <button class="btn pull-right btn-sm btn-info">Manage</button>
+      </rd-widget-header>
+      <rd-widget-body classes="medium no-padding">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th class="text-center">ID</th>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Salary</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-repeat="worker in data.employees">
+              <td class="text-center">{{worker.id}}</td>
+              <td>{{worker.name}}</td>
+              <td>{{worker.role}}</td>
+              <td>{{worker.salary}} €</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </rd-widget-body>
+      <rd-widget>
+  </div>
 
-    <div class="col-lg-6">
-        <rd-widget>
-            <rd-widget-header icon="fa-users" title="Top Sales"></rd-widget-header>
-            <rd-widget-body classes="medium no-padding">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th class="text-center">ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr data-ng-repeat="product in data.topSales">
-                            <td class="text-center">{{product.id}}</td>
-                            <td>{{product.name}}</td>
-                            <td>{{product.price}} €</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </rd-widget-body>
-        </rd-widget>
-    </div>
+  <div class="col-lg-6">
+    <rd-widget>
+      <rd-widget-header icon="fa-users" title="Top Sales"></rd-widget-header>
+      <rd-widget-body classes="medium no-padding">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th class="text-center">ID</th>
+              <th>Name</th>
+              <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-repeat="product in data.topSales">
+              <td class="text-center">{{product.id}}</td>
+              <td>{{product.name}}</td>
+              <td>{{product.price}} €</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </rd-widget-body>
+    </rd-widget>
+  </div>
 </div>

@@ -127,12 +127,13 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
 
         //Search
         $scope.searchSuppliers = function () {
-            CrudService.findPaginatedItemsByName($scope.newProductSupplier.supplier, null, null).success(function (data) {
+            CrudService.findItemsByName(myApp.SUPPLIERS_ENDPOINR, $scope.newProductSupplier.supplier).success(function (data) {
                 var json = JSON.parse(JSON.stringify(data));
                 if (json.items.length > 0) {
                     $scope.searchedSuppliers = json.items;
                 }
             }).error(function (data) {
+                console.log(data);
                 Flash.clear();
                 Flash.create('danger', $translate.instant('error.loading.products'), 3000);
             });
