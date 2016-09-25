@@ -20,7 +20,7 @@
   </div>
   <div class="col-lg-3 col-md-6 col-xs-12">
     <rd-widget>
-      <rd-widget-body>
+      <rd-widget-body ui-sref="products">
         <div class="widget-icon red pull-left">
           <i class="fa fa-tasks"></i>
         </div>
@@ -98,7 +98,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr data-ng-repeat="product in data.topSales">
+            <tr data-ng-repeat="product in data.topSales" ui-sref="product-details({'productId': product.id})">
               <td class="text-center">{{product.id}}</td>
               <td>{{product.name}}</td>
               <td>{{product.price}} €</td>

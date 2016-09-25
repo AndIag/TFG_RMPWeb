@@ -55,7 +55,7 @@
               <td>{{product.id}}</td>
               <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
               <td>{{product.name}}</td>
-              <td>{{product.category.name}}</td>
+              <td><a ui-sref="categories">{{product.category.name}}</a></td>
               <td><a ui-sref="brand-details({'brandId': product.brand.id})">{{product.brand.name}}</a></td>
               <td>{{isPack(product)}}</td>
               <td>

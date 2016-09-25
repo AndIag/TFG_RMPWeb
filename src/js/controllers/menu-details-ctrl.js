@@ -20,6 +20,7 @@ myApp.controller('MenuDetailsCtrl', ['$scope', '$state', '$stateParams', '$trans
                 $scope.menu = JSON.parse(JSON.stringify(data));
                 BreadcrumbManager.changePage($scope.menu.name);
             }).error(function (data) {
+                Flash.clear();
                 Flash.create('danger', $translate.instant('error.loading.menus'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
@@ -31,68 +32,77 @@ myApp.controller('MenuDetailsCtrl', ['$scope', '$state', '$stateParams', '$trans
         };
 
         function initStarters() {
-            MenuService.getStarters($stateParams.menuId).success(function (data) {
+            MenuService.getMenuParts($stateParams.menuId, MenuService.menuParts.starters).success(function (data) {
                 $scope.starters = JSON.parse(JSON.stringify(data));
             }).error(function (data) {
+                Flash.clear();
                 Flash.create('danger', $translate.instant('error.loading.menus'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
-        };
+        }
 
         function initDrinks() {
-            MenuService.getDrinks($stateParams.menuId).success(function (data) {
+            MenuService.getMenuParts($stateParams.menuId, MenuService.menuParts.drinks).success(function (data) {
                 $scope.drinks = JSON.parse(JSON.stringify(data));
             }).error(function (data) {
+                Flash.clear();
                 Flash.create('danger', $translate.instant('error.loading.menus'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
-        };
+        }
 
         function initMains() {
-            MenuService.getMains($stateParams.menuId).success(function (data) {
+            MenuService.getMenuParts($stateParams.menuId, MenuService.menuParts.mains).success(function (data) {
                 $scope.mains = JSON.parse(JSON.stringify(data));
             }).error(function (data) {
+                Flash.clear();
                 Flash.create('danger', $translate.instant('error.loading.menus'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
-        };
+        }
 
         function initDesserts() {
-            MenuService.getDesserts($stateParams.menuId).success(function (data) {
+            MenuService.getMenuParts($stateParams.menuId, MenuService.menuParts.desserts).success(function (data) {
                 $scope.desserts = JSON.parse(JSON.stringify(data));
             }).error(function (data) {
+                Flash.clear();
                 Flash.create('danger', $translate.instant('error.loading.menus'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
-        };
+        }
 
         function isValidForm(form) {
             if (form['name'].$error.required) {
+                Flash.clear();
                 Flash.create('info', $translate.instant('error.required.name'), 5000);
                 return false;
             }
             if (form['starterPrice'].$error.required) {
+                Flash.clear();
                 Flash.create('info', $translate.instant('error.required.price'), 5000);
                 return false;
             }
             if (form['drinkPrice'].$error.required) {
+                Flash.clear();
                 Flash.create('info', $translate.instant('error.required.price'), 5000);
                 return false;
             }
             if (form['mainPrice'].$error.required) {
+                Flash.clear();
                 Flash.create('info', $translate.instant('error.required.price'), 5000);
                 return false;
             }
             if (form['dessertPrice'].$error.required) {
+                Flash.clear();
                 Flash.create('info', $translate.instant('error.required.price'), 5000);
                 return false;
             }
             return true;
-        };
+        }
 
         //CRUD methods
         $scope.saveMenu = function (form) {
@@ -117,15 +127,17 @@ myApp.controller('MenuDetailsCtrl', ['$scope', '$state', '$stateParams', '$trans
                 dessertPrice: dessert
             }).success(function (data) {
                 $scope.isAddFormShowing = false;
+                Flash.clear();
                 Flash.create('success', $translate.instant('message.menu.updated'), 3000);
                 $scope.init();
             }).error(function (data) {
+                Flash.clear();
                 Flash.create('danger', $translate.instant('error.updating.menu'), 3000);
             }).finally(function () {
                 $scope.isSubmitActive = true;
                 $scope.hideCreate();
             });
-        };
+        }
 
         /*View Methods*/
         $scope.showCreate = function () {
