@@ -12,7 +12,8 @@
   <div class="col-lg-12" data-ng-show="!isLoading">
     <rd-widget>
       <rd-widget-header icon="fa-tasks" title="{{'views.index.menus' | translate}}">
-        <dir-pagination-controls data-ng-show="data.menus.length" on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
+        <dir-pagination-controls data-ng-show="data.menus.length" on-page-change="pageChanged(newPageNumber)"
+                                 class="pull-right"></dir-pagination-controls>
       </rd-widget-header>
       <rd-widget-body class="no-padding" data-ng-init="init()">
         <div data-ng-show="!isAddFormShowing" style="margin-bottom:15px; margin-top:21px;">
@@ -23,7 +24,7 @@
         </div> <!-- End- Add button -->
         <!-- Add form -->
         <div data-ng-show="isAddFormShowing"
-          data-ng-include="'resources/templates/add-forms/add-menu-form.html'">
+             data-ng-include="'resources/templates/add-forms/add-menu-form.html'">
         </div><!-- End- Add form -->
         <!-- No brands message -->
         <div class="text-center" data-ng-show="!data.menus.length">
@@ -36,38 +37,42 @@
               <i class="fa fa-search" aria-hidden="true"></i>
               <span class="sr-only">{{"action.search | translate"}}</span>
             </label>
-            <input id="search-input" class="form-control input-lg" placeholder="{{'action.search' | translate}}" tabindex="1" data-ng-model="searchKeywords" data-ng-change="searchMenuByName()">
+            <input id="search-input" class="form-control input-lg" placeholder="{{'action.search' | translate}}"
+                   tabindex="1" data-ng-model="searchKeywords" data-ng-change="searchMenuByName()">
           </div>
-          <table class="table" >
+          <table class="table">
             <tbody>
-              <tr>
-                <th>{{"id" | translate}}</th>
-                <th>{{"name" | translate}}</th>
-                <th>{{"menu.starterPrice" | translate}}</th>
-                <th>{{"menu.drinkPrice" | translate}}</th>
-                <th>{{"menu.mainPrice" | translate}}</th>
-                <th>{{"menu.dessertPrice" | translate}}</th>
-                <th></th>
-              </tr>
-              <tr dir-paginate="menu in data.menus | itemsPerPage: itemsPerPage" total-items="totalItems" current-page="currentPage" data-ng-click="showDetails(menu)">
-                <td>{{menu.id}}</td>
-                <td>{{menu.name}}</td>
-                <td>{{menu.starterPrice | currency:currencySymbol}}</td>
-                <td>{{menu.drinkPrice | currency:currencySymbol}}</td>
-                <td>{{menu.mainPrice | currency:currencySymbol}}</td>
-                <td>{{menu.dessertPrice | currency:currencySymbol}}</td>
-                <td>
-                  <button class="btn pull-right" data-ng-disabled="menu.disabled" data-ng-click="removeMenu(menu, $index); $event.stopPropagation();">
-                    {{"action.remove" | translate}}
-                  </button>
-                </td>
-              </tr>
+            <tr>
+              <th>{{"id" | translate}}</th>
+              <th>{{"name" | translate}}</th>
+              <th>{{"menu.starterPrice" | translate}}</th>
+              <th>{{"menu.drinkPrice" | translate}}</th>
+              <th>{{"menu.mainPrice" | translate}}</th>
+              <th>{{"menu.dessertPrice" | translate}}</th>
+              <th></th>
+            </tr>
+            <tr dir-paginate="menu in data.menus | itemsPerPage: itemsPerPage" total-items="totalItems"
+                current-page="currentPage" data-ng-click="showDetails(menu)">
+              <td>{{menu.id}}</td>
+              <td>{{menu.name}}</td>
+              <td>{{menu.starterPrice | currency:currencySymbol}}</td>
+              <td>{{menu.drinkPrice | currency:currencySymbol}}</td>
+              <td>{{menu.mainPrice | currency:currencySymbol}}</td>
+              <td>{{menu.dessertPrice | currency:currencySymbol}}</td>
+              <td>
+                <button class="btn pull-right" data-ng-disabled="menu.disabled"
+                        data-ng-click="removeMenu(menu, $index); $event.stopPropagation();">
+                  {{"action.remove" | translate}}
+                </button>
+              </td>
+            </tr>
             </tbody>
           </table>
         </div><!-- End- Brands table -->
       </rd-widget-body>
       <rd-widget-footer data-ng-show="data.menus.length">
-        <dir-pagination-controls data-ng-show="data.menus.length" on-page-change="pageChanged(newPageNumber)" class="pull-right"></dir-pagination-controls>
+        <dir-pagination-controls data-ng-show="data.menus.length" on-page-change="pageChanged(newPageNumber)"
+                                 class="pull-right"></dir-pagination-controls>
         <div class="clearfix"></div>
       </rd-widget-footer>
     </rd-widget>
