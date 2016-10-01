@@ -18,7 +18,7 @@
       <rd-widget-body class="no-padding" data-ng-init="init()">
         <div data-ng-show="!isAddFormShowing" style="margin-bottom:15px; margin-top:21px;">
           <button class="add-btn btn pull-left" data-ng-click="showCreate()">
-            {{"action.add" | translate}}
+            {{"action.add" | translate}} {{"supplier" | translate}}
           </button>
           <div class="clearfix"></div>
         </div> <!-- End- Add button -->
@@ -48,6 +48,7 @@
               <th>{{"vat" | translate}}</th>
               <th>{{"name" | translate}}</th>
               <th>{{"url" | translate}}</th>
+              <th></th>
             </tr>
             <tr dir-paginate="supplier in data.suppliers | itemsPerPage: itemsPerPage" total-items="totalItems"
                 current-page="currentPage" data-ng-click="showDetails(supplier)">
@@ -55,6 +56,12 @@
               <td>{{supplier.vat}}</td>
               <td>{{supplier.name}}</td>
               <td><a target="_blank" ng-href="{{supplier.website}}">{{supplier.website}}</a></td>
+              <td>
+                <button class="btn pull-right" data-ng-disabled="supplier.disabled"
+                        data-ng-click="openAddProducts(supplier); $event.stopPropagation();">
+                  {{"action.add" | translate}} {{"product.plural" | translate}}
+                </button>
+              </td>
             </tr>
             </tbody>
           </table>

@@ -14,6 +14,7 @@
   "amount": "Amount",
   "simpleProduct": "Simple Product",
   "product": "Product",
+  "product.plural": "Products",
   "supplier": "Supplier",
   "supplier.plural": "Suppliers",
   "description": "Description",

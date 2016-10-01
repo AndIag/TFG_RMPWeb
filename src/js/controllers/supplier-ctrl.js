@@ -125,5 +125,9 @@ myApp.controller('SupplierCtrl', ['$scope', '$state', '$stateParams', '$translat
             $scope.isAddFormShowing = true;
         };
 
+        $scope.openAddProducts = function (supplier) {
+            $state.go('add-products-supplier', {'supplierId': supplier.id});
+        }
+
     }
 ]);

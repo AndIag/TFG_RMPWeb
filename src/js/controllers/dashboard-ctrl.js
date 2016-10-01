@@ -13,7 +13,6 @@ myApp.controller('DashboardCtrl', ['$scope', '$state', '$stateParams', '$transla
             $scope.isLoading = true;
             CrudService.getItems(myApp.DASHBOARD_ENDPOINT).success(function (data) {
                 $scope.data = JSON.parse(JSON.stringify(data));
-                console.log(data);
             }).error(function (data) {
                 Flash.clear();
                 Flash.create('danger', $translate.instant('error.loading.info'), 3000);

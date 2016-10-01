@@ -1,9 +1,8 @@
-
 /**
  * Route configuration for the RestMaPla module.
  */
 myApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
-    function($stateProvider, $urlRouterProvider, $httpProvider) {
+    function ($stateProvider, $urlRouterProvider, $httpProvider) {
 
         $httpProvider.defaults.useXDomain = true;
         $httpProvider.defaults.headers.common = 'Content-Type: application/json';
@@ -58,6 +57,11 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
                 url: '/menus/:menuId',
                 templateUrl: 'resources/templates/menu-details.html',
                 controller: 'MenuDetailsCtrl'
+            })
+            .state('add-products-supplier', {
+                url: '/suppliers/:supplierId',
+                templateUrl: 'resources/templates/add-forms/add-products2supplier.html',
+                controller: 'SupplierProductCtrl'
             })
     }
 ]);
