@@ -57,7 +57,7 @@
               <td>{{product.name}}</td>
               <td><a ui-sref="categories">{{product.category.name}}</a></td>
               <td><a ui-sref="brand-details({'brandId': product.brand.id})">{{product.brand.name}}</a></td>
-              <td>{{isPack(product)}}</td>
+              <td>{{isPack(product)}}</td> <!-- TODO add icons for difference this -->
               <td>
                 <button class="btn pull-right" data-ng-disabled="product.disabled"
                         data-ng-click="removeProduct(product, $index); $event.stopPropagation();">

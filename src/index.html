@@ -89,32 +89,32 @@
     <div class="page-content">
 
       <!-- Header Bar -->
-      <div class="row header">
+      <div class="row header" data-ng-init="init()">
         <div class="col-xs-12">
           <div class="user pull-right">
             <div class="item dropdown" uib-dropdown>
               <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
                 <img src="resources/img/RMP-BM.png">
               </a>
-              <!-- <ul class="dropdown-menu dropdown-menu-right">
-                <li class="dropdown-header">
-                  RestMaPla
-                </li>
-                <li class="divider"></li>
-                <li class="link">
-                  <a href="#">
-                    Profile
-                  </a>
-                </li>
-                <li class="divider"></li>
-                <li class="link">
-                  <a href="#">
-                    Logout
-                  </a>
-                </li>
-              </ul> -->
+              <!--<ul class="dropdown-menu dropdown-menu-right">-->
+              <!--<li class="dropdown-header">-->
+              <!--RestMaPla-->
+              <!--</li>-->
+              <!--<li class="divider"></li>-->
+              <!--<li class="link">-->
+              <!--<a href="#">-->
+              <!--Profile-->
+              <!--</a>-->
+              <!--</li>-->
+              <!--<li class="divider"></li>-->
+              <!--<li class="link">-->
+              <!--<a href="#">-->
+              <!--Logout-->
+              <!--</a>-->
+              <!--</li>-->
+              <!--</ul>-->
             </div>
-            <div class="item dropdown" uib-dropdown ng-if="alerts.length > 0">
+            <div class="item dropdown" uib-dropdown ng-if="server_data.alerts.length > 0">
               <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
                 <i class="fa fa-bell-o"></i>
               </a>
@@ -123,9 +123,13 @@
                   {{"views.index.notifications" | translate}}
                 </li>
                 <li class="divider"></li>
-                <!-- <li>
+                <!-- TODO add icon for watched/unwatched -->
+                <li style="text-align: center" data-ng-repeat="alert in server_data.alerts">
+                  {{alert.comment}}
+                </li>
+                <li data-ng-if="isServerDown">
                   <a href="#">Server Down!</a>
-                </li> -->
+                </li>
               </ul>
             </div>
           </div>

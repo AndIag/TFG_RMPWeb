@@ -2,8 +2,8 @@ myApp.controller('SupplierProductCtrl', ['$scope', '$state', '$stateParams', '$t
     '$timeout', 'Flash', 'BreadcrumbManager', 'CrudService', 'ProductService',
     'ServerData',
 
+    //TODO  not implemented for TFG
     function ($scope, $state, $stateParams, $translate, $timeout, Flash, BreadcrumbManager, CrudService, ProductService, ServerData) {
-        //TODO load products
         $scope.isLoading = false;
         $scope.isCreateShowing = false;
         $scope.isSubmitActive = true;
