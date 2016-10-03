@@ -6,6 +6,7 @@ myApp.factory('ServerData', [
                 categories: [],
                 brands: [],
                 products: [],
+                selectedProducts: [],
                 suppliers: [],
                 menus: [],
                 showPageByPage: true
@@ -21,6 +22,12 @@ myApp.factory('ServerData', [
                 this.data.products.splice(index, 1);
             }, addProduct: function (c) {
                 this.data.products.push(c);
+            }, setSelectedProducts: function (data) {
+                this.data.selectedProducts = data;
+            }, removeSelectedProduct: function (index) {
+                this.data.selectedProducts.splice(index, 1);
+            }, addSelectedProduct: function (c) {
+                this.data.selectedProducts.push(c);
             }, setBrands: function (data) {
                 this.data.brands = data;
             }, removeBrand: function (index) {

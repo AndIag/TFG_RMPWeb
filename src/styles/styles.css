@@ -197,3 +197,7 @@ li.sidebar-list {
     margin-right: 10px;
     font-size: 20px;
 }
+
+.selected {
+	background: #12ba90;
+}

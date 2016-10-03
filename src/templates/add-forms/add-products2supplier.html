@@ -15,11 +15,9 @@
                                  class="pull-right"></dir-pagination-controls>
       </rd-widget-header>
       <rd-widget-body class="no-padding" data-ng-init="init()">
-        <div data-ng-show="!isAddFormShowing" class="col-sm-12 text-center"
-             style="margin-bottom:15px; margin-top:21px;">
-          <button class="add-btn btn" data-ng-click="showCreate()">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-
+        <div data-ng-show="!isCreateShowing" style="margin-bottom:15px; margin-top:21px;">
+          <button class="add-btn btn pull-left" data-ng-click="showCreate()">
+            {{"action.add" | translate}}
           </button>
           <div class="clearfix"></div>
         </div> <!-- End- Add button -->
@@ -47,8 +45,9 @@
               <th>{{"views.products.brand" | translate}}</th>
               <th>{{"isPack" | translate}}</th>
             </tr>
-            <tr dir-paginate="product in data.products | itemsPerPage: itemsPerPage" total-items="totalProducts"
-                current-page="currentProductsPage" data-ng-click="showDetails(product)">
+            <tr dir-paginate="product in data.products | itemsPerPage: itemsPerPage" total-items="totalItems"
+                current-page="currentPage" data-ng-click="toggleSelect(product)"
+                data-ng-class="{selected: indexOf(product.id) != -1}">
               <td>{{product.id}}</td>
               <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
               <td>{{product.name}}</td>
