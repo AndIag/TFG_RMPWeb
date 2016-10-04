@@ -201,3 +201,25 @@ li.sidebar-list {
 .selected {
 	background: #12ba90;
 }
+
+.row.header .user > .item ul.dropdown-menu .dropdown-header {
+	padding: 3px 5px;
+	text-align: right;
+}
+
+.dropdown-menu .divider {
+	margin: 0;
+}
+
+.notifications {
+	text-align: right;
+	margin-right: 10px;
+	height: 40px;
+}
+
+.unread {
+	text-align: right;
+	margin-right: 10px;
+	color: red;
+	height: 40px;
+}

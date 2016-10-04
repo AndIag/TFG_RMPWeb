@@ -1,5 +1,5 @@
-myApp.controller('MasterCtrl', ['$scope', '$cookieStore', 'CrudService', 'BreadcrumbManager', 'ServerData',
-    function ($scope, $cookieStore, CrudService, BreadcrumbManager, ServerData) {
+myApp.controller('MasterCtrl', ['$scope', '$cookieStore', '$translate', 'Flash', 'CrudService', 'BreadcrumbManager', 'ServerData',
+    function ($scope, $cookieStore, $translate, Flash, CrudService, BreadcrumbManager, ServerData) {
         /**
          * Sidebar Toggle & Cookie Control
          */
@@ -10,7 +10,6 @@ myApp.controller('MasterCtrl', ['$scope', '$cookieStore', 'CrudService', 'Breadc
         $scope.isServerDown = false;
 
         $scope.init = function () {
-            //TODO add orderBy to service
             CrudService.getItems(myApp.ALERTS_ENDPOINT).success(function (data) {
                 ServerData.setAlerts(JSON.parse(JSON.stringify(data)));
             }).error(function (data) {
@@ -42,6 +41,15 @@ myApp.controller('MasterCtrl', ['$scope', '$cookieStore', 'CrudService', 'Breadc
         $scope.toggleSidebar = function () {
             $scope.toggle = !$scope.toggle;
             $cookieStore.put('toggle', $scope.toggle);
+        };
+
+        $scope.hasUnreadAlerts = function () {
+            for (var i in $scope.server_data.alerts) {
+                if ($scope.server_data.alerts[i].viewed == false) {
+                    return true;
+                }
+            }
+            return false;
         };
 
         window.onresize = function () {
