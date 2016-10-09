@@ -204,7 +204,6 @@ li.sidebar-list {
 
 .row.header .user > .item ul.dropdown-menu .dropdown-header {
 	padding: 3px 5px;
-	text-align: right;
 }
 
 .dropdown-menu .divider {
@@ -212,14 +211,18 @@ li.sidebar-list {
 }
 
 .notifications {
-	text-align: right;
-	margin-right: 10px;
+	text-align: center;
 	height: 40px;
+}
+.notifications:hover {
+  background: #e0e0e0;
 }
 
 .unread {
-	text-align: right;
-	margin-right: 10px;
+	text-align: center;
 	color: red;
 	height: 40px;
+}
+.unread:hover {
+  background: #e0e0e0;
 }
