@@ -1,5 +1,5 @@
-myApp.controller('MasterCtrl', ['$scope', '$cookieStore', '$translate', 'Flash', 'CrudService', 'BreadcrumbManager', 'ServerData',
-    function ($scope, $cookieStore, $translate, Flash, CrudService, BreadcrumbManager, ServerData) {
+myApp.controller('MasterCtrl', ['$scope', '$cookieStore', '$translate', 'Flash', 'CrudService', 'BreadcrumbManager', 'ServerData', 'AlertService',
+    function ($scope, $cookieStore, $translate, Flash, CrudService, BreadcrumbManager, ServerData, AlertService) {
         /**
          * Sidebar Toggle & Cookie Control
          */
@@ -37,6 +37,18 @@ myApp.controller('MasterCtrl', ['$scope', '$cookieStore', '$translate', 'Flash',
             }
 
         });
+
+        $scope.showAlert = function (alert) {
+            AlertService.markAsRead(alert).success(function (data) {
+                alert.viewed = true;
+                console.log(data);
+            }).error(function (data) {
+                Flash.clear();
+                Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
+            }).finally(function () {
+                $scope.isLoading = false;
+            });
+        };
 
         $scope.toggleSidebar = function () {
             $scope.toggle = !$scope.toggle;

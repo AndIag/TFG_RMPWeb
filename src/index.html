@@ -107,7 +107,7 @@
                 </li>
                 <li class="divider"></li>
                 <li data-ng-class="{notifications: alert.viewed, unread: !alert.viewed}"
-                    data-ng-repeat="alert in server_data.alerts | limitTo:10">
+                    data-ng-repeat="alert in server_data.alerts | limitTo:10" data-ng-click="showAlert(alert)">
                   <i data-ng-class="{fa: true, 'fa-check': alert.viewed, 'fa-times': !alert.viewed}"
                      aria-hidden="true"></i> {{alert.comment}}
                 </li>
