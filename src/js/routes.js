@@ -18,6 +18,11 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
                 templateUrl: 'resources/templates/dashboard.html',
                 controller: 'DashboardCtrl'
             })
+            .state('employees', {
+                url: '/employees',
+                templateUrl: 'resources/templates/employees.html',
+                controller: 'EmployeeCtrl'
+            })
             .state('brands', {
                 url: '/brands',
                 templateUrl: 'resources/templates/brands.html',

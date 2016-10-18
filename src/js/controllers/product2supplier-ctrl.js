@@ -18,7 +18,7 @@ myApp.controller('SupplierProductCtrl', ['$scope', '$state', '$stateParams', '$t
         $scope.init = function () {
             $scope.isLoading = true;
             if (($scope.supplier == null) && $stateParams.supplierId) {
-                CrudService.findItemById(myApp.SUPPLIERS_ENDPOINR, $stateParams.supplierId).success(function (data) {
+                CrudService.findItemById(myApp.SUPPLIERS_ENDPOINT, $stateParams.supplierId).success(function (data) {
                     $scope.supplier = JSON.parse(JSON.stringify(data));
                     BreadcrumbManager.changePage($scope.supplier.name);
                     getSelectedProducts($scope.supplier.id);

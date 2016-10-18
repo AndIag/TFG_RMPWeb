@@ -26,7 +26,7 @@ myApp.controller('SupplierCtrl', ['$scope', '$state', '$stateParams', '$translat
 
         function getPage(pageNumber) { //Page by page for brands
             $scope.isLoading = true;
-            CrudService.getPaginatedItems(myApp.SUPPLIERS_ENDPOINR, pageNumber - 1, $scope.itemsPerPage).success(function (data) {
+            CrudService.getPaginatedItems(myApp.SUPPLIERS_ENDPOINT, pageNumber - 1, $scope.itemsPerPage).success(function (data) {
                 var json = JSON.parse(JSON.stringify(data));
                 ServerData.setSuppliers(json.items);
                 $scope.totalItems = json.count;
@@ -66,7 +66,7 @@ myApp.controller('SupplierCtrl', ['$scope', '$state', '$stateParams', '$translat
         };
 
         function createSupplier(name, url, vat) {
-            CrudService.createItem(myApp.SUPPLIERS_ENDPOINR, {name: name, url: url, vat: vat}).success(function (data) {
+            CrudService.createItem(myApp.SUPPLIERS_ENDPOINT, {name: name, url: url, vat: vat}).success(function (data) {
                 $scope.isAddFormShowing = false;
                 Flash.clear();
                 Flash.create('success', $translate.instant('message.supplier.added'), 3000);
@@ -81,7 +81,7 @@ myApp.controller('SupplierCtrl', ['$scope', '$state', '$stateParams', '$translat
         }
 
         function updateSupplier(supplierId, name, url, vat) {
-            CrudService.updateItem(myApp.SUPPLIERS_ENDPOINR, supplierId, {
+            CrudService.updateItem(myApp.SUPPLIERS_ENDPOINT, supplierId, {
                 name: name,
                 url: url,
                 vat: vat
@@ -101,7 +101,7 @@ myApp.controller('SupplierCtrl', ['$scope', '$state', '$stateParams', '$translat
 
         $scope.removeSupplier = function (supplier, index) {
             supplier.disabled = true;
-            CrudService.removeItem(myApp.SUPPLIERS_ENDPOINR, supplier.id).success(function (data) {
+            CrudService.removeItem(myApp.SUPPLIERS_ENDPOINT, supplier.id).success(function (data) {
                 ServerData.removeSupplier(index);
                 Flash.clear();
                 Flash.create('success', $translate.instant('message.supplier.removed'), 3000);

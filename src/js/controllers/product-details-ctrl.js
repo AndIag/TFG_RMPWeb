@@ -127,7 +127,7 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
 
         //Search
         $scope.searchSuppliers = function () {
-            CrudService.findItemsByName(myApp.SUPPLIERS_ENDPOINR, $scope.newProductSupplier.supplier).success(function (data) {
+            CrudService.findItemsByName(myApp.SUPPLIERS_ENDPOINT, $scope.newProductSupplier.supplier).success(function (data) {
                 var json = JSON.parse(JSON.stringify(data));
                 if (json.items.length > 0) {
                     $scope.searchedSuppliers = json.items;

@@ -1,0 +1,71 @@
+<!-- Alerts -->
+<div class="row">
+  <div class="col-xs-12">
+    <flash-message class="customAlert" duration="5000" show-close="true" on-dismiss=""></flash-message>
+  </div>
+</div>
+<!-- End- Alerts -->
+<div class="row">
+  <!-- Maing view -->
+  <div class="col-lg-12" data-ng-show="!isLoading">
+    <rd-widget>
+      <rd-widget-header icon="fa-tasks" title="{{'views.index.employees' | translate}}"></rd-widget-header>
+      <rd-widget-body class="no-padding" data-ng-init="init()">
+        <div data-ng-show="!isAddFormShowing" style="margin-bottom:15px; margin-top:21px;">
+          <button class="add-btn btn pull-left" data-ng-click="showCreate()">
+            {{"action.add" | translate}}
+          </button>
+          <div class="clearfix"></div>
+        </div> <!-- End- Add button -->
+        <!-- Add form -->
+        <!--<div data-ng-show="isAddFormShowing"-->
+        <!--data-ng-include="'resources/templates/add-forms/add-employee-form.html'">-->
+        <!--</div>-->
+        <!-- End- Add form -->
+        <!-- No employees message -->
+        <div class="text-center" data-ng-show="!data.employees.length && !isSearching">
+          {{"error.no.employees" | translate}}
+        </div> <!-- End- No employees message -->
+        <!-- Employee table showed only if data exists -->
+        <div class="table-responsive" data-ng-show="data.employees.length">
+          <div id="search" class="col-lg-12" data-ng-controller="EmployeeCtrl">
+            <label for="search-input">
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <span class="sr-only">{{"action.search | translate"}}</span>
+            </label>
+            <input id="search-input" class="form-control input-lg" placeholder="{{'action.search' | translate}}"
+                   tabindex="1"
+                   data-ng-model="searchKeywords" data-ng-change="searchByName()">
+          </div>
+          <table class="table">
+            <tbody>
+            <tr>
+              <th>{{"id" | translate}}</th>
+              <th>{{"name" | translate}}</th>
+              <th>{{"dni" | translate}}</th>
+              <th>{{"role" | translate}}</th>
+            </tr>
+            <tr data-ng-repeat="employee in data.employees" data-ng-click="showDetails(employee)">
+              <td>{{employee.id}}</td>
+              <td>{{employee.name}}</td>
+              <td>{{employee.dni}}</td>
+              <td>{{employee.role}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div><!-- End- Brands table -->
+      </rd-widget-body>
+    </rd-widget>
+  </div>
+  <!-- End- Maing view -->
+  <!-- Loading view -->
+  <div class="col-lg-12" data-ng-show="isLoading">
+    <rd-widget>
+      <rd-widget-header icon="fa-tasks" title="{{'views.index.employees' | translate}}"></rd-widget-header>
+      <rd-widget-body>
+        <rd-loading></rd-loading>
+      </rd-widget-body>
+    </rd-widget>
+  </div>
+</div>
+<!-- End- Loading view -->

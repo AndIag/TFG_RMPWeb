@@ -1,5 +1,7 @@
 {
   "id": "ID",
+  "dni": "DNI",
+  "role": "Rol",
   "true": "Sí",
   "false": "No",
   "name": "Nombre",
@@ -32,6 +34,7 @@
   "action.submit": "Enviar",
   "action.modify": "Modificar",
   "views.index.dashboard": "Tablero",
+  "views.index.employees": "Empleados",
   "views.index.brands": "Marcas",
   "views.index.categories": "Categorías",
   "views.index.products": "Productos",
@@ -58,6 +61,7 @@
   "error.creating.category": "Error creando categoría!",
   "error.creating.product": "Error creando producto!",
   "error.no.brands": "No hay marcas que mostrar!",
+  "error.no.employees": "No hay empleados que mostrar!",
   "error.no.products": "No hay productos que mostrar!",
   "error.no.categories": "No hay categorías que mostrar!",
   "error.no.suppliers": "No hay distribuidores que mostrar!",

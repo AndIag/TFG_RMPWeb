@@ -16,7 +16,8 @@ myApp.CATEGORIES_ENDPOINT = "/categories";
 myApp.DASHBOARD_ENDPOINT = "/dashboard";
 myApp.MENUS_ENDPOINT = "/menus";
 myApp.PRODUCTS_ENDPOINT = "/products";
-myApp.SUPPLIERS_ENDPOINR = "/suppliers";
+myApp.SUPPLIERS_ENDPOINT = "/suppliers";
+myApp.EMPLOYEES_ENDPOINT = "/employees";
 
 
 myApp.constant('LOCALES', {

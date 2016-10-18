@@ -1,5 +1,7 @@
 {
   "id": "ID",
+  "dni": "DNI",
+  "role": "Role",
   "true": "True",
   "false": "False",
   "name": "Name",
@@ -32,6 +34,7 @@
   "action.modify": "Modify",
   "action.search": "Search...",
   "views.index.dashboard": "Dashboard",
+  "views.index.employees": "Employees",
   "views.index.brands": "Brands",
   "views.index.categories": "Categories",
   "views.index.products": "Products",
@@ -58,6 +61,7 @@
   "error.creating.category": "Failed creating category!",
   "error.creating.product": "Failed creating product!",
   "error.no.brands": "No brands to show!",
+  "error.no.employees": "No employees to show!",
   "error.no.products": "No products to show!",
   "error.no.categories": "No categories to show!",
   "error.no.suppliers": "No suppliers to show!",

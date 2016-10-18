@@ -9,6 +9,7 @@ myApp.factory('ServerData', [
                 selectedProducts: [],
                 suppliers: [],
                 menus: [],
+                employees: [],
                 showPageByPage: true
             }, setCategories: function (data) {
                 this.data.categories = data;
@@ -16,6 +17,12 @@ myApp.factory('ServerData', [
                 this.data.categories.splice(index, 1);
             }, addCategory: function (c) {
                 this.data.categories.push(c);
+            }, setEmployees: function (data) {
+                this.data.employees = data;
+            }, removeEmployee: function (index) {
+                this.data.employees.splice(index, 1);
+            }, addEmployee: function (c) {
+                this.data.employees.push(c);
             }, setProducts: function (data) {
                 this.data.products = data;
             }, removeProduct: function (index) {
@@ -51,4 +58,4 @@ myApp.factory('ServerData', [
             }
         };
     }
-])
+]);
