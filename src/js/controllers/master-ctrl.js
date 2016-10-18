@@ -39,9 +39,8 @@ myApp.controller('MasterCtrl', ['$scope', '$cookieStore', '$translate', 'Flash',
         });
 
         $scope.showAlert = function (alert) {
-            AlertService.markAsRead(alert).success(function (data) {
+            CrudService.updateItem(myApp.ALERTS_ENDPOINT, alert.id, null).success(function (data) {
                 alert.viewed = true;
-                console.log(data);
             }).error(function (data) {
                 Flash.clear();
                 Flash.create('danger', $translate.instant('error.loading.categories'), 3000);

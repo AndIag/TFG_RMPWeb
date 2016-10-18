@@ -8,9 +8,8 @@ myApp.service('AlertService', ['$http', '$q',
                 console.log(alert);
 
                 $http({
-                    method: 'POST',
-                    url: myApp.endpoint + myApp.ALERTS_ENDPOINT + '/view',
-                    data: {alert: alert}
+                    method: 'PUT',
+                    url: myApp.endpoint + myApp.ALERTS_ENDPOINT + '/' + alert.id
                 }).then(function successCallback(response) {
                     deferred.resolve(response.data); //Send response data (token) to controller
                 }, function errorCallback(response) {
