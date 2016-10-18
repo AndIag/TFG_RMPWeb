@@ -57,9 +57,9 @@ myApp.controller('ProductCtrl', ['$scope', '$state', '$stateParams', '$translate
 
         $scope.isPack = function (product) {
             if ('simpleProduct' in product) {
-                return $translate.instant('true');
+                return true;
             }
-            return $translate.instant('false');
+            return false;
         };
 
         $scope.searchProducts = function () {

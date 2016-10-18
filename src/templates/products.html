@@ -57,7 +57,9 @@
               <td>{{product.name}}</td>
               <td><a ui-sref="categories">{{product.category.name}}</a></td>
               <td><a ui-sref="brand-details({'brandId': product.brand.id})">{{product.brand.name}}</a></td>
-              <td>{{isPack(product)}}</td> <!-- TODO add icons for difference this -->
+              <td data-ng-show="isPack(product)"><img width="25px" height="25px" src="resources/img/pack_icon.png"></td>
+              <td data-ng-show="!isPack(product)"><img width="25px" height="25px" src="resources/img/simple_icon.png">
+              </td>
               <td>
                 <button class="btn pull-right" data-ng-disabled="product.disabled"
                         data-ng-click="removeProduct(product, $index); $event.stopPropagation();">
