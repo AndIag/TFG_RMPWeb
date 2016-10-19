@@ -28,7 +28,7 @@
         </div><!-- End- Add form -->
         <!-- No brands message -->
         <div class="text-center" data-ng-show="!data.menus.length">
-          {{"error.no.menus" | translate}}
+          {{"error.no.data" | translate}}
         </div> <!-- End- No brands message -->
         <!-- Brands table showed only if data exists -->
         <div class="table-responsive" data-ng-show="data.menus.length">
@@ -43,12 +43,12 @@
           <table class="table">
             <tbody>
             <tr>
-              <th>{{"id" | translate}}</th>
-              <th>{{"name" | translate}}</th>
-              <th>{{"menu.starterPrice" | translate}}</th>
-              <th>{{"menu.drinkPrice" | translate}}</th>
-              <th>{{"menu.mainPrice" | translate}}</th>
-              <th>{{"menu.dessertPrice" | translate}}</th>
+              <th>{{"word.id.upper" | translate}}</th>
+              <th>{{"word.name" | translate}}</th>
+              <th>{{"word.starter_price" | translate}}</th>
+              <th>{{"word.drink_price" | translate}}</th>
+              <th>{{"word.main_price" | translate}}</th>
+              <th>{{"word.dessert_price" | translate}}</th>
               <th></th>
             </tr>
             <tr dir-paginate="menu in data.menus | itemsPerPage: itemsPerPage" total-items="totalItems"

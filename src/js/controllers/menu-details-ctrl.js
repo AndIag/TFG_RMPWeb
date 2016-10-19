@@ -21,7 +21,7 @@ myApp.controller('MenuDetailsCtrl', ['$scope', '$state', '$stateParams', '$trans
                 BreadcrumbManager.changePage($scope.menu.name);
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.menus'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
@@ -36,7 +36,7 @@ myApp.controller('MenuDetailsCtrl', ['$scope', '$state', '$stateParams', '$trans
                 $scope.starters = JSON.parse(JSON.stringify(data));
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.menus'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
@@ -47,7 +47,7 @@ myApp.controller('MenuDetailsCtrl', ['$scope', '$state', '$stateParams', '$trans
                 $scope.drinks = JSON.parse(JSON.stringify(data));
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.menus'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
@@ -58,7 +58,7 @@ myApp.controller('MenuDetailsCtrl', ['$scope', '$state', '$stateParams', '$trans
                 $scope.mains = JSON.parse(JSON.stringify(data));
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.menus'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
@@ -69,7 +69,7 @@ myApp.controller('MenuDetailsCtrl', ['$scope', '$state', '$stateParams', '$trans
                 $scope.desserts = JSON.parse(JSON.stringify(data));
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.menus'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
@@ -128,11 +128,11 @@ myApp.controller('MenuDetailsCtrl', ['$scope', '$state', '$stateParams', '$trans
             }).success(function (data) {
                 $scope.isAddFormShowing = false;
                 Flash.clear();
-                Flash.create('success', $translate.instant('message.menu.updated'), 3000);
+                Flash.create('success', $translate.instant('message.updated'), 3000);
                 $scope.init();
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.updating.menu'), 3000);
+                Flash.create('danger', $translate.instant('error.updating'), 3000);
             }).finally(function () {
                 $scope.isSubmitActive = true;
                 $scope.hideCreate();

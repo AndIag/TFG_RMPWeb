@@ -15,7 +15,7 @@ myApp.controller('DashboardCtrl', ['$scope', '$state', '$stateParams', '$transla
                 $scope.data = JSON.parse(JSON.stringify(data));
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.info'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });

@@ -27,7 +27,7 @@
         </rd-widget-body><!-- End- Add form -->
         <!-- No products message -->
         <div class="text-center" data-ng-show="!data.products.length">
-          {{"error.no.products" | translate}}
+          {{"error.no.data" | translate}}
         </div> <!-- End- No products message -->
         <!-- products table showed only if data exists -->
         <div class="table-responsive">
@@ -42,12 +42,12 @@
           <table class="table" data-ng-show="data.products.length">
             <tbody>
             <tr>
-              <th>{{"id" | translate}}</th>
+              <th>{{"word.id.upper" | translate}}</th>
               <th></th>
-              <th>{{"name" | translate}}</th>
-              <th>{{"category" | translate}}</th>
-              <th>{{"views.products.brand" | translate}}</th>
-              <th>{{"isPack" | translate}}</th>
+              <th>{{"word.name" | translate}}</th>
+              <th>{{"word.category" | translate}}</th>
+              <th>{{"word.brand" | translate}}</th>
+              <th></th>
               <th></th>
             </tr>
             <tr dir-paginate="product in data.products | itemsPerPage: itemsPerPage" total-items="totalProducts"

@@ -15,7 +15,7 @@ myApp.controller('MasterCtrl', ['$scope', '$cookieStore', '$translate', 'Flash',
             }).error(function (data) {
                 $scope.isServerDown = true;
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
@@ -43,7 +43,7 @@ myApp.controller('MasterCtrl', ['$scope', '$cookieStore', '$translate', 'Flash',
                 alert.viewed = true;
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });

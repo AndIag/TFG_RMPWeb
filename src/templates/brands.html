@@ -27,7 +27,7 @@
         </div><!-- End- Add form -->
         <!-- No brands message -->
         <div class="text-center" data-ng-show="!data.brands.length">
-          {{"error.no.brands" | translate}}
+          {{"error.no.data" | translate}}
         </div> <!-- End- No brands message -->
         <!-- Brands table showed only if data exists -->
         <div class="table-responsive" data-ng-show="data.brands.length">
@@ -43,10 +43,10 @@
           <table class="table">
             <tbody>
             <tr>
-              <th>{{"id" | translate}}</th>
+              <th>{{"word.id.upper" | translate}}</th>
               <th></th>
-              <th>{{"name" | translate}}</th>
-              <th>{{"views.brands.products-count" | translate}}</th>
+              <th>{{"word.name" | translate}}</th>
+              <th>{{"word.products_count" | translate}}</th>
               <th></th>
             </tr>
             <tr dir-paginate="brand in data.brands | itemsPerPage: itemsPerPage" total-items="totalItems"

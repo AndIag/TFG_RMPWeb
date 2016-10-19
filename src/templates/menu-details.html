@@ -16,131 +16,131 @@
       <rd-widget-body class="no-padding" data-ng-init="init()">
         <!-- Modify form -->
         <div
-          data-ng-include="'resources/templates/add-forms/add-menu-form.html'">
+            data-ng-include="'resources/templates/add-forms/add-menu-form.html'">
         </div><!-- End- Modify form -->
 
         <div class="col-md-6">
-            <legend >{{"menu.drinkPrice" | translate}}</legend>
-            <div class="table-responsive">
-              <table class="table" >
-                <tbody>
-                  <tr>
-                    <th>{{"id" | translate}}</th>
-                    <th></th>
-                    <th>{{"name" | translate}}</th>
-                    <th>{{"category" | translate}}</th>
-                    <th></th>
-                  </tr>
-                  <tr data-ng-repeat="product in drinks | orderBy: 'id'">
-                    <td>{{product.id}}</td>
-                    <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
-                    <td>{{product.name}}</td>
-                    <td>{{product.category.name}}</td>
-                    <td>
-                      <button class="btn pull-right" data-ng-disabled="product.disabled" data-ng-click="removeDrink(product, $index); $event.stopPropagation();">
-                        {{"action.remove" | translate}}
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <button style="margin-bottom:15px; margin-top:21px;" class="add-btn btn" data-ng-click="showCreate()">
-              {{"action.add" | translate}}
-            </button>
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+              <tr>
+                <th>{{"word.id.upper" | translate}}</th>
+                <th></th>
+                <th>{{"word.name" | translate}}</th>
+                <th>{{"word.category" | translate}}</th>
+                <th></th>
+              </tr>
+              <tr data-ng-repeat="product in drinks | orderBy: 'id'">
+                <td>{{product.id}}</td>
+                <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
+                <td>{{product.name}}</td>
+                <td>{{product.category.name}}</td>
+                <td>
+                  <button class="btn pull-right" data-ng-disabled="product.disabled"
+                          data-ng-click="removeDrink(product, $index); $event.stopPropagation();">
+                    {{"action.remove" | translate}}
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <button style="margin-bottom:15px; margin-top:21px;" class="add-btn btn" data-ng-click="showCreate()">
+            {{"action.add" | translate}}
+          </button>
         </div>
 
         <div class="col-md-6">
-            <legend >{{"menu.starterPrice" | translate}}</legend>
-            <div class="table-responsive">
-              <table class="table" >
-                <tbody>
-                  <tr>
-                    <th>{{"id" | translate}}</th>
-                    <th></th>
-                    <th>{{"name" | translate}}</th>
-                    <th>{{"category" | translate}}</th>
-                    <th></th>
-                  </tr>
-                  <tr data-ng-repeat="product in starters | orderBy: 'id'">
-                    <td>{{product.id}}</td>
-                    <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
-                    <td>{{product.name}}</td>
-                    <td>{{product.category.name}}</td>
-                    <td>
-                      <button class="btn pull-right" data-ng-disabled="product.disabled" data-ng-click="removeStarter(product, $index); $event.stopPropagation();">
-                        {{"action.remove" | translate}}
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <button style="margin-bottom:15px; margin-top:21px;" class="add-btn btn" data-ng-click="showCreate()">
-              {{"action.add" | translate}}
-            </button>
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+              <tr>
+                <th>{{"word.id.upper" | translate}}</th>
+                <th></th>
+                <th>{{"word.name" | translate}}</th>
+                <th>{{"word.category" | translate}}</th>
+                <th></th>
+              </tr>
+              <tr data-ng-repeat="product in starters | orderBy: 'id'">
+                <td>{{product.id}}</td>
+                <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
+                <td>{{product.name}}</td>
+                <td>{{product.category.name}}</td>
+                <td>
+                  <button class="btn pull-right" data-ng-disabled="product.disabled"
+                          data-ng-click="removeStarter(product, $index); $event.stopPropagation();">
+                    {{"action.remove" | translate}}
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <button style="margin-bottom:15px; margin-top:21px;" class="add-btn btn" data-ng-click="showCreate()">
+            {{"action.add" | translate}}
+          </button>
         </div>
 
         <div class="col-md-6">
-            <legend >{{"menu.mainPrice" | translate}}</legend>
-            <div class="table-responsive">
-              <table class="table" >
-                <tbody>
-                  <tr>
-                    <th>{{"id" | translate}}</th>
-                    <th></th>
-                    <th>{{"name" | translate}}</th>
-                    <th>{{"category" | translate}}</th>
-                    <th></th>
-                  </tr>
-                  <tr data-ng-repeat="product in mains | orderBy: 'id'">
-                    <td>{{product.id}}</td>
-                    <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
-                    <td>{{product.name}}</td>
-                    <td>{{product.category.name}}</td>
-                    <td>
-                      <button class="btn pull-right" data-ng-disabled="product.disabled" data-ng-click="removeMain(product, $index); $event.stopPropagation();">
-                        {{"action.remove" | translate}}
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <button style="margin-bottom:15px; margin-top:21px;" class="add-btn btn" data-ng-click="showCreate()">
-              {{"action.add" | translate}}
-            </button>
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+              <tr>
+                <th>{{"word.id.upper" | translate}}</th>
+                <th></th>
+                <th>{{"word.name" | translate}}</th>
+                <th>{{"word.category" | translate}}</th>
+                <th></th>
+              </tr>
+              <tr data-ng-repeat="product in mains | orderBy: 'id'">
+                <td>{{product.id}}</td>
+                <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
+                <td>{{product.name}}</td>
+                <td>{{product.category.name}}</td>
+                <td>
+                  <button class="btn pull-right" data-ng-disabled="product.disabled"
+                          data-ng-click="removeMain(product, $index); $event.stopPropagation();">
+                    {{"action.remove" | translate}}
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <button style="margin-bottom:15px; margin-top:21px;" class="add-btn btn" data-ng-click="showCreate()">
+            {{"action.add" | translate}}
+          </button>
         </div>
 
         <div class="col-md-6">
-            <legend >{{"menu.dessertPrice" | translate}}</legend>
-            <div class="table-responsive">
-              <table class="table" >
-                <tbody>
-                  <tr>
-                    <th>{{"id" | translate}}</th>
-                    <th></th>
-                    <th>{{"name" | translate}}</th>
-                    <th>{{"category" | translate}}</th>
-                    <th></th>
-                  </tr>
-                  <tr data-ng-repeat="product in desserts | orderBy: 'id'">
-                    <td>{{product.id}}</td>
-                    <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
-                    <td>{{product.name}}</td>
-                    <td>{{product.category.name}}</td>
-                    <td>
-                      <button class="btn pull-right" data-ng-disabled="product.disabled" data-ng-click="removeDessert(product, $index); $event.stopPropagation();">
-                        {{"action.remove" | translate}}
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <button style="margin-bottom:15px; margin-top:21px;" class="add-btn btn" data-ng-click="showCreate()">
-              {{"action.add" | translate}}
-            </button>
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+              <tr>
+                <th>{{"word.id.upper" | translate}}</th>
+                <th></th>
+                <th>{{"word.name" | translate}}</th>
+                <th>{{"word.category" | translate}}</th>
+                <th></th>
+              </tr>
+              <tr data-ng-repeat="product in desserts | orderBy: 'id'">
+                <td>{{product.id}}</td>
+                <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
+                <td>{{product.name}}</td>
+                <td>{{product.category.name}}</td>
+                <td>
+                  <button class="btn pull-right" data-ng-disabled="product.disabled"
+                          data-ng-click="removeDessert(product, $index); $event.stopPropagation();">
+                    {{"action.remove" | translate}}
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <button style="margin-bottom:15px; margin-top:21px;" class="add-btn btn" data-ng-click="showCreate()">
+            {{"action.add" | translate}}
+          </button>
         </div>
 
         <div class="clearfix"></div>

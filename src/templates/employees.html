@@ -24,7 +24,7 @@
         <!-- End- Add form -->
         <!-- No employees message -->
         <div class="text-center" data-ng-show="!data.employees.length && !isSearching">
-          {{"error.no.employees" | translate}}
+          {{"error.no.data" | translate}}
         </div> <!-- End- No employees message -->
         <!-- Employee table showed only if data exists -->
         <div class="table-responsive" data-ng-show="data.employees.length">
@@ -40,10 +40,10 @@
           <table class="table">
             <tbody>
             <tr>
-              <th>{{"id" | translate}}</th>
-              <th>{{"name" | translate}}</th>
-              <th>{{"dni" | translate}}</th>
-              <th>{{"role" | translate}}</th>
+              <th>{{"word.id.upper" | translate}}</th>
+              <th>{{"word.name" | translate}}</th>
+              <th>{{"word.identification" | translate}}</th>
+              <th>{{"word.role" | translate}}</th>
             </tr>
             <tr data-ng-repeat="employee in data.employees" data-ng-click="showDetails(employee)">
               <td>{{employee.id}}</td>

@@ -25,7 +25,7 @@ myApp.controller('SupplierProductCtrl', ['$scope', '$state', '$stateParams', '$t
                     getPage(1);
                 }).error(function (data) {
                     Flash.clear();
-                    Flash.create('danger', $translate.instant('error.loading.supplier'), 3000);
+                    Flash.create('danger', $translate.instant('error.loading'), 3000);
                 }).finally(function () {
                     $scope.isLoading = false;
                 });
@@ -41,7 +41,7 @@ myApp.controller('SupplierProductCtrl', ['$scope', '$state', '$stateParams', '$t
                 ServerData.setSelectedProducts(JSON.parse(JSON.stringify(data)).items);
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.products'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
@@ -56,17 +56,14 @@ myApp.controller('SupplierProductCtrl', ['$scope', '$state', '$stateParams', '$t
                 $scope.currentPage = pageNumber;
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.products'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
         }
 
         $scope.isPack = function (product) {
-            if ('simpleProduct' in product) {
-                return $translate.instant('true');
-            }
-            return $translate.instant('false');
+            return ('simpleProduct' in product);
         };
 
         $scope.indexOf = function (productId) {

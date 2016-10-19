@@ -9,7 +9,7 @@
   <!-- Maing view -->
   <div class="col-lg-12" data-ng-show="!isLoading">
     <rd-widget>
-      <rd-widget-header icon="fa-tasks" title="{{'action.add' | translate}} {{'product.plural' | translate}}">
+      <rd-widget-header icon="fa-tasks" title="{{'action.add' | translate}} {{'word.product.plural' | translate}}">
         <dir-pagination-controls data-ng-show="data.products.length && data.showPageByPage"
                                  on-page-change="pageChanged(newPageNumber)"
                                  class="pull-right"></dir-pagination-controls>
@@ -23,7 +23,7 @@
         </div> <!-- End- Add button -->
         <!-- No products message -->
         <div class="text-center" data-ng-show="!data.products.length">
-          {{"error.no.products" | translate}}
+          {{"error.no.data" | translate}}
         </div> <!-- End- No products message -->
         <!-- products table showed only if data exists -->
         <div class="table-responsive">
@@ -38,12 +38,12 @@
           <table class="table" data-ng-show="data.products.length">
             <tbody>
             <tr>
-              <th>{{"id" | translate}}</th>
+              <th>{{"word.id.upper" | translate}}</th>
               <th></th>
-              <th>{{"name" | translate}}</th>
-              <th>{{"category" | translate}}</th>
-              <th>{{"views.products.brand" | translate}}</th>
-              <th>{{"isPack" | translate}}</th>
+              <th>{{"word.name" | translate}}</th>
+              <th>{{"word.category" | translate}}</th>
+              <th>{{"word.brand" | translate}}</th>
+              <th></th>
             </tr>
             <tr dir-paginate="product in data.products | itemsPerPage: itemsPerPage" total-items="totalItems"
                 current-page="currentPage" data-ng-click="toggleSelect(product)"
@@ -53,7 +53,9 @@
               <td>{{product.name}}</td>
               <td><a ui-sref="categories">{{product.category.name}}</a></td>
               <td><a ui-sref="brand-details({'brandId': product.brand.id})">{{product.brand.name}}</a></td>
-              <td>{{isPack(product)}}</td>
+              <td data-ng-show="isPack(product)"><img width="25px" height="25px" src="resources/img/pack_icon.png"></td>
+              <td data-ng-show="!isPack(product)"><img width="25px" height="25px" src="resources/img/simple_icon.png">
+              </td>
             </tr>
             </tbody>
           </table>
@@ -72,7 +74,7 @@
   <div class="col-lg-12" data-ng-show="isLoading">
     <rd-widget>
       <rd-widget-header icon="fa-tasks"
-                        title="{{'action.add' | translate}} {{'product.plural' | translate}}"></rd-widget-header>
+                        title="{{'action.add' | translate}} {{'word.product.plural' | translate}}"></rd-widget-header>
       <rd-widget-body>
         <rd-loading></rd-loading>
       </rd-widget-body>

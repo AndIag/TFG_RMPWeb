@@ -36,7 +36,7 @@ myApp.controller('MenuCtrl', ['$scope', '$state', '$stateParams', '$translate',
                 $scope.currentPage = pageNumber;
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.menus'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
@@ -94,11 +94,11 @@ myApp.controller('MenuCtrl', ['$scope', '$state', '$stateParams', '$translate',
             }).success(function (data) {
                 $scope.isAddFormShowing = false;
                 Flash.clear();
-                Flash.create('success', $translate.instant('message.menu.added'), 3000);
+                Flash.create('success', $translate.instant('message.added'), 3000);
                 ServerData.addMenu(JSON.parse(JSON.stringify(data)));
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.creating.menu'), 3000);
+                Flash.create('danger', $translate.instant('error.creating'), 3000);
             }).finally(function () {
                 $scope.isSubmitActive = true;
                 Flash.clear();
@@ -111,10 +111,10 @@ myApp.controller('MenuCtrl', ['$scope', '$state', '$stateParams', '$translate',
             CrudService.removeItem(myApp.MENUS_ENDPOINT, menu.id).success(function (data) {
                 ServerData.removeMenu(index);
                 Flash.clear();
-                Flash.create('success', $translate.instant('message.menu.removed'), 3000);
+                Flash.create('success', $translate.instant('message.removed'), 3000);
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.removing.menu'), 3000);
+                Flash.create('danger', $translate.instant('error.removing'), 3000);
                 menu.disabled = false;
             });
         };

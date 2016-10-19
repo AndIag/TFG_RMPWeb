@@ -8,22 +8,22 @@
 
   <fieldset>
     <!-- Form Name -->
-  <legend>{{"action.add" | translate}} {{"supplier" | translate}}</legend>
+    <legend>{{"action.add" | translate}} {{"word.supplier" | translate}}</legend>
 
   <div class="form-group">
-    <label class="sr-only" for="name">{{"name" | translate}}:</label>
-    <input name="name" type="text" data-ng-model="supplier.name" class="input-sm form-control"
-    placeholder="{{'name' | translate}}" required>
+    <label class="sr-only" for="name">{{"word.name" | translate}}:</label>
+    <input id="name" type="text" data-ng-model="supplier.name" class="input-sm form-control"
+           placeholder="{{'word.name' | translate}}" required>
   </div>
   <div class="form-group">
-    <label class="sr-only" for="vat">{{"vat" | translate}}:</label>
-    <input name="vat" type="text" data-ng-model="supplier.vat" class="input-sm form-control"
-    placeholder="{{'vat' | translate}}" required>
+    <label class="sr-only" for="vat">{{"word.vat.upper" | translate}}:</label>
+    <input id="vat" type="text" data-ng-model="supplier.vat" class="input-sm form-control"
+           placeholder="{{'word.vat.upper' | translate}}" required>
   </div>
   <div class="form-group">
-    <label class="sr-only" for="url">{{"url" | translate}}:</label>
-    <input name="url" type="url" data-ng-model="supplier.url" class="input-sm form-control"
-    placeholder="{{'url' | translate}}">
+    <label class="sr-only" for="url">{{"word.image_url" | translate}}:</label>
+    <input id="url" type="url" data-ng-model="supplier.url" class="input-sm form-control"
+           placeholder="{{'word.image_url' | translate}}">
   </div>
   <button type="submit" class="btn" data-ng-click="saveSupplier(form)" data-ng-disabled="!isSubmitActive">
     {{"action.submit" | translate}}

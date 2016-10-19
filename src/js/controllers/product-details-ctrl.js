@@ -24,7 +24,7 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
                     BreadcrumbManager.changePage($scope.product.name);
                 }).error(function (data) {
                     Flash.clear();
-                    Flash.create('danger', $translate.instant('error.loading.products'), 3000);
+                    Flash.create('danger', $translate.instant('error.loading'), 3000);
                 }).finally(function () {
                     $scope.isLoading = false;
                 });
@@ -34,7 +34,7 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
         function isValidProductForm(form) {
             if (form['url'].$error.url != undefined) {
                 Flash.clear();
-                Flash.create('info', $translate.instant('error.url'), 5000);
+                Flash.create('info', $translate.instant('error.invalid.url'), 5000);
                 return false;
             }
             if (form['name'].$error.required) {
@@ -66,7 +66,7 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
                     a = ('amount' in $scope.product) ? $scope.product.amount : null;
                     if (a == null || simple == null) {
                         Flash.clear();
-                        Flash.create('danger', $translate.instant('error.simpleProduct'), 3000);
+                        Flash.create('danger', $translate.instant('error.required.simple_product'), 3000);
                         $scope.isSubmitActive = true;
                         return;
                     }
@@ -74,7 +74,7 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
                     price = ('price' in $scope.product) ? $scope.product.price : null;
                     if (price == null) {
                         Flash.clear();
-                        Flash.create('danger', $translate.instant('error.price'), 3000);
+                        Flash.create('danger', $translate.instant('error.required.price'), 3000);
                         $scope.isSubmitActive = true;
                         return;
                     }
@@ -93,7 +93,7 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
                     $scope.product = JSON.parse(JSON.stringify(data));
                 }).error(function (data) {
                     Flash.clear();
-                    Flash.create('danger', $translate.instant('error.creating.product'), 3000);
+                    Flash.create('danger', $translate.instant('error.creating'), 3000);
                 }).finally(function () {
                     $scope.isSubmitActive = true;
                 });
@@ -120,7 +120,7 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
                     $scope.init();
                 }).error(function (data) {
                     Flash.clear();
-                    Flash.create('danger', $translate.instant('error.creating.productsupplier'), 3000);
+                    Flash.create('danger', $translate.instant('error.creating'), 3000);
                 });
             }
         };
@@ -135,7 +135,7 @@ myApp.controller('ProductDetailsCtrl', ['$scope', '$state', '$stateParams', '$tr
             }).error(function (data) {
                 console.log(data);
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.products'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             });
         };
 

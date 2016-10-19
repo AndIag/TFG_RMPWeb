@@ -19,7 +19,7 @@ myApp.controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translat
                 ServerData.setCategories(JSON.parse(JSON.stringify(data)));
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
@@ -52,11 +52,11 @@ myApp.controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translat
         function createCategory(name, url) {
             CrudService.createItem(myApp.CATEGORIES_ENDPOINT, {name: name, url: url}).success(function (data) {
                 $scope.isAddFormShowing = false;
-                Flash.create('success', $translate.instant('message.category.added'), 3000);
+                Flash.create('success', $translate.instant('message.added'), 3000);
                 ServerData.addCategory(JSON.parse(JSON.stringify(data)));
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.creating.category'), 3000);
+                Flash.create('danger', $translate.instant('error.creating'), 3000);
             }).finally(function () {
                 $scope.isSubmitActive = true;
                 $scope.hideCreate();
@@ -70,11 +70,11 @@ myApp.controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translat
             }).success(function (data) {
                 $scope.isAddFormShowing = false;
                 Flash.clear();
-                Flash.create('success', $translate.instant('message.category.added'), 3000);
+                Flash.create('success', $translate.instant('message.updated'), 3000);
                 $scope.init();
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.updating.category'), 3000);
+                Flash.create('danger', $translate.instant('error.updating'), 3000);
             }).finally(function () {
                 $scope.isSubmitActive = true;
                 $scope.hideCreate();
@@ -86,10 +86,10 @@ myApp.controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translat
             CrudService.removeItem(myApp.CATEGORIES_ENDPOINT, category.id).success(function (data) {
                 ServerData.removeCategory(index);
                 Flash.clear();
-                Flash.create('success', $translate.instant('message.category.removed'), 3000);
+                Flash.create('success', $translate.instant('message.removed'), 3000);
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.removing.category'), 3000);
+                Flash.create('danger', $translate.instant('error.removing'), 3000);
                 category.disabled = false;
             });
         };
@@ -101,7 +101,7 @@ myApp.controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translat
                     ServerData.setCategories(JSON.parse(JSON.stringify(data)));
                 }).error(function (data) {
                     Flash.clear();
-                    Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
+                    Flash.create('danger', $translate.instant('error.loading'), 3000);
                 }).finally(function () {
                     $scope.isLoading = false;
                 });
@@ -112,11 +112,11 @@ myApp.controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translat
                         ServerData.setCategories(json);
                     } else {
                         Flash.clear();
-                        Flash.create('info', $translate.instant('error.no-more-results'), 1000);
+                        Flash.create('info', $translate.instant('error.no.results'), 1000);
                     }
                 }).error(function (data) {
                     Flash.clear();
-                    Flash.create('danger', $translate.instant('error.loading.categories'), 3000);
+                    Flash.create('danger', $translate.instant('error.loading'), 3000);
                 }).finally(function () {
                     $scope.isLoading = false;
                 });
@@ -126,7 +126,7 @@ myApp.controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translat
         /*View Methods*/
         $scope.showCreate = function () {
             $scope.isAddFormShowing = true;
-            $scope.legendMessage = $translate.instant('action.add') + ' ' + $translate.instant('category');
+            $scope.legendMessage = $translate.instant('action.add') + ' ' + $translate.instant('word.category');
         };
         $scope.hideCreate = function () {
             $scope.isAddFormShowing = false;
@@ -135,7 +135,7 @@ myApp.controller('CategoryCtrl', ['$scope', '$state', '$stateParams', '$translat
         $scope.showDetails = function (category) {
             $scope.category = category;
             $scope.isAddFormShowing = true;
-            $scope.legendMessage = $translate.instant('action.modify') + ' ' + $translate.instant('category');
+            $scope.legendMessage = $translate.instant('action.modify') + ' ' + $translate.instant('word.category');
         };
     }
 ]);

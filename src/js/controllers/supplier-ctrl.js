@@ -33,7 +33,7 @@ myApp.controller('SupplierCtrl', ['$scope', '$state', '$stateParams', '$translat
                 $scope.currentPage = pageNumber;
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.suppliers'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
@@ -69,11 +69,11 @@ myApp.controller('SupplierCtrl', ['$scope', '$state', '$stateParams', '$translat
             CrudService.createItem(myApp.SUPPLIERS_ENDPOINT, {name: name, url: url, vat: vat}).success(function (data) {
                 $scope.isAddFormShowing = false;
                 Flash.clear();
-                Flash.create('success', $translate.instant('message.supplier.added'), 3000);
+                Flash.create('success', $translate.instant('message.added'), 3000);
                 ServerData.addSupplier(JSON.parse(JSON.stringify(data)));
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.creating.supplier'), 3000);
+                Flash.create('danger', $translate.instant('error.creating'), 3000);
             }).finally(function () {
                 $scope.isSubmitActive = true;
                 $scope.hideCreate();
@@ -88,11 +88,11 @@ myApp.controller('SupplierCtrl', ['$scope', '$state', '$stateParams', '$translat
             }).success(function (data) {
                 $scope.isAddFormShowing = false;
                 Flash.clear();
-                Flash.create('success', $translate.instant('message.supplier.added'), 3000);
+                Flash.create('success', $translate.instant('message.updated'), 3000);
                 $scope.init();
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.updating.supplier'), 3000);
+                Flash.create('danger', $translate.instant('error.updating'), 3000);
             }).finally(function () {
                 $scope.isSubmitActive = true;
                 $scope.hideCreate();
@@ -104,10 +104,10 @@ myApp.controller('SupplierCtrl', ['$scope', '$state', '$stateParams', '$translat
             CrudService.removeItem(myApp.SUPPLIERS_ENDPOINT, supplier.id).success(function (data) {
                 ServerData.removeSupplier(index);
                 Flash.clear();
-                Flash.create('success', $translate.instant('message.supplier.removed'), 3000);
+                Flash.create('success', $translate.instant('message.removed'), 3000);
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.removing.supplier'), 3000);
+                Flash.create('danger', $translate.instant('error.removing'), 3000);
                 supplier.disabled = false;
             });
         };

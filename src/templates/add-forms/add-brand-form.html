@@ -8,18 +8,18 @@
 
   <fieldset>
     <!-- Form Name -->
-    <legend data-ng-show="showBrandLegend">{{"action.add" | translate}} {{"brand" | translate}}</legend>
+    <legend data-ng-show="showBrandLegend">{{"action.add" | translate}} {{"word.brand" | translate}}</legend>
 
     <div class="form-group">
-      <label class="sr-only" for="name">{{"name" | translate}}:</label>
+      <label class="sr-only" for="name">{{"word.name" | translate}}:</label>
       <input id="name" type="text" data-ng-model="brand.name" class="input-sm form-control"
-             placeholder="{{'name' | translate}}" required>
+             placeholder="{{'word.name' | translate}}" required>
     </div>
 
     <div class="form-group">
-      <label class="sr-only" for="url">{{"url" | translate}}:</label>
+      <label class="sr-only" for="url">{{"word.url" | translate}}:</label>
       <input id="url" type="url" data-ng-model="brand.url" class="input-sm form-control"
-             placeholder="{{'url' | translate}}">
+             placeholder="{{'word.image_url' | translate}}">
     </div>
 
     <button type="submit" class="btn" data-ng-click="saveBrand(form)" data-ng-disabled="!isSubmitActive">

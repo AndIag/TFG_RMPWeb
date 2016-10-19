@@ -37,7 +37,7 @@
 
         <!-- No brands message -->
         <div class="text-center" data-ng-show="!product.suppliers.length">
-          {{"error.no.products" | translate}}
+          {{"error.no.data" | translate}}
         </div> <!-- End- No brands message -->
 
         <!-- Brands table showed only if data exists -->
@@ -53,10 +53,10 @@
           <table class="table">
             <tbody>
             <tr>
-              <th>{{"id" | translate}}</th>
-              <th>{{"name" | translate}}</th>
-              <th>{{"url" | translate}}</th>
-              <th>{{"price" | translate}}</th>
+              <th>{{"word.id.upper" | translate}}</th>
+              <th>{{"word.name" | translate}}</th>
+              <th>{{"word.image_url" | translate}}</th>
+              <th>{{"word.price" | translate}}</th>
             </tr>
             <tr dir-paginate="supplier in product.suppliers | itemsPerPage: itemsPerPage" total-items="totalItems"
                 current-page="currentPage" data-ng-click="showDetails(supplier)">

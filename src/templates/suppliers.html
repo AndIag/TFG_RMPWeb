@@ -18,7 +18,7 @@
       <rd-widget-body class="no-padding" data-ng-init="init()">
         <div data-ng-show="!isAddFormShowing" style="margin-bottom:15px; margin-top:21px;">
           <button class="add-btn btn pull-left" data-ng-click="showCreate()">
-            {{"action.add" | translate}} {{"supplier" | translate}}
+            {{"action.add" | translate}}
           </button>
           <div class="clearfix"></div>
         </div> <!-- End- Add button -->
@@ -28,7 +28,7 @@
         </div><!-- End- Add form -->
         <!-- No brands message -->
         <div class="text-center" data-ng-show="!data.suppliers.length">
-          {{"error.no.suppliers" | translate}}
+          {{"error.no.data" | translate}}
         </div> <!-- End- No brands message -->
         <!-- Brands table showed only if data exists -->
         <div class="table-responsive" data-ng-show="data.suppliers.length">
@@ -44,10 +44,10 @@
           <table class="table">
             <tbody>
             <tr>
-              <th>{{"id" | translate}}</th>
-              <th>{{"vat" | translate}}</th>
-              <th>{{"name" | translate}}</th>
-              <th>{{"url" | translate}}</th>
+              <th>{{"word.id.upper" | translate}}</th>
+              <th>{{"word.vat.upper" | translate}}</th>
+              <th>{{"word.name" | translate}}</th>
+              <th>{{"word.website" | translate}}</th>
               <th></th>
             </tr>
             <tr dir-paginate="supplier in data.suppliers | itemsPerPage: itemsPerPage" total-items="totalItems"

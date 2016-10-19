@@ -36,7 +36,7 @@ myApp.controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate',
                 $scope.currentPage = pageNumber;
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.brands'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
@@ -65,11 +65,11 @@ myApp.controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate',
                 CrudService.createItem(myApp.BRANDS_ENDPOINT, {name: name, url: url}).success(function (data) {
                     $scope.isCreateShowing = false;
                     Flash.clear();
-                    Flash.create('success', $translate.instant('message.brand.added'), 3000);
+                    Flash.create('success', $translate.instant('message.added'), 3000);
                     ServerData.addBrand(JSON.parse(JSON.stringify(data)));
                 }).error(function (data) {
                     Flash.clear();
-                    Flash.create('danger', $translate.instant('error.creating.brand'), 3000);
+                    Flash.create('danger', $translate.instant('error.creating'), 3000);
                 }).finally(function () {
                     $scope.isSubmitActive = true;
                 });
@@ -81,10 +81,10 @@ myApp.controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate',
             CrudService.removeItem(myApp.BRANDS_ENDPOINT, brand.id).success(function (data) {
                 ServerData.removeBrand(index);
                 Flash.clear();
-                Flash.create('success', $translate.instant('message.brand.removed'), 3000);
+                Flash.create('success', $translate.instant('message.removed'), 3000);
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.removing.brand'), 3000);
+                Flash.create('danger', $translate.instant('error.removing'), 3000);
                 brand.disabled = false;
             });
         };
@@ -108,11 +108,11 @@ myApp.controller('BrandCtrl', ['$scope', '$state', '$stateParams', '$translate',
                     ServerData.setBrands(json.items);
                 } else {
                     Flash.clear();
-                    Flash.create('info', $translate.instant('error.no-more-results'), 1000);
+                    Flash.create('info', $translate.instant('error.no.results'), 1000);
                 }
             }).error(function (data) {
                 Flash.clear();
-                Flash.create('danger', $translate.instant('error.loading.brands'), 3000);
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
             }).finally(function () {
                 $scope.isLoading = false;
             });
