@@ -1,0 +1,59 @@
+<form name="form" class="form-inline text-center" style="margin-bottom:15px;" novalidate>
+
+  <button class="close" data-ng-show="showClose" data-ng-click="hideCreate()">
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    <span class="sr-only">Close</span>
+  </button>
+  <div class="clearfix"></div>
+
+  <fieldset>
+    <!-- Form Name -->
+    <legend data-ng-show="showEmployeeLegend">{{"action.add" | translate}} {{"word.employee" | translate}}</legend>
+
+    <div class="form-group">
+      <label class="sr-only" for="name">{{"word.name" | translate}}:</label>
+      <input id="name" type="text" data-ng-model="employee.name" class="input-sm form-control"
+             placeholder="{{'word.name' | translate}}" required />
+    </div>
+
+    <div class="form-group">
+      <label class="sr-only" for="dni">{{"word.identification" | translate}}:</label>
+      <input id="dni" type="text" data-ng-model="employee.dni" class="input-sm form-control"
+             placeholder="{{'word.identification' | translate}}" />
+    </div>
+
+    <div class="form-group">
+      <label class="sr-only" for="phone_id">{{"word.phone_id" | translate}}:</label>
+      <input id="phone_id" type="text" data-ng-model="employee.phoneId" class="input-sm form-control"
+             placeholder="{{'word.phone_id' | translate}}" />
+    </div>
+
+    <div class="form-group">
+      <label class="sr-only" for="salary">{{"word.salary" | translate}}:</label>
+      <input id="salary" type="number" data-ng-model="employee.salary" class="input-sm form-control"
+             placeholder="{{'word.salary' | translate}}" />
+    </div>
+
+    <div class="form-group">
+      <label class="sr-only" for="born">{{"word.birthdate" | translate}}:</label>
+      <input id="born" type="date" data-ng-model="employee.born" class="input-sm form-control"
+             placeholder="{{'word.birthdate' | translate}}" />
+    </div>
+
+    <div class="form-group">
+      <label class="sr-only" for="role">{{"word.birthdate" | translate}}:</label>
+      <select id="role" data-ng-model="employee.role" class="input-sm form-control">
+        <option value="WAITER" selected>{{"word.waiter" | translate}}</option>
+        <option value="CHEF">{{"word.chef" | translate}}</option>
+        <option value="ADMIN">{{"word.admin" | translate}}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn" data-ng-click="saveEmployee(form)" data-ng-disabled="!isSubmitActive">
+      {{"action.submit" | translate}}
+    </button>
+
+  </fieldset>
+
+  <div class="clearfix"></div>
+</form>

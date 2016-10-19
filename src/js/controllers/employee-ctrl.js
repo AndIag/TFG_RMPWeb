@@ -7,6 +7,8 @@ myApp.controller('EmployeeCtrl', ['$scope', '$state', '$stateParams', '$translat
         $scope.isAddFormShowing = false;
         $scope.isSubmitActive = true;
         $scope.legendMessage = null;
+        $scope.showClose = true;
+        $scope.showEmployeeLegend = true;
 
         $scope.data = ServerData.data;
         $scope.employee = {};
