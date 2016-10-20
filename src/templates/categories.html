@@ -50,7 +50,7 @@
               <td>{{category.name}}</td>
               <td>{{category.numProducts}}</td>
               <td>
-                <button class="btn" data-ng-disabled="category.disabled || category.numProducts"
+                <button class="btn pull-right" data-ng-disabled="category.disabled || category.numProducts"
                         data-ng-click="removeCategory(category, $index); $event.stopPropagation();">
                   {{"action.remove" | translate}}
                 </button>

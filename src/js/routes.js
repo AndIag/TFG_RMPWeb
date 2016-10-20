@@ -68,5 +68,9 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
                 templateUrl: 'resources/templates/add-forms/add-products2supplier.html',
                 controller: 'SupplierProductCtrl'
             })
+            .state('not-implemented', {
+                url: '/not-implemented',
+                templateUrl: 'resources/templates/not-implemented.html'
+            })
     }
 ]);

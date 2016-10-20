@@ -52,77 +52,19 @@ myApp.controller('EmployeeCtrl', ['$scope', '$state', '$stateParams', '$translat
         };
 
         function createEmployee(name, url) {
-            CrudService.createItem(myApp.EMPLOYEES_ENDPOINT, {name: name, url: url}).success(function (data) {
-                $scope.isAddFormShowing = false;
-                Flash.create('success', $translate.instant('message.added'), 3000);
-                ServerData.addEmployee(JSON.parse(JSON.stringify(data)));
-            }).error(function (data) {
-                Flash.clear();
-                Flash.create('danger', $translate.instant('error.creating'), 3000);
-            }).finally(function () {
-                $scope.isSubmitActive = true;
-                $scope.hideCreate();
-            });
+
         }
 
         function updateEmployee(employeeId, name, url) {
-            CrudService.updateItem(myApp.EMPLOYEES_ENDPOINT, employeeId, {
-                name: name,
-                url: url
-            }).success(function (data) {
-                $scope.isAddFormShowing = false;
-                Flash.clear();
-                Flash.create('success', $translate.instant('message.updated'), 3000);
-                $scope.init();
-            }).error(function (data) {
-                Flash.clear();
-                Flash.create('danger', $translate.instant('error.updating'), 3000);
-            }).finally(function () {
-                $scope.isSubmitActive = true;
-                $scope.hideCreate();
-            });
+
         }
 
         $scope.removeEmployee = function (employee, index) {
-            employee.disabled = true;
-            CrudService.removeItem(myApp.EMPLOYEES_ENDPOINT, employee.id).success(function (data) {
-                ServerData.removeEmployee(index);
-                Flash.clear();
-                Flash.create('success', $translate.instant('message.removed'), 3000);
-            }).error(function (data) {
-                Flash.clear();
-                Flash.create('danger', $translate.instant('error.removing'), 3000);
-                employee.disabled = false;
-            });
+
         };
 
         $scope.searchByName = function () {
-            $scope.isLoading = true;
-            if ($scope.searchKeywords.length == 0) {
-                CrudService.getItems(myApp.EMPLOYEES_ENDPOINT).success(function (data) {
-                    ServerData.setEmployees(JSON.parse(JSON.stringify(data)));
-                }).error(function (data) {
-                    Flash.clear();
-                    Flash.create('danger', $translate.instant('error.employees'), 3000);
-                }).finally(function () {
-                    $scope.isLoading = false;
-                });
-            } else if ($scope.searchKeywords.length > 0) {
-                CrudService.findItemsByName(myApp.EMPLOYEES_ENDPOINT, $scope.searchKeywords).success(function (data) {
-                    var json = JSON.parse(JSON.stringify(data));
-                    if (json.length > 0) {
-                        ServerData.setEmployees(json);
-                    } else {
-                        Flash.clear();
-                        Flash.create('info', $translate.instant('error.no.results'), 1000);
-                    }
-                }).error(function (data) {
-                    Flash.clear();
-                    Flash.create('danger', $translate.instant('error.loading'), 3000);
-                }).finally(function () {
-                    $scope.isLoading = false;
-                });
-            }
+
         };
 
         /*View Methods*/

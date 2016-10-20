@@ -56,7 +56,7 @@
               <td>{{brand.name}}</td>
               <td>{{brand.numProducts}}</td>
               <td>
-                <button class="btn pull-right" data-ng-show="!brand.numProducts" data-ng-disabled="brand.disabled"
+                <button class="btn pull-right" data-ng-disabled="brand.disabled || brand.numProducts"
                         data-ng-click="removeBrand(brand, $index); $event.stopPropagation();">
                   {{"action.remove" | translate}}
                 </button>

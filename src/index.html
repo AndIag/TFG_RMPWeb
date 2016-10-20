@@ -53,22 +53,33 @@
         <a href="#">{{"views.index.dashboard" | translate}}<span class="menu-icon fa fa-tachometer"></span></a>
       </li>
       <li class="sidebar-list">
-        <a href="#/employees">{{"views.index.employees" | translate}}<span class="menu-icon fa fa-users"></span></a>
-      </li>
-      <li class="sidebar-list">
         <a href="#/menus">{{"views.index.menus" | translate}}<span class="menu-icon fa fa-object-group"></span></a>
       </li>
       <li class="sidebar-list">
         <a href="#/products">{{"views.index.products" | translate}}<span class="menu-icon fa fa-coffee"></span></a>
       </li>
       <li class="sidebar-list">
-        <a href="#/suppliers">{{"views.index.suppliers" | translate}}<span class="menu-icon fa fa-book"></span></a>
-      </li>
-      <li class="sidebar-list">
         <a href="#/brands">{{"views.index.brands" | translate}}<span class="menu-icon fa fa-apple"></span></a>
       </li>
       <li class="sidebar-list">
         <a href="#/categories">{{"views.index.categories" | translate}}<span class="menu-icon fa fa-certificate"></span></a>
+      </li>
+      <li class="sidebar-list">
+        <a href="#/not-implemented">{{"views.index.tables" | translate}}<span class="menu-icon fa fa-table"></span></a>
+      </li>
+      <li class="sidebar-title"><span>{{"views.index.billing.upper" | translate}}</span></li>
+      <li class="sidebar-list">
+        <a href="#/employees">{{"views.index.employees" | translate}}<span class="menu-icon fa fa-users"></span></a>
+      </li>
+      <li class="sidebar-list">
+        <a href="#/suppliers">{{"views.index.suppliers" | translate}}<span class="menu-icon fa fa-book"></span></a>
+      </li>
+      <li class="sidebar-list">
+        <a href="#/not-implemented">{{"views.index.bills" | translate}}<span class="menu-icon fa fa-money"></span></a>
+      </li>
+      <li class="sidebar-list">
+        <a href="#/not-implemented">{{"views.index.orders" | translate}}<span
+            class="menu-icon fa fa-first-order"></span></a>
       </li>
     </ul>
     <div class="sidebar-footer">
@@ -95,7 +106,7 @@
         <div class="col-xs-12">
           <div class="user pull-right">
             <div class="item dropdown" uib-dropdown>
-              <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+              <a href="#" class="dropdown-toggle" ui-sref="index">
                 <img src="resources/img/RMP-BM.png">
               </a>
             </div>
@@ -109,9 +120,9 @@
                 </li>
                 <li class="divider"></li>
                 <li data-ng-class="{notifications: alert.viewed, unread: !alert.viewed}"
-                    data-ng-repeat="alert in server_data.alerts | limitTo:10" data-ng-click="showAlert(alert)">
+                    data-ng-repeat="alert in server_data.alerts | limitTo:7" data-ng-click="showAlert(alert)">
                   <i data-ng-class="{fa: true, 'fa-check': alert.viewed, 'fa-times': !alert.viewed}"
-                     aria-hidden="true"></i> {{alert.comment}}
+                     aria-hidden="true"></i>{{alert.comment}}
                 </li>
               </ul>
               <ul class="dropdown-menu dropdown-menu-right" ng-if="isServerDown">
