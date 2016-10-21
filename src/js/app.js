@@ -1,7 +1,7 @@
 'use strict';
 
 var myApp = angular.module('RestMaPla', ['ui.bootstrap',
-    'ui.router', 'ngCookies', 'ngSanitize', 'ngFlash', 'angular-advanced-searchbox',
+    'ui.router', 'ngCookies', 'ngSanitize', 'ngFlash',
     'angularUtils.directives.dirPagination',
     'pascalprecht.translate',// angular-translate
     'tmh.dynamicLocale'// angular-dynamic-locale
