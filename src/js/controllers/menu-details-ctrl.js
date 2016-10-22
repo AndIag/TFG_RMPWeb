@@ -1,20 +1,15 @@
 myApp.controller('MenuDetailsCtrl', ['$scope', '$state', '$stateParams', '$translate',
-    'Flash', 'BreadcrumbManager', 'MenuService', 'CrudService',
+    'Flash', 'BreadcrumbManager', 'MenuService', 'CrudService', 'ProductService',
 
-    function ($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, MenuService, CrudService) {
+    function ($scope, $state, $stateParams, $translate, Flash, BreadcrumbManager, MenuService, CrudService, ProductService) {
         //View helpers
-        $scope.isLoading = false; //Know if we need to show load screen
-        $scope.isAddFormShowing = false;
+        $scope.isAddProductShowing = false;
         $scope.isSubmitActive = true;
         $scope.currencySymbol = '€';
 
-        $scope.menu = {};
-        $scope.starters = [];
-        $scope.drinks = [];
-        $scope.mains = [];
-        $scope.desserts = [];
 
         $scope.init = function () {
+            $scope.isLoading = true;
             BreadcrumbManager.changePage($translate.instant('views.index.menus'));
             CrudService.findItemById(myApp.MENUS_ENDPOINT, $stateParams.menuId).success(function (data) {
                 $scope.menu = JSON.parse(JSON.stringify(data));
@@ -32,6 +27,7 @@ myApp.controller('MenuDetailsCtrl', ['$scope', '$state', '$stateParams', '$trans
         };
 
         function initStarters() {
+            $scope.isLoading = true;
             MenuService.getMenuParts($stateParams.menuId, MenuService.menuParts.starters).success(function (data) {
                 $scope.starters = JSON.parse(JSON.stringify(data));
             }).error(function (data) {
@@ -43,6 +39,7 @@ myApp.controller('MenuDetailsCtrl', ['$scope', '$state', '$stateParams', '$trans
         }
 
         function initDrinks() {
+            $scope.isLoading = true;
             MenuService.getMenuParts($stateParams.menuId, MenuService.menuParts.drinks).success(function (data) {
                 $scope.drinks = JSON.parse(JSON.stringify(data));
             }).error(function (data) {
@@ -54,6 +51,7 @@ myApp.controller('MenuDetailsCtrl', ['$scope', '$state', '$stateParams', '$trans
         }
 
         function initMains() {
+            $scope.isLoading = true;
             MenuService.getMenuParts($stateParams.menuId, MenuService.menuParts.mains).success(function (data) {
                 $scope.mains = JSON.parse(JSON.stringify(data));
             }).error(function (data) {
@@ -65,6 +63,7 @@ myApp.controller('MenuDetailsCtrl', ['$scope', '$state', '$stateParams', '$trans
         }
 
         function initDesserts() {
+            $scope.isLoading = true;
             MenuService.getMenuParts($stateParams.menuId, MenuService.menuParts.desserts).success(function (data) {
                 $scope.desserts = JSON.parse(JSON.stringify(data));
             }).error(function (data) {
@@ -139,13 +138,57 @@ myApp.controller('MenuDetailsCtrl', ['$scope', '$state', '$stateParams', '$trans
             });
         }
 
+        $scope.onSelect = function ($item, $model, $label) {
+            $scope.product = $item;
+        };
+
+        $scope.saveProduct = function (form) {
+            if ($scope.product != null) {
+                $scope.isSubmitActive = false;
+                MenuService.addProductToMenu($scope.menu.id, $scope.product.id, MenuService.addParts[$scope.addingType]).success(
+                    function (data) {
+                        switch ($scope.addingType) {
+                            case 0:
+                                $scope.drinks = JSON.parse(JSON.stringify(data));
+                                break;
+                            case 1:
+                                $scope.starters = JSON.parse(JSON.stringify(data));
+                                break;
+                            case 2:
+                                $scope.mains = JSON.parse(JSON.stringify(data));
+                                break;
+                            case 3:
+                                $scope.desserts = JSON.parse(JSON.stringify(data));
+                                break;
+                        }
+                    }
+                ).error(function (data) {
+                    Flash.clear();
+                    Flash.create('danger', $translate.instant('error.adding'), 3000);
+                }).finally(function () {
+                    $scope.isSubmitActive = true;
+                    $scope.hideCreate();
+                });
+            }
+        };
+
+        $scope.searchProducts = function () {
+            ProductService.searchProducts($scope.product, null, null, true, null, null).success(function (data) {
+                $scope.searchedProducts = JSON.parse(JSON.stringify(data)).items;
+            }).error(function (data) {
+                Flash.clear();
+                Flash.create('danger', $translate.instant('error.loading'), 3000);
+            });
+        };
+
         /*View Methods*/
-        $scope.showCreate = function () {
-            $scope.isAddFormShowing = true;
+        $scope.showCreate = function (type) {
+            $scope.isAddProductShowing = true;
+            $scope.addingType = type;
         };
         $scope.hideCreate = function () {
-            $scope.isAddFormShowing = false;
-            $scope.menu = {};
+            $scope.isAddProductShowing = false;
+            $scope.addingType = null;
         };
 
     }
