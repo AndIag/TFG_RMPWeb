@@ -69,6 +69,7 @@
   "views.dashboard.result": "Result",
   "error.no.results": "No more results",
   "error.no.data": "No data to show!",
+  "error.adding": "Failed adding new value",
   "error.removing": "Failed removing!",
   "error.updating": "Failed updating!",
   "error.creating": "Failed creating!",
