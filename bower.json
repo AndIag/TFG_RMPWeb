@@ -8,29 +8,24 @@
   ],
   "contributors": [],
   "main": "index.html",
-  "license": "",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "license": "MIT",
+  "private": true,
   "dependencies": {
-    "rdash-ui": "^1.0.1",
-    "angular": "^1.5.8",
-    "angular-cookies": "^1.5.8",
-    "angular-bootstrap": "^2.0.1",
+    "angular": "~1.5.0",
     "bootstrap": "^3.3.7",
-    "angular-translate": "^2.11.1",
-    "angular-translate-loader-static-files": "^2.11.1",
-    "angular-translate-storage-local": "^2.11.1",
-    "angular-translate-handler-log": "^2.11.1",
-    "angular-dynamic-locale": "^0.1.32",
+    "font-awesome": "^4.6.3",
+    "angular-bootstrap": "^2.2.0",
+    "angular-cookies": "^1.5.8",
+    "angular-flash-alert": "^2.3.0",
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
     "angular-i18n": "^1.5.8",
     "angular-sanitize": "^1.5.8",
-    "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
-    "angular-flash-alert": "^2.3.0"
+    "angular-translate": "^2.12.1",
+    "angular-translate-loader-static-files": "^2.12.1",
+    "angular-translate-storage-local": "^2.12.1",
+    "angular-translate-handler-log": "^2.12.1",
+    "angular-dynamic-locale": "^0.1.32",
+    "angular-ui-router": "^0.3.1"
   },
   "repository": {
     "type": "git",
@@ -38,11 +33,5 @@
   },
   "bugs": {
     "url": "https://github.com/iagocanalejas/TFG_RMPWeb/issues"
-  },
-  "resolutions": {
-    "angular": "^1.5.8",
-    "angular-bootstrap": "^2.0.1",
-    "angular-ui-router": "^0.3.1",
-    "font-awesome": "^4.6.3"
   }
 }

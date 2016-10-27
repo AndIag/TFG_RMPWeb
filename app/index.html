@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="RestMaPla" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="RestMaPla" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="RestMaPla" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="RestMaPla" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RestMaPla Web</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div id="page-wrapper" data-ng-class="{'open': toggle}" data-ng-cloak data-ng-controller="FrameCtrl">
+
+    <div data-ng-include="'view-frame/sidebar.html'"></div>
+
+    <div id="content-wrapper">
+        <div class="page-content">
+
+            <div data-ng-include="'view-frame/header.html'"></div>
+
+            <!-- Alerts -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <flash-message class="custom-alert" duration="5000" show-close="true" on-dismiss=""></flash-message>
+                </div>
+            </div>
+            <!-- End- Alerts -->
+
+            <!-- Main Content -->
+            <div ui-view="headerContent"></div>
+            <div ui-view="mainContent"></div>
+            <div ui-view="footerContent"></div>
+
+        </div><!-- End Page Content -->
+    </div><!-- End Content Wrapper -->
+</div><!-- End Page Wrapper -->
+
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></link>
+-->
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/angular-translate/angular-translate.min.js"></script>
+<script
+    src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+<script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.min.js"></script>
+<script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.min.js"></script>
+<script src="bower_components/angular-translate-handler-log/angular-translate-handler-log.min.js"></script>
+<script src="bower_components/angular-dynamic-locale/tmhDynamicLocale.min.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="bower_components/angular-flash-alert/dist/angular-flash.min.js"></script>
+<script src="components/i18n/i18n.js"></script>
+<script src="components/version/version.js"></script>
+<script src="components/version/version-directive.js"></script>
+<script src="components/version/interpolate-filter.js"></script>
+<script src="common/breadcrumb-service.js"></script>
+<script src="common/crud-service.js"></script>
+<script src="common/services.js"></script>
+<script src="view-frame/frame.js"></script>
+<script src="view-dashboard/dashboard.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

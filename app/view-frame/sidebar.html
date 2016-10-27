@@ -1,0 +1,61 @@
+<!-- Sidebar -->
+<div id="sidebar-wrapper" data-ng-init="init()">
+    <ul class="sidebar">
+        <li class="sidebar-main">
+            <a ng-click="toggleSidebar()">
+                {{data.breadCrumb}}
+                <span
+                    data-ng-class="{'menu-icon': true, glyphicon:true, 'glyphicon-option-vertical': !toggle, 'glyphicon-menu-hamburger': toggle}"></span>
+            </a>
+        </li>
+        <li class="sidebar-title"><span>{{"views.index.navigation.upper" | translate}}</span></li>
+        <li class="sidebar-list">
+            <a href="#">{{"views.index.dashboard" | translate}}<span class="menu-icon fa fa-tachometer"></span></a>
+        </li>
+        <li class="sidebar-list">
+            <a href="#/menus">{{"views.index.menus" | translate}}<span class="menu-icon fa fa-object-group"></span></a>
+        </li>
+        <li class="sidebar-list">
+            <a href="#/products">{{"views.index.products" | translate}}<span class="menu-icon fa fa-coffee"></span></a>
+        </li>
+        <li class="sidebar-list">
+            <a href="#/brands">{{"views.index.brands" | translate}}<span class="menu-icon fa fa-apple"></span></a>
+        </li>
+        <li class="sidebar-list">
+            <a href="#/categories">{{"views.index.categories" | translate}}<span
+                class="menu-icon fa fa-certificate"></span></a>
+        </li>
+        <li class="sidebar-list">
+            <a href="#/not-implemented">{{"views.index.tables" | translate}}<span class="menu-icon fa fa-table"></span></a>
+        </li>
+        <li class="sidebar-title"><span>{{"views.index.billing.upper" | translate}}</span></li>
+        <li class="sidebar-list">
+            <a href="#/employees">{{"views.index.employees" | translate}}<span class="menu-icon fa fa-users"></span></a>
+        </li>
+        <li class="sidebar-list">
+            <a href="#/suppliers">{{"views.index.suppliers" | translate}}<span class="menu-icon fa fa-book"></span></a>
+        </li>
+        <li class="sidebar-list">
+            <a href="#/not-implemented">{{"views.index.bills" | translate}}<span
+                class="menu-icon fa fa-money"></span></a>
+        </li>
+        <li class="sidebar-list">
+            <a href="#/not-implemented">{{"views.index.orders" | translate}}<span
+                class="menu-icon fa fa-first-order"></span></a>
+        </li>
+    </ul>
+    <div class="sidebar-footer">
+        <div class="col-xs-4">
+            <a href="https://plus.google.com/u/0/b/112257302862182562124/112257302862182562124" target="_blank">
+                {{"views.index.about" | translate}}
+            </a>
+        </div>
+        <div class="col-xs-4">
+            <a href="#">
+                {{"views.index.support" | translate}}
+            </a>
+        </div>
+        <div><a>v<span app-version></span></a></div>
+    </div>
+</div>
+<!-- End Sidebar -->
