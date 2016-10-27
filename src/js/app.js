@@ -5,7 +5,7 @@ var myApp = angular.module('RestMaPla', ['ui.bootstrap',
     'angularUtils.directives.dirPagination',
     'pascalprecht.translate',// angular-translate
     'tmh.dynamicLocale'// angular-dynamic-locale
-])
+]);
 
 // myApp.endpoint = 'http://52.210.10.240/restmapla';
 myApp.endpoint = 'http://localhost:9090/restmapla';
