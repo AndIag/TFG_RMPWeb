@@ -8,8 +8,8 @@ describe('RestMaPla.view-dashboard module', function () {
 
         it('should ....', inject(function ($controller) {
             //spec body
-            var view2Ctrl = $controller('DashboardCtrl');
-            expect(view2Ctrl).toBeDefined();
+            var dashboardCtrl = $controller('DashboardCtrl');
+            expect(dashboardCtrl).toBeDefined();
         }));
 
     });
