@@ -1,5 +1,5 @@
 <div class="row" data-ng-init="init()">
-    <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="col-lg-3 col-md-6 col-xs-12" data-ng-show="values.data.hasOwnProperty('tableCount')">
         <div class="widget">
             <div class="widget-body">
                 <div class="widget-icon green pull-left">
@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="col-lg-3 col-md-6 col-xs-12" data-ng-show="values.data.hasOwnProperty('productCount')">
         <div class="widget">
             <div class="widget-body" ui-sref="products">
                 <div class="widget-icon red pull-left">
@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="col-lg-3 col-md-6 col-xs-12" data-ng-show="values.data.hasOwnProperty('workers')">
         <div class="widget">
             <div class="widget-body">
                 <div class="widget-icon orange pull-left">
@@ -35,7 +35,7 @@
         </div>
     </div>
 
-    <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="col-lg-3 col-md-6 col-xs-12" data-ng-show="values.data.hasOwnProperty('monthResult')">
         <div class="widget">
             <div class="widget-body">
                 <div class="widget-icon blue pull-left">

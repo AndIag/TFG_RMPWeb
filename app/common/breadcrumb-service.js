@@ -11,6 +11,8 @@ angular.module('RestMaPla.service.breadcrumb', [])
                 this.data.links = (!angular.isDefined(name) || name === null)
                     ? 'Home / ' + $translate.instant("views.index.dashboard")
                     : 'Home / ' + $translate.instant(name);
+
+                this.data.isDashboard = this.data.breadCrumb === $translate.instant("views.index.dashboard");
             }
         }
     }]);

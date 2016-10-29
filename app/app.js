@@ -1,8 +1,8 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('RestMaPla', ['ui.bootstrap', 'ui.router', 'RestMaPla.version', 'RestMaPla.i18n',
-    'RestMaPla.frame', 'RestMaPla.dashboard'])
+angular.module('RestMaPla', ['ui.bootstrap', 'ui.router', 'angular-spinkit', 'RestMaPla.version', 'RestMaPla.i18n',
+    'RestMaPla.frame', 'RestMaPla.dashboard', 'RestMaPla.categories'])
 
     .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
         function ($stateProvider, $urlRouterProvider, $httpProvider) {
