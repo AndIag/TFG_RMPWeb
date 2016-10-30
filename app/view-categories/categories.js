@@ -26,13 +26,17 @@ angular.module('RestMaPla.categories', ['ngRoute', 'ngFlash', 'RestMaPla.service
             $scope.init = function () {
                 BreadCrumbService.setBreadCrumb('views.index.categories');
                 CrudService.getItems(CrudService.endpoints.CATEGORIES_ENDPOINT).success(function (data) {
-                    CrudService.response.data = JSON.parse(JSON.stringify(data));
+                    CrudService.response.categories = JSON.parse(JSON.stringify(data));
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);
                 }).finally(function () {
                     $scope.isLoading = false;
                 });
+            };
+
+            $scope.showCreate = function () {
+
             }
 
         }]);

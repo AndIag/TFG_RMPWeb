@@ -645,3 +645,23 @@ th {
     transform: scale(1.1, 1.1);
     -webkit-transform: scale(1.1, 1.1);
 }
+
+/* Search Bar */
+#search label {
+    position: absolute;
+    left: 35px;
+    top: 22px;
+}
+
+#search #search-input, #search .hint {
+    padding-left: 43px;
+    padding-right: 43px;
+    border-radius: 23px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.list-img {
+    width: 70px;
+    height: 70px;
+}
