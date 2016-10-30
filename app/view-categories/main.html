@@ -9,7 +9,7 @@
         <span class="sr-only">{{"action.search" | translate}}</span>
       </label>
       <input id="search-input" class="form-control input-lg" placeholder="{{'action.search' | translate}}"
-             tabindex="1" data-ng-model="searchKeywords" data-ng-change="searchByName()"> <!--TODO add method to crud-->
+             tabindex="1" data-ng-model="searchKeywords" data-ng-change="searchByName()">
     </div>
     <table class="table">
       <tbody>
@@ -20,7 +20,7 @@
         <th class="text-center hidden-xs">{{"word.product.plural" | translate}}</th>
         <th></th>
       </tr>
-      <tr data-ng-repeat="category in values.categories | orderBy: 'id'" data-ng-click="showDetails()">
+      <tr data-ng-repeat="category in values.categories | orderBy: 'id'" data-ng-click="showDetails(category)">
         <td class="text-center visible-lg visible-md">{{category.id}}</td>
         <td><img class="list-img" data-ng-src="{{category.url}}"></td>
         <td>{{category.name}}</td>

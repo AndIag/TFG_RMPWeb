@@ -35,8 +35,38 @@ angular.module('RestMaPla.categories', ['ngRoute', 'ngFlash', 'RestMaPla.service
                 });
             };
 
+            $scope.searchByName = function () {
+                CrudService.findItemsByName(CrudService.endpoints.CATEGORIES_ENDPOINT, $scope.searchKeywords).success(function (data) {
+                    CrudService.response.categories = JSON.parse(JSON.stringify(data));
+                }).error(function (data) {
+                    Flash.clear();
+                    Flash.create('danger', $translate.instant('error.loading'), 3000);
+                }).finally(function () {
+                    $scope.isLoading = false;
+                });
+            };
+
+            $scope.showDetails = function (category) {
+
+            };
+
             $scope.showCreate = function () {
 
+            };
+
+            $scope.removeCategory = function (category, index) {
+                console.log(category.id, index);
+                if(category.numProducts == 0){
+                    CrudService.removeItem(CrudService.endpoints.CATEGORIES_ENDPOINT, category.id).success(function (data) {
+                        console.log(index);
+                        CrudService.response.categories.splice(index+1,1);
+                    }).error(function (data) {
+                        Flash.clear();
+                        Flash.create('danger', $translate.instant('error.removing'), 3000);
+                    }).finally(function () {
+                        $scope.isLoading = false;
+                    });
+                }
             }
 
         }]);
