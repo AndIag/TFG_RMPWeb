@@ -15,6 +15,19 @@ angular.module('RestMaPla.categories', ['ngRoute', 'ngFlash', 'RestMaPla.service
                     controller: 'CategoryCtrl'
                 }
             }
+        }).state('category-details', {
+            url: '/categories/:categoryId',
+            params: {category: null},
+            views: {
+                'headerContent': {
+                    templateUrl: 'view-categories/details-header.html',
+                    controller: 'CategoryDetailsCtrl'
+                },
+                'mainContent': {
+                    templateUrl: 'view-categories/details-main.html',
+                    controller: 'CategoryDetailsCtrl'
+                }
+            }
         });
     }])
 
@@ -24,7 +37,7 @@ angular.module('RestMaPla.categories', ['ngRoute', 'ngFlash', 'RestMaPla.service
             $scope.values = CrudService.response;
 
             $scope.init = function () {
-                BreadCrumbService.setBreadCrumb('views.index.categories');
+                BreadCrumbService.setBreadCrumb($translate.instant('views.index.categories'));
                 CrudService.getItems(CrudService.endpoints.CATEGORIES_ENDPOINT).success(function (data) {
                     CrudService.response.categories = JSON.parse(JSON.stringify(data));
                 }).error(function (data) {
@@ -46,20 +59,16 @@ angular.module('RestMaPla.categories', ['ngRoute', 'ngFlash', 'RestMaPla.service
                 });
             };
 
-            $scope.showDetails = function (category) {
-
-            };
-
             $scope.showCreate = function () {
 
             };
 
-            $scope.removeCategory = function (category, index) {
-                console.log(category.id, index);
-                if(category.numProducts == 0){
+            $scope.removeCategory = function (category) {
+                if (category.numProducts == 0) {
                     CrudService.removeItem(CrudService.endpoints.CATEGORIES_ENDPOINT, category.id).success(function (data) {
-                        console.log(index);
-                        CrudService.response.categories.splice(index+1,1);
+                        CrudService.response.categories = CrudService.response.categories.filter(function (e) {
+                            return e.id !== category.id;
+                        })
                     }).error(function (data) {
                         Flash.clear();
                         Flash.create('danger', $translate.instant('error.removing'), 3000);
@@ -68,5 +77,14 @@ angular.module('RestMaPla.categories', ['ngRoute', 'ngFlash', 'RestMaPla.service
                     });
                 }
             }
+        }])
+    .controller('CategoryDetailsCtrl', ['$scope', '$stateParams', 'BreadCrumbService',
+        function ($scope, $stateParams, BreadCrumbService) {
+
+            $scope.category = $stateParams.category;
+
+            $scope.init = function () {
+                BreadCrumbService.setBreadCrumb($stateParams.category.name);
+            };
 
         }]);

@@ -18,13 +18,13 @@ angular.module('RestMaPla.dashboard', ['ngRoute', 'ngFlash', 'RestMaPla.services
         });
     }])
 
-    .controller('DashboardCtrl', ['$scope', 'BreadCrumbService', 'CrudService', 'Flash',
-        function ($scope, BreadCrumbService, CrudService, Flash) {
+    .controller('DashboardCtrl', ['$scope', '$translate', 'BreadCrumbService', 'CrudService', 'Flash',
+        function ($scope, $translate, BreadCrumbService, CrudService, Flash) {
 
             $scope.values = CrudService.response;
 
             $scope.init = function () {
-                BreadCrumbService.setBreadCrumb('views.index.dashboard');
+                BreadCrumbService.setBreadCrumb($translate.instant('views.index.dashboard'));
                 CrudService.getItems(CrudService.endpoints.DASHBOARD_ENDPOINT).success(function (data) {
                     CrudService.response.data = JSON.parse(JSON.stringify(data));
                 }).error(function (data) {
