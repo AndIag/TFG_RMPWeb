@@ -22,10 +22,11 @@ angular.module('RestMaPla.categories', ['ngRoute', 'ngFlash', 'RestMaPla.service
                 'headerContent': {
                     templateUrl: 'view-categories/details-header.html',
                     controller: 'CategoryDetailsCtrl'
-                },
-                'mainContent': {
+                }, 'mainContent': {
                     templateUrl: 'view-categories/details-main.html',
                     controller: 'CategoryDetailsCtrl'
+                }, 'footerContent' : {
+                    templateUrl: 'view-categories/details-footer.html'
                 }
             }
         });
@@ -78,13 +79,24 @@ angular.module('RestMaPla.categories', ['ngRoute', 'ngFlash', 'RestMaPla.service
                 }
             }
         }])
-    .controller('CategoryDetailsCtrl', ['$scope', '$stateParams', 'BreadCrumbService',
-        function ($scope, $stateParams, BreadCrumbService) {
+    .controller('CategoryDetailsCtrl', ['$scope', '$stateParams', '$sce', 'BreadCrumbService', 'CrudService', 'PaginationService',
+        function ($scope, $stateParams, $sce, BreadCrumbService, CrudService, PaginationService) {
+            $scope.pagination = PaginationService.data;
 
             $scope.category = $stateParams.category;
+            $scope.values = CrudService.response;
+            $scope.image_url = $sce.trustAsResourceUrl($scope.category.url);
 
             $scope.init = function () {
                 BreadCrumbService.setBreadCrumb($stateParams.category.name);
+                CrudService.findItemById(CrudService.endpoints.CATEGORIES_ENDPOINT, $scope.category.id).success(function (data) {
+                    CrudService.response.products = JSON.parse(JSON.stringify(data)).products;
+                }).error(function (data) {
+                    Flash.clear();
+                    Flash.create('danger', $translate.instant('error.removing'), 3000);
+                }).finally(function () {
+                    $scope.isLoading = false;
+                });
             };
 
         }]);

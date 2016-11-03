@@ -664,14 +664,3 @@ th {
     width: 70px;
     height: 70px;
 }
-
-.box {
-    display: none;
-    width: 100%;
-}
-
-.box, .box:hover {
-    display: block;
-    position: absolute;
-    z-index: 100;
-}
