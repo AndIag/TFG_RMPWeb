@@ -3,7 +3,7 @@
 angular.module('RestMaPla.service.breadcrumb', [])
     .service('BreadCrumbService', ['$translate', function ($translate) {
         return {
-            data: {breadCrumb: ''},
+            data: {},
             setBreadCrumb: function (name) {
                 name = toTitleCase(name);
                 this.data.breadCrumb = name;

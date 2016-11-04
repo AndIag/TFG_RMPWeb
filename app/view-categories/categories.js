@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('RestMaPla.categories', ['ngRoute', 'ngFlash', 'RestMaPla.services'])
+angular.module('RestMaPla.categories', ['ngRoute', 'ngFlash', 'RestMaPla.common-services'])
 
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('categories', {
@@ -25,7 +25,7 @@ angular.module('RestMaPla.categories', ['ngRoute', 'ngFlash', 'RestMaPla.service
                 }, 'mainContent': {
                     templateUrl: 'view-categories/details-main.html',
                     controller: 'CategoryDetailsCtrl'
-                }, 'footerContent' : {
+                }, 'footerContent': {
                     templateUrl: 'view-categories/details-footer.html'
                 }
             }
@@ -89,7 +89,18 @@ angular.module('RestMaPla.categories', ['ngRoute', 'ngFlash', 'RestMaPla.service
 
             $scope.init = function () {
                 BreadCrumbService.setBreadCrumb($stateParams.category.name);
-                CrudService.findItemById(CrudService.endpoints.CATEGORIES_ENDPOINT, $scope.category.id).success(function (data) {
+                findCategoryDetails(0);
+            };
+
+            $scope.onPageChange = function (newPage) {
+                findCategoryDetails(newPage);
+            };
+
+            function findCategoryDetails(page) {
+                PaginationService.data.currentPage = page;
+                CrudService.findItemDetailsById(CrudService.endpoints.CATEGORIES_ENDPOINT, $scope.category.id,
+                    page, PaginationService.data.itemsPerPage).success(function (data) {
+
                     CrudService.response.products = JSON.parse(JSON.stringify(data)).products;
                 }).error(function (data) {
                     Flash.clear();
@@ -97,6 +108,6 @@ angular.module('RestMaPla.categories', ['ngRoute', 'ngFlash', 'RestMaPla.service
                 }).finally(function () {
                     $scope.isLoading = false;
                 });
-            };
+            }
 
         }]);

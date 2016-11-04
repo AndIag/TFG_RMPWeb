@@ -1,4 +1,4 @@
-angular.module('RestMaPla.services', [
+angular.module('RestMaPla.common-services', [
     'RestMaPla.service.breadcrumb',
     'RestMaPla.service.crud',
     'RestMaPla.service.pagination'

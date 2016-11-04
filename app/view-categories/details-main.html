@@ -2,10 +2,10 @@
     <double-bounce-spinner></double-bounce-spinner>
 </div>
 <div class="widget-body">
-    <div class="text-center" data-ng-show="!values.hasOwnProperty('products') || !values.products.length > 0">
+    <div class="text-center" data-ng-show="values.products.count === 0">
         {{"error.no.data" | translate}}
     </div>
-    <div class="table-responsive" data-ng-show="values.hasOwnProperty('products') && values.products.length > 0">
+    <div class="table-responsive" data-ng-show="values.products.count > 0">
         <div id="search" class="col-lg-12">
             <label for="search-input">
                 <i class="fa fa-search" aria-hidden="true"></i>
@@ -25,7 +25,7 @@
                 <th></th>
             </tr>
             <tr dir-paginate="product in values.products.items | itemsPerPage: pagination.itemsPerPage"
-                total-items="values.products.count" current-page="pagination.currentProductsPage">
+                total-items="values.products.count" current-page="pagination.currentPage">
                 <td class="text-center visible-lg visible-md">{{product.id}}</td>
                 <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
                 <td>{{product.name}}</td>
