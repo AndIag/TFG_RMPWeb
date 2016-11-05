@@ -28,7 +28,7 @@ angular.module('RestMaPla.category.controller', ['ngFlash', 'RestMaPla.common-se
                     CrudService.response.products = JSON.parse(JSON.stringify(data)).products;
                 }).error(function (data) {
                     Flash.clear();
-                    Flash.create('danger', $translate.instant('error.removing'), 3000);
+                    Flash.create('danger', $translate.instant('error.loading'), 3000);
                 }).finally(function () {
                     $scope.isLoading = false;
                 });
