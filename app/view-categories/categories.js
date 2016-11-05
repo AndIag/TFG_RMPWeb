@@ -25,9 +25,6 @@ angular.module('RestMaPla.categories', ['ngRoute', 'RestMaPla.category.controlle
                 }, 'mainContent': {
                     templateUrl: 'view-categories/details-main.html',
                     controller: 'CategoryDetailsCtrl'
-                }, 'footerContent': {
-                    templateUrl: 'view-categories/details-footer.html',
-                    controller: 'CategoryDetailsCtrl'
                 }
             }
         });

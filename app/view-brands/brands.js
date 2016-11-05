@@ -25,9 +25,6 @@ angular.module('RestMaPla.brands', ['ngRoute', 'RestMaPla.brands.controller', 'R
                 }, 'mainContent': {
                     templateUrl: 'view-brands/details-main.html',
                     controller: 'BrandDetailsCtrl'
-                }, 'footerContent': {
-                    templateUrl: 'view-brands/details-footer.html',
-                    controller: 'BrandDetailsCtrl'
                 }
             }
         });
