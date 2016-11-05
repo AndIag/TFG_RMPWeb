@@ -1,18 +1,18 @@
-angular.module('RestMaPla.category.controller', ['ngFlash', 'RestMaPla.common-services'])
-    .controller('CategoryDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'BreadCrumbService', 'CrudService', 'PaginationService',
+angular.module('RestMaPla.brand.controller', ['ngFlash', 'RestMaPla.common-services'])
+    .controller('BrandDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'BreadCrumbService', 'CrudService', 'PaginationService',
         function ($scope, $stateParams, $translate, Flash, BreadCrumbService, CrudService, PaginationService) {
             $scope.pagination = PaginationService.data;
 
-            $scope.category = $stateParams.category;
+            $scope.brand = $stateParams.brand;
             $scope.values = CrudService.response;
 
             $scope.init = function () {
-                BreadCrumbService.setBreadCrumb($stateParams.category.name);
-                findCategoryDetails(1);
+                BreadCrumbService.setBreadCrumb($stateParams.brand.name);
+                findBrandDetails(1);
             };
 
             $scope.changePage = function (newPage, oldPage) {
-                findCategoryDetails(newPage);
+                findBrandDetails(newPage);
             };
 
             $scope.searchByName = function () {
@@ -34,9 +34,9 @@ angular.module('RestMaPla.category.controller', ['ngFlash', 'RestMaPla.common-se
                 });
             };
 
-            function findCategoryDetails(page) {
+            function findBrandDetails(page) {
                 PaginationService.data.currentPage = page;
-                CrudService.findItemDetailsById(CrudService.endpoints.CATEGORIES_ENDPOINT, $scope.category.id,
+                CrudService.findItemDetailsById(CrudService.endpoints.BRANDS_ENDPOINT, $scope.brand.id,
                     (page - 1), PaginationService.data.itemsPerPage).success(function (data) {
 
                     CrudService.response.products = JSON.parse(JSON.stringify(data)).products;
