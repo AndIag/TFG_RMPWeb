@@ -33,7 +33,8 @@
         <td class="hidden-xs">
           <a ui-sref="brand-details({'brandId': product.brand.id, 'brand': product.brand})">{{product.brand.name}}</a>
         </td>
-        <td><img width="25px" height="25px" src="../components/resources/img/pack_icon.png">
+        <td data-ng-if="!product.simple"><img width="25px" height="25px" src="../components/resources/img/pack_icon.png">
+        <td data-ng-if="product.simple"><img width="25px" height="25px" src="../components/resources/img/simple_icon.png">
         </td>
         <td>
           <button class="btn pull-right" data-ng-disabled="product.disabled"
