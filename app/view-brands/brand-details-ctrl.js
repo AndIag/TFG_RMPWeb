@@ -1,6 +1,6 @@
 angular.module('RestMaPla.brand.controller', ['ngFlash', 'RestMaPla.common-services'])
-    .controller('BrandDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'BreadCrumbService', 'CrudService', 'PaginationService',
-        function ($scope, $stateParams, $translate, Flash, BreadCrumbService, CrudService, PaginationService) {
+    .controller('BrandDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'BreadCrumbService', 'CrudService', 'ProductService', 'PaginationService',
+        function ($scope, $stateParams, $translate, Flash, BreadCrumbService, CrudService, ProductService, PaginationService) {
             $scope.pagination = PaginationService.data;
 
             $scope.brand = $stateParams.brand;
@@ -16,7 +16,16 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'RestMaPla.common-servi
             };
 
             $scope.searchByName = function () {
-                //TODO implement with product services
+                ProductService.searchProduct($scope.searchKeywords, null, $scope.brand.id,
+                    (PaginationService.data.currentPage - 1), PaginationService.data.itemsPerPage).success(function (data) {
+
+                    CrudService.response.products = JSON.parse(JSON.stringify(data));
+                }).error(function (data) {
+                    Flash.clear();
+                    Flash.create('danger', $translate.instant('error.loading'), 3000);
+                }).finally(function () {
+                    $scope.isLoading = false;
+                });
             };
 
             $scope.removeProduct = function (product) {
