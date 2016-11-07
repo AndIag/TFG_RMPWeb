@@ -1,3 +1,4 @@
+//TODO not implemented for TFG
 angular.module('RestMaPla.product.controller', ['ngFlash', 'RestMaPla.common-services'])
     .controller('ProductDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'BreadCrumbService', 'CrudService', 'PaginationService',
         function ($scope, $stateParams, $translate, Flash, BreadCrumbService, CrudService, PaginationService) {

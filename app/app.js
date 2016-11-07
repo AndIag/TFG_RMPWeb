@@ -2,7 +2,7 @@
 
 // Declare app level module which depends on views, and components
 angular.module('RestMaPla', ['ui.bootstrap', 'ui.router', 'angular-spinkit', 'LocalStorageModule', 'angularUtils.directives.dirPagination',
-    'RestMaPla.version', 'RestMaPla.i18n', 'RestMaPla.frame', 'RestMaPla.dashboard', 'RestMaPla.categories',
+    'RestMaPla.version', 'RestMaPla.i18n', 'RestMaPla.frame', 'RestMaPla.dashboard', 'RestMaPla.categories', 'RestMaPla.employees',
     'RestMaPla.brands', 'RestMaPla.products'])
 
     .run(['$rootScope', '$state', 'localStorageService', function ($rootScope, $state, localStorageService) {
