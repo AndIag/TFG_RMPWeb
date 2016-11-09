@@ -17,14 +17,15 @@ angular.module('RestMaPla.employees.controller', ['ngFlash', 'RestMaPla.common-s
             };
 
             $scope.searchByName = function () {
-                CrudService.findItemsByName(CrudService.endpoints.EMPLOYEES_ENDPOINT, $scope.searchKeywords).success(function (data) {
-                    CrudService.response.employees = JSON.parse(JSON.stringify(data));
-                }).error(function (data) {
-                    Flash.clear();
-                    Flash.create('danger', $translate.instant('error.loading'), 3000);
-                }).finally(function () {
-                    $scope.isLoading = false;
-                });
+                //TODO not implemented server-side
+                // CrudService.findItemsByName(CrudService.endpoints.EMPLOYEES_ENDPOINT, $scope.searchKeywords).success(function (data) {
+                //     CrudService.response.employees = JSON.parse(JSON.stringify(data));
+                // }).error(function (data) {
+                //     Flash.clear();
+                //     Flash.create('danger', $translate.instant('error.loading'), 3000);
+                // }).finally(function () {
+                //     $scope.isLoading = false;
+                // });
             };
 
             $scope.showCreate = function () {
