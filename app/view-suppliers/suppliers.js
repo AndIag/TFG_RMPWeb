@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('RestMaPla.suppliers', ['ngRoute', 'RestMaPla.suppliers.controller'])
+angular.module('RestMaPla.suppliers', ['ngRoute', 'RestMaPla.suppliers.controller', 'RestMaPla.supplier.controller'])
 
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('suppliers', {
@@ -19,13 +19,13 @@ angular.module('RestMaPla.suppliers', ['ngRoute', 'RestMaPla.suppliers.controlle
             url: '/suppliers/:supplierId',
             params: {supplier: null},
             views: {
-                // 'headerContent': {
-                //     templateUrl: 'view-categories/details-header.html',
-                //     controller: 'CategoryDetailsCtrl'
-                // }, 'mainContent': {
-                //     templateUrl: 'view-categories/details-main.html',
-                //     controller: 'CategoryDetailsCtrl'
-                // }
+                'headerContent': {
+                    templateUrl: 'view-suppliers/details-header.html',
+                    controller: 'SupplierDetailsCtrl'
+                }, 'mainContent': {
+                    templateUrl: 'view-suppliers/details-main.html',
+                    controller: 'SupplierDetailsCtrl'
+                }
             }
         });
     }]);
