@@ -204,7 +204,6 @@ angular.module('RestMaPla.service.crud', [])
             }, updateItem: function (path, itemId, data) {
                 var deferred = $q.defer();
                 var promise = deferred.promise;
-
                 $http({
                     method: 'PUT',
                     url: ENDPOINT + path + '/' + itemId,

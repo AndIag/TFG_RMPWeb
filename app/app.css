@@ -664,3 +664,37 @@ th {
     width: 70px;
     height: 70px;
 }
+
+.notifications {
+    text-align: center;
+    height: 30px;
+    color: #12ba90;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    border-left: 10px solid #212121;
+    border-bottom: 2px solid #212111;
+    padding-left: 10px;
+    margin-top: 2px;
+}
+
+.notifications:hover {
+    background: #e0e0e0;
+}
+
+.unread {
+    text-align: center;
+    color: darkred;
+    height: 30px;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    border-left: 10px solid #212121;
+    border-bottom: 2px solid #212111;
+    padding-left: 10px;
+    margin-top: 2px;
+}
+
+.unread:hover {
+    background: #e0e0e0;
+}

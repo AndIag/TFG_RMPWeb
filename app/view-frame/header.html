@@ -7,17 +7,17 @@
                     <img src="../components/resources/img/RMP-BM.png">
                 </a>
             </div>
-            <div class="item dropdown" uib-dropdown>
+            <div class="item dropdown" uib-dropdown data-ng-controller="AlertCtrl" data-ng-init="init()">
                 <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
                     <i data-ng-class="{fa:true, 'fa-bell-o': hasUnreadAlerts(), 'fa-bell-slash-o': !hasUnreadAlerts()}"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-right" data-ng-if="server_data.alerts.length > 0">
+                <ul class="dropdown-menu dropdown-menu-right" data-ng-if="values.alerts.length > 0">
                     <li class="dropdown-header">
                         {{"views.index.notifications" | translate}}
                     </li>
                     <li class="divider"></li>
                     <li data-ng-class="{notifications: alert.viewed, unread: !alert.viewed}"
-                        data-ng-repeat="alert in server_data.alerts | limitTo:7" data-ng-click="showAlert(alert)">
+                        data-ng-repeat="alert in values.alerts | limitTo:7" data-ng-click="markAsRead(alert)">
                         <i data-ng-class="{fa: true, 'fa-check': alert.viewed, 'fa-times': !alert.viewed}"
                            aria-hidden="true"></i>{{alert.comment}}
                     </li>
