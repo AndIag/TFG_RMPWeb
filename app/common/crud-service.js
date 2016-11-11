@@ -12,7 +12,8 @@ angular.module('RestMaPla.service.crud', [])
                 MENUS_ENDPOINT: "/menus",
                 PRODUCTS_ENDPOINT: "/products",
                 SUPPLIERS_ENDPOINT: "/suppliers",
-                EMPLOYEES_ENDPOINT: "/employees"
+                EMPLOYEES_ENDPOINT: "/employees",
+                BILLS_ENDPOINT: "/bills"
             },
             response: {},
             getItems: function (path) {
