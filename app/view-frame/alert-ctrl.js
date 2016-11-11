@@ -24,9 +24,9 @@ angular.module('RestMaPla.alerts', ['ngFlash', 'RestMaPla.common-services'])
                 return false;
             };
 
-            $scope.markAsRead = function (alert) {
-                CrudService.updateItem(CrudService.endpoints.ALERTS_ENDPOINT, alert.id + "/view", {}).success(function (data) {
-                    //TODO not updating view
+            $scope.markAsRead = function (alert, index) {
+                CrudService.updateItem(CrudService.endpoints.ALERTS_ENDPOINT, alert.id).success(function (data) {
+                    CrudService.response.alerts[index].viewed = true;
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);

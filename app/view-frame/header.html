@@ -17,7 +17,7 @@
                     </li>
                     <li class="divider"></li>
                     <li data-ng-class="{notifications: alert.viewed, unread: !alert.viewed}"
-                        data-ng-repeat="alert in values.alerts | limitTo:7" data-ng-click="markAsRead(alert)">
+                        data-ng-repeat="alert in values.alerts | limitTo:7" data-ng-click="markAsRead(alert, $index)">
                         <i data-ng-class="{fa: true, 'fa-check': alert.viewed, 'fa-times': !alert.viewed}"
                            aria-hidden="true"></i>{{alert.comment}}
                     </li>
