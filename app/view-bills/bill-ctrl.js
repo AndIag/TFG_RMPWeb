@@ -29,19 +29,7 @@ angular.module('RestMaPla.bills.controller', ['ngFlash', 'RestMaPla.common-servi
             };
 
             $scope.removeBill = function (bill) {
-                if (bill.numProducts == 0) {
-                    CrudService.removeItem(CrudService.endpoints.BILLS_ENDPOINT, bill.id).success(function (data) {
-                        CrudService.response.bills.items = CrudService.response.bills.items.filter(function (e) {
-                            return e.id !== bill.id;
-                        });
-                        CrudService.response.bills.count = CrudService.response.bills.count -1;
-                    }).error(function (data) {
-                        Flash.clear();
-                        Flash.create('danger', $translate.instant('error.removing'), 3000);
-                    }).finally(function () {
-                        $scope.isLoading = false;
-                    });
-                }
+                //TODO
             };
 
             function getBillsPage(page) {
@@ -57,5 +45,5 @@ angular.module('RestMaPla.bills.controller', ['ngFlash', 'RestMaPla.common-servi
                     $scope.isLoading = false;
                 });
             }
-
+            
         }]);
