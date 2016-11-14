@@ -22,7 +22,6 @@
                 <th>{{"word.supplier" | translate}} {{"word.name" | translate}}</th>
                 <th class="hidden-xs">{{"word.date" | translate}}</th>
                 <th class="hidden-xs">{{"word.price" | translate}}</th>
-                <!--<th></th>-->
             </tr>
             <tr dir-paginate="bill in values.bills.items | itemsPerPage: pagination.itemsPerPage"
                 total-items="values.bills.count" current-page="pagination.currentPage"
@@ -33,12 +32,6 @@
                 <td>{{bill.supplier.name}}</td>
                 <td class="hidden-xs">{{bill.date.dayOfMonth}}/{{bill.date.month}}/{{bill.date.year}}</td>
                 <td class="hidden-xs">{{bill.price}}€</td>
-                <!--<td>-->
-                    <!--<button class="btn pull-right" data-ng-disabled="bill.disabled"-->
-                            <!--data-ng-click="removeBill(bill); $event.stopPropagation();">-->
-                        <!--{{"action.remove" | translate}}-->
-                    <!--</button>-->
-                <!--</td>-->
             </tr>
             </tbody>
         </table>

@@ -20,6 +20,7 @@
                 <th class="text-center visible-lg visible-md">{{"word.id.upper" | translate}}</th>
                 <th class="hidden-xs"></th>
                 <th>{{"word.name" | translate}}</th>
+                <th class="hidden-xs">{{"word.brand" | translate}}</th>
                 <th class="hidden-xs">{{"word.category" | translate}}</th>
                 <th class="hidden-xs"></th>
                 <th class="hidden-xs"></th>
@@ -30,6 +31,9 @@
                 <td class="text-center visible-lg visible-md">{{product.id}}</td>
                 <td class="hidden-xs"><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
                 <td>{{product.name}}</td>
+                <td class="hidden-xs">
+                    <a ui-sref="brand-details({'brandId': product.brand.id, 'brand': product.brand})">{{product.category.name}}</a>
+                </td>
                 <td class="hidden-xs">
                     <a ui-sref="category-details({'categoryId': product.category.id, 'category': product.category})">{{product.category.name}}</a>
                 </td>
