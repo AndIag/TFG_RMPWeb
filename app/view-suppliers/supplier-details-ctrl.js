@@ -16,17 +16,16 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'RestMaPla.common-se
             };
 
             $scope.searchByName = function () {
-                //TODO implement search by supplier
-                // ProductService.searchProduct($scope.searchKeywords, null, $scope.supplier.id,
-                //     (PaginationService.data.currentPage - 1), PaginationService.data.itemsPerPage).success(function (data) {
-                //
-                //     CrudService.response.products = JSON.parse(JSON.stringify(data));
-                // }).error(function (data) {
-                //     Flash.clear();
-                //     Flash.create('danger', $translate.instant('error.loading'), 3000);
-                // }).finally(function () {
-                //     $scope.isLoading = false;
-                // });
+                ProductService.searchProduct($scope.searchKeywords, null, null, $scope.supplier.id, null,
+                    (PaginationService.data.currentPage - 1), PaginationService.data.itemsPerPage).success(function (data) {
+
+                    CrudService.response.products = JSON.parse(JSON.stringify(data));
+                }).error(function (data) {
+                    Flash.clear();
+                    Flash.create('danger', $translate.instant('error.loading'), 3000);
+                }).finally(function () {
+                    $scope.isLoading = false;
+                });
             };
 
             $scope.removeProduct = function (product) {
@@ -49,7 +48,6 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'RestMaPla.common-se
                 CrudService.findItemDetailsById(CrudService.endpoints.SUPPLIERS_ENDPOINT, $scope.supplier.id,
                     (page - 1), PaginationService.data.itemsPerPage).success(function (data) {
 
-                    console.log(JSON.parse(JSON.stringify(data)));
                     CrudService.response.products = JSON.parse(JSON.stringify(data)).products;
                 }).error(function (data) {
                     Flash.clear();

@@ -14,7 +14,7 @@ angular.module('RestMaPla.suppliers.controller', ['ngFlash', 'RestMaPla.common-s
             };
 
             $scope.searchByName = function () {
-                CrudService.findPaginatedItemsByName(CrudService.endpoints.SUPPLIERS_ENDPOINT, $scope.searchKeywords).success(function (data) {
+                CrudService.findItemsByName(CrudService.endpoints.SUPPLIERS_ENDPOINT, $scope.searchKeywords).success(function (data) {
                     CrudService.response.suppliers = JSON.parse(JSON.stringify(data));
                 }).error(function (data) {
                     Flash.clear();

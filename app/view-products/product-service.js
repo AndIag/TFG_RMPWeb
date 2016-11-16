@@ -2,7 +2,7 @@ angular.module('RestMaPla.product.service', [])
     .service('ProductService', ['CrudService', '$http', '$q', function (CrudService, $http, $q) {
         var ENDPOINT = 'http://localhost:9090/restmapla';
         return {
-            searchProduct: function (keywords, categoryId, brandId, pageNumber, count) {
+            searchProduct: function (keywords, categoryId, brandId, supplierId, billId, pageNumber, count) {
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 
@@ -22,6 +22,18 @@ angular.module('RestMaPla.product.service', [])
                         searchParams += '&';
                     }
                     searchParams +=  'brand=' + brandId;
+                }
+                if (supplierId) {
+                    if (searchParams !== '') {
+                        searchParams += '&';
+                    }
+                    searchParams += 'supplier=' + supplierId;
+                }
+                if (billId) {
+                    if (searchParams !== '') {
+                        searchParams += '&';
+                    }
+                    searchParams += 'bill=' + billId;
                 }
                 if (searchParams === ''){
                     return CrudService.getPaginatedItems(CrudService.endpoints.PRODUCTS_ENDPOINT, pageNumber, count);

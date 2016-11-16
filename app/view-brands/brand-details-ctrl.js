@@ -16,7 +16,7 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'RestMaPla.common-servi
             };
 
             $scope.searchByName = function () {
-                ProductService.searchProduct($scope.searchKeywords, null, $scope.brand.id,
+                ProductService.searchProduct($scope.searchKeywords, null, $scope.brand.id, null, null,
                     (PaginationService.data.currentPage - 1), PaginationService.data.itemsPerPage).success(function (data) {
 
                     CrudService.response.products = JSON.parse(JSON.stringify(data));

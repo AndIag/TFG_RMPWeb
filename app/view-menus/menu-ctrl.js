@@ -14,14 +14,7 @@ angular.module('RestMaPla.menus.controller', ['ngFlash', 'RestMaPla.common-servi
             };
 
             $scope.searchByName = function () {
-                // CrudService.findPaginatedItemsByName(CrudService.endpoints.MENUS_ENDPOINT, $scope.searchKeywords).success(function (data) {
-                //     CrudService.response.menus = JSON.parse(JSON.stringify(data));
-                // }).error(function (data) {
-                //     Flash.clear();
-                //     Flash.create('danger', $translate.instant('error.loading'), 3000);
-                // }).finally(function () {
-                //     $scope.isLoading = false;
-                // });
+
             };
 
             $scope.showCreate = function () {
