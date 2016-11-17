@@ -16,6 +16,7 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'RestMaPla.common-se
             };
 
             $scope.searchByName = function () {
+                $scope.isSearching = $scope.searchKeywords && $scope.searchKeywords.length;
                 ProductService.searchProduct($scope.searchKeywords, null, null, $scope.supplier.id, null,
                     (PaginationService.data.currentPage - 1), PaginationService.data.itemsPerPage).success(function (data) {
 

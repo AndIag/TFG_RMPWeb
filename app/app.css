@@ -698,3 +698,7 @@ th {
 .unread:hover {
     background: #e0e0e0;
 }
+
+.no-data-message {
+    opacity: 0.5;
+}

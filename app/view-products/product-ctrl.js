@@ -14,6 +14,7 @@ angular.module('RestMaPla.products.controller', ['ngFlash', 'RestMaPla.common-se
             };
 
             $scope.searchByName = function () {
+                $scope.isSearching = $scope.searchKeywords && $scope.searchKeywords.length;
                 CrudService.findItemsByName(CrudService.endpoints.PRODUCTS_ENDPOINT, $scope.searchKeywords).success(function (data) {
                     CrudService.response.products = JSON.parse(JSON.stringify(data));
                 }).error(function (data) {

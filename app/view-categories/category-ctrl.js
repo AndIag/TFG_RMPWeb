@@ -17,6 +17,7 @@ angular.module('RestMaPla.categories.controller', ['ngFlash', 'RestMaPla.common-
             };
 
             $scope.searchByName = function () {
+                $scope.isSearching = $scope.searchKeywords && $scope.searchKeywords.length;
                 CrudService.findItemsByName(CrudService.endpoints.CATEGORIES_ENDPOINT, $scope.searchKeywords).success(function (data) {
                     CrudService.response.categories = JSON.parse(JSON.stringify(data));
                 }).error(function (data) {

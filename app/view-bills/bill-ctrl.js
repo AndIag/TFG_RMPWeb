@@ -14,6 +14,7 @@ angular.module('RestMaPla.bills.controller', ['ngFlash', 'RestMaPla.common-servi
             };
 
             $scope.searchByName = function () {
+                $scope.isSearching = $scope.searchKeywords && $scope.searchKeywords.length;
                 CrudService.findItemsByName(CrudService.endpoints.BILLS_ENDPOINT, $scope.searchKeywords).success(function (data) {
                     CrudService.response.bills = JSON.parse(JSON.stringify(data));
                 }).error(function (data) {
