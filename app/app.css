@@ -665,6 +665,7 @@ th {
     height: 70px;
 }
 
+/* Alerts */
 .notifications {
     text-align: center;
     height: 30px;
@@ -699,6 +700,21 @@ th {
     background: #e0e0e0;
 }
 
+/* Bill styles */
+.bill {
+    font-weight: bold;
+    text-align: center;
+    background: #f87974;
+    color: white;
+}
+
+.entry-bill {
+    font-weight: bold;
+    text-align: center;
+    background: #4bf2d1;
+}
+
+/* Other */
 .no-data-message {
     opacity: 0.5;
 }
