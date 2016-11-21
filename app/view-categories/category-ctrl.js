@@ -1,6 +1,6 @@
-angular.module('RestMaPla.categories.controller', ['ngFlash', 'RestMaPla.common-services'])
-    .controller('CategoryCtrl', ['$scope', '$translate', 'Flash', 'BreadCrumbService', 'CrudService',
-        function ($scope, $translate, Flash, BreadCrumbService, CrudService) {
+angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common-services'])
+    .controller('CategoryCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService',
+        function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService) {
 
             $scope.values = CrudService.response;
 
@@ -29,7 +29,7 @@ angular.module('RestMaPla.categories.controller', ['ngFlash', 'RestMaPla.common-
             };
 
             $scope.showCreate = function () {
-
+                ngDialog.open({template: 'view-categories/add-form.html', scope: $scope});
             };
 
             $scope.removeCategory = function (category) {

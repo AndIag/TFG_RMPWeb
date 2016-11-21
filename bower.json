@@ -16,7 +16,7 @@
     "font-awesome": "^4.7.0",
     "angular-bootstrap": "^2.2.0",
     "angular-cookies": "^1.5.8",
-    "angular-flash-alert": "^2.3.0",
+    "angular-flash-alert": "^2.4.0",
     "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
     "angular-i18n": "^1.5.8",
     "angular-sanitize": "^1.5.8",
@@ -28,7 +28,8 @@
     "angular-ui-router": "^0.3.2",
     "angular-route": "^1.5.8",
     "angular-spinkit": "^0.3.4",
-    "angular-local-storage": "^0.5.2"
+    "angular-local-storage": "^0.5.2",
+    "ng-dialog": "^0.6.4"
   },
   "repository": {
     "type": "git",
