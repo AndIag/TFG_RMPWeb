@@ -24,8 +24,6 @@ angular.module('RestMaPla.bill.controller', ['ngFlash', 'RestMaPla.common-servic
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);
-                }).finally(function () {
-                    $scope.isLoading = false;
                 });
             };
 
@@ -42,8 +40,6 @@ angular.module('RestMaPla.bill.controller', ['ngFlash', 'RestMaPla.common-servic
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);
-                }).finally(function () {
-                    $scope.isLoading = false;
                 });
             }
 

@@ -11,8 +11,6 @@ angular.module('RestMaPla.employees.controller', ['ngFlash', 'RestMaPla.common-s
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);
-                }).finally(function () {
-                    $scope.isLoading = false;
                 });
             };
 

@@ -645,6 +645,9 @@ th {
     -webkit-transform: scale(1.1, 1.1);
 }
 
+.dialog-contents .add-btn {
+    margin-top: 10px;
+}
 /* Search Bar */
 #search label {
     position: absolute;

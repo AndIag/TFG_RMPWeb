@@ -3,6 +3,7 @@ angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestM
         function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService) {
 
             $scope.values = CrudService.response;
+            var dialog;
 
             $scope.init = function () {
                 BreadCrumbService.setBreadCrumb($translate.instant('views.index.categories'));
@@ -11,8 +12,6 @@ angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestM
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);
-                }).finally(function () {
-                    $scope.isLoading = false;
                 });
             };
 
@@ -23,13 +22,24 @@ angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestM
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);
-                }).finally(function () {
-                    $scope.isLoading = false;
                 });
             };
 
             $scope.showCreate = function () {
-                ngDialog.open({template: 'view-categories/add-form.html', scope: $scope});
+                dialog = ngDialog.open({template: 'view-categories/add-form.html', scope: $scope, controller: this});
+            };
+
+            $scope.saveItem = function (form) {
+                if (!form.$error.hasOwnProperty("required")) {
+                    CrudService.createItem(CrudService.endpoints.CATEGORIES_ENDPOINT, $scope.category).success(function (data) {
+                        $scope.values.categories.push(data);
+                        $scope.category = null;
+                        dialog.closeThisDialog();
+                    }).error(function (data) {
+                        Flash.clear();
+                        Flash.create('danger', $translate.instant('error.adding'), 3000);
+                    });
+                }
             };
 
             $scope.removeCategory = function (category) {

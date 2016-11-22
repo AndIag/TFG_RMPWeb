@@ -29,8 +29,6 @@ angular.module('RestMaPla.product.controller', ['ngFlash', 'RestMaPla.common-ser
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);
-                }).finally(function () {
-                    $scope.isLoading = false;
                 });
             }
 

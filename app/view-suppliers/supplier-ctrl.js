@@ -20,8 +20,6 @@ angular.module('RestMaPla.suppliers.controller', ['ngFlash', 'RestMaPla.common-s
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);
-                }).finally(function () {
-                    $scope.isLoading = false;
                 });
             };
 
@@ -38,8 +36,6 @@ angular.module('RestMaPla.suppliers.controller', ['ngFlash', 'RestMaPla.common-s
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.removing'), 3000);
-                }).finally(function () {
-                    $scope.isLoading = false;
                 });
             };
 
@@ -52,8 +48,6 @@ angular.module('RestMaPla.suppliers.controller', ['ngFlash', 'RestMaPla.common-s
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);
-                }).finally(function () {
-                    $scope.isLoading = false;
                 });
             }
 
