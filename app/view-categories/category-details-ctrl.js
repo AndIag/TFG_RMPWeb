@@ -1,10 +1,12 @@
 angular.module('RestMaPla.category.controller', ['ngFlash', 'RestMaPla.common-services'])
-    .controller('CategoryDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'BreadCrumbService', 'CrudService', 'ProductService', 'PaginationService',
-        function ($scope, $stateParams, $translate, Flash, BreadCrumbService, CrudService, ProductService, PaginationService) {
+    .controller('CategoryDetailsCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'BreadCrumbService', 'CrudService', 'ProductService', 'PaginationService',
+        function ($scope, $state, $stateParams, $translate, Flash, BreadCrumbService, CrudService, ProductService, PaginationService) {
             $scope.pagination = PaginationService.data;
 
             $scope.category = $stateParams.category;
             $scope.values = CrudService.response;
+
+            var dialog = null;
 
             $scope.init = function () {
                 BreadCrumbService.setBreadCrumb($stateParams.category.name);
@@ -27,8 +29,18 @@ angular.module('RestMaPla.category.controller', ['ngFlash', 'RestMaPla.common-se
                 });
             };
 
+            $scope.saveItem = function (form) {
+                if (!form.$error.hasOwnProperty("required")) {
+                    CrudService.updateItem(CrudService.endpoints.CATEGORIES_ENDPOINT, $scope.category.id, $scope.category).success(function (data) {
+
+                    }).error(function (data) {
+                        Flash.clear();
+                        Flash.create('danger', $translate.instant('error.updating'), 3000);
+                    });
+                }
+            };
+
             $scope.removeProduct = function (product) {
-                //TODO fix supplier dependency
                 CrudService.removeItem(CrudService.endpoints.PRODUCTS_ENDPOINT, product.id).success(function (data) {
                     CrudService.response.products.items = CrudService.response.products.items.filter(function (e) {
                         return e.id !== product.id;
@@ -45,6 +57,7 @@ angular.module('RestMaPla.category.controller', ['ngFlash', 'RestMaPla.common-se
                 CrudService.findItemDetailsById(CrudService.endpoints.CATEGORIES_ENDPOINT, $scope.category.id,
                     (page - 1), PaginationService.data.itemsPerPage).success(function (data) {
 
+                    $scope.category = JSON.parse(JSON.stringify(data)).item;
                     CrudService.response.products = JSON.parse(JSON.stringify(data)).products;
                 }).error(function (data) {
                     Flash.clear();

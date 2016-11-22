@@ -22,7 +22,7 @@
         <th>{{"word.name" | translate}}</th>
         <th class="hidden-xs">{{"word.brand" | translate}}</th>
         <th></th>
-        <th></th>
+        <!--<th></th>-->
       </tr>
       <tr dir-paginate="product in values.products.items | itemsPerPage: pagination.itemsPerPage"
           total-items="values.products.count" current-page="pagination.currentPage">
@@ -36,12 +36,12 @@
         <td data-ng-if="!product.simple"><img width="25px" height="25px" src="../components/resources/img/pack_icon.png">
         <td data-ng-if="product.simple"><img width="25px" height="25px" src="../components/resources/img/simple_icon.png">
         </td>
-        <td>
-          <button class="btn pull-right" data-ng-disabled="product.disabled"
-                  data-ng-click="removeProduct(product); $event.stopPropagation();">
-            {{"action.remove" | translate}}
-          </button>
-        </td>
+        <!--<td>-->
+        <!--<button class="btn pull-right" data-ng-disabled="product.disabled"-->
+        <!--data-ng-click="removeProduct(product); $event.stopPropagation();">-->
+        <!--{{"action.remove" | translate}}-->
+        <!--</button>-->
+        <!--</td>-->
       </tr>
       </tbody>
     </table>

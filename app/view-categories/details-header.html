@@ -4,7 +4,7 @@
     <dir-pagination-controls class="pull-right"
                              on-page-change="changePage(newPageNumber, oldPageNumber)"></dir-pagination-controls>
   </div>
-  <form name="form" class="form-inline text-center" novalidate>
+  <form name="form" class="form-inline text-center">
     <fieldset>
       <legend>{{"action.modify" | translate}} {{"word.category" | translate}}</legend>
       <div class="form-group">
@@ -17,14 +17,14 @@
         <input id="url" class="input-sm form-control" type="text" data-ng-model="category.url"
                placeholder="{{'word.image_url' | translate}}">
       </div>
-      <button type="submit" class="btn" data-ng-click="saveCategory()">
+      <button type="submit" class="btn" data-ng-click="saveItem(form)">
         {{"action.submit" | translate}}
       </button>
     </fieldset>
   </form>
-  <div>
-    <button class="add-btn btn" data-ng-click="showCreate()">
-      {{"action.add" | translate}}
-    </button>
-  </div>
+  <!--<div>-->
+  <!--<button class="add-btn btn" data-ng-click="showCreate()">-->
+  <!--{{"action.add" | translate}}-->
+  <!--</button>-->
+  <!--</div>-->
 </div>
