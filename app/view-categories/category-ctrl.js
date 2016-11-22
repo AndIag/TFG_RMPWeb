@@ -1,9 +1,8 @@
 angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common-services'])
     .controller('CategoryCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService',
         function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService) {
-
+            var dialog = null;
             $scope.values = CrudService.response;
-            var dialog;
 
             $scope.init = function () {
                 BreadCrumbService.setBreadCrumb($translate.instant('views.index.categories'));
@@ -26,6 +25,7 @@ angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestM
             };
 
             $scope.showCreate = function () {
+                $scope.category = {};
                 dialog = ngDialog.open({template: 'view-categories/add-form.html', scope: $scope, controller: this});
             };
 
@@ -33,8 +33,7 @@ angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestM
                 if (!form.$error.hasOwnProperty("required")) {
                     CrudService.createItem(CrudService.endpoints.CATEGORIES_ENDPOINT, $scope.category).success(function (data) {
                         $scope.values.categories.push(data);
-                        $scope.category = null;
-                        dialog.closeThisDialog();
+                        dialog.close();
                     }).error(function (data) {
                         Flash.clear();
                         Flash.create('danger', $translate.instant('error.adding'), 3000);
