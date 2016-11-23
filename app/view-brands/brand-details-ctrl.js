@@ -27,6 +27,17 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'RestMaPla.common-servi
                 });
             };
 
+            $scope.saveItem = function (form) {
+                if (!form.$error.hasOwnProperty("required")) {
+                    CrudService.updateItem(CrudService.endpoints.BRANDS_ENDPOINT, $scope.brand.id, $scope.brand).success(function (data) {
+
+                    }).error(function (data) {
+                        Flash.clear();
+                        Flash.create('danger', $translate.instant('error.updating'), 3000);
+                    });
+                }
+            };
+
             $scope.removeProduct = function (product) {
                 //TODO fix supplier dependency
                 CrudService.removeItem(CrudService.endpoints.PRODUCTS_ENDPOINT, product.id).success(function (data) {
@@ -45,7 +56,9 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'RestMaPla.common-servi
                 CrudService.findItemDetailsById(CrudService.endpoints.BRANDS_ENDPOINT, $scope.brand.id,
                     (page - 1), PaginationService.data.itemsPerPage).success(function (data) {
 
-                    CrudService.response.products = JSON.parse(JSON.stringify(data)).products;
+                    var json = JSON.parse(JSON.stringify(data));
+                    $scope.brand = json.item;
+                    CrudService.response.products = json.products;
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);

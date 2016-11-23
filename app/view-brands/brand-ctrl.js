@@ -1,6 +1,7 @@
-angular.module('RestMaPla.brands.controller', ['ngFlash', 'RestMaPla.common-services'])
-    .controller('BrandCtrl', ['$scope', '$translate', 'Flash', 'BreadCrumbService', 'CrudService', 'PaginationService',
-        function ($scope, $translate, Flash, BreadCrumbService, CrudService, PaginationService) {
+angular.module('RestMaPla.brands.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common-services'])
+    .controller('BrandCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'PaginationService',
+        function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, PaginationService) {
+            var dialog = null;
             $scope.pagination = PaginationService.data;
             $scope.values = CrudService.response;
 
@@ -24,7 +25,21 @@ angular.module('RestMaPla.brands.controller', ['ngFlash', 'RestMaPla.common-serv
             };
 
             $scope.showCreate = function () {
+                $scope.brand = {};
+                dialog = ngDialog.open({template: 'view-brands/add-form.html', scope: $scope, controller: this});
+            };
 
+            $scope.saveItem = function (form) {
+                if (!form.$error.hasOwnProperty("required")) {
+                    CrudService.createItem(CrudService.endpoints.BRANDS_ENDPOINT, $scope.brand).success(function (data) {
+                        $scope.values.brands.items.push(data);
+                        $scope.values.brands.count = $scope.values.brands.count + 1;
+                        dialog.close();
+                    }).error(function (data) {
+                        Flash.clear();
+                        Flash.create('danger', $translate.instant('error.adding'), 3000);
+                    });
+                }
             };
 
             $scope.removeBrand = function (brand) {

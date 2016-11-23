@@ -57,8 +57,9 @@ angular.module('RestMaPla.category.controller', ['ngFlash', 'RestMaPla.common-se
                 CrudService.findItemDetailsById(CrudService.endpoints.CATEGORIES_ENDPOINT, $scope.category.id,
                     (page - 1), PaginationService.data.itemsPerPage).success(function (data) {
 
-                    $scope.category = JSON.parse(JSON.stringify(data)).item;
-                    CrudService.response.products = JSON.parse(JSON.stringify(data)).products;
+                    var json = JSON.parse(JSON.stringify(data));
+                    $scope.category = json.item;
+                    CrudService.response.products = json.products;
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);
