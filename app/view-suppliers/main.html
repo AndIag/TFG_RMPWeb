@@ -1,0 +1,44 @@
+<div data-ng-show="!values.hasOwnProperty('suppliers')">
+    <double-bounce-spinner></double-bounce-spinner>
+</div>
+<div class="widget-body">
+    <div class="text-center" data-ng-show="values.suppliers.count === 0">
+        <h2 class="no-data-message">{{"error.no.data" | translate}}</h2>
+    </div>
+    <div class="table-responsive" data-ng-show="values.suppliers.count > 0">
+        <div id="search" class="col-lg-12">
+            <label for="search-input">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <span class="sr-only">{{"action.search" | translate}}</span>
+            </label>
+            <input id="search-input" class="form-control input-lg" placeholder="{{'action.search' | translate}}"
+                   tabindex="1" data-ng-model="searchKeywords" data-ng-change="searchByName()">
+        </div>
+        <table class="table">
+            <tbody>
+            <tr>
+                <th class="text-center visible-lg visible-md">{{"word.id.upper" | translate}}</th>
+                <th>{{"word.vat.upper" | translate}}</th>
+                <th>{{"word.name" | translate}}</th>
+                <th class="hidden-xs">{{"word.website" | translate}}</th>
+                <th></th>
+            </tr>
+            <tr dir-paginate="supplier in values.suppliers.items | itemsPerPage: pagination.itemsPerPage"
+                total-items="values.suppliers.count" current-page="pagination.currentPage"
+                data-ui-sref="supplier-details({ supplierId: supplier.id, supplier: supplier})">
+
+                <td class="text-center visible-lg visible-md">{{supplier.id}}</td>
+                <td>{{supplier.vat}}</td>
+                <td>{{supplier.name}}</td>
+                <td class="hidden-xs">{{supplier.website}}</a></td>
+                <td>
+                    <button class="btn pull-right" data-ng-disabled="supplier.disabled"
+                            data-ng-click="removeSupplier(supplier); $event.stopPropagation();">
+                        {{"action.remove" | translate}}
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

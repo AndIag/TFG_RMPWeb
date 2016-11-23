@@ -1,0 +1,49 @@
+<div data-ng-show="!values.hasOwnProperty('products')">
+  <double-bounce-spinner></double-bounce-spinner>
+</div>
+<div class="widget-body">
+  <div class="text-center" data-ng-show="values.products.count === 0">
+    <h2 class="no-data-message">{{"error.no.data" | translate}}</h2>
+  </div>
+  <div class="table-responsive" data-ng-show="values.products.count > 0">
+    <div id="search" class="col-lg-12">
+      <label for="search-input">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <span class="sr-only">{{"action.search" | translate}}</span>
+      </label>
+      <input id="search-input" class="form-control input-lg" placeholder="{{'action.search' | translate}}"
+             tabindex="1" data-ng-model="searchKeywords" data-ng-change="searchByName()">
+    </div>
+    <table class="table">
+      <tbody>
+      <tr>
+        <th class="text-center visible-lg visible-md">{{"word.id.upper" | translate}}</th>
+        <th></th>
+        <th>{{"word.name" | translate}}</th>
+        <th class="hidden-xs">{{"word.brand" | translate}}</th>
+        <th></th>
+        <!--<th></th>-->
+      </tr>
+      <tr dir-paginate="product in values.products.items | itemsPerPage: pagination.itemsPerPage"
+          total-items="values.products.count" current-page="pagination.currentPage">
+
+        <td class="text-center visible-lg visible-md">{{product.id}}</td>
+        <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
+        <td>{{product.name}}</td>
+        <td class="hidden-xs">
+          <a ui-sref="brand-details({'brandId': product.brand.id, 'brand': product.brand})">{{product.brand.name}}</a>
+        </td>
+        <td data-ng-if="!product.simple"><img width="25px" height="25px" src="../components/resources/img/pack_icon.png">
+        <td data-ng-if="product.simple"><img width="25px" height="25px" src="../components/resources/img/simple_icon.png">
+        </td>
+        <!--<td>-->
+        <!--<button class="btn pull-right" data-ng-disabled="product.disabled"-->
+        <!--data-ng-click="removeProduct(product); $event.stopPropagation();">-->
+        <!--{{"action.remove" | translate}}-->
+        <!--</button>-->
+        <!--</td>-->
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
