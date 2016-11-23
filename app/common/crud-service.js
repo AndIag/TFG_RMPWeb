@@ -85,30 +85,7 @@ angular.module('RestMaPla.service.crud', [])
                 };
 
                 return promise;
-            }, findPaginatedItemsByName: function (path, keywords, pageNumber, count) {
-                var deferred = $q.defer();
-                var promise = deferred.promise;
-
-                $http({
-                    method: 'GET',
-                    url: ENDPOINT + path + '/search?keywords=' + keywords + '&pageNumber=' + pageNumber + '&count=' + count
-                }).then(function successCallback(response) {
-                    deferred.resolve(response.data);
-                }, function errorCallback(response) {
-                    deferred.reject(response);
-                });
-
-                promise.success = function (fn) {
-                    promise.then(fn);
-                    return promise;
-                };
-                promise.error = function (fn) {
-                    promise.then(null, fn);
-                    return promise;
-                };
-
-                return promise;
-            }, findItemById: function (path, itemId) {
+            }, findItemDetailsById: function (path, itemId) {
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 
@@ -131,7 +108,7 @@ angular.module('RestMaPla.service.crud', [])
                 };
 
                 return promise;
-            }, findItemDetailsById: function (path, itemId, pageNumber, count) {
+            }, findPaginatedItemDetailsById: function (path, itemId, pageNumber, count) {
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 

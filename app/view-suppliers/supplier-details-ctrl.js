@@ -42,7 +42,7 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'RestMaPla.common-se
 
             function findSupplierDetails(page) {
                 PaginationService.data.currentPage = page;
-                CrudService.findItemDetailsById(CrudService.endpoints.SUPPLIERS_ENDPOINT, $scope.supplier.id,
+                CrudService.findPaginatedItemDetailsById(CrudService.endpoints.SUPPLIERS_ENDPOINT, $scope.supplier.id,
                     (page - 1), PaginationService.data.itemsPerPage).success(function (data) {
 
                     CrudService.response.products = JSON.parse(JSON.stringify(data)).products;

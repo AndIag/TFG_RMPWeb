@@ -8,7 +8,6 @@ angular.module('RestMaPla.service.breadcrumb', [])
                 name = toTitleCase(name);
                 (name.length <= 10) ? this.data.breadCrumb = name
                     : this.data.breadCrumb = name.substring(0,11) + '...';
-                this.data.isDashboard = name === toTitleCase($translate.instant("views.index.dashboard"));
             }
         }
     }]);

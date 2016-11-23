@@ -46,7 +46,8 @@
 
       <!-- Main Content -->
       <div class="col-lg-12">
-        <div data-ng-class="{widget: !data.isDashboard}">
+        <!--<div data-ng-class="{widget: !data.isDashboard}">-->
+        <div data-ng-class="{widget: $state.includes('index')||$state.includes('product-details')}">
           <div ui-view="headerContent"></div>
           <div ui-view="mainContent"></div>
         </div>
