@@ -11,13 +11,13 @@
                 <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
                     <i data-ng-class="{fa:true, 'fa-bell-o': hasUnreadAlerts(), 'fa-bell-slash-o': !hasUnreadAlerts()}"></i>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-right" data-ng-if="values.alerts.length > 0">
+                <ul class="dropdown-menu dropdown-menu-right" data-ng-if="values.alerts.count > 0">
                     <li class="dropdown-header">
                         {{"views.index.notifications" | translate}}
                     </li>
                     <li class="divider"></li>
-                    <li data-ng-class="{notifications: alert.viewed, unread: !alert.viewed}"
-                        data-ng-repeat="alert in values.alerts | limitTo:7" data-ng-click="markAsRead(alert, $index)">
+                    <li data-ng-repeat="alert in values.alerts.items | limitTo:7" data-ng-click="showDetails(alert)"
+                        data-ng-class="{notifications: alert.viewed, unread: !alert.viewed}">
                         <i data-ng-class="{fa: true, 'fa-check': alert.viewed, 'fa-times': !alert.viewed}"
                            aria-hidden="true"></i>{{alert.comment}}
                     </li>

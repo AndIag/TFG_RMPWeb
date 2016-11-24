@@ -669,7 +669,18 @@ th {
 }
 
 /* Alerts */
-.notifications {
+td.unread {
+    background: #f87974;
+    color: white;
+    font-weight: bold;
+}
+
+td.notifications {
+    background: #4bf2d1;
+    font-weight: bold;
+}
+
+li.notifications {
     text-align: center;
     height: 30px;
     color: #12ba90;
@@ -682,11 +693,11 @@ th {
     margin-top: 2px;
 }
 
-.notifications:hover {
+li.notifications:hover {
     background: #e0e0e0;
 }
 
-.unread {
+li.unread {
     text-align: center;
     color: darkred;
     height: 30px;
@@ -699,7 +710,7 @@ th {
     margin-top: 2px;
 }
 
-.unread:hover {
+li.unread:hover {
     background: #e0e0e0;
 }
 
