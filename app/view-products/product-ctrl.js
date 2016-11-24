@@ -1,8 +1,10 @@
-angular.module('RestMaPla.products.controller', ['ngFlash', 'RestMaPla.common-services'])
-    .controller('ProductCtrl', ['$scope', '$translate', 'Flash', 'BreadCrumbService', 'CrudService', 'PaginationService',
-        function ($scope, $translate, Flash, BreadCrumbService, CrudService, PaginationService) {
+angular.module('RestMaPla.products.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common-services'])
+    .controller('ProductCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'PaginationService',
+        function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, PaginationService) {
             $scope.pagination = PaginationService.data;
             $scope.values = CrudService.response;
+
+            var dialog = null;
 
             $scope.init = function () {
                 BreadCrumbService.setBreadCrumb($translate.instant('views.index.products'));
@@ -24,7 +26,8 @@ angular.module('RestMaPla.products.controller', ['ngFlash', 'RestMaPla.common-se
             };
 
             $scope.showCreate = function () {
-
+                $scope.product = {};
+                dialog = ngDialog.open({template: 'view-products/add-form.html', scope: $scope, controller: this});
             };
 
             $scope.removeBrand = function (product) {

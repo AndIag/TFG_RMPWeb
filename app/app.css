@@ -265,6 +265,10 @@ body {
     background: #ae2323 !important
 }
 
+.form-group {
+    margin-bottom: 5px;
+}
+
 .form-group .help-block.form-group-inline-message {
     padding-top: 5px
 }

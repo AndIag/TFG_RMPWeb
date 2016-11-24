@@ -16,7 +16,7 @@ angular.module('RestMaPla.product.controller', ['ngFlash', 'RestMaPla.common-ser
                     var json = JSON.parse(JSON.stringify(data));
                     $scope.product = json.product;
                     CrudService.response.suppliers = {items: json.suppliers, count: json.suppliers.length};
-                    CrudService.response.alerts = json.alerts;
+                    CrudService.response.alerts = {items: json.alerts, count: json.alerts.length};
                     CrudService.response.bills = {items: json.bills, count: json.bills.length};
                     CrudService.response.orders = json.orders;
                 }).error(function (data) {

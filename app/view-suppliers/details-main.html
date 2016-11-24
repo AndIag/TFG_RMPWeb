@@ -26,7 +26,8 @@
                 <th class="hidden-xs"></th>
             </tr>
             <tr dir-paginate="product in values.products.items | itemsPerPage: pagination.itemsPerPage"
-                total-items="values.products.count" current-page="pagination.currentPage">
+                total-items="values.products.count" current-page="pagination.currentPage"
+                data-ui-sref="product-details({'productId': product.id, 'product': product})">
 
                 <td class="text-center visible-lg visible-md">{{product.id}}</td>
                 <td class="hidden-xs"><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
