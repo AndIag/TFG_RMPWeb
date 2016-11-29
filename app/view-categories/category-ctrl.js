@@ -1,6 +1,6 @@
 angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common-services'])
-    .controller('CategoryCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService',
-        function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService) {
+    .controller('CategoryCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'FormValidators',
+        function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, FormValidators) {
             var dialog = null;
             $scope.values = CrudService.response;
 
@@ -30,7 +30,8 @@ angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestM
             };
 
             $scope.saveItem = function (form) {
-                if (!form.$error.hasOwnProperty("required")) {
+                var error = null;
+                if (error = FormValidators.isValidCategory($scope.category, form) === true) {
                     CrudService.createItem(CrudService.endpoints.CATEGORIES_ENDPOINT, $scope.category).success(function (data) {
                         $scope.values.categories.push(data);
                         dialog.close();

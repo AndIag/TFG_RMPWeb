@@ -31,7 +31,7 @@
         <td class="text-center visible-lg visible-md">{{product.id}}</td>
         <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
         <td>{{product.name}}</td>
-        <td class="hidden-xs">
+        <td class="hidden-xs" data-ng-click="$event.stopPropagation()">
           <a ui-sref="brand-details({'brandId': product.brand.id, 'brand': product.brand})">{{product.brand.name}}</a>
         </td>
         <td data-ng-if="!product.simple"><img width="25px" height="25px" src="../components/resources/img/pack_icon.png">

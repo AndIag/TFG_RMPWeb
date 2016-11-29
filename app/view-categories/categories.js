@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('RestMaPla.categories', ['ngRoute', 'RestMaPla.category.controller', 'RestMaPla.categories.controller', 'RestMaPla.product.service'])
+angular.module('RestMaPla.categories', ['ngRoute', 'RestMaPla.category.controller', 'RestMaPla.categories.controller'])
 
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('categories', {

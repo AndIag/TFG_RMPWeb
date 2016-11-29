@@ -38,22 +38,24 @@
                 <label class="control-label col-xs-3" for="url">{{"word.image_url" | translate}}:</label>
                 <div class="col-xs-6">
                     <input id="url" type="url" data-ng-model="product.url" class="input-sm form-control"
-                           placeholder="{{'word.image_url' | translate}}" required/>
+                           placeholder="{{'word.image_url' | translate}}"/>
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-xs-3" for="description">{{"word.description" | translate}}:</label>
                 <div class="col-xs-6">
                         <textarea id="description" class="input-sm form-control" data-ng-model="product.description"
-                                  placeholder="{{'placeholder.description' | translate}}" required></textarea>
+                                  placeholder="{{'placeholder.description' | translate}}"></textarea>
                 </div>
             </div>
             <!-- Simple product info -->
             <div class="form-group" data-ng-show="!product.isPack">
                 <label class="control-label col-xs-3 " for="price">{{"word.price" | translate}}:</label>
                 <div class="col-xs-6">
-                    <input type="text" class="input-sm form-control" id="price" ng-model="product.price"
-                           autocomplete="off" placeholder="{{'word.price' | translate}}"/>
+                    <input type="number" class="input-sm form-control" id="price" name="price" ng-model="product.price"
+                           step="0.01"
+                           autocomplete="off" placeholder="{{'word.price' | translate}}"
+                           data-ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"/>
                 </div>
             </div>
             <!--End- Simple product Info -->
