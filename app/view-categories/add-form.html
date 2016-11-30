@@ -1,11 +1,13 @@
 <div class="dialog-contents" id="add-form.html">
-    <form name="form" class="form-inline text-center">
+
+    <form name="form" class="form-inline text-center" novalidate>
         <fieldset>
             <legend>{{"action.add.ing" | translate}} {{"word.category" | translate}}</legend>
 
             <div class="form-group">
                 <label class="sr-only" for="name">{{"word.name" | translate}}:</label>
                 <input id="name" type="text" data-ng-model="category.name" class="input-sm form-control"
+                       data-ng-class="{'form-error': errors.hasOwnProperty('name')}"
                        placeholder="{{'word.name' | translate}}" required autocomplete="off">
             </div>
 

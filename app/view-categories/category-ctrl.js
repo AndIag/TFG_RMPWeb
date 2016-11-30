@@ -30,8 +30,7 @@ angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestM
             };
 
             $scope.saveItem = function (form) {
-                var error = null;
-                if (error = FormValidators.isValidCategory($scope.category, form) === true) {
+                if (($scope.errors = FormValidators.isValidCategory($scope.category, form)) === {}) {
                     CrudService.createItem(CrudService.endpoints.CATEGORIES_ENDPOINT, $scope.category).success(function (data) {
                         $scope.values.categories.push(data);
                         dialog.close();

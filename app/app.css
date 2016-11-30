@@ -590,6 +590,30 @@ ul.sidebar .sidebar-list .menu-icon {
     white-space: pre;
 }
 
+td.unread {
+    background: #f87974;
+    color: white;
+    font-weight: bold;
+}
+
+td.notifications {
+    background: #4bf2d1;
+    font-weight: bold;
+}
+
+li.notifications {
+    text-align: center;
+    height: 30px;
+    color: #12ba90;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    border-left: 10px solid #212121;
+    border-bottom: 2px solid #212111;
+    padding-left: 10px;
+    margin-top: 2px;
+}
+
 /*Table*/
 th {
     background: #212121;
@@ -672,31 +696,6 @@ th {
     height: 70px;
 }
 
-/* Alerts */
-td.unread {
-    background: #f87974;
-    color: white;
-    font-weight: bold;
-}
-
-td.notifications {
-    background: #4bf2d1;
-    font-weight: bold;
-}
-
-li.notifications {
-    text-align: center;
-    height: 30px;
-    color: #12ba90;
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-    border-left: 10px solid #212121;
-    border-bottom: 2px solid #212111;
-    padding-left: 10px;
-    margin-top: 2px;
-}
-
 li.notifications:hover {
     background: #e0e0e0;
 }
@@ -730,6 +729,29 @@ li.unread:hover {
     font-weight: bold;
     text-align: center;
     background: #4bf2d1;
+}
+
+/* Input error */
+.form-error {
+    border: 1px dashed red;
+}
+
+.form-error::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: red;
+}
+
+.form-error:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: red;
+    opacity: 1;
+}
+
+.form-error::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: red;
+    opacity: 1;
+}
+
+.form-error:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: red;
 }
 
 /* Other */

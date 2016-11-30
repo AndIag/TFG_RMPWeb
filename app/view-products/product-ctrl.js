@@ -1,6 +1,6 @@
 angular.module('RestMaPla.products.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common-services'])
-    .controller('ProductCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'PaginationService',
-        function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, PaginationService) {
+    .controller('ProductCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'PaginationService', 'FormValidators',
+        function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, PaginationService, FormValidators) {
             $scope.pagination = PaginationService.data;
             $scope.values = CrudService.response;
 
@@ -32,6 +32,19 @@ angular.module('RestMaPla.products.controller', ['ngFlash', 'ngDialog', 'RestMaP
                 dialog = ngDialog.open({template: 'view-products/add-form.html', scope: $scope, controller: this});
             };
 
+            $scope.saveItem = function (form) {
+                if (($scope.errors = FormValidators.isValidProduct($scope.product, form)) === {}) {
+                    CrudService.createItem(CrudService.endpoints.PRODUCTS_ENDPOINT, $scope.product).success(function (data) {
+                        $scope.values.products.items.push(data);
+                        $scope.values.products.count = $scope.values.products.count + 1;
+                        dialog.close();
+                    }).error(function (data) {
+                        Flash.clear();
+                        Flash.create('danger', $translate.instant('error.adding'), 3000);
+                    });
+                }
+            };
+
             $scope.removeProduct = function (product) {
                 CrudService.removeItem(CrudService.endpoints.PRODUCTS_ENDPOINT, product.id).success(function (data) {
                     CrudService.response.products.items = CrudService.response.products.items.filter(function (e) {
@@ -57,7 +70,6 @@ angular.module('RestMaPla.products.controller', ['ngFlash', 'ngDialog', 'RestMaP
             }
 
             // USED IN ADD PRODUCT DIALOG
-
             $scope.searchBrand = function () {
                 CrudService.findItemsByName(CrudService.endpoints.BRANDS_ENDPOINT, $scope.product.brand).success(function (data) {
                     CrudService.response.brands = JSON.parse(JSON.stringify(data));

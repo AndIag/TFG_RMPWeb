@@ -1,35 +1,47 @@
 'use strict';
 
 angular.module('RestMaPla.service.validators', [])
-    .service('FormValidators', [function () {
+    .service('FormValidators', ['$translate', function ($translate) {
         return {
             isValidProduct: function (product, form) {
-                if (form.$error.hasOwnProperty("required")) {
-                    return form.$error["required"];
-                } else if (product.isPack) {
+                var error = {};
+                if (!product.name || product.name === '' || product.name.replace(/\s+/g, " ") === ' ') {
+                    error.name = $translate.instant("error.required.name");
+                }
+                if (!product.category || !product.category.id) {
+                    error.category = $translate.instant("error.required.category");
+                }
+                if (!product.brand || !product.brand.id) {
+                    error.brand = $translate.instant("error.required.brand");
+                }
+                if (product.isPack) {
                     if (!product.simpleProduct || !product.simpleProduct.simple) {
-
-                    } else if (!product.amount > 0) {
-
+                        error.simpleProduct = $translate.instant("error.required.simple_product");
                     }
-                } else if (!product.isPack) {
-                    if (!product.price > 0) {
-
+                    if (!product.amount > 0) {
+                        error.amount = $translate.instant("error.required.amount");
                     }
                 }
-                return true;
+                if (!product.isPack) {
+                    if (!product.price > 0) {
+                        error.price = $translate.instant("error.required.price");
+                    }
+                }
+                return error;
             },
             isValidBrand: function (brand, form) {
-                if (form.$error.hasOwnProperty("required")) {
-                    return form.$error["required"];
+                var error = {};
+                if (!brand.name || brand.name === '' || brand.name.replace(/\s+/g, " ") === ' ') {
+                    error.name = $translate.instant("error.required.name");
                 }
-                return true;
+                return error;
             },
             isValidCategory: function (category, form) {
-                if (form.$error.hasOwnProperty("required")) {
-                    return form.$error["required"];
+                var error = {};
+                if (!category.name || category.name === '' || category.name.replace(/\s+/g, " ") === ' ') {
+                    error.name = $translate.instant("error.required.name");
                 }
-                return true;
+                return error;
             }
         }
     }]);
