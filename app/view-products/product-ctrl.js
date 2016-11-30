@@ -32,7 +32,7 @@ angular.module('RestMaPla.products.controller', ['ngFlash', 'ngDialog', 'RestMaP
                 dialog = ngDialog.open({template: 'view-products/add-form.html', scope: $scope, controller: this});
             };
 
-            $scope.saveItem = function (form) {
+            $scope.saveProduct = function (form) {
                 if (($scope.errors = FormValidators.isValidProduct($scope.product, form)) === {}) {
                     CrudService.createItem(CrudService.endpoints.PRODUCTS_ENDPOINT, $scope.product).success(function (data) {
                         $scope.values.products.items.push(data);

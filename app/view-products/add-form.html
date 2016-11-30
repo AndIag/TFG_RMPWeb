@@ -20,7 +20,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" data-ng-show="!isCategoryForm">
                 <label class="control-label col-xs-3" for="category">{{"word.category" | translate}}:</label>
                 <div class="col-xs-6">
                     <input type="text" class="input-sm form-control" id="category" ng-model="product.category" required
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" data-ng-show="!isBrandForm">
                 <label class="control-label col-xs-3" for="brand">{{"word.brand" | translate}}:</label>
                 <div class="col-xs-6">
                     <input type="text" class="input-sm form-control" id="brand" ng-model="product.brand" required
@@ -106,7 +106,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn" data-ng-click="saveItem(form)">
+            <button type="submit" class="btn" data-ng-click="saveProduct(form)">
                 {{"action.submit" | translate}}
             </button>
         </fieldset>
