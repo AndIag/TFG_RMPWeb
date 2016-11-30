@@ -1,0 +1,33 @@
+<div data-ng-show="!values.hasOwnProperty('tables')">
+    <double-bounce-spinner></double-bounce-spinner>
+</div>
+<div class="widget-body">
+    <div class="table-responsive" data-ng-show="values.hasOwnProperty('tables')">
+        <div id="search" class="col-lg-12">
+            <label for="search-input">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <span class="sr-only">{{"action.search" | translate}}</span>
+            </label>
+            <input id="search-input" class="form-control input-lg" placeholder="{{'action.search' | translate}}"
+                   tabindex="1" data-ng-model="searchKeywords" data-ng-change="searchByName()">
+        </div>
+        <table class="table">
+            <tbody>
+            <tr>
+                <th class="text-center visible-lg visible-md">{{"word.id.upper" | translate}}</th>
+                <th class="text-center visible-lg visible-md">{{"word.number" | translate}}</th>
+                <th class="text-center hidden-xs">{{"word.sites" | translate}}</th>
+                <th class="text-center hidden-xs">{{"word.description" | translate}}</th>
+            </tr>
+            <tr data-ng-repeat="table in values.tables | orderBy: 'id'"
+                data-ui-sref="table-details({ tableId: table.id, table: table})">
+
+                <td class="text-center visible-lg visible-md">{{table.id}}</td>
+                <td class="text-center visible-lg visible-md">{{table.num}}</td>
+                <td class="text-center hidden-xs">{{table.sites}}</td>
+                <td class="text-center hidden-xs">{{table.description}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

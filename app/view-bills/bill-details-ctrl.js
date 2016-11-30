@@ -33,7 +33,7 @@ angular.module('RestMaPla.bill.controller', ['ngFlash', 'RestMaPla.common-servic
 
             function findBillDetails(page) {
                 PaginationService.data.currentPage = page;
-                CrudService.findItemDetailsById(CrudService.endpoints.BILLS_ENDPOINT, $scope.bill.id,
+                CrudService.findPaginatedItemDetailsById(CrudService.endpoints.BILLS_ENDPOINT, $scope.bill.id,
                     (page - 1), PaginationService.data.itemsPerPage).success(function (data) {
 
                     CrudService.response.products = JSON.parse(JSON.stringify(data)).products;

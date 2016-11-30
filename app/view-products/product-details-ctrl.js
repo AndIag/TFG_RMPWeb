@@ -1,31 +1,24 @@
-//TODO not implemented for TFG
 angular.module('RestMaPla.product.controller', ['ngFlash', 'RestMaPla.common-services'])
-    .controller('ProductDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'BreadCrumbService', 'CrudService', 'PaginationService',
-        function ($scope, $stateParams, $translate, Flash, BreadCrumbService, CrudService, PaginationService) {
-            $scope.pagination = PaginationService.data;
-
-            $scope.product = $stateParams.category;
+    .controller('ProductDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'BreadCrumbService', 'CrudService',
+        function ($scope, $stateParams, $translate, Flash, BreadCrumbService, CrudService) {
+            $scope.product = $stateParams.product;
             $scope.values = CrudService.response;
+            $scope.hideSearchBox = true;
 
             $scope.init = function () {
                 BreadCrumbService.setBreadCrumb($stateParams.product.name);
-                findProductDetails(1);
+                findProductDetails();
             };
 
-            $scope.changePage = function (newPage, oldPage) {
-                findProductDetails(newPage);
-            };
 
-            $scope.searchByName = function () {
-                //TODO implement with product services
-            };
-
-            function findProductDetails(page) {
-                PaginationService.data.currentPage = page;
-                CrudService.findItemDetailsById(CrudService.endpoints.PRODUCTS_ENDPOINT, $scope.product.id,
-                    (page - 1), PaginationService.data.itemsPerPage).success(function (data) {
-
-                    CrudService.response.products = JSON.parse(JSON.stringify(data));
+            function findProductDetails() {
+                CrudService.findItemDetailsById(CrudService.endpoints.PRODUCTS_ENDPOINT, $scope.product.id).success(function (data) {
+                    var json = JSON.parse(JSON.stringify(data));
+                    $scope.product = json.product;
+                    CrudService.response.suppliers = {items: json.suppliers, count: json.suppliers.length};
+                    CrudService.response.alerts = {items: json.alerts, count: json.alerts.length};
+                    CrudService.response.bills = {items: json.bills, count: json.bills.length};
+                    CrudService.response.orders = json.orders;
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);

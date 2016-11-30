@@ -53,7 +53,7 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'RestMaPla.common-servi
 
             function findBrandDetails(page) {
                 PaginationService.data.currentPage = page;
-                CrudService.findItemDetailsById(CrudService.endpoints.BRANDS_ENDPOINT, $scope.brand.id,
+                CrudService.findPaginatedItemDetailsById(CrudService.endpoints.BRANDS_ENDPOINT, $scope.brand.id,
                     (page - 1), PaginationService.data.itemsPerPage).success(function (data) {
 
                     var json = JSON.parse(JSON.stringify(data));

@@ -1,9 +1,10 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('RestMaPla', ['ui.bootstrap', 'ui.router', 'angular-spinkit', 'LocalStorageModule', 'angularUtils.directives.dirPagination',
+angular.module('RestMaPla', ['ui.bootstrap', 'ui.router', 'angular-spinkit', 'LocalStorageModule',
+    'angularUtils.directives.dirPagination',
     'RestMaPla.version', 'RestMaPla.i18n', 'RestMaPla.frame', 'RestMaPla.dashboard', 'RestMaPla.categories', 'RestMaPla.employees',
-    'RestMaPla.brands', 'RestMaPla.products', 'RestMaPla.suppliers', 'RestMaPla.menus', 'RestMaPla.bills', 'RestMaPla.alerts'])
+    'RestMaPla.brands', 'RestMaPla.products', 'RestMaPla.suppliers', 'RestMaPla.menus', 'RestMaPla.bills', 'RestMaPla.alerts', 'RestMaPla.tables' ])
 
     .run(['$rootScope', '$state', 'localStorageService', function ($rootScope, $state, localStorageService) {
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {

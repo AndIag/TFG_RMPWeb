@@ -46,7 +46,8 @@
 
       <!-- Main Content -->
       <div class="col-lg-12">
-        <div data-ng-class="{widget: !data.isDashboard}">
+        <!--<div data-ng-class="{widget: !data.isDashboard}">-->
+        <div data-ng-class="{widget: $state.includes('index')||$state.includes('product-details')}">
           <div ui-view="headerContent"></div>
           <div ui-view="mainContent"></div>
         </div>
@@ -58,10 +59,11 @@
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></link>
 -->
-<script src="bower_components/angular/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 <script src="bower_components/angular-route/angular-route.min.js"></script>
 <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script src="bower_components/angular-translate/angular-translate.min.js"></script>
 <script
@@ -80,16 +82,20 @@
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>
+<script src="common/form-validator.js"></script>
 <script src="common/breadcrumb-service.js"></script>
 <script src="common/crud-service.js"></script>
 <script src="common/pagination.js"></script>
 <script src="common/common-services.js"></script>
 <script src="view-frame/frame.js"></script>
-<script src="view-frame/alert-ctrl.js"></script>
+<script src="view-alerts/alerts.js"></script>
+<script src="view-alerts/alert-ctrl.js"></script>
 <script src="view-dashboard/dashboard.js"></script>
 <script src="view-categories/categories.js"></script>
 <script src="view-categories/category-ctrl.js"></script>
 <script src="view-categories/category-details-ctrl.js"></script>
+<script src="view-tables/tables.js"></script>
+<script src="view-tables/table-ctrl.js"></script>
 <script src="view-brands/brands.js"></script>
 <script src="view-brands/brand-ctrl.js"></script>
 <script src="view-brands/brand-details-ctrl.js"></script>

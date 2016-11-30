@@ -26,7 +26,8 @@
         <th></th>
       </tr>
       <tr dir-paginate="product in values.products.items | itemsPerPage: pagination.itemsPerPage"
-          total-items="values.products.count" current-page="pagination.currentPage">
+          total-items="values.products.count" current-page="pagination.currentPage"
+          data-ui-sref="product-details({'productId': product.id, 'product': product})">
 
         <td class="text-center visible-lg visible-md">{{product.id}}</td>
         <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
@@ -40,8 +41,8 @@
         <td data-ng-if="!product.simple"><img width="25px" height="25px" src="../components/resources/img/pack_icon.png">
         <td data-ng-if="product.simple"><img width="25px" height="25px" src="../components/resources/img/simple_icon.png">
         <td>
-          <button class="btn pull-right" data-ng-disabled="brand.disabled"
-                  data-ng-click="removeBrand(product); $event.stopPropagation();">
+          <button class="btn pull-right" data-ng-disabled="product.disabled"
+                  data-ng-click="removeProduct(product); $event.stopPropagation();">
             {{"action.remove" | translate}}
           </button>
         </td>

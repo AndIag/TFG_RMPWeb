@@ -1,6 +1,6 @@
 angular.module('RestMaPla.brands.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common-services'])
-    .controller('BrandCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'PaginationService',
-        function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, PaginationService) {
+    .controller('BrandCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'PaginationService', 'FormValidators',
+        function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, PaginationService, FormValidators) {
             var dialog = null;
             $scope.pagination = PaginationService.data;
             $scope.values = CrudService.response;
@@ -30,7 +30,8 @@ angular.module('RestMaPla.brands.controller', ['ngFlash', 'ngDialog', 'RestMaPla
             };
 
             $scope.saveItem = function (form) {
-                if (!form.$error.hasOwnProperty("required")) {
+                var error = null;
+                if (error = FormValidators.isValidCategory($scope.brand, form) === true) {
                     CrudService.createItem(CrudService.endpoints.BRANDS_ENDPOINT, $scope.brand).success(function (data) {
                         $scope.values.brands.items.push(data);
                         $scope.values.brands.count = $scope.values.brands.count + 1;

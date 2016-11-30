@@ -54,7 +54,7 @@ angular.module('RestMaPla.category.controller', ['ngFlash', 'RestMaPla.common-se
 
             function findCategoryDetails(page) {
                 PaginationService.data.currentPage = page;
-                CrudService.findItemDetailsById(CrudService.endpoints.CATEGORIES_ENDPOINT, $scope.category.id,
+                CrudService.findPaginatedItemDetailsById(CrudService.endpoints.CATEGORIES_ENDPOINT, $scope.category.id,
                     (page - 1), PaginationService.data.itemsPerPage).success(function (data) {
 
                     var json = JSON.parse(JSON.stringify(data));

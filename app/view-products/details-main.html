@@ -1,0 +1,46 @@
+<div class="row" data-ng-show="values.suppliers.count > 0">
+    <div class="col-lg-6">
+        <div class="widget">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="pull-left"><i class="fa fa-users"></i> {{"word.supplier.plural" | translate}}</div>
+                </div>
+            </div>
+            <div data-ng-include="'view-suppliers/main.html'"></div>
+        </div>
+    </div>
+
+    <div class="col-lg-6" data-ng-show="values.bills.count > 0">
+        <div class="widget">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="pull-left"><i class="fa fa-users"></i> {{"word.bill.plural" | translate}}</div>
+                </div>
+            </div>
+            <div data-ng-include="'view-bills/main.html'"></div>
+        </div>
+    </div>
+
+    <div class="col-lg-6" data-ng-show="values.orders.count > 0">
+        <div class="widget">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="pull-left"><i class="fa fa-users"></i> {{"word.order.plural" | translate}}</div>
+                </div>
+                <!--TODO-->
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6" data-ng-show="values.alerts.count > 0">
+        <div class="widget">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="pull-left"><i class="fa fa-users"></i> {{"word.alert.plural" | translate}}</div>
+                </div>
+            </div>
+            <div data-ng-include="'view-alerts/main.html'"></div>
+        </div>
+    </div>
+
+</div>

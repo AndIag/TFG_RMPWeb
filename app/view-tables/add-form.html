@@ -1,0 +1,30 @@
+<div class="dialog-contents" id="add-form.html">
+    <form name="form" class="form-inline text-center">
+        <fieldset>
+            <legend>{{"action.add.ing" | translate}} {{"word.table" | translate}}</legend>
+
+            <div class="form-group">
+                <label class="sr-only" for="num">{{"word.number" | translate}}:</label>
+                <input id="num" type="text" data-ng-model="table.num" class="input-sm form-control"
+                       placeholder="{{'word.number' | translate}}" required autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label class="sr-only" for="sites">{{"word.sites" | translate}}:</label>
+                <input id="sites" type="text" data-ng-model="table.sites" class="input-sm form-control"
+                       placeholder="{{'word.sites' | translate}}" required autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label class="sr-only" for="description">{{"word.description" | translate}}:</label>
+                <input id="description" type="text" data-ng-model="table.description" class="input-sm form-control"
+                       placeholder="{{'word.description' | translate}}" required autocomplete="off">
+            </div>
+
+            <button class="add-btn btn" data-ng-click="saveItem(form);">
+                {{"action.submit" | translate}}
+            </button>
+
+        </fieldset>
+    </form>
+</div>

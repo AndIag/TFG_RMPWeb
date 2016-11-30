@@ -1,0 +1,22 @@
+<div class="dialog-contents" id="add-form.html">
+    <form name="form" class="form-inline text-center">
+        <fieldset>
+            <legend>{{alert.id}} - {{alert.employee.name}}</legend>
+
+            <div class="form-group">
+                <label class="sr-only" for="name">{{"word.comment" | translate}}:</label>
+                <input id="name" type="text" data-ng-model="alert.comment" class="input-sm form-control" readonly>
+            </div>
+
+            <div class="form-group">
+                <label class="sr-only" for="url">{{"word.product" | translate}}:</label>
+                <input id="url" type="url" data-ng-model="alert.product.name" class="input-sm form-control" readonly>
+            </div>
+
+            <button class="add-btn btn" data-ng-click="markAsRead(alert);">
+                {{"action.accept" | translate}}
+            </button>
+
+        </fieldset>
+    </form>
+</div>
