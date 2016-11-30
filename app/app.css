@@ -56,8 +56,8 @@
 
 .row.header {
     height: 60px;
-    background: #212121;
-    color: #1DE9B6;
+    background: #1F2126;
+    color: #0FF4C6;
     margin-bottom: 15px
 }
 
@@ -274,16 +274,16 @@ div.input-mask {
 }
 
 #sidebar-wrapper {
-    background: #252525;
+    background: #2A2D34;
 }
 
 #page-wrapper:not(.open) ul.sidebar .sidebar-title.separator,
 .sidebar-footer,
 ul.sidebar .sidebar-list a:hover,
 ul.sidebar .sidebar-main a {
-    background: #212121;
-    color: #1DE9B6;
-    border-left: 3px solid #1DE9B6;
+    background: #1F2126;
+    color: #0FF4C6;
+    border-left: 3px solid #0FF4C6;
 }
 
 ul.sidebar {
@@ -323,7 +323,7 @@ ul.sidebar .sidebar-main .menu-icon {
 }
 
 ul.sidebar .sidebar-title {
-    color: #1DE9B6;
+    color: #0FF4C6;
     font-size: 12px;
     height: 35px;
     line-height: 40px;
@@ -343,9 +343,9 @@ ul.sidebar .sidebar-list a {
 }
 
 ul.sidebar .sidebar-list a:hover {
-    background: #212121;
-    color: #1DE9B6;
-    border-left: 3px solid #1DE9B6;
+    background: #1F2126;
+    color: #0FF4C6;
+    border-left: 3px solid #0FF4C6;
     text-indent: 22px
 }
 
@@ -377,7 +377,7 @@ ul.sidebar .sidebar-list .menu-icon {
 }
 
 #page-wrapper:not(.open) ul.sidebar .sidebar-list a:hover span {
-    border-left: 3px solid #1DE9B6;
+    border-left: 3px solid #0FF4C6;
     text-indent: 22px;
 }
 
@@ -393,11 +393,11 @@ ul.sidebar .sidebar-list .menu-icon {
     margin: 0;
     transition: all .6s ease 0s;
     text-align: center;
-    background: #212121;
+    background: #1F2126;
 }
 
 .sidebar-footer div a {
-    color: #1DE9B6;
+    color: #0FF4C6;
     font-size: 12px;
     line-height: 43px;
 }
@@ -537,9 +537,9 @@ ul.sidebar .sidebar-list .menu-icon {
 .pagination > .active > span,
 .pagination > .active > span:focus,
 .pagination > .active > span:hover {
-    background-color: #212121;
+    background-color: #1F2126;
     border-color: #000000;
-    color: #1DE9B6;
+    color: #0FF4C6;
 }
 
 .pagination > li > a,
@@ -588,8 +588,8 @@ ul.sidebar .sidebar-list .menu-icon {
 
 /*Table*/
 th {
-    background: #212121;
-    color: #1DE9B6;
+    background: #2A2D34;
+    color: #0FF4C6;
 }
 
 .table {
@@ -602,8 +602,8 @@ th {
 }
 
 .row.header {
-    background: #212121;
-    color: #1DE9B6;
+    background: #1F2126;
+    color: #0FF4C6;
 }
 
 .table > tbody > tr > td,
@@ -676,8 +676,8 @@ th {
     min-height: 100%;
     display: flex;
     align-items: center;
-    border-left: 10px solid #212121;
-    border-bottom: 2px solid #212111;
+    border-left: 10px solid #1F2126;
+    border-bottom: 2px solid #1F2126;
     padding-left: 10px;
     margin-top: 2px;
 }
@@ -693,8 +693,8 @@ th {
     min-height: 100%;
     display: flex;
     align-items: center;
-    border-left: 10px solid #212121;
-    border-bottom: 2px solid #212111;
+    border-left: 10px solid #1F2126;
+    border-bottom: 2px solid #1F2126;
     padding-left: 10px;
     margin-top: 2px;
 }
