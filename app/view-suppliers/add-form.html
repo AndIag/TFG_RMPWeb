@@ -1,0 +1,33 @@
+<div class="dialog-contents" id="add-form.html">
+
+    <form name="form" class="form-inline text-center" novalidate>
+        <fieldset>
+            <legend>{{"action.add.ing" | translate}} {{"word.supplier" | translate}}</legend>
+
+            <div class="form-group">
+                <label class="sr-only" for="name">{{"word.name" | translate}}:</label>
+                <input id="name" type="text" data-ng-model="supplier.name" class="input-sm form-control"
+                       data-ng-class="{'form-error': errors.hasOwnProperty('name')}"
+                       placeholder="{{'word.name' | translate}}" required autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label class="sr-only" for="vat">{{"word.vat.upper" | translate}}:</label>
+                <input id="vat" type="url" data-ng-model="supplier.vat" class="input-sm form-control"
+                       data-ng-class="{'form-error': errors.hasOwnProperty('vat')}"
+                       placeholder="{{'word.vat.upper' | translate}}" required autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label class="sr-only" for="url">{{"word.image_url" | translate}}:</label>
+                <input id="url" type="url" data-ng-model="supplier.url" class="input-sm form-control"
+                       placeholder="{{'word.image_url' | translate}}" autocomplete="off">
+            </div>
+
+            <button class="add-btn btn" data-ng-click="saveItem(form);">
+                {{"action.submit" | translate}}
+            </button>
+
+        </fieldset>
+    </form>
+</div>

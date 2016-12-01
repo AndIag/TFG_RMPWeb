@@ -45,7 +45,7 @@
             <label class="control-label col-xs-3" for="url">{{"word.image_url" | translate}}:</label>
             <div class="col-xs-6">
                 <input id="url" type="url" data-ng-model="product.url" class="input-sm form-control"
-                       placeholder="{{'word.image_url' | translate}}"/>
+                       placeholder="{{'word.image_url' | translate}}" autocomplete="off"/>
             </div>
         </div>
 
@@ -54,7 +54,7 @@
             <div class="col-xs-6">
                     <textarea id="description" class="input-sm form-control" data-ng-model="product.description"
                               data-ng-class="{'form-error': errors.hasOwnProperty('description')}"
-                              placeholder="{{'placeholder.description' | translate}}"></textarea>
+                              placeholder="{{'placeholder.description' | translate}}" autocomplete="off"></textarea>
             </div>
         </div>
 

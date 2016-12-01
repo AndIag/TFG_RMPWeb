@@ -16,6 +16,7 @@
   "views.index.orders": "Orders",
   "views.index.tables": "Tables",
   "views.index.alerts": "Alerts",
+  "word.table": "Table",
   "word.to": "To",
   "word.number": "Number",
   "word.sites": "Sites",
@@ -97,5 +98,10 @@
   "error.required.supplier": "Required 'Supplier' field",
   "error.required.price": "Required 'Price' field",
   "error.required.simple_product": "Simple Product data necessary",
-  "error.required.amount": "Amount required"
+  "error.required.amount": "Amount required",
+  "error.required.dni": "DNI required",
+  "error.required.cat": "VAT required",
+  "employee.admin": "Admin",
+  "employee.waiter": "Waiter",
+  "employee.chef": "Chef"
 }

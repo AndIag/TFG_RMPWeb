@@ -1,5 +1,5 @@
 <div class="dialog-contents" id="add-form.html">
-    <form name="form" class="form-inline text-center">
+    <form name="form" class="form-inline text-center" novalidate>
         <fieldset>
             <legend>{{"action.add.ing" | translate}} {{"word.table" | translate}}</legend>
 
@@ -17,8 +17,8 @@
 
             <div class="form-group">
                 <label class="sr-only" for="description">{{"word.description" | translate}}:</label>
-                <input id="description" type="text" data-ng-model="table.description" class="input-sm form-control"
-                       placeholder="{{'word.description' | translate}}" required autocomplete="off">
+                <textarea id="description" data-ng-model="table.description" class="input-sm form-control"
+                          placeholder="{{'word.description' | translate}}" required autocomplete="off"></textarea>
             </div>
 
             <button class="add-btn btn" data-ng-click="saveItem(form);">
