@@ -1,11 +1,13 @@
 'use strict';
 
 angular.module('RestMaPla.service.crud', [])
+
     .service('CrudService', ['$http', '$q', function ($http, $q) {
-        var ENDPOINT = 'http://52.210.10.240:80/restmapla';
-        //var ENDPOINT = 'http://localhost:9090/restmapla';
-        var ENDPOINT = 'http://52.210.10.240/restmapla';
+        // var ENDPOINT = 'http://52.210.10.240:80/restmapla';
+        var ENDPOINT = 'http://localhost:9090/restmapla';
+
         return {
+            ENDPOINT: ENDPOINT,
             endpoints: {
                 ALERTS_ENDPOINT: "/alerts",
                 BRANDS_ENDPOINT: "/brands",
