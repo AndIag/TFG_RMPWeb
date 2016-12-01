@@ -53,7 +53,9 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'ngDialog', 'RestMaPla.
 
             $scope.saveProduct = function (form) {
                 $scope.product.brand = $scope.brand;
-                if (($scope.errors = FormValidators.isValidProduct($scope.product, form)) === {}) {
+                $scope.product.simple = !$scope.product.isPack;
+                $scope.errors = FormValidators.isValidProduct($scope.product, form);
+                if (Object.keys($scope.errors).length === 0) {
                     CrudService.createItem(CrudService.endpoints.PRODUCTS_ENDPOINT, $scope.product).success(function (data) {
                         $scope.values.products.items.push(data);
                         $scope.values.products.count = $scope.values.products.count + 1;

@@ -7,8 +7,8 @@ angular.module('RestMaPla.service.crud', [])
         var ENDPOINT = 'http://localhost:9090/restmapla';
 
         return {
-            ENDPOINT: ENDPOINT,
-            endpoints: {
+            ENDPOINT: ENDPOINT, //Custom services use this so we need to expose it
+            endpoints: { //Expose all implemented endpoints
                 ALERTS_ENDPOINT: "/alerts",
                 BRANDS_ENDPOINT: "/brands",
                 CATEGORIES_ENDPOINT: "/categories",
@@ -20,7 +20,11 @@ angular.module('RestMaPla.service.crud', [])
                 BILLS_ENDPOINT: "/bills",
                 TABLES_ENDPOINT: "/tables"
             },
-            response: {},
+            response: {}, //Saved data
+            /**
+             * Load non-paginated objects by given endpoint
+             * @param path given endpoint
+             */
             getItems: function (path) {
                 var deferred = $q.defer();
                 var promise = deferred.promise;
@@ -44,7 +48,14 @@ angular.module('RestMaPla.service.crud', [])
                 };
 
                 return promise;
-            }, getPaginatedItems: function (path, pageNumber, count) {
+            },
+            /**
+             * Load paginated objects by given endpoint
+             * @param path given endpoint
+             * @param pageNumber page to load
+             * @param count number of elements to load
+             */
+            getPaginatedItems: function (path, pageNumber, count) {
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 
@@ -67,7 +78,13 @@ angular.module('RestMaPla.service.crud', [])
                 };
 
                 return promise;
-            }, findItemsByName: function (path, keywords) {
+            },
+            /**
+             * Find objects by keywords
+             * @param path given endpoint
+             * @param keywords to search
+             */
+            findItemsByName: function (path, keywords) {
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 
@@ -90,7 +107,13 @@ angular.module('RestMaPla.service.crud', [])
                 };
 
                 return promise;
-            }, findItemDetailsById: function (path, itemId) {
+            },
+            /**
+             * Load non paginated object details by given id
+             * @param path given endpoint
+             * @param itemId given id
+             */
+            findItemDetailsById: function (path, itemId) {
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 
@@ -113,7 +136,15 @@ angular.module('RestMaPla.service.crud', [])
                 };
 
                 return promise;
-            }, findPaginatedItemDetailsById: function (path, itemId, pageNumber, count) {
+            },
+            /**
+             * Load object details with paged inner objects by given id
+             * @param path given endpoint
+             * @param itemId given id
+             * @param pageNumber page to load
+             * @param count number of elements to load
+             */
+            findPaginatedItemDetailsById: function (path, itemId, pageNumber, count) {
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 
@@ -136,7 +167,13 @@ angular.module('RestMaPla.service.crud', [])
                 };
 
                 return promise;
-            }, removeItem: function (path, itemId) {
+            },
+            /**
+             * Delete object by given id
+             * @param path given endpoint
+             * @param itemId given id
+             */
+            removeItem: function (path, itemId) {
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 
@@ -159,7 +196,13 @@ angular.module('RestMaPla.service.crud', [])
                 };
 
                 return promise;
-            }, createItem: function (path, data) {
+            },
+            /**
+             * Post given data to create new object
+             * @param path given endpoint
+             * @param data given object to create
+             */
+            createItem: function (path, data) {
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 
@@ -183,7 +226,14 @@ angular.module('RestMaPla.service.crud', [])
                 };
 
                 return promise;
-            }, updateItem: function (path, itemId, data) {
+            },
+            /**
+             * Try to update object data by given id
+             * @param path given endpoint
+             * @param itemId given id
+             * @param data new object data
+             */
+            updateItem: function (path, itemId, data) {
                 var deferred = $q.defer();
                 var promise = deferred.promise;
                 $http({
