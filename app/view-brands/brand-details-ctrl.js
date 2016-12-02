@@ -47,7 +47,6 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'ngDialog', 'RestMaPla.
                 $scope.isBrandForm = true;
                 $scope.product = {};
                 if (!CrudService.response.hasOwnProperty("categories")) loadCategories();
-                if (!CrudService.response.hasOwnProperty("brands")) loadBrands();
                 dialog = ngDialog.open({template: 'view-products/add-form.html', scope: $scope, controller: this});
             };
 
@@ -94,27 +93,9 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'ngDialog', 'RestMaPla.
             }
 
             // USED IN ADD PRODUCT DIALOG
-            $scope.searchBrand = function () {
-                CrudService.findItemsByName(CrudService.endpoints.BRANDS_ENDPOINT, $scope.product.brand).success(function (data) {
-                    CrudService.response.brands = JSON.parse(JSON.stringify(data));
-                }).error(function (data) {
-                    Flash.clear();
-                    Flash.create('danger', $translate.instant('error.loading'), 3000);
-                });
-            };
-
             function loadCategories() {
                 CrudService.getItems(CrudService.endpoints.CATEGORIES_ENDPOINT).success(function (data) {
                     CrudService.response.categories = JSON.parse(JSON.stringify(data));
-                }).error(function (data) {
-                    Flash.clear();
-                    Flash.create('danger', $translate.instant('error.loading'), 3000);
-                });
-            }
-
-            function loadBrands() {
-                CrudService.getItems(CrudService.endpoints.BRANDS_ENDPOINT).success(function (data) {
-                    CrudService.response.brands = JSON.parse(JSON.stringify(data));
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);
