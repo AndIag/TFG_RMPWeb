@@ -46,7 +46,7 @@ angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestM
              */
             $scope.showCreate = function () {
                 $scope.category = {};
-                dialog = ngDialog.open({template: 'view-categories/add-dialog.html', scope: $scope, controller: this});
+                dialog = ngDialog.open({template: 'view-categories/add/dialog.html', scope: $scope, controller: this});
             };
 
             /**
