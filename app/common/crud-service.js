@@ -2,7 +2,6 @@
 
 angular.module('RestMaPla.service.crud', [])
     .service('CrudService', ['$http', '$q', function ($http, $q) {
-        var ENDPOINT = 'http://52.210.10.240:80/restmapla';
         //var ENDPOINT = 'http://localhost:9090/restmapla';
         var ENDPOINT = 'http://52.210.10.240/restmapla';
         return {
@@ -15,7 +14,9 @@ angular.module('RestMaPla.service.crud', [])
                 PRODUCTS_ENDPOINT: "/products",
                 SUPPLIERS_ENDPOINT: "/suppliers",
                 EMPLOYEES_ENDPOINT: "/employees",
-                BILLS_ENDPOINT: "/bills"
+                BILLS_ENDPOINT: "/bills",
+                TABLES_ENDPOINT: "/tables",
+                ORDERS_ENDPOINT: "/orders"
             },
             response: {},
             getItems: function (path) {

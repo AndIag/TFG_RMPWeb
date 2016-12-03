@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('RestMaPla.tables', ['ngRoute', 'RestMaPla.tables.controller'])
+angular.module('RestMaPla.tables', ['ngRoute', 'RestMaPla.tables.controller' , 'RestMaPla.table.controller'])
 
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('tables', {
