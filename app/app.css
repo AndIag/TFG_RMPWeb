@@ -250,7 +250,7 @@ body {
 }
 
 .green {
-    background: #1ea896 !important
+    background: #12ba90 !important
 }
 
 .blue {
@@ -263,6 +263,10 @@ body {
 
 .red {
     background: #d91e36 !important
+}
+
+.dark {
+    background: #2A2D34 !important
 }
 
 .form-group {
@@ -757,4 +761,8 @@ li.unread:hover {
 /* Other */
 .no-data-message {
     opacity: 0.5;
+}
+
+.comment {
+    font-weight: normal !important;
 }
