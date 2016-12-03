@@ -1,98 +1,112 @@
-<div class="dialog-contents" id="add-form.html">
-    <form name="form" class="form-horizontal text-center">
-        <fieldset>
-            <legend>{{"action.add" | translate}} {{"word.product" | translate}}</legend>
+<form name="form" class="form-horizontal text-center" novalidate>
+    <fieldset>
+        <legend>{{"action.add" | translate}} {{"word.product" | translate}}</legend>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="ean">{{"word.ean.upper" | translate}}:</label>
+            <div class="col-xs-6">
+                <input id="ean" type="text" data-ng-model="product.ean" class="input-sm form-control"
+                       placeholder="{{'word.ean.upper' | translate}}" autocomplete="off"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="name">{{"word.name" | translate}}:</label>
+            <div class="col-xs-6">
+                <input id="name" type="text" data-ng-model="product.name" class="input-sm form-control"
+                       data-ng-class="{'form-error': errors.hasOwnProperty('name')}"
+                       placeholder="{{'word.name' | translate}}" required autocomplete="off"/>
+            </div>
+        </div>
+
+        <div class="form-group" data-ng-show="!isCategoryForm">
+            <label class="control-label col-xs-3" for="category">{{"word.category" | translate}}:</label>
+            <div class="col-xs-6">
+                <input type="text" class="input-sm form-control" id="category" ng-model="product.category" required
+                       autocomplete="off" placeholder="{{'word.category' | translate}}"
+                       data-ng-class="{'form-error': errors.hasOwnProperty('category')}"
+                       uib-typeahead-editable="false"
+                       uib-typeahead="category as category.name for category in values.categories | filter:$viewValue | limitTo:8"/>
+            </div>
+        </div>
+
+        <div class="form-group" data-ng-show="!isBrandForm">
+            <label class="control-label col-xs-3" for="brand">{{"word.brand" | translate}}:</label>
+            <div class="col-xs-6">
+                <input type="text" class="input-sm form-control" id="brand" ng-model="product.brand" required
+                       autocomplete="off" placeholder="{{'word.brand' | translate}}" uib-typeahead-editable="false"
+                       data-ng-class="{'form-error': errors.hasOwnProperty('brand')}"
+                       data-ng-change="searchBrand()"
+                       uib-typeahead="brand as brand.name for brand in values.brands.items | filter:$viewValue | limitTo:8"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="url">{{"word.image_url" | translate}}:</label>
+            <div class="col-xs-6">
+                <input id="url" type="url" data-ng-model="product.url" class="input-sm form-control"
+                       placeholder="{{'word.image_url' | translate}}" autocomplete="off"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="description">{{"word.description" | translate}}:</label>
+            <div class="col-xs-6">
+                    <textarea id="description" class="input-sm form-control" data-ng-model="product.description"
+                              data-ng-class="{'form-error': errors.hasOwnProperty('description')}"
+                              placeholder="{{'placeholder.description' | translate}}" autocomplete="off"></textarea>
+            </div>
+        </div>
+
+        <!-- Simple product info -->
+        <div class="form-group" data-ng-show="!product.isPack">
+            <label class="control-label col-xs-3 " for="price">{{"word.price" | translate}}:</label>
+            <div class="col-xs-6">
+                <input type="number" class="input-sm form-control" id="price" name="price" ng-model="product.price"
+                       step="0.01" data-ng-class="{'form-error': errors.hasOwnProperty('price')}"
+                       autocomplete="off" placeholder="{{'word.price' | translate}}"
+                       data-ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"/>
+            </div>
+        </div>
+        <!--End- Simple product Info -->
+
+        <!-- Pack info -->
+        <div data-ng-show="product.isPack">
             <div class="form-group">
-                <label class="control-label col-xs-3" for="ean">{{"word.ean.upper" | translate}}:</label>
+                <label class="control-label col-xs-3" for="simpleProduct">{{"word.simple_product" |
+                    translate}}:</label>
                 <div class="col-xs-6">
-                    <input id="ean" type="text" data-ng-model="product.ean" class="input-sm form-control"
-                           placeholder="{{'word.ean.upper' | translate}}" required autocomplete="off"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-xs-3" for="name">{{"word.name" | translate}}:</label>
-                <div class="col-xs-6">
-                    <input id="name" type="text" data-ng-model="product.name" class="input-sm form-control"
-                           placeholder="{{'word.name' | translate}}" required autocomplete="off"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-xs-3" for="category">{{"word.category" | translate}}:</label>
-                <div class="col-xs-6">
-                    <input type="text" class="input-sm form-control" id="category" ng-model="product.category" required
-                           autocomplete="off" placeholder="{{'word.category' | translate}}"
-                           uib-typeahead-editable="false"
-                           uib-typeahead="category as category.name for category in values.categories | filter:$viewValue | limitTo:8"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-xs-3" for="brand">{{"word.brand" | translate}}:</label>
-                <div class="col-xs-6">
-                    <input type="text" class="input-sm form-control" id="brand" ng-model="product.brand" required
-                           autocomplete="off" placeholder="{{'word.brand' | translate}}" uib-typeahead-editable="false"
-                           data-ng-change="searchBrand()"
-                           uib-typeahead="brand as brand.name for brand in values.brands.items | filter:$viewValue | limitTo:8"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-xs-3" for="url">{{"word.image_url" | translate}}:</label>
-                <div class="col-xs-6">
-                    <input id="url" type="url" data-ng-model="product.url" class="input-sm form-control"
-                           placeholder="{{'word.image_url' | translate}}"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-xs-3" for="description">{{"word.description" | translate}}:</label>
-                <div class="col-xs-6">
-                        <textarea id="description" class="input-sm form-control" data-ng-model="product.description"
-                                  placeholder="{{'placeholder.description' | translate}}"></textarea>
-                </div>
-            </div>
-            <!-- Simple product info -->
-            <div class="form-group" data-ng-show="!product.isPack">
-                <label class="control-label col-xs-3 " for="price">{{"word.price" | translate}}:</label>
-                <div class="col-xs-6">
-                    <input type="number" class="input-sm form-control" id="price" name="price" ng-model="product.price"
-                           step="0.01"
-                           autocomplete="off" placeholder="{{'word.price' | translate}}"
-                           data-ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"/>
-                </div>
-            </div>
-            <!--End- Simple product Info -->
-            <!-- Pack info -->
-            <div data-ng-show="product.isPack">
-                <div class="form-group">
-                    <label class="control-label col-xs-3" for="simpleProduct">{{"word.simple_product" |
-                        translate}}:</label>
-                    <div class="col-xs-6">
-                        <input type="text" class="input-sm form-control" id="simpleProduct"
-                               ng-model="product.simpleProduct" ng-change="searchProducts()" autocomplete="off"
-                               placeholder="{{'placeholder.simple_product' | translate}}" uib-typeahead-editable="false"
-                               uib-typeahead="product as product.name for product in values.products.items | filter:$viewValue | limitTo:8"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label col-xs-3" for="amount">{{"word.amount" | translate}}:</label>
-                    <div class="col-xs-6">
-                        <input id="amount" type="number" data-ng-model="product.amount"
-                               class="input-sm form-control"
-                               placeholder="{{'placeholder.simple_product_amount' | translate}}"/>
-                    </div>
-                </div>
-            </div>
-            <!--End- Pack Info -->
-            <div class="form-group">
-                <div class="col-xs-12">
-                    <label class="checkbox-inline">
-                        <input name="isPack" type="checkbox" data-ng-model="product.isPack" data-ng-change="">
-                        {{"placeholder.is_pack.question" | translate}}
-                    </label>
+                    <input type="text" class="input-sm form-control" id="simpleProduct"
+                           data-ng-class="{'form-error': errors.hasOwnProperty('simpleProduct')}"
+                           ng-model="product.simpleProduct" data-ng-change="searchProducts()" autocomplete="off"
+                           placeholder="{{'placeholder.simple_product' | translate}}" uib-typeahead-editable="false"
+                           uib-typeahead="product as product.name for product in values.products.items | filter:$viewValue | limitTo:8"/>
                 </div>
             </div>
 
-            <button type="submit" class="btn" data-ng-click="saveItem(form)">
-                {{"action.submit" | translate}}
-            </button>
-        </fieldset>
-    </form>
-</div>
+            <div class="form-group">
+                <label class="control-label col-xs-3" for="amount">{{"word.amount" | translate}}:</label>
+                <div class="col-xs-6">
+                    <input id="amount" type="number" data-ng-model="product.amount"
+                           class="input-sm form-control"
+                           data-ng-class="{'form-error': errors.hasOwnProperty('amount')}"
+                           placeholder="{{'placeholder.simple_product_amount' | translate}}"/>
+                </div>
+            </div>
+        </div>
+        <!--End- Pack Info -->
+
+        <div class="form-group">
+            <div class="col-xs-12">
+                <label class="checkbox-inline">
+                    <input name="isPack" type="checkbox" data-ng-model="product.isPack" data-ng-change="">
+                    {{"placeholder.is_pack.question" | translate}}
+                </label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn" data-ng-click="saveProduct(form)">
+            {{"action.submit" | translate}}
+        </button>
+    </fieldset>
+</form>

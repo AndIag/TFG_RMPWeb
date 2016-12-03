@@ -14,15 +14,15 @@
         <table class="table">
             <tbody>
             <tr>
-                <th class="text-center visible-lg visible-md">{{"word.id.upper" | translate}}</th>
+                <!--<th class="text-center visible-lg visible-md">{{"word.id.upper" | translate}}</th>-->
                 <th class="text-center visible-lg visible-md">{{"word.number" | translate}}</th>
                 <th class="text-center hidden-xs">{{"word.sites" | translate}}</th>
                 <th class="text-center hidden-xs">{{"word.description" | translate}}</th>
             </tr>
-            <tr data-ng-repeat="table in values.tables | orderBy: 'id'"
+            <tr data-ng-repeat="table in values.tables | orderBy: 'num'"
                 data-ui-sref="table-details({ tableId: table.id, table: table})">
 
-                <td class="text-center visible-lg visible-md">{{table.id}}</td>
+                <!--<td class="text-center visible-lg visible-md">{{table.id}}</td>-->
                 <td class="text-center visible-lg visible-md">{{table.num}}</td>
                 <td class="text-center hidden-xs">{{table.sites}}</td>
                 <td class="text-center hidden-xs">{{table.description}}</td>

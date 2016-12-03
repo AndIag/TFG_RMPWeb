@@ -16,6 +16,7 @@
   "views.index.orders": "Orders",
   "views.index.tables": "Tables",
   "views.index.alerts": "Alerts",
+  "word.table": "Table",
   "word.to": "To",
   "word.table": "Table",
   "word.number": "Number",
@@ -90,10 +91,18 @@
   "error.creating": "Failed creating!",
   "error.loading": "Error loading",
   "error.invalid.url": "Invalid URL",
+  "error.required": "Required field not found",
   "error.required.name": "Required 'Name' field",
   "error.required.description": "Required 'Description' field",
   "error.required.category": "Required 'Category' field",
+  "error.required.brand": "Required 'Brand' field",
   "error.required.supplier": "Required 'Supplier' field",
   "error.required.price": "Required 'Price' field",
-  "error.required.simple_product": "Simple Product data necessary"
+  "error.required.simple_product": "Simple Product data necessary",
+  "error.required.amount": "Amount required",
+  "error.required.dni": "DNI required",
+  "error.required.cat": "VAT required",
+  "employee.admin": "Admin",
+  "employee.waiter": "Waiter",
+  "employee.chef": "Chef"
 }

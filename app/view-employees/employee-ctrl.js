@@ -1,8 +1,12 @@
-angular.module('RestMaPla.employees.controller', ['ngFlash', 'RestMaPla.common-services'])
-    .controller('EmployeeCtrl', ['$scope', '$translate', 'Flash', 'BreadCrumbService', 'CrudService',
-        function ($scope, $translate, Flash, BreadCrumbService, CrudService) {
+angular.module('RestMaPla.employees.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common-services'])
+    .controller('EmployeeCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'FormValidators',
+        function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, FormValidators) {
 
             $scope.values = CrudService.response;
+            $scope.roles = [$translate.instant('employee.admin'),
+                $translate.instant('employee.waiter'),
+                $translate.instant('employee.chef')];
+            var dialog = null;
 
             $scope.init = function () {
                 BreadCrumbService.setBreadCrumb($translate.instant('views.index.employees'));
@@ -19,21 +23,20 @@ angular.module('RestMaPla.employees.controller', ['ngFlash', 'RestMaPla.common-s
             };
 
             $scope.showCreate = function () {
-
+                $scope.employee = {};
+                dialog = ngDialog.open({template: 'view-employees/add-form.html', scope: $scope, controller: this});
             };
 
-            $scope.removeCategory = function (category) {
-                if (category.numProducts == 0) {
-                    CrudService.removeItem(CrudService.endpoints.EMPLOYEES_ENDPOINT, category.id).success(function (data) {
-                        CrudService.response.employees = CrudService.response.employees.filter(function (e) {
-                            return e.id !== category.id;
-                        })
+            $scope.saveItem = function (form) {
+                if (($scope.errors = FormValidators.isValidEmployee($scope.employee, form)) === {}) {
+                    CrudService.createItem(CrudService.endpoints.EMPLOYEES_ENDPOINT, $scope.employee).success(function (data) {
+                        $scope.values.employees.push(data);
+                        dialog.close();
                     }).error(function (data) {
                         Flash.clear();
-                        Flash.create('danger', $translate.instant('error.removing'), 3000);
-                    }).finally(function () {
-                        $scope.isLoading = false;
+                        Flash.create('danger', $translate.instant('error.adding'), 3000);
                     });
                 }
-            }
+            };
+
         }]);

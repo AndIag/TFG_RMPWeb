@@ -19,7 +19,6 @@
                 <th class="text-center hidden-xs">{{"word.dni" | translate}}</th>
                 <th class="text-center hidden-xs">{{"word.role" | translate}}</th>
                 <th class="text-center">{{"word.salary" | translate}}</th>
-                <th></th>
             </tr>
             <tr data-ng-repeat="employee in values.employees | orderBy: 'id'">
 
@@ -28,12 +27,6 @@
                 <td class="text-center hidden-xs">{{employee.dni}}</td>
                 <td class="text-center hidden-xs">{{employee.role}}</td>
                 <td class="text-center">{{employee.salary}}€</td>
-                <td>
-                    <button class="btn pull-right" data-ng-disabled="category.disabled || category.numProducts"
-                            data-ng-click="removeCategory(category); $event.stopPropagation();">
-                        {{"action.remove" | translate}}
-                    </button>
-                </td>
             </tr>
             </tbody>
         </table>

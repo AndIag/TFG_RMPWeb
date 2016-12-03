@@ -31,18 +31,4 @@ angular.module('RestMaPla.tables.controller', ['ngFlash', 'ngDialog', 'RestMaPla
                 }
             };
 
-            $scope.removeTable = function (table) {
-                // if (table.numProducts == 0) {
-                //     CrudService.removeItem(CrudService.endpoints.TABLES_ENDPOINT, table.id).success(function (data) {
-                //         CrudService.response.tables = CrudService.response.tables.filter(function (e) {
-                //             return e.id !== table.id;
-                //         })
-                //     }).error(function (data) {
-                //         Flash.clear();
-                //         Flash.create('danger', $translate.instant('error.removing'), 3000);
-                //     }).finally(function () {
-                //         $scope.isLoading = false;
-                //     });
-                // }
-            }
         }]);

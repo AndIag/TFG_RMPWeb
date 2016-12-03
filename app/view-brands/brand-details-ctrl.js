@@ -1,10 +1,15 @@
-angular.module('RestMaPla.brand.controller', ['ngFlash', 'RestMaPla.common-services'])
-    .controller('BrandDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'BreadCrumbService', 'CrudService', 'ProductService', 'PaginationService',
-        function ($scope, $stateParams, $translate, Flash, BreadCrumbService, CrudService, ProductService, PaginationService) {
+angular.module('RestMaPla.brand.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common-services'])
+    .controller('BrandDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'ngDialog',
+        'BreadCrumbService', 'CrudService', 'ProductService', 'PaginationService', 'FormValidators',
+        function ($scope, $stateParams, $translate, Flash, ngDialog,
+                  BreadCrumbService, CrudService, ProductService, PaginationService, FormValidators) {
+
             $scope.pagination = PaginationService.data;
 
             $scope.brand = $stateParams.brand;
             $scope.values = CrudService.response;
+
+            var dialog = null;
 
             $scope.init = function () {
                 BreadCrumbService.setBreadCrumb($stateParams.brand.name);
@@ -38,8 +43,30 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'RestMaPla.common-servi
                 }
             };
 
+            $scope.showCreate = function () {
+                $scope.isBrandForm = true;
+                $scope.product = {};
+                if (!CrudService.response.hasOwnProperty("categories")) loadCategories();
+                dialog = ngDialog.open({template: 'view-products/add-form.html', scope: $scope, controller: this});
+            };
+
+            $scope.saveProduct = function (form) {
+                $scope.product.brand = $scope.brand;
+                $scope.product.simple = !$scope.product.isPack;
+                $scope.errors = FormValidators.isValidProduct($scope.product, form);
+                if (Object.keys($scope.errors).length === 0) {
+                    CrudService.createItem(CrudService.endpoints.PRODUCTS_ENDPOINT, $scope.product).success(function (data) {
+                        $scope.values.products.items.push(data);
+                        $scope.values.products.count = $scope.values.products.count + 1;
+                        dialog.close();
+                    }).error(function (data) {
+                        Flash.clear();
+                        Flash.create('danger', $translate.instant('error.adding'), 3000);
+                    });
+                }
+            };
+
             $scope.removeProduct = function (product) {
-                //TODO fix supplier dependency
                 CrudService.removeItem(CrudService.endpoints.PRODUCTS_ENDPOINT, product.id).success(function (data) {
                     CrudService.response.products.items = CrudService.response.products.items.filter(function (e) {
                         return e.id !== product.id;
@@ -59,6 +86,16 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'RestMaPla.common-servi
                     var json = JSON.parse(JSON.stringify(data));
                     $scope.brand = json.item;
                     CrudService.response.products = json.products;
+                }).error(function (data) {
+                    Flash.clear();
+                    Flash.create('danger', $translate.instant('error.loading'), 3000);
+                });
+            }
+
+            // USED IN ADD PRODUCT DIALOG
+            function loadCategories() {
+                CrudService.getItems(CrudService.endpoints.CATEGORIES_ENDPOINT).success(function (data) {
+                    CrudService.response.categories = JSON.parse(JSON.stringify(data));
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);

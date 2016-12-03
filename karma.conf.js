@@ -8,6 +8,7 @@ module.exports = function (config) {
             'bower_components/angular/angular.js',
             'bower_components/angular-route/angular-route.js',
             'components/**/*.js',
+            'common/**/*.js',
             'view*/**/*.js'
         ],
 
@@ -23,6 +24,8 @@ module.exports = function (config) {
             'karma-jasmine',
             'karma-junit-reporter'
         ],
+
+        reporters: ['spec'],
 
         junitReporter: {
             outputFile: 'test_out/unit.xml',

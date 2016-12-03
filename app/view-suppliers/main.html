@@ -21,7 +21,6 @@
                 <th>{{"word.vat.upper" | translate}}</th>
                 <th>{{"word.name" | translate}}</th>
                 <th class="hidden-xs">{{"word.website" | translate}}</th>
-                <th></th>
             </tr>
             <tr dir-paginate="supplier in values.suppliers.items | itemsPerPage: pagination.itemsPerPage"
                 total-items="values.suppliers.count" current-page="pagination.currentPage"
@@ -30,12 +29,8 @@
                 <td class="text-center visible-lg visible-md">{{supplier.id}}</td>
                 <td>{{supplier.vat}}</td>
                 <td>{{supplier.name}}</td>
-                <td class="hidden-xs">{{supplier.website}}</a></td>
-                <td>
-                    <button class="btn pull-right" data-ng-disabled="supplier.disabled"
-                            data-ng-click="removeSupplier(supplier); $event.stopPropagation();">
-                        {{"action.remove" | translate}}
-                    </button>
+                <td class="hidden-xs" data-ng-click="$event.stopPropagation();"><a data-ng-href="{{supplier.website}}"
+                                                                                   target="_blank">{{supplier.website}}</a>
                 </td>
             </tr>
             </tbody>

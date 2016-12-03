@@ -1,0 +1,41 @@
+<div class="dialog-contents" id="add-form.html">
+
+    <form name="form" class="form-inline text-center" novalidate>
+        <fieldset>
+            <legend>{{"action.add.ing" | translate}} {{"word.employee" | translate}}</legend>
+
+            <div class="form-group">
+                <label class="sr-only" for="name">{{"word.name" | translate}}:</label>
+                <input id="name" type="text" data-ng-model="employee.name" class="input-sm form-control"
+                       data-ng-class="{'form-error': errors.hasOwnProperty('name')}"
+                       placeholder="{{'word.name' | translate}}" required autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label class="sr-only" for="url">{{"word.dni" | translate}}:</label>
+                <input id="url" type="text" data-ng-model="employee.dni" class="input-sm form-control"
+                       data-ng-class="{'form-error': errors.hasOwnProperty('dni')}"
+                       placeholder="{{'word.dni' | translate}}" required autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label class="sr-only" for="role">{{"word.role" | translate}}:</label>
+                <input id="role" type="text" data-ng-model="employee.role" class="input-sm form-control"
+                       placeholder="{{'word.role' | translate}}" autocomplete="off"
+                       uib-typeahead-editable="false" uib-typeahead="role for role in roles | filter:$viewValue">
+            </div>
+
+            <div class="form-group">
+                <label class="sr-only" for="salary">{{"word.salary" | translate}}:</label>
+                <input id="salary" type="number" step="0.01" data-ng-model="employee.salary"
+                       class="input-sm form-control"
+                       placeholder="{{'word.salary' | translate}}" autocomplete="off">
+            </div>
+
+            <button class="add-btn btn" data-ng-click="saveItem(form);">
+                {{"action.submit" | translate}}
+            </button>
+
+        </fieldset>
+    </form>
+</div>

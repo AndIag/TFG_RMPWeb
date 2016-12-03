@@ -23,7 +23,7 @@ angular.module('RestMaPla.table.controller', ['ngFlash', 'RestMaPla.common-servi
             //         (PaginationService.data.currentPage - 1), PaginationService.data.itemsPerPage).success(function (data) {
             //
             //         CrudService.response.orders = JSON.parse(JSON.stringify(data));
-            //     }).error(function (data) {
+            //     }).error(function (data) {6
             //         Flash.clear();
             //         Flash.create('danger', $translate.instant('error.loading'), 3000);
             //     });

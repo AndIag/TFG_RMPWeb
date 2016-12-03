@@ -1,6 +1,7 @@
 angular.module('RestMaPla.product.service', [])
     .service('ProductService', ['CrudService', '$http', '$q', function (CrudService, $http, $q) {
-        var ENDPOINT = 'http://localhost:9090/restmapla';
+        var ENDPOINT = CrudService.ENDPOINT;
+
         return {
             searchProduct: function (keywords, categoryId, brandId, supplierId, billId, pageNumber, count) {
                 var deferred = $q.defer();
