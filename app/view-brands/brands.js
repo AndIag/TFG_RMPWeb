@@ -20,10 +20,10 @@ angular.module('RestMaPla.brands', ['ngRoute', 'RestMaPla.brands.controller', 'R
             params: {brand: null},
             views: {
                 'headerContent': {
-                    templateUrl: 'view-brands/details-header.html',
+                    templateUrl: 'view-brands/details/header.html',
                     controller: 'BrandDetailsCtrl'
                 }, 'mainContent': {
-                    templateUrl: 'view-brands/details-main.html',
+                    templateUrl: 'view-brands/details/main.html',
                     controller: 'BrandDetailsCtrl'
                 }
             }

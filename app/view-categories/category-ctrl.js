@@ -6,9 +6,9 @@ angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestM
          * @param $translate @link(https://github.com/angular-translate/angular-translate)
          * @param Flash -- Used for error feedback @link(https://github.com/sachinchoolur/angular-flash)
          * @param ngDialog -- Used in add forms @link(https://github.com/likeastore/ngDialog)
-         * @param BreadCrumbService -- Handles page Breadcrumbs @link(common/breadcrumb-service.js)
+         * @param BreadCrumbService -- Handles page Breadcrumbs @link(components/breadcrumb-service.js)
          * @param CrudService -- Handles basic CRUD operations @link(common/crud-service.js)
-         * @param FormValidators -- Contains validation logic @link(common/form-validator.js)
+         * @param FormValidators -- Contains validation logic @link(components/form-validator.js)
          */
             function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, FormValidators) {
 

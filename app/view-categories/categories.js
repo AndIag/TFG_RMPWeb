@@ -20,10 +20,10 @@ angular.module('RestMaPla.categories', ['ngRoute', 'RestMaPla.category.controlle
             params: {category: null},
             views: {
                 'headerContent': {
-                    templateUrl: 'view-categories/details/details-header.html',
+                    templateUrl: 'view-categories/details/header.html',
                     controller: 'CategoryDetailsCtrl'
                 }, 'mainContent': {
-                    templateUrl: 'view-categories/details/details-main.html',
+                    templateUrl: 'view-categories/details/main.html',
                     controller: 'CategoryDetailsCtrl'
                 }
             }

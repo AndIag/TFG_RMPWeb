@@ -1,6 +1,9 @@
 <form name="form" class="form-horizontal text-center" novalidate>
     <fieldset>
-        <legend>{{"action.add" | translate}} {{"word.product" | translate}}</legend>
+        <!-- Default legend -->
+        <legend data-ng-show="!legend">{{"action.add.ing" | translate}} {{"word.product" | translate}}</legend>
+        <!-- We can change our legend if controller declares $scope.legend -->
+        <legend data-ng-show="legend">{{legend}}</legend>
 
         <div class="form-group">
             <label class="control-label col-xs-3" for="ean">{{"word.ean.upper" | translate}}:</label>

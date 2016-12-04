@@ -3,6 +3,7 @@ angular.module('RestMaPla.product.controller', ['ngFlash', 'RestMaPla.common'])
         function ($scope, $stateParams, $translate, Flash, BreadCrumbService, CrudService, FormValidators) {
             $scope.product = $stateParams.product;
             $scope.values = CrudService.response;
+            $scope.legend = $translate.instant("action.modify") + ' ' + $translate.instant("word.product");
             $scope.hideSearchBox = true;
 
             $scope.init = function () {

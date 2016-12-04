@@ -1,10 +1,9 @@
 angular.module('RestMaPla.category.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
-    .controller('CategoryDetailsCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'ngDialog',
+    .controller('CategoryDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'ngDialog',
         'BreadCrumbService', 'CrudService', 'ProductService', 'PaginationService', 'FormValidators',
         /**
          *
          * @param $scope @link(https://docs.angularjs.org/guide/scope)
-         * @param $state @link(https://github.com/angular-ui/ui-router/wiki)
          * @param $stateParams @link(https://github.com/angular-ui/ui-router/wiki)
          * @param $translate @link(https://github.com/angular-translate/angular-translate)
          * @param Flash -- Used for error feedback @link(https://github.com/sachinchoolur/angular-flash)
@@ -15,13 +14,13 @@ angular.module('RestMaPla.category.controller', ['ngFlash', 'ngDialog', 'RestMaP
          * @param PaginationService -- Contains pagination variables @link(common/pagination.js)
          * @param FormValidators -- Contains validation logic @link(common/form-validator.js)
          */
-            function ($scope, $state, $stateParams, $translate, Flash, ngDialog,
+            function ($scope, $stateParams, $translate, Flash, ngDialog,
                       BreadCrumbService, CrudService, ProductService, PaginationService, FormValidators) {
 
             var dialog = null;
 
             $scope.pagination = PaginationService.data;
-            //Define legend to define add-form default
+            //Define legend to redefine add-form default
             $scope.legend = $translate.instant("action.modify") + ' ' + $translate.instant("word.category");
             $scope.category = $stateParams.category;
             $scope.values = CrudService.response;
