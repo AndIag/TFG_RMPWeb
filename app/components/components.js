@@ -1,6 +1,5 @@
-angular.module('RestMaPla.common-services', [
+angular.module('RestMaPla.components', [
     'RestMaPla.service.breadcrumb',
-    'RestMaPla.service.crud',
     'RestMaPla.service.pagination',
     'RestMaPla.service.validators'
 ]);

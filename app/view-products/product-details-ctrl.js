@@ -1,4 +1,4 @@
-angular.module('RestMaPla.product.controller', ['ngFlash', 'RestMaPla.common-services'])
+angular.module('RestMaPla.product.controller', ['ngFlash', 'RestMaPla.common'])
     .controller('ProductDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'BreadCrumbService', 'CrudService', 'FormValidators',
         function ($scope, $stateParams, $translate, Flash, BreadCrumbService, CrudService, FormValidators) {
             $scope.product = $stateParams.product;

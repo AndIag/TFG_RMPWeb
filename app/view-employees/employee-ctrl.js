@@ -1,4 +1,4 @@
-angular.module('RestMaPla.employees.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common-services'])
+angular.module('RestMaPla.employees.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
     .controller('EmployeeCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'FormValidators',
         function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, FormValidators) {
 

@@ -1,4 +1,4 @@
-angular.module('RestMaPla.alerts.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common-services'])
+angular.module('RestMaPla.alerts.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
     .controller('AlertCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'PaginationService',
         function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, PaginationService) {
             $scope.pagination = PaginationService.data;

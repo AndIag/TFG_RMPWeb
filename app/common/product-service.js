@@ -1,4 +1,4 @@
-angular.module('RestMaPla.product.service', [])
+angular.module('RestMaPla.service.product', [])
     .service('ProductService', ['CrudService', '$http', '$q', function (CrudService, $http, $q) {
         var ENDPOINT = CrudService.ENDPOINT;
 

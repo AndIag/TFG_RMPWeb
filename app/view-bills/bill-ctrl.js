@@ -1,4 +1,4 @@
-angular.module('RestMaPla.bills.controller', ['ngFlash', 'RestMaPla.common-services'])
+angular.module('RestMaPla.bills.controller', ['ngFlash', 'RestMaPla.common'])
     .controller('BillCtrl', ['$scope', '$translate', 'Flash', 'BreadCrumbService', 'CrudService', 'PaginationService',
         function ($scope, $translate, Flash, BreadCrumbService, CrudService, PaginationService) {
             $scope.pagination = PaginationService.data;

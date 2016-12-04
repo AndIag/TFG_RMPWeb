@@ -1,4 +1,4 @@
-angular.module('RestMaPla.suppliers.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common-services'])
+angular.module('RestMaPla.suppliers.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
     .controller('SupplierCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'PaginationService', 'FormValidators',
         function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, PaginationService, FormValidators) {
             $scope.pagination = PaginationService.data;

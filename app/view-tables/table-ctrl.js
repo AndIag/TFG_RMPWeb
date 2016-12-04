@@ -1,4 +1,4 @@
-angular.module('RestMaPla.tables.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common-services'])
+angular.module('RestMaPla.tables.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
     .controller('TableCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService',
         function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService) {
             var dialog = null;

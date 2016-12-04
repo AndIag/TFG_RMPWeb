@@ -1,4 +1,4 @@
-angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common-services'])
+angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
     .controller('CategoryCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'FormValidators',
         /**
          *

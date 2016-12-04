@@ -1,4 +1,4 @@
-angular.module('RestMaPla.brand.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common-services'])
+angular.module('RestMaPla.brand.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
     .controller('BrandDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'ngDialog',
         'BreadCrumbService', 'CrudService', 'ProductService', 'PaginationService', 'FormValidators',
         function ($scope, $stateParams, $translate, Flash, ngDialog,

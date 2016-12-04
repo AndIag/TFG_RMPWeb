@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('RestMaPla.dashboard', ['ngRoute', 'ngFlash', 'RestMaPla.common-services'])
+angular.module('RestMaPla.dashboard', ['ngRoute', 'ngFlash', 'RestMaPla.common'])
 
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('index', {

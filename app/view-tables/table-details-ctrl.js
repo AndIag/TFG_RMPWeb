@@ -1,4 +1,4 @@
-angular.module('RestMaPla.table.controller', ['ngFlash', 'RestMaPla.common-services', 'RestMaPla.table.service'])
+angular.module('RestMaPla.table.controller', ['ngFlash', 'RestMaPla.common', 'RestMaPla.table.service'])
     .controller('TableDetailsCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'TableService', 'BreadCrumbService', 'CrudService', 'PaginationService',
         function ($scope, $state, $stateParams, $translate, Flash, TableService, BreadCrumbService, CrudService, PaginationService) {
             $scope.pagination = PaginationService.data;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('RestMaPla.frame', ['RestMaPla.common-services'])
+angular.module('RestMaPla.frame', ['RestMaPla.common'])
     .controller('FrameCtrl', ['$scope', '$cookieStore', 'BreadCrumbService',
         function ($scope, $cookieStore, BreadCrumbService) {
 
