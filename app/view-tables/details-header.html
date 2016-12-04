@@ -1,8 +1,6 @@
 <div class="widget-header" data-ng-init="init()">
   <div class="row">
     <div class="pull-left"><i class="fa fa-certificate"></i> {{"word.table" | translate}} {{table.num}}</div>
-    <dir-pagination-controls class="pull-right"
-                             on-page-change="changePage(newPageNumber, oldPageNumber)"></dir-pagination-controls>
   </div>
   <form name="form" class="form-inline text-center">
     <fieldset>
@@ -27,9 +25,4 @@
       </button>
     </fieldset>
   </form>
-  <!--<div>--><!-- TODO implement when createProductTemplate done -->
-  <!--<button class="add-btn btn" data-ng-click="showCreate()">-->
-  <!--{{"action.add" | translate}}-->
-  <!--</button>-->
-  <!--</div>-->
 </div>
