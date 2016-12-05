@@ -24,9 +24,9 @@
                     {{alert.id}}
                 </td>
                 <td>{{alert.comment}}</td>
-                <td>{{alert.employee.name}}</td>
-                <td><a
-                    data-ui-sref="product-details({ productId: product.id, product: product})">{{alert.product.name}}</a>
+                <td class="capitalize">{{alert.employee.name.toLowerCase()}}</td>
+                <td><a class="capitalize"
+                    data-ui-sref="product-details({ productId: product.id, product: product})">{{alert.product.name.toLowerCase()}}</a>
                 </td>
                 <td>{{alert.created.dayOfMonth}}/{{alert.created.month}}/{{alert.created.year}}</td>
             </tr>

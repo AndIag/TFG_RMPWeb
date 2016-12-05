@@ -29,7 +29,7 @@
 
                 <td class="text-center visible-lg visible-md">{{supplier.id}}</td>
                 <td>{{supplier.vat}}</td>
-                <td>{{supplier.name}}</td>
+                <td class="capitalize">{{supplier.name.toLowerCase()}}</td>
                 <td class="hidden-xs" data-ng-click="$event.stopPropagation();"><a data-ng-href="{{supplier.website}}"
                                                                                    target="_blank">{{supplier.website}}</a>
                 </td>

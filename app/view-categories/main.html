@@ -32,7 +32,7 @@
 
                 <td class="text-center visible-lg visible-md">{{category.id}}</td>
                 <td><img class="list-img" data-ng-src="{{category.url}}"></td>
-                <td>{{category.name}}</td>
+                <td class="capitalize">{{category.name.toLowerCase()}}</td>
                 <td class="text-center hidden-xs">{{category.numProducts}}</td>
                 <td>
                     <button class="btn pull-right" data-ng-disabled="category.disabled || category.numProducts"

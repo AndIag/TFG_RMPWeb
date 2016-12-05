@@ -25,8 +25,8 @@
                         <tbody>
                         <tr data-ng-repeat="worker in values.data.employees">
                             <td class="text-center visible-lg visible-md">{{worker.id}}</td>
-                            <td>{{worker.name}}</td>
-                            <td>{{worker.role}}</td>
+                            <td class="capitalize">{{worker.name.toLowerCase()}}</td>
+                            <td class="capitalize">{{worker.role.toLowerCase()}}</td>
                             <td>{{worker.salary}} €</td>
                         </tr>
                         </tbody>
@@ -60,7 +60,7 @@
                         <tr data-ng-repeat="product in values.data.topSales"
                             ui-sref="product-details({'productId': product.id})">
                             <td class="text-center visible-lg visible-md">{{product.id}}</td>
-                            <td>{{product.name}}</td>
+                            <td class="capitalize">{{product.name.toLowerCase()}}</td>
                             <td>{{product.price}} €</td>
                         </tr>
                         </tbody>

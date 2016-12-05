@@ -27,9 +27,9 @@
             <tr data-ng-repeat="employee in values.employees | orderBy: 'id'">
 
                 <td class="text-center visible-lg visible-md">{{employee.id}}</td>
-                <td>{{employee.name}}</td>
+                <td class="capitalize">{{employee.name.toLowerCase()}}</td>
                 <td class="text-center hidden-xs">{{employee.dni}}</td>
-                <td class="text-center hidden-xs">{{employee.role}}</td>
+                <td class="text-center hidden-xs capitalize">{{employee.role.toLowerCase()}}</td>
                 <td class="text-center">{{employee.salary}}€</td>
             </tr>
             </tbody>

@@ -771,3 +771,7 @@ img.no-data-message {
 .comment {
     font-weight: normal !important;
 }
+
+.capitalize {
+    text-transform: capitalize;
+}

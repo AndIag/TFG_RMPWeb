@@ -33,9 +33,9 @@
 
                 <td class="text-center visible-lg visible-md">{{product.id}}</td>
                 <td><img data-ng-src="{{product.url}}" width="70px" height="70px"/></td>
-                <td>{{product.name}}</td>
+                <td class="capitalize">{{product.name.toLowerCase()}}</td>
                 <td class="hidden-xs" data-ng-click="$event.stopPropagation()">
-                    <a ui-sref="brand-details({'brandId': product.brand.id, 'brand': product.brand})">{{product.brand.name}}</a>
+                    <a class="capitalize" ui-sref="brand-details({'brandId': product.brand.id, 'brand': product.brand})">{{product.brand.name.toLowerCase()}}</a>
                 </td>
 
                 <td data-ng-if="!product.simple"><img width="25px" height="25px"

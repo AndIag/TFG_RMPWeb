@@ -26,9 +26,8 @@
           data-ui-sref="order-details({'orderId': order.id, 'order': order})">
 
         <td class="text-center visible-lg visible-md">{{order.id}}</td>
-        <td>{{order.status}}</td>
+        <td class="capitalize">{{order.status.toLowerCase()}}</td>
         <td>{{order.ordered.dayOfMonth}}/{{order.ordered.month}}/{{order.ordered.year}}</td>
-        </td>
       </tr>
       </tbody>
     </table>
