@@ -79,7 +79,7 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'ngDialog', 'RestMaPla.
                 $scope.isBrandForm = true;
                 $scope.product = {};
                 if (!CrudService.response.hasOwnProperty("categories")) loadCategories();
-                dialog = ngDialog.open({template: 'view-products/add-form.html', scope: $scope, controller: this});
+                dialog = ngDialog.open({template: 'view-products/add/dialog.html', scope: $scope, controller: this});
             };
 
             /**

@@ -12,6 +12,7 @@ angular.module('RestMaPla.brands.controller', ['ngFlash', 'ngDialog', 'RestMaPla
          * @param FormValidators -- Contains validation logic @link(components/form-validator.js)
          */
             function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, PaginationService, FormValidators) {
+
             var dialog = null;
             $scope.pagination = PaginationService.data;
             $scope.values = CrudService.response;
@@ -34,7 +35,7 @@ angular.module('RestMaPla.brands.controller', ['ngFlash', 'ngDialog', 'RestMaPla
             };
 
             /**
-             * Use $scope.searchKeywords to find categories
+             * Use $scope.searchKeywords to find brand
              */
             $scope.searchByName = function () {
                 $scope.isSearching = $scope.searchKeywords && $scope.searchKeywords.length;

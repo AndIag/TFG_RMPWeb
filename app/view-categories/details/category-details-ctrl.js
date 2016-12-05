@@ -81,11 +81,7 @@ angular.module('RestMaPla.category.controller', ['ngFlash', 'ngDialog', 'RestMaP
                 $scope.isCategoryForm = true; //Used for hide category picker in dialog form
                 $scope.product = {};
                 if (!CrudService.response.hasOwnProperty("brands")) loadBrands(); //Load brands if required
-                dialog = ngDialog.open({
-                    template: 'view-products/add-form-dialog.html',
-                    scope: $scope,
-                    controller: this
-                });
+                dialog = ngDialog.open({template: 'view-products/add/dialog.html', scope: $scope, controller: this});
             };
 
             /**
