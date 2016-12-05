@@ -1,5 +1,12 @@
-<div class="row" data-ng-show="values.suppliers.count > 0">
-    <div class="col-lg-6">
+<div class="row">
+
+    <div class="text-center"
+         data-ng-show="(values.suppliers.count === 0) && (values.bills.count === 0) && (values.orders.length === 0) && (values.pAlerts.count === 0)">
+        <img class="no-data-message" src="../../components/resources/img/RMP-BM.png" width="20%" height="20%"/>
+        <h2 class="no-data-message">{{"error.no.data" | translate}}</h2>
+    </div>
+
+    <div class="col-lg-6" data-ng-show="values.suppliers.count > 0">
         <div class="widget">
             <div class="widget-header">
                 <div class="row">
@@ -21,7 +28,7 @@
         </div>
     </div>
 
-    <div class="col-lg-6" data-ng-show="values.orders.count > 0">
+    <div class="col-lg-6" data-ng-show="values.orders.length > 0">
         <div class="widget">
             <div class="widget-header">
                 <div class="row">
@@ -32,15 +39,40 @@
         </div>
     </div>
 
-    <div class="col-lg-6" data-ng-show="values.alerts.count > 0">
+    <div class="col-lg-6" data-ng-show="values.pAlerts.count > 0">
         <div class="widget">
             <div class="widget-header">
                 <div class="row">
                     <div class="pull-left"><i class="fa fa-users"></i> {{"word.alert.plural" | translate}}</div>
                 </div>
             </div>
-            <div data-ng-include="'view-alerts/main.html'"></div>
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th class="text-center visible-lg visible-md">{{"word.id.upper" | translate}}</th>
+                        <th>{{"word.comment" | translate}}</th>
+                        <th>{{"word.employee" | translate}}</th>
+                        <th>{{"word.product" | translate}}</th>
+                        <th>{{"word.date" | translate}}</th>
+                    </tr>
+                    <tr dir-paginate="alert in values.pAlerts.items | itemsPerPage: pagination.itemsPerPage"
+                        total-items="values.pAlerts.count" current-page="pagination.currentPage"
+                        data-ng-click="markAsRead(alert)">
+
+                        <td class="text-center" data-ng-class="{notifications: alert.viewed, unread: !alert.viewed}">
+                            {{alert.id}}
+                        </td>
+                        <td>{{alert.comment}}</td>
+                        <td>{{alert.employee.name}}</td>
+                        <td><a
+                            data-ui-sref="product-details({ productId: product.id, product: product})">{{alert.product.name}}</a>
+                        </td>
+                        <td>{{alert.created.dayOfMonth}}/{{alert.created.month}}/{{alert.created.year}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-
 </div>

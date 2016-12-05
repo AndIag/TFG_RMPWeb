@@ -1,75 +1,75 @@
 <div class="row">
-  <div class="col-lg-6">
-    <div class="widget">
-      <div class="widget-header">
-        <div class="row">
-          <div class="pull-left"><i class="fa fa-users"></i> {{"views.dashboard.workers" | translate}}</div>
-          <div class="pull-right col-xs-6 col-sm-4">
-            <button class="btn pull-right btn-sm" ui-sref="employees">{{"word.manage" |
-              translate}}
-            </button>
-          </div>
+    <div class="col-lg-6">
+        <div class="widget">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="pull-left"><i class="fa fa-users"></i> {{"views.dashboard.workers" | translate}}</div>
+                    <div class="pull-right col-xs-6 col-sm-4">
+                        <button class="btn pull-right btn-sm" ui-sref="employees">{{"word.manage" |
+                            translate}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-body medium no-padding" data-ng-show="values.data.hasOwnProperty('employees')">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="text-center visible-lg visible-md">ID</th>
+                            <th>{{"word.name" | translate}}</th>
+                            <th>{{"word.role" | translate}}</th>
+                            <th>{{"word.salary" | translate}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="worker in values.data.employees">
+                            <td class="text-center visible-lg visible-md">{{worker.id}}</td>
+                            <td>{{worker.name}}</td>
+                            <td>{{worker.role}}</td>
+                            <td>{{worker.salary}} €</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="widget-body medium no-padding" data-ng-show="!values.data.hasOwnProperty('employees')">
+                <double-bounce-spinner></double-bounce-spinner>
+            </div>
         </div>
-      </div>
-      <div class="widget-body medium no-padding" data-ng-show="values.data.hasOwnProperty('employees')">
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-            <tr>
-              <th class="text-center visible-lg visible-md">ID</th>
-              <th>{{"word.name" | translate}}</th>
-              <th>{{"word.role" | translate}}</th>
-              <th>{{"word.salary" | translate}}</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr data-ng-repeat="worker in values.data.employees">
-              <td class="text-center visible-lg visible-md">{{worker.id}}</td>
-              <td>{{worker.name}}</td>
-              <td>{{worker.role}}</td>
-              <td>{{worker.salary}} €</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="widget-body medium no-padding" data-ng-show="!values.data.hasOwnProperty('employees')">
-        <double-bounce-spinner></double-bounce-spinner>
-      </div>
     </div>
-  </div>
 
-  <div class="col-lg-6">
-    <div class="widget">
-      <div class="widget-header">
-        <div class="row">
-          <div class="pull-left"><i class="fa fa-users"></i> {{"word.top_sale.plural" | translate}}</div>
+    <div class="col-lg-6">
+        <div class="widget">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="pull-left"><i class="fa fa-users"></i> {{"word.top_sale.plural" | translate}}</div>
+                </div>
+            </div>
+            <div class="widget-body medium no-padding" data-ng-show="values.data.hasOwnProperty('topSales')">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="text-center visible-lg visible-md">ID</th>
+                            <th>{{"word.name" | translate}}</th>
+                            <th>{{"word.price" | translate}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="product in values.data.topSales"
+                            ui-sref="product-details({'productId': product.id})">
+                            <td class="text-center visible-lg visible-md">{{product.id}}</td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.price}} €</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="widget-body medium no-padding" data-ng-show="!values.data.hasOwnProperty('topSales')">
+                <double-bounce-spinner></double-bounce-spinner>
+            </div>
         </div>
-      </div>
-      <div class="widget-body medium no-padding" data-ng-show="values.data.hasOwnProperty('topSales')">
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-            <tr>
-              <th class="text-center visible-lg visible-md">ID</th>
-              <th>{{"word.name" | translate}}</th>
-              <th>{{"word.price" | translate}}</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr data-ng-repeat="product in values.data.topSales"
-                ui-sref="product-details({'productId': product.id})">
-              <td class="text-center visible-lg visible-md">{{product.id}}</td>
-              <td>{{product.name}}</td>
-              <td>{{product.price}} €</td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="widget-body medium no-padding" data-ng-show="!values.data.hasOwnProperty('topSales')">
-        <double-bounce-spinner></double-bounce-spinner>
-      </div>
     </div>
-  </div>
 </div>

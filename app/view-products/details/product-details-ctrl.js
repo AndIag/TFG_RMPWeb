@@ -47,7 +47,7 @@ angular.module('RestMaPla.product.controller', ['ngFlash', 'RestMaPla.common'])
                         $scope.product.isPack = true;
                     }
                     CrudService.response.suppliers = {items: json.suppliers, count: json.suppliers.length};
-                    CrudService.response.alerts = {items: json.alerts, count: json.alerts.length};
+                    CrudService.response.pAlerts = {items: json.alerts, count: json.alerts.length};
                     CrudService.response.bills = {items: json.bills, count: json.bills.length};
                     CrudService.response.orders = json.orders;
                 }).error(function (data) {
