@@ -3,7 +3,7 @@
 </div>
 <div class="widget-body">
   <div class="text-center" data-ng-show="values.orders.count === 0">
-      <img class="no-data-message" src="../components/resources/img/RMP-BM.png" width="20%" height="20%"/>
+    <img class="no-data-message" src="../components/resources/img/RMP-BM.png" width="20%" height="20%"/>
     <h2 class="no-data-message">{{"error.no.data" | translate}}</h2>
   </div>
   <div class="table-responsive" data-ng-show="values.orders.length > 0">
@@ -19,22 +19,15 @@
       <tbody>
       <tr>
         <th class="text-center visible-lg visible-md">{{"word.id.upper" | translate}}</th>
-        <th></th>
-        <th>{{"word.name" | translate}}</th>
-        <th class="hidden-xs">{{"word.brand" | translate}}</th>
-        <th></th>
+        <th>{{"word.status" | translate}}</th>
+        <th>{{"word.date" | translate}}</th>
       </tr>
       <tr data-ng-repeat="order in values.orders | orderBy: 'id'"
           data-ui-sref="order-details({'orderId': order.id, 'order': order})">
 
         <td class="text-center visible-lg visible-md">{{order.id}}</td>
-        <td><img data-ng-src="{{order.url}}" width="70px" height="70px"/></td>
-        <td>{{order.name}}</td>
-        <td class="hidden-xs" data-ng-click="$event.stopPropagation()">
-          <a ui-sref="brand-details({'brandId': order.brand.id, 'brand': order.brand})">{{order.brand.name}}</a>
-        </td>
-        <td data-ng-if="!order.simple"><img width="25px" height="25px" src="../components/resources/img/pack_icon.png">
-        <td data-ng-if="order.simple"><img width="25px" height="25px" src="../components/resources/img/simple_icon.png">
+        <td>{{order.status}}</td>
+        <td>{{order.ordered.dayOfMonth}}/{{order.ordered.month}}/{{order.ordered.year}}</td>
         </td>
       </tr>
       </tbody>
