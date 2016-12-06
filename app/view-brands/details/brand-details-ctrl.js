@@ -10,7 +10,7 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'ngDialog', 'RestMaPla.
          * @param ngDialog -- Used in add forms @link(https://github.com/likeastore/ngDialog)
          * @param BreadCrumbService -- Handles page Breadcrumbs @link(common/breadcrumb-service.js)
          * @param CrudService -- Handles basic CRUD operations @link(common/crud-service.js)
-         * @param ProductService -- Handles harder queries as product filter @link(view-products/product-service.js)
+         * @param ProductService -- Handles harder queries as product filter @link(view-products/products.js)
          * @param PaginationService -- Contains pagination variables @link(common/pagination.js)
          * @param FormValidators -- Contains validation logic @link(common/form-validator.js)
          */

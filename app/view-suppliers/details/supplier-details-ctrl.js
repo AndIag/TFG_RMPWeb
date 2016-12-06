@@ -11,10 +11,10 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaP
          * @param ngDialog -- Used in add forms @link(https://github.com/likeastore/ngDialog)
          * @param BreadCrumbService -- Handles page Breadcrumbs @link(common/breadcrumb-service.js)
          * @param CrudService -- Handles basic CRUD operations @link(common/crud-service.js)
-         * @param ProductService -- Handles harder queries as product filter @link(view-products/product-service.js)
+         * @param ProductService -- Handles harder queries as product filter @link(view-products/products.js)
          * @param PaginationService -- Contains pagination variables @link(common/pagination.js)
-         * @param SupplierService
-         * @param FormValidators
+         * @param SupplierService -- Handles add product to supplier
+         * @param FormValidators -- Contains validation logic @link(common/form-validator.js)
          */
             function ($scope, $stateParams, $translate, Flash, ngDialog, BreadCrumbService, CrudService,
                       ProductService, PaginationService, SupplierService, FormValidators) {
@@ -58,6 +58,9 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaP
                 });
             };
 
+            /**
+             * Open new add dialog using the provided template and @this as controller
+             */
             $scope.showCreate = function () {
                 $scope.product = {};
                 loadProducts(null);
@@ -68,12 +71,15 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaP
                 });
             };
 
+            /**
+             * Search packs to add to this supplier
+             */
             $scope.searchProducts = function () {
                 loadProducts($scope.product.newProduct);
             };
 
             /**
-             * Try to post new product($scope.product) after validation
+             * Try to post new product($scope.product) to supplier after validation
              * @param form TODO use for validation
              */
             $scope.saveItem = function (form) {
@@ -89,7 +95,10 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaP
                 }
             };
 
-            $scope.addMore = function (form) {
+            /**
+             * %scope.saveItem + $scope.showCreate again
+             */
+            $scope.addMore = function () {
                 $scope.errors = FormValidators.isValidProductForSupplier($scope.product, form);
                 if (Object.keys($scope.errors).length === 0) {
                     SupplierService.addProduct($scope.supplier.id, $scope.product.newProduct.id, $scope.product.price).success(function (data) {

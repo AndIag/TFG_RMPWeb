@@ -8,7 +8,7 @@ angular.module('RestMaPla.bill.controller', ['ngFlash', 'RestMaPla.common'])
          * @param Flash -- Used for error feedback @link(https://github.com/sachinchoolur/angular-flash)
          * @param BreadCrumbService -- Handles page Breadcrumbs @link(common/breadcrumb-service.js)
          * @param CrudService -- Handles basic CRUD operations @link(common/crud-service.js)
-         * @param ProductService -- Handles harder queries as product filter @link(view-products/product-service.js)
+         * @param ProductService -- Handles harder queries as product filter @link(view-products/products.js)
          * @param PaginationService -- Contains pagination variables @link(common/pagination.js)
          */
             function ($scope, $stateParams, $translate, Flash, BreadCrumbService, CrudService, ProductService, PaginationService) {
