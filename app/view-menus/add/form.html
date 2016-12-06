@@ -18,14 +18,16 @@
                 <input id="starterPrice" type="number" step="0.01" data-ng-model="menu.starterPrice"
                        class="input-sm form-control" autocomplete="off" required
                        data-ng-class="{'form-error': errors.hasOwnProperty('starterPrice')}"
-                       placeholder="{{'word.starter_price' | translate}}">
+                       placeholder="{{'word.starter_price' | translate}}"
+                       data-ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
             </div>
             <div class="form-group">
                 <label class="sr-only" for="mainPrice">{{"word.main_price" | translate}}:</label>
                 <input id="mainPrice" type="number" step="0.01" data-ng-model="menu.mainPrice"
                        class="input-sm form-control" autocomplete="off" required
                        data-ng-class="{'form-error': errors.hasOwnProperty('mainPrice')}"
-                       placeholder="{{'word.main_price' | translate}}">
+                       placeholder="{{'word.main_price' | translate}}"
+                       data-ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
             </div>
         </div>
 
@@ -35,14 +37,16 @@
                 <input id="drinkPrice" type="number" step="0.01" data-ng-model="menu.drinkPrice"
                        class="input-sm form-control" autocomplete="off" required
                        data-ng-class="{'form-error': errors.hasOwnProperty('drinkPrice')}"
-                       placeholder="{{'word.drink_price' | translate}}">
+                       placeholder="{{'word.drink_price' | translate}}"
+                       data-ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
             </div>
             <div class="form-group">
                 <label class="sr-only" for="dessertPrice">{{"word.dessert_price" | translate}}:</label>
                 <input id="dessertPrice" type="number" step="0.01" data-ng-model="menu.dessertPrice"
                        class="input-sm form-control" autocomplete="off" required
                        data-ng-class="{'form-error': errors.hasOwnProperty('dessertPrice')}"
-                       placeholder="{{'word.dessert_price' | translate}}">
+                       placeholder="{{'word.dessert_price' | translate}}"
+                       data-ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
             </div>
         </div>
 

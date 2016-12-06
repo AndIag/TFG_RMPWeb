@@ -28,4 +28,35 @@ angular.module('RestMaPla.suppliers', ['ngRoute', 'RestMaPla.suppliers.controlle
                 }
             }
         });
+    }]).service('SupplierService', ['CrudService', '$http', '$q',
+    function (CrudService, $http, $q) {
+        var ENDPOINT = CrudService.ENDPOINT;
+        return {
+            addProduct: function (supplierId, productId, price) {
+                var deferred = $q.defer();
+                var promise = deferred.promise;
+
+                var queryParams = 'productId=' + productId + '&price=' + price;
+
+                $http({
+                    method: 'POST',
+                    url: ENDPOINT + CrudService.endpoints.SUPPLIERS_ENDPOINT + '/' + supplierId + '/products?' + queryParams
+                }).then(function successCallback(response) {
+                    deferred.resolve(response.data);
+                }, function errorCallback(response) {
+                    deferred.reject(response);
+                });
+
+                promise.success = function (fn) {
+                    promise.then(fn);
+                    return promise;
+                };
+                promise.error = function (fn) {
+                    promise.then(null, fn);
+                    return promise;
+                };
+
+                return promise;
+            }
+        }
     }]);
