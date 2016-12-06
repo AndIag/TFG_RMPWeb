@@ -1,0 +1,15 @@
+<div class="widget-header" data-ng-init="init()">
+    <div class="row">
+        <div class="pull-left"><i class="fa fa-book"></i> {{supplier.name}}</div>
+        <dir-pagination-controls class="pull-right"
+                                 on-page-change="changePage(newPageNumber, oldPageNumber)"></dir-pagination-controls>
+    </div>
+
+    <div data-ng-include="'view-suppliers/add/form.html'"></div>
+
+    <div>
+        <button class="add-btn btn" data-ng-click="showCreate()">
+            {{"action.add" | translate}}
+        </button>
+    </div>
+</div>

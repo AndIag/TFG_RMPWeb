@@ -11,7 +11,7 @@ angular.module('RestMaPla.bill.controller', ['ngFlash', 'RestMaPla.common'])
          * @param ProductService -- Handles harder queries as product filter @link(view-products/product-service.js)
          * @param PaginationService -- Contains pagination variables @link(common/pagination.js)
          */
-        function ($scope, $stateParams, $translate, Flash, BreadCrumbService, CrudService, ProductService, PaginationService) {
+            function ($scope, $stateParams, $translate, Flash, BreadCrumbService, CrudService, ProductService, PaginationService) {
             $scope.pagination = PaginationService.data;
 
             $scope.bill = $stateParams.bill;

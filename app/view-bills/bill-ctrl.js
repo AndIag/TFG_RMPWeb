@@ -75,7 +75,7 @@ angular.module('RestMaPla.bills.controller', ['ngFlash', 'ngDialog', 'RestMaPla.
             };
 
             /**
-             * Delete given brand after verify no products references exist
+             * Delete given bill after verify no products references exist
              * @param bill given object to remove
              */
             $scope.removeBill = function (bill) {
@@ -95,7 +95,7 @@ angular.module('RestMaPla.bills.controller', ['ngFlash', 'ngDialog', 'RestMaPla.
             };
 
             /**
-             * Request a page of brands from service
+             * Request a page of bills from service
              * @param page requested page
              */
             function getBillsPage(page) {

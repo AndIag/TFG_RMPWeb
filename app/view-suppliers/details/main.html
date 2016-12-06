@@ -3,7 +3,7 @@
 </div>
 <div class="widget-body">
     <div class="text-center" data-ng-show="values.products.count === 0">
-        <img class="no-data-message" src="../components/resources/img/RMP-BM.png" width="20%" height="20%"/>
+        <img class="no-data-message" src="../../components/resources/img/RMP-BM.png" width="20%" height="20%"/>
         <h2 class="no-data-message">{{"error.no.data" | translate}}</h2>
     </div>
     <div class="table-responsive" data-ng-show="values.products.count > 0">
@@ -24,7 +24,6 @@
                 <th class="hidden-xs">{{"word.brand" | translate}}</th>
                 <th class="hidden-xs">{{"word.category" | translate}}</th>
                 <th class="hidden-xs"></th>
-                <th class="hidden-xs"></th>
             </tr>
             <tr dir-paginate="product in values.products.items | itemsPerPage: pagination.itemsPerPage"
                 total-items="values.products.count" current-page="pagination.currentPage"
@@ -39,14 +38,10 @@
                 <td class="hidden-xs">
                     <a class="capitalize" ui-sref="category-details({'categoryId': product.category.id, 'category': product.category})">{{product.category.name.toLowerCase()}}</a>
                 </td>
-                <td data-ng-if="!product.simple"><img width="25px" height="25px" src="../components/resources/img/pack_icon.png">
-                <td data-ng-if="product.simple"><img width="25px" height="25px" src="../components/resources/img/simple_icon.png">
-                </td>
-                <td class="hidden-xs">
-                    <button class="btn pull-right" data-ng-disabled="product.disabled"
-                            data-ng-click="removeProduct(product, $index); $event.stopPropagation();">
-                        {{"action.remove" | translate}}
-                    </button>
+                <td data-ng-if="!product.simple"><img width="25px" height="25px"
+                                                      src="../../components/resources/img/pack_icon.png">
+                <td data-ng-if="product.simple"><img width="25px" height="25px"
+                                                     src="../../components/resources/img/simple_icon.png">
                 </td>
             </tr>
             </tbody>

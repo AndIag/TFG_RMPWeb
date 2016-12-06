@@ -20,10 +20,10 @@ angular.module('RestMaPla.suppliers', ['ngRoute', 'RestMaPla.suppliers.controlle
             params: {supplier: null},
             views: {
                 'headerContent': {
-                    templateUrl: 'view-suppliers/details-header.html',
+                    templateUrl: 'view-suppliers/details/header.html',
                     controller: 'SupplierDetailsCtrl'
                 }, 'mainContent': {
-                    templateUrl: 'view-suppliers/details-main.html',
+                    templateUrl: 'view-suppliers/details/main.html',
                     controller: 'SupplierDetailsCtrl'
                 }
             }
