@@ -23,6 +23,7 @@
                 <th>{{"word.supplier" | translate}} {{"word.name" | translate}}</th>
                 <th>{{"word.date" | translate}}</th>
                 <th>{{"word.price" | translate}}</th>
+                <th></th>
             </tr>
             <tr dir-paginate="bill in values.bills.items | itemsPerPage: pagination.itemsPerPage"
                 total-items="values.bills.count" current-page="pagination.currentPage"
@@ -33,6 +34,12 @@
                 <td class="capitalize">{{bill.supplier.name.toLowerCase()}}</td>
                 <td>{{bill.date.dayOfMonth}}/{{bill.date.month}}/{{bill.date.year}}</td>
                 <td data-ng-class="{'bill':!bill.entry, 'entry-bill':bill.entry}">{{bill.price}}€</td>
+                <td>
+                    <button class="btn pull-right" data-ng-disabled="bill.disabled || bill.numProducts || bill.entry"
+                            data-ng-click="removeBill(bill); $event.stopPropagation();">
+                        {{"action.remove" | translate}}
+                    </button>
+                </td>
             </tr>
             </tbody>
         </table>

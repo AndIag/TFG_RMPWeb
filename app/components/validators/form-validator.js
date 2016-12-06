@@ -77,6 +77,25 @@ angular.module('RestMaPla.service.validators', [])
                     }
                 }
                 return error;
+            },
+            isValidMenu: function (menu, form) {
+                var error = {};
+                if (!menu.name || menu.name === '' || menu.name.replace(/\s+/g, " ") === ' ') {
+                    error.name = $translate.instant("error.required.name");
+                }
+                if (!menu.starterPrice > 0) {
+                    error.starterPrice = $translate.instant("error.required.price");
+                }
+                if (!menu.mainPrice > 0) {
+                    error.mainPrice = $translate.instant("error.required.price");
+                }
+                if (!menu.drinkPrice > 0) {
+                    error.drinkPrice = $translate.instant("error.required.price");
+                }
+                if (!menu.dessertPrice > 0) {
+                    error.dessertPrice = $translate.instant("error.required.price");
+                }
+                return error;
             }
         }
     }]);

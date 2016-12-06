@@ -75,6 +75,26 @@ angular.module('RestMaPla.bills.controller', ['ngFlash', 'ngDialog', 'RestMaPla.
             };
 
             /**
+             * Delete given brand after verify no products references exist
+             * @param bill given object to remove
+             */
+            $scope.removeBill = function (bill) {
+                if (bill.numProducts == 0 && !bill.entry) {
+                    CrudService.removeItem(CrudService.endpoints.BILLS_ENDPOINT, bill.id).success(function (data) {
+                        CrudService.response.bills.items = CrudService.response.bills.items.filter(function (e) {
+                            return e.id !== bill.id; //Filter bill list for remove the chosen one
+                        });
+                        CrudService.response.bills.count = CrudService.response.bills.count - 1;
+                    }).error(function (data) {
+                        Flash.clear();
+                        Flash.create('danger', $translate.instant('error.removing'), 3000);
+                    }).finally(function () {
+                        $scope.isLoading = false;
+                    });
+                }
+            };
+
+            /**
              * Request a page of brands from service
              * @param page requested page
              */

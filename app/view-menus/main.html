@@ -29,10 +29,10 @@
 
                 <td class="text-center visible-lg visible-md">{{menu.id}}</td>
                 <td class="capitalize">{{menu.name.toLowerCase()}}</td>
-                <td class="hidden-xs">{{menu.starterPrice + menu.drinkPrice + menu.mainPrice + menu.dessertPrice}}€</a></td>
+                <td class="hidden-xs">{{menu.starterPrice + menu.drinkPrice + menu.mainPrice + menu.dessertPrice}}€</td>
                 <td>
-                    <button class="btn pull-right" data-ng-disabled="menu.disabled"
-                            data-ng-click="removeSupplier(menu); $event.stopPropagation();">
+                    <button class="btn pull-right" data-ng-disabled="menu.disabled || menu.numProducts"
+                            data-ng-click="removeMenu(menu); $event.stopPropagation();">
                         {{"action.remove" | translate}}
                     </button>
                 </td>
