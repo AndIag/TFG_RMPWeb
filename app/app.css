@@ -775,3 +775,7 @@ img.no-data-message {
 .capitalize {
     text-transform: capitalize;
 }
+
+.inline-block {
+    display: inline-block;
+}

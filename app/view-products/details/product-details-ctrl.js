@@ -16,6 +16,9 @@ angular.module('RestMaPla.product.controller', ['ngFlash', 'RestMaPla.common'])
             $scope.legend = $translate.instant("action.modify") + ' ' + $translate.instant("word.product");
             $scope.hideSearchBox = true;
 
+            /**
+             * First data load
+             */
             $scope.init = function () {
                 BreadCrumbService.setBreadCrumb($stateParams.product.name);
                 findProductDetails();
@@ -39,6 +42,10 @@ angular.module('RestMaPla.product.controller', ['ngFlash', 'RestMaPla.common'])
                 }
             };
 
+            /**
+             * We need to request product data and, as workaround, fix data types to our templates to avoid
+             * unnecessary re-writing
+             */
             function findProductDetails() {
                 CrudService.findItemDetailsById(CrudService.endpoints.PRODUCTS_ENDPOINT, $scope.product.id).success(function (data) {
                     var json = JSON.parse(JSON.stringify(data));
@@ -46,6 +53,7 @@ angular.module('RestMaPla.product.controller', ['ngFlash', 'RestMaPla.common'])
                     if ($scope.product.amount || $scope.product.simpleProduct) {
                         $scope.product.isPack = true;
                     }
+                    //Addapting data
                     CrudService.response.suppliers = {items: json.suppliers, count: json.suppliers.length};
                     CrudService.response.pAlerts = {items: json.alerts, count: json.alerts.length};
                     CrudService.response.bills = {items: json.bills, count: json.bills.length};

@@ -1,0 +1,48 @@
+<form name="form" class="text-center" data-ng-class="{'form-inline': isDetailsForm, 'form-horizontal': !isDetailsForm}"
+      novalidate>
+    <fieldset>
+        <!-- Default legend -->
+        <legend data-ng-show="!legend">{{"action.add.ing" | translate}} {{"word.bill" | translate}}</legend>
+        <!-- We can change our legend if controller declares $scope.legend -->
+        <legend data-ng-show="legend">{{legend}}</legend>
+
+        <div data-ng-class="{'form-group': isDetailsForm, 'inline-block': !isDetailsForm}">
+            <div data-ng-class="{'form-group': isDetailsForm}">
+                <label class="sr-only" for="name">{{"word.description" | translate}}:</label>
+                <input id="name" class="input-sm form-control" type="text" data-ng-model="bill.description"
+                       data-ng-class="{'form-error': errors.hasOwnProperty('supplier')}"
+                       placeholder="{{'word.description' | translate}}" required autocomplete="off">
+            </div>
+
+            <div data-ng-class="{'form-group': isDetailsForm}">
+                <label class="sr-only" for="price">{{"word.price" | translate}}:</label>
+                <input id="price" class="input-sm form-control" type="number" data-ng-model="bill.price"
+                       data-ng-class="{'form-error': errors.hasOwnProperty('supplier')}"
+                       placeholder="{{'word.price' | translate}}" required autocomplete="off">
+            </div>
+
+            <div data-ng-show="!bill.entry" data-ng-class="{'form-group': isDetailsForm}">
+                <label class="sr-only" for="supplier">{{"word.supplier" | translate}}:</label>
+                <input type="text" class="input-sm form-control" id="supplier" ng-model="bill.supplier"
+                       autocomplete="off" placeholder="{{'word.supplier' | translate}}"
+                       data-ng-class="{'form-error': errors.hasOwnProperty('supplier')}"
+                       uib-typeahead-editable="false"
+                       uib-typeahead="supplier as supplier.name for supplier in values.suppliers.items | filter:$viewValue | limitTo:8"/>
+            </div>
+
+            <div data-ng-show="!isDetailsForm" data-ng-class="{'form-group': isDetailsForm}">
+                <div class="col-xs-12">
+                    <label class="checkbox-inline">
+                        <input name="isEntry" type="checkbox" data-ng-model="bill.entry" data-ng-change=""
+                               autocomplete="off">
+                        {{"placeholder.is_entry.question" | translate}}
+                    </label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn" data-ng-click="saveItem(form)">
+                {{"action.submit" | translate}}
+            </button>
+        </div>
+    </fieldset>
+</form>

@@ -20,10 +20,10 @@ angular.module('RestMaPla.bills', ['ngRoute', 'RestMaPla.bills.controller', 'Res
             params: {bill: null},
             views: {
                 'headerContent': {
-                    templateUrl: 'view-bills/details-header.html',
+                    templateUrl: 'view-bills/details/header.html',
                     controller: 'BillDetailsCtrl'
                 }, 'mainContent': {
-                    templateUrl: 'view-bills/details-main.html',
+                    templateUrl: 'view-bills/details/main.html',
                     controller: 'BillDetailsCtrl'
                 }
             }

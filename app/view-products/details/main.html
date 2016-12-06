@@ -6,7 +6,7 @@
         <h2 class="no-data-message">{{"error.no.data" | translate}}</h2>
     </div>
 
-    <div class="col-lg-6" data-ng-show="values.suppliers.count > 0">
+    <div class="col-lg-12" data-ng-show="values.suppliers.count > 0">
         <div class="widget">
             <div class="widget-header">
                 <div class="row">
@@ -28,17 +28,6 @@
         </div>
     </div>
 
-    <div class="col-lg-6" data-ng-show="values.orders.length > 0">
-        <div class="widget">
-            <div class="widget-header">
-                <div class="row">
-                    <div class="pull-left"><i class="fa fa-users"></i> {{"word.order.plural" | translate}}</div>
-                </div>
-                <!--TODO-->
-            </div>
-        </div>
-    </div>
-
     <div class="col-lg-6" data-ng-show="values.pAlerts.count > 0">
         <div class="widget">
             <div class="widget-header">
@@ -57,8 +46,7 @@
                         <th>{{"word.date" | translate}}</th>
                     </tr>
                     <tr dir-paginate="alert in values.pAlerts.items | itemsPerPage: pagination.itemsPerPage"
-                        total-items="values.pAlerts.count" current-page="pagination.currentPage"
-                        data-ng-click="markAsRead(alert)">
+                        total-items="values.pAlerts.count" current-page="pagination.currentPage">
 
                         <td class="text-center" data-ng-class="{notifications: alert.viewed, unread: !alert.viewed}">
                             {{alert.id}}
@@ -75,4 +63,16 @@
             </div>
         </div>
     </div>
+
+    <div class="col-lg-12" data-ng-show="values.orders.length > 0">
+        <div class="widget">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="pull-left"><i class="fa fa-users"></i> {{"word.order.plural" | translate}}</div>
+                </div>
+                <div data-ng-include="'view-tables/details-main.html'"></div>
+            </div>
+        </div>
+    </div>
+
 </div>

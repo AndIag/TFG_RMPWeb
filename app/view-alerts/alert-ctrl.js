@@ -30,7 +30,7 @@ angular.module('RestMaPla.alerts.controller', ['ngFlash', 'ngDialog', 'RestMaPla
 
             $scope.showDetails = function (alert) {
                 $scope.alert = alert;
-                dialog = ngDialog.open({template: 'view-alerts/alert-details.html', scope: $scope, controller: this});
+                dialog = ngDialog.open({template: 'view-alerts/alert-dialog.html', scope: $scope, controller: this});
             };
 
             $scope.markAsRead = function (alert) {

@@ -62,6 +62,21 @@ angular.module('RestMaPla.service.validators', [])
                     error.dni = $translate.instant("error.required.dni");
                 }
                 return error;
+            },
+            isValidBill: function (bill, form) {
+                var error = {};
+                if (!bill.description || bill.description === '' || bill.description.replace(/\s+/g, " ") === ' ') {
+                    error.description = $translate.instant("error.required.description");
+                }
+                if (!bill.price > 0) {
+                    error.price = $translate.instant("error.required.price");
+                }
+                if (!bill.entry) {
+                    if (!bill.supplier) {
+                        error.supplier = $translate.instant("error.required.supplier");
+                    }
+                }
+                return error;
             }
         }
     }]);

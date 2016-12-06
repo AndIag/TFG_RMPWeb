@@ -78,6 +78,7 @@
   "placeholder.description": "Insert a short description for the new product",
   "placeholder.simple_product": "Contained Product",
   "placeholder.simple_product_amount": "Contained Product Amount",
+  "placeholder.is_entry.question": "Is this an entry bill?",
   "placeholder.is_pack.question": "Is this product a pack?",
   "views.dashboard.tables": "Tables",
   "views.dashboard.articles": "Products",
