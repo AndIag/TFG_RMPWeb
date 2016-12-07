@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('RestMaPla.menus', ['ngRoute', 'RestMaPla.menus.controller'])
+angular.module('RestMaPla.menus', ['ngRoute', 'RestMaPla.menus.controller', 'RestMaPla.menu.controller'])
 
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('menus', {
@@ -15,17 +15,17 @@ angular.module('RestMaPla.menus', ['ngRoute', 'RestMaPla.menus.controller'])
                     controller: 'MenuCtrl'
                 }
             }
-        }).state('menus-details', {
+        }).state('menu-details', {
             url: '/menus/:menuId',
             params: {menu: null},
             views: {
-                // 'headerContent': {
-                //     templateUrl: 'view-menus/details-header.html',
-                //     controller: 'SupplierDetailsCtrl'
-                // }, 'mainContent': {
-                //     templateUrl: 'view-menus/details-main.html',
-                //     controller: 'SupplierDetailsCtrl'
-                // }
+                'headerContent': {
+                    templateUrl: 'view-menus/details/header.html',
+                    controller: 'MenuDetailsCtrl'
+                }, 'mainContent': {
+                    templateUrl: 'view-menus/details/main.html',
+                    controller: 'MenuDetailsCtrl'
+                }
             }
         });
     }]);

@@ -680,6 +680,11 @@ th {
 .dialog-contents .add-btn {
     margin-top: 10px;
 }
+
+.multi-button {
+    margin-right: 5px !important;
+}
+
 /* Search Bar */
 #search label {
     position: absolute;

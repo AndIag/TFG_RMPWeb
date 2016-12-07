@@ -1,19 +1,20 @@
-<form name="form" class="form-inline text-center" novalidate>
+<form name="form" class="text-center" novalidate
+      data-ng-class="{'form-inline': isDetailsForm, 'form-horizontal': !isDetailsForm}">
     <fieldset>
         <!-- Default legend -->
         <legend data-ng-show="!legend">{{"action.add.ing" | translate}} {{"word.menu" | translate}}</legend>
         <!-- We can change our legend if controller declares $scope.legend -->
         <legend data-ng-show="legend">{{legend}}</legend>
 
-        <div class="form-group">
-            <label class="sr-only" for="name">{{"word.name" | translate}}:</label>
-            <input id="name" type="text" data-ng-model="menu.name" class="input-sm form-control"
-                   data-ng-class="{'form-error': errors.hasOwnProperty('name')}"
-                   placeholder="{{'word.name' | translate}}" required autocomplete="off">
-        </div>
+        <div data-ng-class="{'form-group': isDetailsForm, 'inline-block': !isDetailsForm}">
+            <div data-ng-class="{'form-group': isDetailsForm}">
+                <label class="sr-only" for="name">{{"word.name" | translate}}:</label>
+                <input id="name" type="text" data-ng-model="menu.name" class="input-sm form-control"
+                       data-ng-class="{'form-error': errors.hasOwnProperty('name')}"
+                       placeholder="{{'word.name' | translate}}" required autocomplete="off">
+            </div>
 
-        <div class="form-inline">
-            <div class="form-group">
+            <div data-ng-class="{'form-group': isDetailsForm}">
                 <label class="sr-only" for="starterPrice">{{"word.starter_price" | translate}}:</label>
                 <input id="starterPrice" type="number" step="0.01" data-ng-model="menu.starterPrice"
                        class="input-sm form-control" autocomplete="off" required
@@ -21,7 +22,7 @@
                        placeholder="{{'word.starter_price' | translate}}"
                        data-ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
             </div>
-            <div class="form-group">
+            <div data-ng-class="{'form-group': isDetailsForm}">
                 <label class="sr-only" for="mainPrice">{{"word.main_price" | translate}}:</label>
                 <input id="mainPrice" type="number" step="0.01" data-ng-model="menu.mainPrice"
                        class="input-sm form-control" autocomplete="off" required
@@ -29,10 +30,8 @@
                        placeholder="{{'word.main_price' | translate}}"
                        data-ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
             </div>
-        </div>
 
-        <div class="form-inline">
-            <div class="form-group">
+            <div data-ng-class="{'form-group': isDetailsForm}">
                 <label class="sr-only" for="drinkPrice">{{"word.drink_price" | translate}}:</label>
                 <input id="drinkPrice" type="number" step="0.01" data-ng-model="menu.drinkPrice"
                        class="input-sm form-control" autocomplete="off" required
@@ -40,7 +39,7 @@
                        placeholder="{{'word.drink_price' | translate}}"
                        data-ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
             </div>
-            <div class="form-group">
+            <div data-ng-class="{'form-group': isDetailsForm}">
                 <label class="sr-only" for="dessertPrice">{{"word.dessert_price" | translate}}:</label>
                 <input id="dessertPrice" type="number" step="0.01" data-ng-model="menu.dessertPrice"
                        class="input-sm form-control" autocomplete="off" required
@@ -48,11 +47,10 @@
                        placeholder="{{'word.dessert_price' | translate}}"
                        data-ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
             </div>
+
+            <button class="add-btn btn" data-ng-click="saveItem(form);">
+                {{"action.submit" | translate}}
+            </button>
         </div>
-
-        <button class="add-btn btn" data-ng-click="saveItem(form);">
-            {{"action.submit" | translate}}
-        </button>
-
     </fieldset>
 </form>
