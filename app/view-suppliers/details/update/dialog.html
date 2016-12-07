@@ -1,0 +1,21 @@
+<div class="dialog-contents">
+    <form name="form" class="form-inline text-center" novalidate>
+        <fieldset>
+            <legend>{{"action.update.ing" | translate}} {{"word.product" | translate}}</legend>
+
+            <div class="form-group">
+                <label class="sr-only" for="price">{{"word.new_price" | translate}}:</label>
+                <input type="number" class="input-sm form-control text-center" id="price" name="price"
+                       ng-model="product.price"
+                       step="0.01" data-ng-class="{'form-error': errors.hasOwnProperty('price')}"
+                       autocomplete="off" placeholder="{{'word.new_price' | translate}}"
+                       data-ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" required/>
+            </div>
+
+            <button type="submit" class="btn add-btn" style="margin-top: 0!important;" data-ng-click="saveItem(form)">
+                {{"action.submit" | translate}}
+            </button>
+
+        </fieldset>
+    </form>
+</div>

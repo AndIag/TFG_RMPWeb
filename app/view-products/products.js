@@ -95,7 +95,7 @@ angular.module('RestMaPla.products', ['ngRoute', 'RestMaPla.products.controller'
 
                 var searchParams = 'isSimple=' + false;
 
-                if (keywords) {
+                if (keywords != null) {
                     searchParams += '&keywords=' + keywords;
                 }
 

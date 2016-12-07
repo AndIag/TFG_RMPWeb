@@ -87,6 +87,9 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaP
                 if (Object.keys($scope.errors).length === 0) {
                     SupplierService.addProduct($scope.supplier.id, $scope.product.newProduct.id, $scope.product.price).success(function (data) {
                         CrudService.response.products = JSON.parse(JSON.stringify(data)).products;
+                        if ($scope.product.index >= 0) {
+                            CrudService.response.products.items[$scope.product.index].price = $scope.product.price;
+                        }
                         dialog.close();
                     }).error(function (data) {
                         Flash.clear();
@@ -116,6 +119,20 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaP
                         Flash.create('danger', $translate.instant('error.adding'), 3000);
                     });
                 }
+            };
+
+            /**
+             * Open update dialog to add a new price to this product for this supplier
+             * @param product product to update
+             * @param index product position in list
+             */
+            $scope.updateSupplier = function (product, index) {
+                $scope.product = {newProduct: product, price: product.price, index: index};
+                dialog = ngDialog.open({
+                    template: 'view-suppliers/details/update/dialog.html',
+                    scope: $scope,
+                    controller: this
+                });
             };
 
             /**
