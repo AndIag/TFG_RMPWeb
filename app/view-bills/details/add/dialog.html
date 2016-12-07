@@ -1,0 +1,35 @@
+<div class="dialog-contents">
+    <form name="form" class="form-inline text-center" novalidate>
+        <fieldset>
+            <legend>{{"action.add.ing" | translate}} {{"word.product" | translate}}</legend>
+
+            <div class="form-inline">
+                <div class="form-group">
+                    <label class="sr-only" for="simpleProduct">{{"word.simple_product" |translate}}:</label>
+                    <input type="text" class="input-sm form-control" id="simpleProduct" required
+                           data-ng-class="{'form-error': errors.hasOwnProperty('newProduct')}"
+                           ng-model="product.newProduct" data-ng-change="searchProducts()" autocomplete="off"
+                           placeholder="{{'placeholder.simple_product' | translate}}" uib-typeahead-editable="false"
+                           uib-typeahead="product as product.name for product in values.searchedProducts.items | filter:$viewValue | limitTo:8"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="sr-only" for="quantity">{{"word.quantity" | translate}}:</label>
+                    <input type="number" class="input-sm form-control" id="quantity" name="quantity"
+                           ng-model="product.quantity"
+                           data-ng-class="{'form-error': errors.hasOwnProperty('quantity')}"
+                           autocomplete="off" placeholder="{{'word.quantity' | translate}}" required/>
+                </div>
+            </div>
+
+            <div class="inline-block">
+                <button type="submit" class="btn add-btn" data-ng-click="addMore()">
+                    {{"action.add_more" | translate}}
+                </button>
+                <button type="submit" class="btn add-btn" data-ng-click="saveItem(form)">
+                    {{"action.submit" | translate}}
+                </button>
+            </div>
+        </fieldset>
+    </form>
+</div>

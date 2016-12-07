@@ -36,8 +36,8 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaP
 
             /**
              * Load a new products page
-             * @param newPage given by dir-pagination-controls directive
-             * @param oldPage given by dir-pagination-controls directive
+             * @param {number} newPage given by dir-pagination-controls directive
+             * @param {number} oldPage given by dir-pagination-controls directive
              */
             $scope.changePage = function (newPage, oldPage) {
                 findSupplierDetails(newPage);
@@ -124,7 +124,7 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaP
             /**
              * Open update dialog to add a new price to this product for this supplier
              * @param product product to update
-             * @param index product position in list
+             * @param {number} index product position in list
              */
             $scope.updateSupplier = function (product, index) {
                 $scope.product = {newProduct: product, price: product.price, index: index};
@@ -152,7 +152,7 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaP
             }
 
             /**
-             * Load first list of brands for add product dialog
+             * Load first list of products for add product dialog
              */
             function loadProducts(keywords) {
                 ProductService.searchPacks(keywords).success(function (data) {

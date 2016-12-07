@@ -38,6 +38,8 @@ angular.module('RestMaPla.bills', ['ngRoute', 'RestMaPla.bills.controller', 'Res
 
                 var queryParams = 'productId=' + productId + '&quantity=' + quantity;
 
+                console.log(queryParams);
+
                 $http({
                     method: 'POST',
                     url: ENDPOINT + CrudService.endpoints.BILLS_ENDPOINT + '/' + billId + '/products?' + queryParams

@@ -106,6 +106,16 @@ angular.module('RestMaPla.service.validators', [])
                     error.price = $translate.instant("error.required.price");
                 }
                 return error;
+            },
+            isValidProductForBill: function (product, form) {
+                var error = {};
+                if (!product.newProduct) {
+                    error.newProduct = $translate.instant("error.required.simple_product");
+                }
+                if (!product.quantity > 0) {
+                    error.quantity = $translate.instant("error.required.quantity");
+                }
+                return error;
             }
         }
     }]);

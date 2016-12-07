@@ -118,6 +118,35 @@ angular.module('RestMaPla.products', ['ngRoute', 'RestMaPla.products.controller'
                 };
 
                 return promise;
+            }, searchSimple: function (keywords) {
+                var deferred = $q.defer();
+                var promise = deferred.promise;
+
+                var searchParams = 'isSimple=' + true;
+
+                if (keywords != null) {
+                    searchParams += '&keywords=' + keywords;
+                }
+
+                $http({
+                    method: 'GET',
+                    url: ENDPOINT + CrudService.endpoints.PRODUCTS_ENDPOINT + '/search?' + searchParams
+                }).then(function successCallback(response) {
+                    deferred.resolve(response.data);
+                }, function errorCallback(response) {
+                    deferred.reject(response);
+                });
+
+                promise.success = function (fn) {
+                    promise.then(fn);
+                    return promise;
+                };
+                promise.error = function (fn) {
+                    promise.then(null, fn);
+                    return promise;
+                };
+
+                return promise;
             }
         }
     }]);

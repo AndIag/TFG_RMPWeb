@@ -35,8 +35,8 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'ngDialog', 'RestMaPla.
 
             /**
              * Load a new products page
-             * @param newPage given by dir-pagination-controls directive
-             * @param oldPage given by dir-pagination-controls directive
+             * @param {number} newPage given by dir-pagination-controls directive
+             * @param {number} oldPage given by dir-pagination-controls directive
              */
             $scope.changePage = function (newPage, oldPage) {
                 findBrandDetails(newPage);
