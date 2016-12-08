@@ -47,7 +47,7 @@ angular.module('RestMaPla.menus.controller', ['ngFlash', 'ngDialog', 'RestMaPla.
             };
 
             /**
-             * Try to post new brand($scope.brand) after validation
+             * Try to post new menu($scope.menu) after validation
              * @param form TODO use for validation
              */
             $scope.saveItem = function (form) {

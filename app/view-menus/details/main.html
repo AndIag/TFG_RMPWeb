@@ -50,16 +50,10 @@
                 <td class="text-center">{{product.price}}€</td>
                 <td class="text-center capitalize">{{product.type.toLowerCase()}}</td>
                 <td>
-                    <div class="pull-right">
-                        <button class="btn add-btn multi-button" data-ng-disabled="menu.disabled"
-                                data-ng-click="updateMenu(product, $index); $event.stopPropagation();">
-                            {{"action.change_price" | translate}}
-                        </button>
-                        <button class="btn add-btn multi-button" data-ng-disabled="menu.disabled"
-                                data-ng-click="removeProduct(product); $event.stopPropagation();">
-                            {{"action.remove" | translate}}
-                        </button>
-                    </div>
+                    <button class="btn add-btn pull-right" data-ng-disabled="menu.disabled"
+                            data-ng-click="removeProduct(product); $event.stopPropagation();">
+                        {{"action.remove" | translate}}
+                    </button>
                 </td>
             </tr>
             </tbody>

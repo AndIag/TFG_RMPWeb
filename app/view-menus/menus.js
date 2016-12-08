@@ -28,4 +28,58 @@ angular.module('RestMaPla.menus', ['ngRoute', 'RestMaPla.menus.controller', 'Res
                 }
             }
         });
+    }]).service('MenuService', ['CrudService', '$http', '$q',
+    function (CrudService, $http, $q) {
+        var ENDPOINT = CrudService.ENDPOINT;
+        return {
+            addProduct: function (supplierId, productId, price) {
+                var deferred = $q.defer();
+                var promise = deferred.promise;
+
+                var queryParams = 'productId=' + productId + '&price=' + price;
+
+                $http({
+                    method: 'POST',
+                    url: ENDPOINT + CrudService.endpoints.SUPPLIERS_ENDPOINT + '/' + supplierId + '/products?' + queryParams
+                }).then(function successCallback(response) {
+                    deferred.resolve(response.data);
+                }, function errorCallback(response) {
+                    deferred.reject(response);
+                });
+
+                promise.success = function (fn) {
+                    promise.then(fn);
+                    return promise;
+                };
+                promise.error = function (fn) {
+                    promise.then(null, fn);
+                    return promise;
+                };
+
+                return promise;
+            }, removeProduct: function (menuId, productId) {
+                var deferred = $q.defer();
+                var promise = deferred.promise;
+
+                $http({
+                    method: 'DELETE',
+                    url: ENDPOINT + CrudService.endpoints.MENUS_ENDPOINT + '/' + menuId + '/products/' + productId
+                }).then(function successCallback(response) {
+                    deferred.resolve(response.data);
+                }, function errorCallback(response) {
+                    deferred.reject(response);
+                });
+
+                promise.success = function (fn) {
+                    promise.then(fn);
+                    return promise;
+                };
+                promise.error = function (fn) {
+                    promise.then(null, fn);
+                    return promise;
+                };
+
+                return promise;
+            }
+        }
     }]);
