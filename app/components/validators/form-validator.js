@@ -116,6 +116,16 @@ angular.module('RestMaPla.service.validators', [])
                     error.quantity = $translate.instant("error.required.quantity");
                 }
                 return error;
+            },
+            isValidProductForMenu: function (product, form) {
+                var error = {};
+                if (!product.newProduct) {
+                    error.newProduct = $translate.instant("error.required.simple_product");
+                }
+                if (!product.type > 0) {
+                    error.type = $translate.instant("error.required.name");
+                }
+                return error;
             }
         }
     }]);

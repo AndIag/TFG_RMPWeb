@@ -14,16 +14,16 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="sr-only" for="quantity">{{"word.quantity" | translate}}:</label>
-                    <input type="number" class="input-sm form-control" id="quantity" name="quantity"
-                           ng-model="product.quantity"
-                           data-ng-class="{'form-error': errors.hasOwnProperty('quantity')}"
-                           autocomplete="off" placeholder="{{'word.quantity' | translate}}" required/>
+                    <label class="sr-only" for="type">{{"word.type" | translate}}:</label>
+                    <input type="text" class="input-sm form-control" id="type" name="type" ng-model="product.type"
+                           data-ng-class="{'form-error': errors.hasOwnProperty('type')}" required
+                           autocomplete="off" placeholder="{{'word.type' | translate}}" uib-typeahead-editable="false"
+                           uib-typeahead="type as type.name for type in menuItemTypes | filter:$viewValue | limitTo:8"/>
                 </div>
             </div>
 
             <div class="inline-block">
-                <button type="submit" class="btn add-btn" data-ng-click="addMoreProduct()">
+                <button type="submit" class="btn add-btn" data-ng-click="addMoreProducts()">
                     {{"action.add_more" | translate}}
                 </button>
                 <button type="submit" class="btn add-btn" data-ng-click="addProduct(form)">

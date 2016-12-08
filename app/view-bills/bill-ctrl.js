@@ -76,7 +76,10 @@ angular.module('RestMaPla.bills.controller', ['ngFlash', 'ngDialog', 'RestMaPla.
 
             /**
              * Delete given bill after verify no products references exist
-             * @param bill given object to remove
+             * @param {object} bill given object to remove
+             * @param {number} bill.id
+             * @param {number} bill.numProducts
+             * @param {boolean} bill.entry
              */
             $scope.removeBill = function (bill) {
                 if (bill.numProducts == 0 && !bill.entry) {

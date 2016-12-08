@@ -18,7 +18,6 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'ngDialog', 'RestMaPla.
                       BreadCrumbService, CrudService, ProductService, PaginationService, FormValidators) {
 
             var dialog = null;
-
             $scope.pagination = PaginationService.data;
             //Define legend to redefine add-form default
             $scope.legend = $translate.instant("action.modify") + ' ' + $translate.instant("word.brand");

@@ -56,7 +56,7 @@ angular.module('RestMaPla.suppliers.controller', ['ngFlash', 'ngDialog', 'RestMa
             };
 
             /**
-             * Try to post new brand($scope.brand) after validation
+             * Try to post new supplier($scope.supplier) after validation
              * @param form TODO use for validation
              */
             $scope.saveItem = function (form) {

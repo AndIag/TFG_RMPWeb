@@ -59,6 +59,19 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaP
             };
 
             /**
+             * Try to update supplier($scope.supplier) after validation
+             * @param form TODO use for validation
+             */
+            $scope.saveItem = function (form) {
+                if (($scope.errors = FormValidators.isValidSupplier($scope.supplier, form)) === {}) {
+                    CrudService.updateItem(CrudService.endpoints.SUPPLIERS_ENDPOINT, $scope.supplier).error(function (data) {
+                        Flash.clear();
+                        Flash.create('danger', $translate.instant('error.adding'), 3000);
+                    });
+                }
+            };
+
+            /**
              * Open new add dialog using the provided template and @this as controller
              */
             $scope.showCreate = function () {
@@ -82,7 +95,7 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaP
              * Try to post new product($scope.product) to supplier after validation
              * @param form TODO use for validation
              */
-            $scope.saveItem = function (form) {
+            $scope.addProduct = function (form) {
                 $scope.errors = FormValidators.isValidProductForSupplier($scope.product, form);
                 if (Object.keys($scope.errors).length === 0) {
                     SupplierService.addProduct($scope.supplier.id, $scope.product.newProduct.id, $scope.product.price).success(function (data) {
@@ -101,7 +114,7 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaP
             /**
              * %scope.saveItem + $scope.showCreate again
              */
-            $scope.addMore = function () {
+            $scope.addMoreProducts = function () {
                 $scope.errors = FormValidators.isValidProductForSupplier($scope.product, form);
                 if (Object.keys($scope.errors).length === 0) {
                     SupplierService.addProduct($scope.supplier.id, $scope.product.newProduct.id, $scope.product.price).success(function (data) {
@@ -144,7 +157,8 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaP
                 CrudService.findPaginatedItemDetailsById(CrudService.endpoints.SUPPLIERS_ENDPOINT, $scope.supplier.id,
                     (page - 1), PaginationService.data.itemsPerPage).success(function (data) {
 
-                    CrudService.response.products = JSON.parse(JSON.stringify(data)).products;
+                    $scope.supplier = JSON.parse(JSON.stringify(data));
+                    CrudService.response.products = $scope.supplier.products;
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);

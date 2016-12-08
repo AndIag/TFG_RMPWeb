@@ -59,6 +59,20 @@ angular.module('RestMaPla.bill.controller', ['ngFlash', 'ngDialog', 'RestMaPla.c
             };
 
             /**
+             * Try to post new brand($scope.brand) after validation
+             * @param form TODO use for validation
+             */
+            $scope.saveItem = function (form) {
+                $scope.errors = FormValidators.isValidBill($scope.bill, form);
+                if (Object.keys($scope.errors).length === 0) {
+                    CrudService.updateItem(CrudService.endpoints.BILLS_ENDPOINT, $scope.bill.id, $scope.bill).error(function (data) {
+                        Flash.clear();
+                        Flash.create('danger', $translate.instant('error.adding'), 3000);
+                    });
+                }
+            };
+
+            /**
              * Open new add dialog using the provided template and @this as controller
              */
             $scope.showCreate = function () {
@@ -75,7 +89,7 @@ angular.module('RestMaPla.bill.controller', ['ngFlash', 'ngDialog', 'RestMaPla.c
              * Try to post new product($scope.product) to bill after validation
              * @param form TODO use for validation
              */
-            $scope.saveItem = function (form) {
+            $scope.addMoreProduct = function (form) {
                 $scope.errors = FormValidators.isValidProductForBill($scope.product, form);
                 if (Object.keys($scope.errors).length === 0) {
                     BillService.addProduct($scope.bill.id, $scope.product.newProduct.id, $scope.product.quantity).success(function (data) {
@@ -120,7 +134,9 @@ angular.module('RestMaPla.bill.controller', ['ngFlash', 'ngDialog', 'RestMaPla.c
                 CrudService.findPaginatedItemDetailsById(CrudService.endpoints.BILLS_ENDPOINT, $scope.bill.id,
                     (page - 1), PaginationService.data.itemsPerPage).success(function (data) {
 
-                    CrudService.response.products = JSON.parse(JSON.stringify(data)).products;
+                    var json = JSON.parse(JSON.stringify(data));
+                    $scope.bill = json.item;
+                    CrudService.response.products = json.products;
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);

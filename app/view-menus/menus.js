@@ -32,15 +32,13 @@ angular.module('RestMaPla.menus', ['ngRoute', 'RestMaPla.menus.controller', 'Res
     function (CrudService, $http, $q) {
         var ENDPOINT = CrudService.ENDPOINT;
         return {
-            addProduct: function (supplierId, productId, price) {
+            addProduct: function (menuId, productId, subMenu) {
                 var deferred = $q.defer();
                 var promise = deferred.promise;
 
-                var queryParams = 'productId=' + productId + '&price=' + price;
-
                 $http({
                     method: 'POST',
-                    url: ENDPOINT + CrudService.endpoints.SUPPLIERS_ENDPOINT + '/' + supplierId + '/products?' + queryParams
+                    url: ENDPOINT + CrudService.endpoints.MENUS_ENDPOINT + '/' + menuId + '/' + subMenu + '/' + productId
                 }).then(function successCallback(response) {
                     deferred.resolve(response.data);
                 }, function errorCallback(response) {
