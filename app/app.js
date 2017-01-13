@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('RestMaPla', ['ui.bootstrap', 'ui.router', 'angular-spinkit', 'LocalStorageModule',
+angular.module('RestMaPla', ['ui.bootstrap', 'ui.router', 'angular-spinkit', 'LocalStorageModule', 'RestMaPla.auth',
     'angularUtils.directives.dirPagination',
     'RestMaPla.version', 'RestMaPla.i18n', 'RestMaPla.frame', 'RestMaPla.dashboard', 'RestMaPla.categories', 'RestMaPla.employees',
     'RestMaPla.brands', 'RestMaPla.products', 'RestMaPla.suppliers', 'RestMaPla.menus', 'RestMaPla.bills', 'RestMaPla.alerts', 'RestMaPla.tables'])
@@ -42,7 +42,8 @@ angular.module('RestMaPla', ['ui.bootstrap', 'ui.router', 'angular-spinkit', 'Lo
             $urlRouterProvider.otherwise('/');
 
         }
-    ]).constant('LOCALES', {
+    ])
+    .config().constant('LOCALES', {
     'locales': {
         'en_GB': 'English',
         'es_ES': 'Español'
