@@ -18,8 +18,8 @@ angular.module('RestMaPla.dashboard', ['ngRoute', 'ngFlash', 'RestMaPla.common']
         });
     }])
 
-    .controller('DashboardCtrl', ['$scope', '$translate', 'BreadCrumbService', 'CrudService', 'Flash',
-        function ($scope, $translate, BreadCrumbService, CrudService, Flash) {
+    .controller('DashboardCtrl', ['$scope', '$translate', 'BreadCrumbService', 'CrudService', 'Flash', '$auth',
+        function ($scope, $translate, BreadCrumbService, CrudService, Flash, $auth) {
 
             $scope.values = CrudService.response;
 

@@ -7,10 +7,10 @@ angular.module('RestMaPla.alerts.controller', ['ngFlash', 'ngDialog', 'RestMaPla
             var dialog = null;
 
             $scope.init = function (changeBreadCrumb) {
-                if (changeBreadCrumb) {
+                /*if (changeBreadCrumb) {
                     BreadCrumbService.setBreadCrumb($translate.instant('views.index.alerts'));
                 }
-                getAlertsPage(1);
+                 getAlertsPage(1);*/
             };
 
             $scope.changePage = function (newPage, oldPage) {

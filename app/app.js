@@ -3,8 +3,9 @@
 // Declare app level module which depends on views, and components
 angular.module('RestMaPla', ['ui.bootstrap', 'ui.router', 'angular-spinkit', 'LocalStorageModule', 'RestMaPla.auth',
     'angularUtils.directives.dirPagination',
-    'RestMaPla.version', 'RestMaPla.i18n', 'RestMaPla.frame', 'RestMaPla.dashboard', 'RestMaPla.categories', 'RestMaPla.employees',
-    'RestMaPla.brands', 'RestMaPla.products', 'RestMaPla.suppliers', 'RestMaPla.menus', 'RestMaPla.bills', 'RestMaPla.alerts', 'RestMaPla.tables'])
+    'RestMaPla.version', 'RestMaPla.i18n', 'RestMaPla.frame', 'RestMaPla.dashboard', 'RestMaPla.categories',
+    'RestMaPla.employees', 'RestMaPla.brands', 'RestMaPla.products', 'RestMaPla.suppliers', 'RestMaPla.menus',
+    'RestMaPla.bills', 'RestMaPla.alerts', 'RestMaPla.tables'])
 
     .run(['$rootScope', '$state', 'localStorageService', function ($rootScope, $state, localStorageService) {
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
@@ -31,22 +32,10 @@ angular.module('RestMaPla', ['ui.bootstrap', 'ui.router', 'angular-spinkit', 'Lo
         })
     }])
 
-    .config(['$stateProvider', '$urlRouterProvider', '$httpProvider',
-        function ($stateProvider, $urlRouterProvider, $httpProvider) {
-
-            $httpProvider.defaults.useXDomain = true;
-            $httpProvider.defaults.headers.common = 'Content-Type: application/json';
-            delete $httpProvider.defaults.headers.common['X-Requested-With'];
-
-            // For unmatched routes
-            $urlRouterProvider.otherwise('/');
-
-        }
-    ])
-    .config().constant('LOCALES', {
-    'locales': {
-        'en_GB': 'English',
-        'es_ES': 'Español'
-    },
-    'preferredLocale': 'en_GB'
-});
+    .constant('LOCALES', {
+        'locales': {
+            'en_GB': 'English',
+            'es_ES': 'Español'
+        },
+        'preferredLocale': 'en_GB'
+    });

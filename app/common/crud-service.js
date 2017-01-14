@@ -3,8 +3,8 @@
 angular.module('RestMaPla.service.crud', [])
 
     .service('CrudService', ['$http', '$q', function ($http, $q) {
-        // var ENDPOINT = 'http://localhost:9090/restmapla';
-        var ENDPOINT = 'http://52.210.10.240/restmapla';
+        var ENDPOINT = 'http://localhost:9090/restmapla';
+        // var ENDPOINT = 'http://52.210.10.240/restmapla';
 
         return {
             ENDPOINT: ENDPOINT, //Custom services use this so we need to expose it
@@ -19,7 +19,8 @@ angular.module('RestMaPla.service.crud', [])
                 EMPLOYEES_ENDPOINT: "/employees",
                 BILLS_ENDPOINT: "/bills",
                 TABLES_ENDPOINT: "/tables",
-                ORDERS_ENDPOINT: "/orders"
+                ORDERS_ENDPOINT: "/orders",
+                LOGIN_ENDPOINT: "/login"
             },
             response: {}, //Saved data
             /**
