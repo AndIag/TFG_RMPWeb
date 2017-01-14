@@ -32,7 +32,6 @@ angular.module('RestMaPla.auth', ['ui.router', 'satellizer'])
         }
     ])
     .controller('AuthController', ['$scope', '$auth', '$state', function ($scope, $auth, $state) {
-        $scope.isLogin = true;
         $scope.credentials = {};
 
         $scope.login = function () {

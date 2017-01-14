@@ -1,16 +1,18 @@
 angular.module('RestMaPla.alerts.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
-    .controller('AlertCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'PaginationService',
-        function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, PaginationService) {
+    .controller('AlertCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'PaginationService', '$auth',
+        function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, PaginationService, $auth) {
             $scope.pagination = PaginationService.data;
             $scope.values = CrudService.response;
 
             var dialog = null;
 
             $scope.init = function (changeBreadCrumb) {
-                /*if (changeBreadCrumb) {
-                    BreadCrumbService.setBreadCrumb($translate.instant('views.index.alerts'));
+                if ($auth.isAuthenticated()) {
+                    if (changeBreadCrumb) {
+                        BreadCrumbService.setBreadCrumb($translate.instant('views.index.alerts'));
+                    }
+                    getAlertsPage(1);
                 }
-                 getAlertsPage(1);*/
             };
 
             $scope.changePage = function (newPage, oldPage) {
