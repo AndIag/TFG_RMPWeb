@@ -1,8 +1,10 @@
 angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
-    .controller('CategoryCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'FormValidators',
+    .controller('CategoryCtrl', ['$scope', '$state', '$auth', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'FormValidators',
         /**
          *
          * @param $scope @link(https://docs.angularjs.org/guide/scope)
+         * @param $state
+         * @param $auth
          * @param $translate @link(https://github.com/angular-translate/angular-translate)
          * @param Flash -- Used for error feedback @link(https://github.com/sachinchoolur/angular-flash)
          * @param ngDialog -- Used in add forms @link(https://github.com/likeastore/ngDialog)
@@ -10,7 +12,7 @@ angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestM
          * @param CrudService -- Handles basic CRUD operations @link(common/crud-service.js)
          * @param FormValidators -- Contains validation logic @link(components/form-validator.js)
          */
-            function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, FormValidators) {
+            function ($scope, $state, $auth, $translate, Flash, ngDialog, BreadCrumbService, CrudService, FormValidators) {
 
             var dialog = null;
             $scope.values = CrudService.response;
@@ -19,6 +21,10 @@ angular.module('RestMaPla.categories.controller', ['ngFlash', 'ngDialog', 'RestM
              * First data load on page selected
              */
             $scope.init = function () {
+                if (!$auth.isAuthenticated()) {
+                    $state.go('login');
+                    return;
+                }
                 BreadCrumbService.setBreadCrumb($translate.instant('views.index.categories'));
                 CrudService.getItems(CrudService.endpoints.CATEGORIES_ENDPOINT).success(function (data) {
                     CrudService.response.categories = JSON.parse(JSON.stringify(data));

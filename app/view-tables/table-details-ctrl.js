@@ -1,12 +1,16 @@
 angular.module('RestMaPla.table.controller', ['ngFlash', 'RestMaPla.common', 'RestMaPla.table.service'])
-    .controller('TableDetailsCtrl', ['$scope', '$state', '$stateParams', '$translate', 'Flash', 'TableService', 'BreadCrumbService', 'CrudService', 'PaginationService',
-        function ($scope, $state, $stateParams, $translate, Flash, TableService, BreadCrumbService, CrudService, PaginationService) {
+    .controller('TableDetailsCtrl', ['$scope', '$auth', '$state', '$stateParams', '$translate', 'Flash', 'TableService', 'BreadCrumbService', 'CrudService', 'PaginationService',
+        function ($scope, $auth, $state, $stateParams, $translate, Flash, TableService, BreadCrumbService, CrudService, PaginationService) {
             $scope.pagination = PaginationService.data;
 
             $scope.table = $stateParams.table;
             $scope.values = CrudService.response;
 
             $scope.init = function () {
+                if (!$auth.isAuthenticated()) {
+                    $state.go('login');
+                    return;
+                }
                 BreadCrumbService.setBreadCrumb($translate.instant('word.table') + ' ' + $stateParams.table.num);
                 TableService.getTableOrders($scope.table.id).success(function (data) {
                     console.log(data);

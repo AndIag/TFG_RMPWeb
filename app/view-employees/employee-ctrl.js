@@ -1,6 +1,6 @@
 angular.module('RestMaPla.employees.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
-    .controller('EmployeeCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'FormValidators',
-        function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, FormValidators) {
+    .controller('EmployeeCtrl', ['$scope', '$state', '$auth', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'FormValidators',
+        function ($scope, $state, $auth, $translate, Flash, ngDialog, BreadCrumbService, CrudService, FormValidators) {
 
             $scope.values = CrudService.response;
             $scope.roles = [$translate.instant('employee.admin'),
@@ -9,6 +9,10 @@ angular.module('RestMaPla.employees.controller', ['ngFlash', 'ngDialog', 'RestMa
             var dialog = null;
 
             $scope.init = function () {
+                if (!$auth.isAuthenticated()) {
+                    $state.go('login');
+                    return;
+                }
                 BreadCrumbService.setBreadCrumb($translate.instant('views.index.employees'));
                 CrudService.getItems(CrudService.endpoints.EMPLOYEES_ENDPOINT).success(function (data) {
                     CrudService.response.employees = JSON.parse(JSON.stringify(data));

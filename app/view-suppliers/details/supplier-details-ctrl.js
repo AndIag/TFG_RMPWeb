@@ -1,10 +1,12 @@
 angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
-    .controller('SupplierDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'ngDialog',
+    .controller('SupplierDetailsCtrl', ['$scope', '$state', '$auth', '$stateParams', '$translate', 'Flash', 'ngDialog',
         'BreadCrumbService', 'CrudService', 'ProductService', 'PaginationService', 'SupplierService',
         'FormValidators',
         /**
          *
          * @param $scope @link(https://docs.angularjs.org/guide/scope)
+         * @param $state
+         * @param $auth
          * @param $stateParams @link(https://github.com/angular-ui/ui-router/wiki)
          * @param $translate @link(https://github.com/angular-translate/angular-translate)
          * @param Flash -- Used for error feedback @link(https://github.com/sachinchoolur/angular-flash)
@@ -16,7 +18,7 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaP
          * @param SupplierService -- Handles add product to supplier
          * @param FormValidators -- Contains validation logic @link(common/form-validator.js)
          */
-            function ($scope, $stateParams, $translate, Flash, ngDialog, BreadCrumbService, CrudService,
+            function ($scope, $state, $auth, $stateParams, $translate, Flash, ngDialog, BreadCrumbService, CrudService,
                       ProductService, PaginationService, SupplierService, FormValidators) {
 
             var dialog = null;
@@ -30,6 +32,10 @@ angular.module('RestMaPla.supplier.controller', ['ngFlash', 'ngDialog', 'RestMaP
              * First data load on page selected. Loading page 1
              */
             $scope.init = function () {
+                if (!$auth.isAuthenticated()) {
+                    $state.go('login');
+                    return;
+                }
                 BreadCrumbService.setBreadCrumb($stateParams.supplier.name);
                 findSupplierDetails(1);
             };

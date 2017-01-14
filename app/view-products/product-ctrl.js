@@ -1,8 +1,10 @@
 angular.module('RestMaPla.products.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
-    .controller('ProductCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'PaginationService', 'FormValidators',
+    .controller('ProductCtrl', ['$scope', '$state', '$auth', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService', 'PaginationService', 'FormValidators',
         /**
          *
          * @param $scope @link(https://docs.angularjs.org/guide/scope)
+         * @param $state
+         * @param $auth
          * @param $translate @link(https://github.com/angular-translate/angular-translate)
          * @param Flash -- Used for error feedback @link(https://github.com/sachinchoolur/angular-flash)
          * @param ngDialog -- Used in add forms @link(https://github.com/likeastore/ngDialog)
@@ -11,7 +13,7 @@ angular.module('RestMaPla.products.controller', ['ngFlash', 'ngDialog', 'RestMaP
          * @param PaginationService -- Used to store data about page server side pagination
          * @param FormValidators -- Contains validation logic @link(components/form-validator.js)
          */
-            function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService, PaginationService, FormValidators) {
+            function ($scope, $state, $auth, $translate, Flash, ngDialog, BreadCrumbService, CrudService, PaginationService, FormValidators) {
 
             var dialog = null;
             $scope.pagination = PaginationService.data;
@@ -21,6 +23,10 @@ angular.module('RestMaPla.products.controller', ['ngFlash', 'ngDialog', 'RestMaP
              * Fist page request
              */
             $scope.init = function () {
+                if (!$auth.isAuthenticated()) {
+                    $state.go('login');
+                    return;
+                }
                 BreadCrumbService.setBreadCrumb($translate.instant('views.index.products'));
                 getProductsPage(1);
             };

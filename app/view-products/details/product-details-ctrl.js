@@ -1,8 +1,10 @@
 angular.module('RestMaPla.product.controller', ['ngFlash', 'RestMaPla.common'])
-    .controller('ProductDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'BreadCrumbService', 'CrudService', 'FormValidators',
+    .controller('ProductDetailsCtrl', ['$scope', '$state', '$auth', '$stateParams', '$translate', 'Flash', 'BreadCrumbService', 'CrudService', 'FormValidators',
         /**
          *
          * @param $scope @link(https://docs.angularjs.org/guide/scope)
+         * @param $state
+         * @param $auth
          * @param $stateParams @link(https://github.com/angular-ui/ui-router/wiki)
          * @param $translate @link(https://github.com/angular-translate/angular-translate)
          * @param Flash -- Used for error feedback @link(https://github.com/sachinchoolur/angular-flash)
@@ -10,7 +12,7 @@ angular.module('RestMaPla.product.controller', ['ngFlash', 'RestMaPla.common'])
          * @param CrudService -- Handles basic CRUD operations @link(common/crud-service.js)
          * @param FormValidators -- Contains validation logic @link(common/form-validator.js)
          */
-            function ($scope, $stateParams, $translate, Flash, BreadCrumbService, CrudService, FormValidators) {
+            function ($scope, $state, $auth, $stateParams, $translate, Flash, BreadCrumbService, CrudService, FormValidators) {
             $scope.product = $stateParams.product;
             $scope.values = CrudService.response;
             $scope.legend = $translate.instant("action.modify") + ' ' + $translate.instant("word.product");
@@ -20,6 +22,10 @@ angular.module('RestMaPla.product.controller', ['ngFlash', 'RestMaPla.common'])
              * First data load
              */
             $scope.init = function () {
+                if (!$auth.isAuthenticated()) {
+                    $state.go('login');
+                    return;
+                }
                 BreadCrumbService.setBreadCrumb($stateParams.product.name);
                 findProductDetails();
                 if (!CrudService.response.hasOwnProperty("categories")) loadCategories();

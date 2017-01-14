@@ -1,9 +1,11 @@
 angular.module('RestMaPla.bill.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
-    .controller('BillDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'ngDialog',
+    .controller('BillDetailsCtrl', ['$scope', '$state', '$auth', '$stateParams', '$translate', 'Flash', 'ngDialog',
         'BreadCrumbService', 'CrudService', 'BillService', 'ProductService', 'PaginationService', 'FormValidators',
         /**
          *
          * @param $scope @link(https://docs.angularjs.org/guide/scope)
+         * @param $state
+         * @param $auth
          * @param $stateParams @link(https://github.com/angular-ui/ui-router/wiki)
          * @param $translate @link(https://github.com/angular-translate/angular-translate)
          * @param Flash -- Used for error feedback @link(https://github.com/sachinchoolur/angular-flash)
@@ -15,7 +17,7 @@ angular.module('RestMaPla.bill.controller', ['ngFlash', 'ngDialog', 'RestMaPla.c
          * @param PaginationService -- Contains pagination variables @link(common/pagination.js)
          * @param FormValidators -- Contains validation logic @link(common/form-validator.js)
          */
-            function ($scope, $stateParams, $translate, Flash, ngDialog, BreadCrumbService, CrudService, BillService,
+            function ($scope, $state, $auth, $stateParams, $translate, Flash, ngDialog, BreadCrumbService, CrudService, BillService,
                       ProductService, PaginationService, FormValidators) {
 
 
@@ -30,6 +32,10 @@ angular.module('RestMaPla.bill.controller', ['ngFlash', 'ngDialog', 'RestMaPla.c
              * First data load on page selected. Loading page 1
              */
             $scope.init = function () {
+                if (!$auth.isAuthenticated()) {
+                    $state.go('login');
+                    return;
+                }
                 BreadCrumbService.setBreadCrumb($translate.instant('word.bill') + ' ' + $stateParams.bill.id);
                 findBillDetails(1);
             };

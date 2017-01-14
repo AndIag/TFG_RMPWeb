@@ -1,9 +1,9 @@
 angular.module('RestMaPla.menu.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
-    .controller('MenuDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'ngDialog',
+    .controller('MenuDetailsCtrl', ['$scope', '$state', '$auth', '$stateParams', '$translate', 'Flash', 'ngDialog',
         'BreadCrumbService', 'CrudService', 'ProductService', 'MenuService', 'PaginationService',
         'FormValidators',
 
-        function ($scope, $stateParams, $translate, Flash, ngDialog, BreadCrumbService, CrudService,
+        function ($scope, $state, $auth, $stateParams, $translate, Flash, ngDialog, BreadCrumbService, CrudService,
                   ProductService, MenuService, PaginationService, FormValidators) {
 
             var dialog = null;
@@ -22,6 +22,10 @@ angular.module('RestMaPla.menu.controller', ['ngFlash', 'ngDialog', 'RestMaPla.c
              * First data load on page selected. Loading page 1
              */
             $scope.init = function () {
+                if (!$auth.isAuthenticated()) {
+                    $state.go('login');
+                    return;
+                }
                 BreadCrumbService.setBreadCrumb($stateParams.menu.name);
                 findMenuDetails(1);
             };

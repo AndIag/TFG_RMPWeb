@@ -1,9 +1,11 @@
 angular.module('RestMaPla.brand.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
-    .controller('BrandDetailsCtrl', ['$scope', '$stateParams', '$translate', 'Flash', 'ngDialog',
+    .controller('BrandDetailsCtrl', ['$scope', '$state', '$auth', '$stateParams', '$translate', 'Flash', 'ngDialog',
         'BreadCrumbService', 'CrudService', 'ProductService', 'PaginationService', 'FormValidators',
         /**
          *
          * @param $scope @link(https://docs.angularjs.org/guide/scope)
+         * @param $state
+         * @param $auth
          * @param $stateParams @link(https://github.com/angular-ui/ui-router/wiki)
          * @param $translate @link(https://github.com/angular-translate/angular-translate)
          * @param Flash -- Used for error feedback @link(https://github.com/sachinchoolur/angular-flash)
@@ -14,7 +16,7 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'ngDialog', 'RestMaPla.
          * @param PaginationService -- Contains pagination variables @link(common/pagination.js)
          * @param FormValidators -- Contains validation logic @link(common/form-validator.js)
          */
-            function ($scope, $stateParams, $translate, Flash, ngDialog,
+            function ($scope, $state, $auth, $stateParams, $translate, Flash, ngDialog,
                       BreadCrumbService, CrudService, ProductService, PaginationService, FormValidators) {
 
             var dialog = null;
@@ -28,6 +30,10 @@ angular.module('RestMaPla.brand.controller', ['ngFlash', 'ngDialog', 'RestMaPla.
              * First data load on page selected. Loading page 1
              */
             $scope.init = function () {
+                if (!$auth.isAuthenticated()) {
+                    $state.go('login');
+                    return;
+                }
                 BreadCrumbService.setBreadCrumb($stateParams.brand.name);
                 findBrandDetails(1);
             };

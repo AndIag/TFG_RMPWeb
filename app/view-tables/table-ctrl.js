@@ -1,10 +1,14 @@
 angular.module('RestMaPla.tables.controller', ['ngFlash', 'ngDialog', 'RestMaPla.common'])
-    .controller('TableCtrl', ['$scope', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService',
-        function ($scope, $translate, Flash, ngDialog, BreadCrumbService, CrudService) {
+    .controller('TableCtrl', ['$scope', '$state', '$auth', '$translate', 'Flash', 'ngDialog', 'BreadCrumbService', 'CrudService',
+        function ($scope, $state, $auth, $translate, Flash, ngDialog, BreadCrumbService, CrudService) {
             var dialog = null;
             $scope.values = CrudService.response;
 
             $scope.init = function () {
+                if (!$auth.isAuthenticated()) {
+                    $state.go('login');
+                    return;
+                }
                 BreadCrumbService.setBreadCrumb($translate.instant('views.index.tables'));
                 CrudService.getItems(CrudService.endpoints.TABLES_ENDPOINT).success(function (data) {
                     CrudService.response.tables = JSON.parse(JSON.stringify(data));
