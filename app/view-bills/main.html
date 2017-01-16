@@ -32,7 +32,7 @@
                 <td class="text-center visible-lg visible-md">{{bill.id}}</td>
                 <td>{{bill.description}}</td>
                 <td class="capitalize">{{bill.supplier.name.toLowerCase()}}</td>
-                <td>{{bill.date.dayOfMonth}}/{{bill.date.month}}/{{bill.date.year}}</td>
+                <td>{{bill.date.dayOfMonth}}/{{bill.date.month + 1}}/{{bill.date.year}}</td>
                 <td data-ng-class="{'bill':!bill.entry, 'entry-bill':bill.entry}">{{bill.price}}€</td>
                 <td>
                     <button class="btn pull-right" data-ng-disabled="bill.disabled || bill.numProducts || bill.entry"

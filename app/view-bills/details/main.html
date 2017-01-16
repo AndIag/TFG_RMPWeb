@@ -1,8 +1,8 @@
-<div data-ng-show="!values.hasOwnProperty('products')">
+<div data-ng-show="!values.hasOwnProperty('products') && !values.hasOwnProperty('orders')">
     <double-bounce-spinner></double-bounce-spinner>
 </div>
 <div class="widget-body">
-    <div class="text-center" data-ng-show="values.products.count === 0">
+    <div class="text-center" data-ng-show="values.products.count === 0 && values.orders.length === 0">
         <img class="no-data-message" src="../../components/resources/img/RMP-BM.png" width="20%" height="20%"/>
         <h2 class="no-data-message">{{"error.no.data" | translate}}</h2>
     </div>
@@ -41,6 +41,24 @@
                                                      src="../../components/resources/img/simple_icon.png"></td>
 
                 <td class="text-center">{{product.price}}€</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="table-responsive" data-ng-show="values.orders.length > 0">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th class="text-center visible-lg visible-md">{{"word.id.upper" | translate}}</th>
+                <th>{{"word.status" | translate}}</th>
+                <th>{{"word.date" | translate}}</th>
+            </tr>
+            <tr data-ng-repeat="order in values.orders | orderBy: 'id'"
+                data-ui-sref="order-details({'orderId': order.id, 'order': order})">
+
+                <td class="text-center visible-lg visible-md">{{order.id}}</td>
+                <td class="capitalize">{{order.status.toLowerCase()}}</td>
+                <td>{{order.ordered.dayOfMonth}}/{{order.ordered.month + 1}}/{{order.ordered.year}}</td>
             </tr>
             </tbody>
         </table>

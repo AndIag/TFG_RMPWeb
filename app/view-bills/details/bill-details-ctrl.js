@@ -143,6 +143,7 @@ angular.module('RestMaPla.bill.controller', ['ngFlash', 'ngDialog', 'RestMaPla.c
                     var json = JSON.parse(JSON.stringify(data));
                     $scope.bill = json.item;
                     CrudService.response.products = json.products;
+                    CrudService.response.orders = json.orders;
                 }).error(function (data) {
                     Flash.clear();
                     Flash.create('danger', $translate.instant('error.loading'), 3000);
