@@ -66,7 +66,8 @@ angular.module('RestMaPla.suppliers.controller', ['ngFlash', 'ngDialog', 'RestMa
              * @param form TODO use for validation
              */
             $scope.saveItem = function (form) {
-                if (($scope.errors = FormValidators.isValidSupplier($scope.supplier, form)) === {}) {
+                $scope.errors = FormValidators.isValidSupplier($scope.supplier, form);
+                if (Object.keys($scope.errors).length === 0) {
                     CrudService.createItem(CrudService.endpoints.SUPPLIERS_ENDPOINT, $scope.supplier).success(function (data) {
                         $scope.values.suppliers.items.push(data);
                         $scope.values.suppliers.count = $scope.values.suppliers.count + 1;
