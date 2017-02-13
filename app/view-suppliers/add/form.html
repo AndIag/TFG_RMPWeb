@@ -16,7 +16,7 @@
 
             <div data-ng-class="{'form-group': isDetailsForm}">
                 <label class="sr-only" for="vat">{{"word.vat.upper" | translate}}:</label>
-                <input id="vat" type="url" data-ng-model="supplier.vat" class="input-sm form-control"
+                <input id="vat" type="text" data-ng-model="supplier.vat" class="input-sm form-control"
                        data-ng-class="{'form-error': errors.hasOwnProperty('vat')}"
                        placeholder="{{'word.vat.upper' | translate}}" required autocomplete="off">
             </div>

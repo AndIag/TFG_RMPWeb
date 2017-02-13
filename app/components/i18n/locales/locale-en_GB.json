@@ -108,7 +108,7 @@
   "error.required.simple_product": "Simple Product data necessary",
   "error.required.amount": "Amount required",
   "error.required.dni": "DNI required",
-  "error.required.cat": "VAT required",
+  "error.required.vat": "VAT required",
   "employee.admin": "Admin",
   "employee.waiter": "Waiter",
   "employee.chef": "Chef"
